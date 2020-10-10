@@ -89,10 +89,12 @@ set smartcase
 set hlsearch
 set incsearch
 set pastetoggle=<F2>
+set timeoutlen=0
 nmap <silent> ,/ :nohlsearch<CR>
 cmap w!! w !sudo tee % >/dev/null
 nnoremap . :
+tnoremap <Esc> <C-\><C-n>
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>ev :e ~/.vimrc<CR>
+nmap <silent> <leader>sv :so ~/.vimrc<CR>
