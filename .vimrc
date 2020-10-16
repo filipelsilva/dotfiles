@@ -1,3 +1,6 @@
+" <leader> key bind
+let mapleader = ","
+
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -43,9 +46,6 @@ map <C-o> :NERDTreeToggle<CR>
 nnoremap <C-p> :Files<CR>
 let g:NERDTreeWinPos = "right" " NERDTree on the right
 
-" Leader key map
-let mapleader = ","
-
 " coc.nvim jump to definition
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
@@ -66,6 +66,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 set t_Co=256
 set background=dark
 colorscheme PaperColor
+highlight Comment cterm=italic gui=italic
 
 " Tabs = 4 spaces
 set tabstop=4
@@ -89,11 +90,18 @@ set smartcase
 set hlsearch
 set incsearch
 set pastetoggle=<F2>
-set timeoutlen=0
 nmap <silent> ,/ :nohlsearch<CR>
 cmap w!! w !sudo tee % >/dev/null
-nnoremap . :
-tnoremap <Esc> <C-\><C-n>
+nnoremap « :
+
+" Lenght marker
+set colorcolumn=80,100
+
+" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e ~/.vimrc<CR>

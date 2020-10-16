@@ -1,7 +1,3 @@
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte-2.91.sh
-fi
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -11,6 +7,7 @@ fi
 
 # Para PO: apagar depois
 export CVS_RSH=ssh
+export CLASSPATH=/usr/share/java/*:woo-app/woo-app.jar:woo-core/woo-core.jar
 
 alias fd=fdfind
 alias deemix="python3 /home/filipelsilva/Transferências/Programs/deemix/server.py"
@@ -29,7 +26,7 @@ alias tls="t ls"
 alias tn="t new -t"
 alias tp="tmuxp"
 
-# Mudança de vim para nvim
+# Nvim to vim transition
 alias vim=nvim
 
 # Git quality of life improvement
@@ -177,6 +174,9 @@ export DISABLE_AUTO_TITLE='true'
 
 # Tmux color for zsh suggestions 
 export TERM=xterm-256color
+
+# Starship
+eval "$(starship init zsh)"
 
 source /home/filipelsilva/.config/broot/launcher/bash/br
 

@@ -1,0 +1,7 @@
+[username]
+format = "[$user](bold white) "
+show_always = true
+
+[character]
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
