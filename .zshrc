@@ -7,7 +7,7 @@
 
 # Para PO: apagar depois
 export CVS_RSH=ssh
-export CLASSPATH=/usr/share/java/*:woo-app/woo-app.jar:woo-core/woo-core.jar
+export CLASSPATH=CLASSPATH:/usr/share/java/*:woo-app/woo-app.jar:woo-core/woo-core.jar
 
 alias fd=fdfind
 alias deemix="python3 /home/filipelsilva/Transferências/Programs/deemix/server.py"
@@ -18,6 +18,14 @@ alias nvidia="sudo prime-select nvidia && reboot"
 
 # Open folders/files as if you were in the file manager
 alias open="xdg-open"
+
+# See all processes
+alias psa="ps aux"
+
+# Grep for one process
+function psgrep() {
+	ps aux | grep $1
+}
 
 # Aliases for tmux
 alias t="tmux"
@@ -121,10 +129,12 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
     zsh-autosuggestions
     zsh-aliases-exa
-    zsh-syntax-highlighting
+    #zsh-syntax-highlighting
+    fast-syntax-highlighting
     z
-    git
-    #docker
+    #git
+	#vi-mode
+	#docker
     #docker-compose
 )
 
@@ -173,7 +183,7 @@ eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 export DISABLE_AUTO_TITLE='true'
 
 # Tmux color for zsh suggestions 
-export TERM=xterm-256color
+export TERM=alacritty #xterm-256color
 
 # Starship
 eval "$(starship init zsh)"
