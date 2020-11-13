@@ -11,7 +11,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree' "'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin' 
+Plug 'ryanoasis/vim-devicons'
 Plug 'mg979/vim-visual-multi'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
@@ -25,7 +28,6 @@ Plug 'brooth/far.vim'
 Plug 'roryokane/detectindent'
 Plug 'joshdick/onedark.vim'
 Plug 'sainnhe/gruvbox-material'
-Plug 'lifepillar/vim-gruvbox8'
 Plug 'shinchu/lightline-gruvbox.vim'
 call plug#end()
 
@@ -53,12 +55,25 @@ set noshowmode
 
 " To copy with mouse without line numbers: Ctrl+CLICK
 
-" NERDTree and Files
+"" NERDTree
 map <C-o> :NERDTreeToggle<CR>
-nnoremap <C-p> :Files<CR>
 let g:NERDTreeWinPos = "right" " NERDTree on the right
 let NERDTreeMinimalUI = 1
-"let NERDTreeShowHidden=1 " Show hidden files
+let NERDTreeShowHidden=1 " Show hidden files
+let g:NERDTreeStatusline = ""
+" Close window if NERDTree is the last one
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeHighlightFolders = 1
+let g:NERDTreeHighlightFoldersFullName = 1
+
+" Fzf
+nnoremap <C-p> :Files<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \}
+nnoremap <C-p> :Files<CR>
 
 " coc.nvim jump to definition
 nmap <leader>gd <Plug>(coc-definition)
@@ -88,13 +103,10 @@ if (has("nvim"))
 endif
 
 if (has("termguicolors"))
-	set termguicolors
+    set termguicolors
 endif
 
 syntax on
-"let g:onedark_terminal_italics = 1
-"colorscheme onedark
-
 set background=dark
 let g:gruvbox_material_background = 'hard'
 

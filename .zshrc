@@ -7,9 +7,23 @@
 
 # Para PO: apagar depois
 export CVS_RSH=ssh
-export CLASSPATH=CLASSPATH:/usr/share/java/*:woo-app/woo-app.jar:woo-core/woo-core.jar
+export CLASSPATH=/usr/share/java/*:/home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/PO/Projeto/project/woo-app/woo-app.jar:/home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/PO/Projeto/project/woo-core/woo-core.jar
+alias makecore="cd woo-core; make; cd .."
+alias makeapp="cd woo-app; make; cd .."
+alias unmakecore="cd woo-core; make clean; cd .."
+alias unmakeapp="cd woo-app; make clean; cd .."
+alias makeall="makecore && makeapp"
+alias unmakeall="unmakecore && unmakeapp"
 
+# Mudar em cada semestre; info tecnico dos amiguinhos
+alias turnos="cat /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/turnos.exe.txt"
+alias horario="open /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/horario.png"
+alias links="cat /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/Horário.txt"
+
+# Para pesquisa
 alias fd=fdfind
+
+# Deemix
 alias deemix="python3 /home/filipelsilva/Transferências/Programs/deemix/server.py"
 
 # Change between intel and nvidia graphics card
@@ -35,7 +49,8 @@ alias tn="t new -t"
 alias tp="tmuxp"
 
 # Nvim to vim transition
-alias vim=nvim
+alias vim="nvim"
+alias oldvim="\vim"
 
 # Git quality of life improvement
 alias gtree="git log --graph --all"
@@ -47,13 +62,45 @@ function linkdump() {
     rm dump.txt
 }
 
-# Temporary; to see turnos e horario dos amiguinhos
-alias turnos="cat /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/turnos.exe.txt"
-alias horario="open /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/horario.png"
-alias links="cat /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/Horário.txt"
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+## Fzf
+# Make fzf not collide with zsh
+export FZF_COMPLETION_TRIGGER='++'
+
+export FZF_DEFAULT_OPTS="
+--layout=reverse
+--info=inline
+--height=80%
+--multi
+--preview-window=:hidden
+--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+--color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'
+--bind '?:toggle-preview'
+"
+
+# Fzf using fd instead of find
+export FZF_DEFAULT_COMMAND="fdfind --hidden --follow --exclude '.git'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+
+_fzf_compgen_path() {
+    fdfind . "$1"
+}
+_fzf_compgen_dir() {
+    fdfind --type d . "$1"
+}
+
+# find-in-file - usage: fif <SEARCH_TERM>
+fif() {
+  if [ ! "$#" -gt 0 ]; then
+    echo "Need a string to search for!";
+    return 1;
+  fi
+  rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --preview "rg --ignore-case --pretty --context 10 '$1' {}"
+}
+##
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/filipelsilva/.oh-my-zsh"
@@ -183,11 +230,12 @@ eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 export DISABLE_AUTO_TITLE='true'
 
 # Tmux color for zsh suggestions 
-export TERM=alacritty #xterm-256color
+export TERM=xterm-256color
 
 # Starship
 eval "$(starship init zsh)"
 
+source /home/filipelsilva/.config/forgit/forgit.plugin.zsh
 source /home/filipelsilva/.config/broot/launcher/bash/br
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
