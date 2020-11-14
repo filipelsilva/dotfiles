@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
-
 # Para PO: apagar depois
 export CVS_RSH=ssh
 export CLASSPATH=/usr/share/java/*:/home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/PO/Projeto/project/woo-app/woo-app.jar:/home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/PO/Projeto/project/woo-core/woo-core.jar
@@ -38,7 +31,7 @@ alias psa="ps aux"
 
 # Grep for one process
 function psgrep() {
-	ps aux | grep $1
+  ps aux | grep $1
 }
 
 # Aliases for tmux
@@ -57,13 +50,10 @@ alias gtree="git log --graph --all"
 
 # Funcao para arranjar links de um website e sacar tudo para a pasta
 function linkdump() {
-    lynx -dump -listonly -nonumbers $1 | grep .pdf > dump.txt
-    wget -i dump.txt
-    rm dump.txt
+  lynx -dump -listonly -nonumbers $1 | grep .pdf > dump.txt
+  wget -i dump.txt
+  rm dump.txt
 }
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 ## Fzf
 # Make fzf not collide with zsh
@@ -86,10 +76,10 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
 _fzf_compgen_path() {
-    fdfind . "$1"
+  fdfind . "$1"
 }
 _fzf_compgen_dir() {
-    fdfind --type d . "$1"
+  fdfind --type d . "$1"
 }
 
 # find-in-file - usage: fif <SEARCH_TERM>
@@ -105,21 +95,7 @@ fif() {
 # Path to your oh-my-zsh installation.
 export ZSH="/home/filipelsilva/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-
-#ZSH_THEME="bira"
-#ZSH_THEME="filipe"
 ZSH_THEME="spaceship"
-#ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -165,30 +141,21 @@ COMPLETION_WAITING_DOTS="true"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    zsh-autosuggestions
-    zsh-aliases-exa
-    #zsh-syntax-highlighting
-    fast-syntax-highlighting
-    z
-    #git
-	#vi-mode
-	#docker
-    #docker-compose
+  zsh-autosuggestions
+  zsh-aliases-exa
+  #zsh-syntax-highlighting
+  fast-syntax-highlighting
+  z
+  #git
+  #vi-mode
+  #docker
+  #docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -203,18 +170,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Jump integration
 eval $(jump shell --bind=z)
