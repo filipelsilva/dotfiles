@@ -56,7 +56,7 @@ curl -fsSL https://starship.rs/install.sh | bash
 git clone https://github.com/filipelsilva/gdb-peda-pwndbg-gef.git ~/.gdb-peda-pwndbg-gef
 cd ~/.gdb-peda-pwndbg-gef
 sudo ./install.sh
-cd ..
+cd ~ || return
 
 # Hexyl
 wget https://github.com/sharkdp/hexyl/releases/download/v0.8.0/hexyl-musl_0.8.0_amd64.deb
