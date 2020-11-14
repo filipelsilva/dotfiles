@@ -39,9 +39,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-# For (n)vim's startify
-mkdir -p ~/.vim/files/info
-
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
@@ -86,6 +83,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions \
 # Exa aliases
 git clone https://github.com/DarrinTisdale/zsh-aliases-exa ~/.oh-my-zsh/custom/plugins/zsh-aliases-exa
 ##
+
+# For (n)vim's startify
+mkdir -p ~/.vim/files/info
 
 # Dotfiles
 cd ~ || return
