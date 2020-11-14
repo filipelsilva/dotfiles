@@ -46,6 +46,7 @@ mkdir -p ~/.vim/files/info
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Oh-my-zsh
+rm ~/.zshrc
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Starship
@@ -83,9 +84,7 @@ git clone https://github.com/DarrinTisdale/zsh-aliases-exa ~/.oh-my-zsh/custom/p
 
 # Dotfiles
 cd ~ || return
-git clone https://github.com/filipelsilva/dotfiles
 mkdir -p .config/nvim
-rm .zshrc 
 ln -s ~/dotfiles/init.vim .config/nvim/
 ln -s ~/dotfiles/.alacritty.yml ~
 ln -s ~/dotfiles/.zshrc ~
