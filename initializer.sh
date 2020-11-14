@@ -55,7 +55,7 @@ curl -fsSL https://starship.rs/install.sh | bash
 # Pwndbg + gef + peda (GDB)
 git clone https://github.com/filipelsilva/gdb-peda-pwndbg-gef.git ~/.gdb-peda-pwndbg-gef
 cd ~/.gdb-peda-pwndbg-gef
-sudo ./install.sh
+./install.sh
 cd ~ || return
 
 # Hexyl
