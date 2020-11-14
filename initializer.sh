@@ -69,6 +69,11 @@ unzip exa-linux-x86_64-0.9.0.zip
 sudo mv exa-linux-x86_64 /usr/local/bin/exa
 rm exa-linux-x86_64-0.9.0.zip
 
+# Bat
+wget https://github.com/sharkdp/bat/releases/download/v0.16.0/bat-musl_0.16.0_amd64.deb
+sudo dpkg -i bat-musl_0.16.0_amd64.deb
+rm bat-musl_0.16.0_amd64.deb
+
 ## Zsh plugins
 # Fast syntax highlighting
 git clone https://github.com/zdharma/fast-syntax-highlighting.git \
@@ -84,6 +89,7 @@ git clone https://github.com/DarrinTisdale/zsh-aliases-exa ~/.oh-my-zsh/custom/p
 
 # Dotfiles
 cd ~ || return
+rm ~/.zshrc
 mkdir -p .config/nvim
 ln -s ~/dotfiles/init.vim .config/nvim/
 ln -s ~/dotfiles/.alacritty.yml ~
