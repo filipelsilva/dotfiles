@@ -52,8 +52,8 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 curl -fsSL https://starship.rs/install.sh | bash
 
 # Pwndbg + gef + peda (GDB)
-git clone https://github.com/soaringk/gdb-peda-pwndbg-gef.git
-cd ~/gdb-peda-pwndbg-gef
+git clone https://github.com/filipelsilva/gdb-peda-pwndbg-gef.git ~/.gdb-peda-pwndbg-gef
+cd ~/.gdb-peda-pwndbg-gef
 sudo ./install.sh
 cd ..
 
@@ -90,4 +90,5 @@ ln -s ~/dotfiles/init.vim .config/nvim/
 ln -s ~/dotfiles/.alacritty.yml ~
 ln -s ~/dotfiles/.zshrc ~
 ln -s ~/dotfiles/.tmux.conf ~
+ln -s ~/dotfiles/.gitconfig ~
 ln -s ~/dotfiles/starship.toml .config/
