@@ -154,5 +154,5 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e ~/.vimrc<CR>
-nmap <silent> <leader>sv :so ~/.vimrc<CR>
+nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
+nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
