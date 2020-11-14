@@ -6,7 +6,9 @@ cd ~ || return
 sudo apt-get update && sudo apt-get -y upgrade
 sudo apt-get install -y zsh git curl wget glances htop neovim python3-dev\
     python3-pip python3-setuptools gcc valgrind gdb unzip zip tmux p7zip-full\
-    p7zip-rar lynx ripgrep fd-find nodejs npm
+    p7zip-rar lynx ripgrep fd-find nodejs npm neofetch screenfetch
+
+# GUI: meld, vscode, etc.
 
 # Fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
