@@ -93,9 +93,10 @@ fif() {
 ##
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/filipelsilva/.oh-my-zsh"
+export ZSH="/home/$USER/.oh-my-zsh"
 
-ZSH_THEME="spaceship"
+# Theme
+#ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -190,7 +191,7 @@ export TERM=xterm-256color
 # Starship
 eval "$(starship init zsh)"
 
-source /home/filipelsilva/.config/forgit/forgit.plugin.zsh
-source /home/filipelsilva/.config/broot/launcher/bash/br
+source /home/$USER/.config/forgit/forgit.plugin.zsh
+source /home/$USER/.config/broot/launcher/bash/br
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

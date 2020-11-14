@@ -1,7 +1,19 @@
 [username]
-format = "[$user](bold white) "
+disabled = false
 show_always = true
+
+[hostname]
+ssh_only = false
+disabled = false
 
 [character]
 success_symbol = "[\\$](bold green)"
 error_symbol = "[\\$](bold red)"
+
+#[time]
+#style = "bold white"
+#disabled = false
+
+#[cmd_duration]
+#show_milliseconds = true
+#style = "bold green"
