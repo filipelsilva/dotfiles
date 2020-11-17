@@ -2,8 +2,15 @@
 
 cd ~ || return
 
+# Fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 # Tmuxp
 sudo pip3 install tmuxp
+
+# TheFuck
+sudo pip3 install thefuck
 
 # Forgit
 git clone https://github.com/wfxr/forgit ~/.config/forgit
