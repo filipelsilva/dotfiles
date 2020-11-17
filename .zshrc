@@ -42,7 +42,7 @@ alias tn="t new -t"
 alias tp="tmuxp"
 
 # Nvim to vim transition
-alias vim="nvim"
+alias vim="nvim -p"
 alias oldvim="\vim"
 
 # Git quality of life improvement
