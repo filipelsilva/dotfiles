@@ -8,10 +8,10 @@ mkdir -p ~/.vim/files/info
 # Dotfiles
 cd ~ || return
 rm ~/.zshrc
-mkdir -p .config/nvim
-ln -s ~/dotfiles/init.vim .config/nvim/
-ln -s ~/dotfiles/.alacritty.yml ~
-ln -s ~/dotfiles/.zshrc ~
-ln -s ~/dotfiles/.tmux.conf ~
-ln -s ~/dotfiles/.gitconfig ~
-ln -s ~/dotfiles/starship.toml .config/
+mkdir -p ~/.config/nvim
+ln -s ~/dotfiles/files/init.vim ~/.config/nvim/
+ln -s ~/dotfiles/files/.alacritty.yml ~
+ln -s ~/dotfiles/files/.zshrc ~
+ln -s ~/dotfiles/files/.tmux.conf ~
+ln -s ~/dotfiles/files/.gitconfig ~
+ln -s ~/dotfiles/files/starship.toml ~/.config/
