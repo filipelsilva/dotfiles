@@ -1,7 +1,7 @@
 #!/bin/bash
 
-./apt_install.sh
-./other_programs.sh
-./zsh_plugins.sh
-./vim_plugins.sh
-./linker_dotfiles.sh
+./scripts/apt_install.sh
+./scripts/other_programs.sh
+./scripts/zsh_plugins.sh
+./scripts/vim_plugins.sh
+./scripts/linker_dotfiles.sh
