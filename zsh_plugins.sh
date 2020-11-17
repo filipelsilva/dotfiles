@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ~ || return
+
 # Oh-my-zsh
 rm ~/.zshrc
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

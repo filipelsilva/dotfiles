@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ~ || return
+
 # For (n)vim's startify
 mkdir -p ~/.vim/files/info
 

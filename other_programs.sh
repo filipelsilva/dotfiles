@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ~ || return
+
 # Tmuxp
 sudo pip3 install tmuxp
 
