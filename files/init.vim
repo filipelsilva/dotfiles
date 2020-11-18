@@ -1,5 +1,4 @@
 set nocompatible
-set viminfo='100,n$HOME/.vim/files/info/viminfo
 
 " <leader> key bind
 let mapleader = ","
