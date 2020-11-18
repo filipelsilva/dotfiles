@@ -5,7 +5,7 @@ echo "# Beggining instalation #"
 echo "#########################"
 echo "# 1. Installing apt packages (this will take a while)..."
 sudo apt-get update && sudo apt-get upgrade &&\
-	sudo aptget install vim neovim curl
+	sudo apt-get install vim neovim curl
 #./scripts/apt_install.sh > /dev/null 2>&1
 echo "# 2. Installing other programs (this will also take a while)..."
 #./scripts/other_programs.sh > /dev/null 2>&1
