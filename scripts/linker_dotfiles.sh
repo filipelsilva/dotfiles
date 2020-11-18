@@ -2,11 +2,7 @@
 
 cd ~ || return
 
-# For (n)vim's startify
-mkdir -p ~/.vim/files/info
-
 # Dotfiles
-cd ~ || return
 rm ~/.zshrc
 mkdir -p ~/.config/nvim
 ln -s ~/dotfiles/files/init.vim ~/.config/nvim/

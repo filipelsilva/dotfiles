@@ -11,3 +11,5 @@ echo "Installing vim plugin managers..."
 ./scripts/vim_plugins.sh > /dev/null 2>&1
 echo "Linking dotfiles..."
 ./scripts/linker_dotfiles.sh > /dev/null 2>&1
+echo "Post instalation things..."
+./scripts/post_install.sh

@@ -4,7 +4,7 @@ cd ~ || return
 
 # Fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+~/.fzf/install --all
 
 # Tmuxp
 sudo pip3 install tmuxp
@@ -21,7 +21,7 @@ sudo apt-add-repository https://cli.github.com/packages
 sudo apt-get update && sudo apt-get install gh
 
 # Rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Pwndbg + gef + peda (GDB)
 git clone https://github.com/filipelsilva/gdb-peda-pwndbg-gef.git ~/.gdb-peda-pwndbg-gef
