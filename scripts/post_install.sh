@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Neovim Plugins
+# Install neovim Plugins
 nvim -c ":PlugInstall" -c "q" -c "q"
 nvim -c ":so ~/.config/nvim/init.vim" -c "q"
 
