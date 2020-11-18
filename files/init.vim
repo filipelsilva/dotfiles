@@ -1,4 +1,5 @@
 set nocompatible
+set viminfo='100,n$HOME/.vim/files/info/viminfo
 
 " <leader> key bind
 let mapleader = ","
@@ -144,7 +145,6 @@ nnoremap « :
 set splitbelow
 set splitright
 set showtabline=1
-set viminfo='100,n$HOME/.vim/files/info/viminfo
 
 " Lenght marker
 set colorcolumn=80,100
