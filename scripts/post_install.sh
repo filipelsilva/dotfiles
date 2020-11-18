@@ -4,7 +4,7 @@
 #touch ~/.viminfo
 
 # For (n)vim's startify
-#mkdir -p ~/.vim/files/info
+mkdir -p ~/.vim/files/info
 
 # Neovim Plugins
 nvim -c ":PlugInstall" -c "q" -c "q"
