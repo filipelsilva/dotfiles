@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# To solve vim-startify
+touch ~/.viminfo
+
 # Vim VimPlug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
