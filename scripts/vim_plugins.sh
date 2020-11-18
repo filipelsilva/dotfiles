@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # To solve vim-startify
-#touch ~/.viminfo
+touch ~/.viminfo
 
 # For (n)vim's startify
 mkdir -p ~/.vim/files/info
