@@ -4,7 +4,8 @@ echo "#########################"
 echo "# Beggining instalation #"
 echo "#########################"
 
-echo "# 1. Installing apt packages (this will take a while)..."
+echo "# 1. Getting the system up to date and \
+	installing apt packages (this will take a while)..."
 ./scripts/apt_install.sh > /dev/null 2>&1
 
 echo "# 2. Installing other programs (this will also take a while)..."
