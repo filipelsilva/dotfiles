@@ -145,13 +145,11 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   zsh-autosuggestions
   zsh-aliases-exa
-  #zsh-syntax-highlighting
   fast-syntax-highlighting
   z
-  #git
-  #vi-mode
-  #docker
-  #docker-compose
+  fzf
+  colored-man-pages
+  git
 )
 
 source $ZSH/oh-my-zsh.sh
