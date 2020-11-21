@@ -6,9 +6,11 @@ let mapleader = ","
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ervandew/supertab'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'pechorin/any-jump.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree' "'scrooloose/nerdtree'
@@ -76,21 +78,8 @@ let g:fzf_action = {
   \}
 nnoremap <C-p> :Files<CR>
 
-" coc.nvim jump to definition
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gr <Plug>(coc-references)
-
-" coc.nvim integration with tab
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Transparent background
+"hi Normal guibg=NONE ctermbg=NONE 
 
 "" Force background
 "autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
@@ -112,9 +101,6 @@ set background=dark
 let g:gruvbox_material_background = 'hard'
 
 colorscheme gruvbox-material
-
-" Transparency
-"hi Normal guibg=NONE ctermbg=NONE 
 
 " Tabs = 4 spaces
 set tabstop=4
@@ -169,3 +155,20 @@ noremap <leader>0 :tablast<cr>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
 nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
+
+"" Coc.nvim stuff (deprecated)
+" coc.nvim jump to definition
+"nmap <leader>gd <Plug>(coc-definition)
+"nmap <leader>gr <Plug>(coc-references)
+
+" coc.nvim integration with tab
+"function! s:check_back_space() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction
+
+"inoremap <silent><expr> <Tab>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<Tab>" :
+"      \ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
