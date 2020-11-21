@@ -12,6 +12,9 @@ sudo pip3 install tmuxp
 # TheFuck
 sudo pip3 install thefuck
 
+# Bpytop
+sudo pip3 install bpytop --upgrade
+
 # Forgit
 git clone https://github.com/wfxr/forgit ~/.config/forgit
 
