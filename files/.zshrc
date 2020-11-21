@@ -168,8 +168,8 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Jump integration
-eval $(jump shell --bind=z)
+# Zoxide integration 
+eval "$(zoxide init zsh)"
 
 # TheFuck integration
 eval $(thefuck --alias)

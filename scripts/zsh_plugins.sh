@@ -9,10 +9,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Starship
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 
-# Jump Shell
-wget https://github.com/gsamokovarov/jump/releases/download/v0.30.1/jump_0.30.1_amd64.deb
-sudo dpkg -i jump_0.30.1_amd64.deb
-rm jump_0.30.1_amd64.deb
+# Zoxide
+curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sh
 
 # Fast syntax highlighting
 git clone https://github.com/zdharma/fast-syntax-highlighting.git \
