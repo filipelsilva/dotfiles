@@ -1,30 +1,28 @@
-# Para PO: apagar depois
-export CVS_RSH=ssh
-export CLASSPATH=/usr/share/java/*:/home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/PO/Projeto/project/woo-app/woo-app.jar:/home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/PO/Projeto/project/woo-core/woo-core.jar
-alias makecore="cd woo-core; make; cd .."
-alias makeapp="cd woo-app; make; cd .."
-alias unmakecore="cd woo-core; make clean; cd .."
-alias unmakeapp="cd woo-app; make clean; cd .."
-alias makeall="makecore && makeapp"
-alias unmakeall="unmakecore && unmakeapp"
+## Specifics from my main machine
 
 # Mudar em cada semestre; info tecnico dos amiguinhos
-alias turnos="cat /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/turnos.exe.txt"
-alias horario="open /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/horario.png"
-alias links="cat /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/Horário.txt"
+#alias turnos="cat /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/turnos.exe.txt"
+#alias horario="open /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/horario.png"
+#alias links="cat /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/Horário.txt"
+
+# Deemix
+#alias deemix="python3 /home/filipelsilva/Transferências/Programs/deemix/server.py"
+
+# Change between intel and nvidia graphics card
+#alias intel="sudo prime-select intel && reboot"
+#alias nvidia="sudo prime-select nvidia && reboot"
+##
 
 # Para pesquisa
 alias fd=fdfind
 
-# Deemix
-alias deemix="python3 /home/filipelsilva/Transferências/Programs/deemix/server.py"
-
-# Change between intel and nvidia graphics card
-alias intel="sudo prime-select intel && reboot"
-alias nvidia="sudo prime-select nvidia && reboot"
-
 # Open folders/files as if you were in the file manager
 alias open="xdg-open"
+
+# Basic commands
+alias cp="cp -r"
+alias mv="mv"
+alias mkdir="mkdir -p"
 
 # See all processes
 alias psa="ps aux"
@@ -103,7 +101,7 @@ export ZSH="/home/$USER/.oh-my-zsh"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -127,7 +125,7 @@ export ZSH="/home/$USER/.oh-my-zsh"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
