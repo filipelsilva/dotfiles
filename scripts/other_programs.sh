@@ -13,7 +13,10 @@ sudo pip3 install tmuxp
 sudo pip3 install thefuck
 
 # Bpytop
-sudo pip3 install bpytop --upgrade
+sudo pip3 install bpytop
+
+# Pip-upgrade-outdated
+sudo pip3 install pip-upgrade-outdated
 
 # Forgit
 git clone https://github.com/wfxr/forgit ~/.config/forgit
@@ -23,8 +26,15 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB9
 sudo apt-add-repository https://cli.github.com/packages
 sudo apt-get update && sudo apt-get install gh
 
-# Rust
+# Rustc / Rustup / Cargo
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+source $HOME/.cargo/env
+
+# Hyperfine
+cargo install hyperfine
+
+# Cargo-update
+cargo install cargo-update
 
 # Pwndbg + gef + peda (GDB)
 git clone https://github.com/filipelsilva/gdb-peda-pwndbg-gef.git ~/.gdb-peda-pwndbg-gef

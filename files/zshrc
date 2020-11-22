@@ -24,6 +24,11 @@ alias cp="cp -r"
 alias mv="mv"
 alias mkdir="mkdir -p"
 
+#Update packages
+alias cargo-update="cargo install-update -a"
+alias apt-update="sudo apt update && sudo apt upgrade"
+alias pip-update="pip_upgrade_outdated -3 && pip_upgrade_outdated -2"
+
 # See all processes
 alias psa="ps aux"
 
