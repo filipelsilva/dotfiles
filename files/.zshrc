@@ -174,9 +174,6 @@ eval "$(zoxide init zsh)"
 # TheFuck integration
 eval $(thefuck --alias)
 
-# GitHub CLI integration
-#eval "$(gh completion -s zsh)"
-
 # Tmuxp integration
 eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 export DISABLE_AUTO_TITLE='true'
