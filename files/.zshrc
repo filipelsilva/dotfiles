@@ -175,7 +175,7 @@ eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
 
 # GitHub CLI integration
-eval "$(gh completion -s zsh)"
+#eval "$(gh completion -s zsh)"
 
 # Tmuxp integration
 eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"

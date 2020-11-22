@@ -19,7 +19,7 @@ sudo pip3 install bpytop --upgrade
 git clone https://github.com/wfxr/forgit ~/.config/forgit
 
 # Gh cli
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0
 sudo apt-add-repository https://cli.github.com/packages
 sudo apt-get update && sudo apt-get install gh
 
