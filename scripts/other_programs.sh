@@ -43,17 +43,20 @@ cd ~/.gdb-peda-pwndbg-gef
 cd ~ || return
 
 # Hexyl
-wget https://github.com/sharkdp/hexyl/releases/download/v0.8.0/hexyl-musl_0.8.0_amd64.deb
-sudo dpkg -i hexyl-musl_0.8.0_amd64.deb
-rm hexyl-musl_0.8.0_amd64.deb
+cargo install hexyl
+#wget https://github.com/sharkdp/hexyl/releases/download/v0.8.0/hexyl-musl_0.8.0_amd64.deb
+#sudo dpkg -i hexyl-musl_0.8.0_amd64.deb
+#rm hexyl-musl_0.8.0_amd64.deb
 
 # Exa
-wget https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip
-unzip exa-linux-x86_64-0.9.0.zip
-sudo mv exa-linux-x86_64 /usr/local/bin/exa
-rm exa-linux-x86_64-0.9.0.zip
+cargo install exa
+#wget https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip
+#unzip exa-linux-x86_64-0.9.0.zip
+#sudo mv exa-linux-x86_64 /usr/local/bin/exa
+#rm exa-linux-x86_64-0.9.0.zip
 
 # Bat
-wget https://github.com/sharkdp/bat/releases/download/v0.16.0/bat-musl_0.16.0_amd64.deb
-sudo dpkg -i bat-musl_0.16.0_amd64.deb
-rm bat-musl_0.16.0_amd64.deb
+cargo install bat
+#wget https://github.com/sharkdp/bat/releases/download/v0.16.0/bat-musl_0.16.0_amd64.deb
+#sudo dpkg -i bat-musl_0.16.0_amd64.deb
+#rm bat-musl_0.16.0_amd64.deb
