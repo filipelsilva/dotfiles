@@ -190,5 +190,6 @@ export TERM=xterm-256color
 eval "$(starship init zsh)"
 
 source /home/$USER/.config/forgit/forgit.plugin.zsh
+source ~/.cargo/env
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
