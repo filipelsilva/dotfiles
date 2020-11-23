@@ -7,24 +7,24 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
 # Tmuxp
-[ "$UID" -eq 0 ] || sudo pip3 install tmuxp
+sudo pip3 install tmuxp
 
 # TheFuck
-[ "$UID" -eq 0 ] || sudo pip3 install thefuck
+sudo pip3 install thefuck
 
 # Bpytop
-[ "$UID" -eq 0 ] || sudo pip3 install bpytop
+sudo pip3 install bpytop
 
 # Pip-upgrade-outdated
-[ "$UID" -eq 0 ] || sudo pip3 install pip-upgrade-outdated
+sudo pip3 install pip-upgrade-outdated
 
 # Forgit
 git clone https://github.com/wfxr/forgit ~/.config/forgit
 
 # Gh cli
-[ "$UID" -eq 0 ] || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0
-[ "$UID" -eq 0 ] || sudo apt-add-repository https://cli.github.com/packages
-[ "$UID" -eq 0 ] || sudo apt-get update && sudo apt-get install gh
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0
+sudo apt-add-repository https://cli.github.com/packages
+sudo apt-get update && sudo apt-get install gh
 
 # Rustc / Rustup / Cargo
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
