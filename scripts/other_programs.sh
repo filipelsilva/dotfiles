@@ -44,7 +44,7 @@ cargo install bat
 #sudo dpkg -i bat-musl_0.16.0_amd64.deb
 #rm bat-musl_0.16.0_amd64.deb
 
-[ "$UID" -eq 0 ] || { echo "This script must be run as root."; exit 1; }
+#[ "$UID" -eq 0 ] || { echo "This script must be run as root."; exit 1; }
 
 # Tmuxp
 sudo pip3 install tmuxp
