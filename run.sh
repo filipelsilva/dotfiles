@@ -6,7 +6,7 @@ echo "#########################"
 
 echo "# 1. Getting the system up to date and \
 	installing apt packages (this will take a while)..."
-./scripts/apt_install.sh
+./scripts/apt_install.sh > /dev/null
 
 echo "# 2. Installing other programs (this will also take a while)..."
 ./scripts/other_programs.sh > /dev/null 2>&1
