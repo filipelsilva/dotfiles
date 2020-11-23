@@ -6,10 +6,12 @@ echo "#########################"
 
 echo "# 1. Getting the system up to date and \
 	installing apt packages (this will take a while)..."
-./scripts/apt_install.sh > /dev/null 2>&1
+["$UID" -eq 0 ] || { echo "This script must be run as root."; exit 1; }
+(./scripts/apt_install.sh > /dev/null 2>&1)
 
 echo "# 2. Installing other programs (this will also take a while)..."
-./scripts/other_programs.sh > /dev/null 2>&1
+["$UID" -eq 0 ] || { echo "This script must be run as root."; exit 1; }
+(./scripts/other_programs.sh > /dev/null 2>&1)
 
 echo "# 3. Installing zsh plugins..."
 ./scripts/zsh_plugins.sh > /dev/null 2>&1
