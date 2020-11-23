@@ -6,25 +6,8 @@ cd ~ || return
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
-# Tmuxp
-sudo pip3 install tmuxp
-
-# TheFuck
-sudo pip3 install thefuck
-
-# Bpytop
-sudo pip3 install bpytop
-
-# Pip-upgrade-outdated
-sudo pip3 install pip-upgrade-outdated
-
 # Forgit
 git clone https://github.com/wfxr/forgit ~/.config/forgit
-
-# Gh cli
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0
-sudo apt-add-repository https://cli.github.com/packages
-sudo apt-get update && sudo apt-get install gh
 
 # Rustc / Rustup / Cargo
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -60,3 +43,22 @@ cargo install bat
 #wget https://github.com/sharkdp/bat/releases/download/v0.16.0/bat-musl_0.16.0_amd64.deb
 #sudo dpkg -i bat-musl_0.16.0_amd64.deb
 #rm bat-musl_0.16.0_amd64.deb
+
+[ "$UID" -eq 0 ] || { echo "This script must be run as root."; exit 1; }
+
+# Tmuxp
+sudo pip3 install tmuxp
+
+# TheFuck
+sudo pip3 install thefuck
+
+# Bpytop
+sudo pip3 install bpytop
+
+# Pip-upgrade-outdated
+sudo pip3 install pip-upgrade-outdated
+
+# Gh cli
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0
+sudo apt-add-repository https://cli.github.com/packages
+sudo apt-get update && sudo apt-get install gh
