@@ -9,6 +9,11 @@ echo "# 1. Getting the system up to date and \
 ./scripts/apt_install.sh > /dev/null
 
 echo "# 2. Installing other programs (this will also take a while)..."
+echo "# 2.1. Pip"
+./scripts/pip_programs.sh > /dev/null 2>&1
+echo "# 2.2. Cargo"
+./scripts/cargo_programs.sh > /dev/null 2>&1
+echo "# 2.3. Miscellaneous"
 ./scripts/other_programs.sh > /dev/null 2>&1
 
 echo "# 3. Installing zsh plugins..."
