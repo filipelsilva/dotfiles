@@ -13,4 +13,3 @@ git clone https://github.com/wfxr/forgit ~/.config/forgit
 git clone https://github.com/filipelsilva/gdb-peda-pwndbg-gef.git ~/.gdb-peda-pwndbg-gef
 cd ~/.gdb-peda-pwndbg-gef
 ./install.sh
-cd ~ || return
