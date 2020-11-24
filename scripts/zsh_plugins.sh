@@ -10,7 +10,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 
 # Zoxide
-curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sh
+curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sudo sh
 
 # Fast syntax highlighting
 git clone https://github.com/zdharma/fast-syntax-highlighting.git \
