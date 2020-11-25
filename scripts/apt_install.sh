@@ -1,11 +1,5 @@
 #!/bin/bash
 
-cd ~ || return
-
-# Gh cli
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0  
-sudo apt-add-repository https://cli.github.com/packages  
-
 # Update; upgrade; install stuff
 sudo apt-get -qq update  
 sudo apt-get -qq -y upgrade  

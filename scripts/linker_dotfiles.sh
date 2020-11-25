@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd ~ || return
-
 # Dotfiles
 rm ~/.zshrc
 mkdir -p ~/.config/nvim
