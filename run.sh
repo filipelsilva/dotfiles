@@ -4,7 +4,7 @@ echo "#########################"
 echo "# Beggining instalation #"
 echo "#########################"
 
-sudo echo "# Getting password..."
+sudo -s echo "# Getting password..."
 
 echo "# 1. Getting the system up to date and \
 installing apt packages (this will take a while)..."
