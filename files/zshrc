@@ -26,6 +26,12 @@ alias mkdir="mkdir -p"
 
 #Update packages
 alias cargo-update="cargo install-update -a"
+if (( ${+commands[apt-get]} )); then
+  alias pakup="sudo apt-get update && sudo apt-get upgrade"
+elif (( ${+commands[pacman]} )); then
+  alias pakup="sudo pacman -Syu"
+
+fi
 alias apt-update="sudo apt update && sudo apt upgrade"
 alias pip-update="pip_upgrade_outdated -3 && pip_upgrade_outdated -2"
 
