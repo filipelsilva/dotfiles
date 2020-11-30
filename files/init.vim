@@ -155,6 +155,8 @@ let g:fzf_action = {
 nnoremap <C-p> :Files<CR>
 
 " Tab complete
+let g:deoplete#enable_at_startup = 1
+
 call deoplete#custom#option({
    \ 'auto_complete_popup': 'manual',
    \ })
