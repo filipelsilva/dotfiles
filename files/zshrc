@@ -26,8 +26,8 @@ alias mkdir="mkdir -p"
 
 #Update packages
 alias cargo-update="cargo install-update -a"
-if (( ${+commands[apt-get]} )); then
-  alias pakup="sudo apt-get update && sudo apt-get upgrade"
+if (( ${+commands[apt]} )); then
+  alias pakup="sudo apt update && sudo apt upgrade"
 elif (( ${+commands[pacman]} )); then
   alias pakup="sudo pacman -Syu"
 
