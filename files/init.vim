@@ -6,14 +6,13 @@ let mapleader = ","
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ervandew/supertab'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pechorin/any-jump.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
-Plug 'preservim/nerdtree' "'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin' 
 Plug 'ryanoasis/vim-devicons'
@@ -25,58 +24,13 @@ Plug 'tpope/vim-endwise'
 Plug 'psliwka/vim-smoothie'
 Plug 'kassio/neoterm'
 Plug 'mhinz/vim-startify'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'rhysd/open-pdf.vim'
 Plug 'brooth/far.vim'
 Plug 'roryokane/detectindent'
-Plug 'joshdick/onedark.vim'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/gruvbox-material'
 Plug 'shinchu/lightline-gruvbox.vim'
 call plug#end()
-
-" Detect Identation
-augroup DetectIndent
-   autocmd!
-   autocmd BufReadPost *  DetectIndent
-augroup END
-
-" Make lightline work with vim-fugitive
-let g:lightline = {
-    \ 'colorscheme': 'gruvbox_material',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ 'component_function': {
-    \   'gitbranch': 'FugitiveHead'
-    \ },
-	\ }
-
-" Lightline workaround
-set laststatus=2
-set noshowmode
-
-" To copy with mouse without line numbers: Ctrl+CLICK
-
-"" NERDTree
-map <C-o> :NERDTreeToggle<CR>
-let g:NERDTreeWinPos = "right" " NERDTree on the right
-let NERDTreeMinimalUI = 1
-let NERDTreeShowHidden=1 " Show hidden files
-let g:NERDTreeStatusline = ""
-" Close window if NERDTree is the last one
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeHighlightFolders = 1
-let g:NERDTreeHighlightFoldersFullName = 1
-
-" Fzf
-nnoremap <C-p> :Files<CR>
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit'
-  \}
-nnoremap <C-p> :Files<CR>
 
 " Transparent background
 "hi Normal guibg=NONE ctermbg=NONE 
@@ -156,19 +110,59 @@ noremap <leader>0 :tablast<cr>
 nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
 nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
 
-"" Coc.nvim stuff (deprecated)
-" coc.nvim jump to definition
-"nmap <leader>gd <Plug>(coc-definition)
-"nmap <leader>gr <Plug>(coc-references)
+" Detect Identation
+augroup DetectIndent
+   autocmd!
+   autocmd BufReadPost *  DetectIndent
+augroup END
 
-" coc.nvim integration with tab
-"function! s:check_back_space() abort
-"  let col = col('.') - 1
-"  return !col || getline('.')[col - 1]  =~ '\s'
-"endfunction
+" Make lightline work with vim-fugitive
+let g:lightline = {
+    \ 'colorscheme': 'gruvbox_material',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'FugitiveHead'
+    \ },
+	\ }
 
-"inoremap <silent><expr> <Tab>
-"      \ pumvisible() ? "\<C-n>" :
-"      \ <SID>check_back_space() ? "\<Tab>" :
-"      \ coc#refresh()
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Lightline workaround
+set laststatus=2
+set noshowmode
+
+" To copy with mouse without line numbers: Ctrl+CLICK
+
+"" NERDTree
+map <C-o> :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right" " NERDTree on the right
+let NERDTreeMinimalUI = 1
+let NERDTreeShowHidden=1 " Show hidden files
+let g:NERDTreeStatusline = ""
+" Close window if NERDTree is the last one
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeHighlightFolders = 1
+let g:NERDTreeHighlightFoldersFullName = 1
+
+" Fzf
+nnoremap <C-p> :Files<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \}
+nnoremap <C-p> :Files<CR>
+
+" Tab complete
+call deoplete#custom#option({
+   \ 'auto_complete_popup': 'manual',
+   \ })
+inoremap <silent><expr> <TAB>
+   \ pumvisible() ? "\<C-n>" :
+   \ <SID>check_back_space() ? "\<Tab>" :
+   \ deoplete#complete()
+function! s:check_back_space() abort
+let col = col('.') - 1
+return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
