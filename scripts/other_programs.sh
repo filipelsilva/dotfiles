@@ -15,7 +15,7 @@ echo {}> ~/.prettierrc.json
 
 # Bat-extras
 git clone https://github.com/eth-p/bat-extras ~/.bat-extras
-(cd bat-extras && sudo ./build.sh)
+(cd ~/.bat-extras && sudo ./build.sh)
 sudo mv ~/.bat-extras/bin/* /usr/local/bin
 
 # Pwndbg + gef + peda (GDB)
