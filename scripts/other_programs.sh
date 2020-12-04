@@ -10,7 +10,7 @@ git clone https://github.com/wfxr/forgit ~/.config/forgit
 # Bat-extras (requisites)
 GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
 
-(cd ~ && npm install --save-dev --save-exact prettier)
+(cd ~ && npm install --save-dev --save-exact --prefix ~/.node_modules prettier)
 echo {}> ~/.prettierrc.json
 
 # Bat-extras
