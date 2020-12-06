@@ -4,31 +4,30 @@ set nocompatible
 let mapleader = ","
 
 call plug#begin()
-Plug 'tpope/vim-fugitive'
-Plug 'sheerun/vim-polyglot'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'sheerun/vim-polyglot' " Language packs
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Completion
+" Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'pechorin/any-jump.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'itchyny/lightline.vim'
-Plug 'preservim/nerdtree'
-Plug 'preservim/nerdcommenter'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'Xuyuanp/nerdtree-git-plugin' 
-Plug 'ryanoasis/vim-devicons'
-Plug 'mg979/vim-visual-multi'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-abolish'
-Plug 'w0rp/ale'
-Plug 'tpope/vim-endwise'
-Plug 'psliwka/vim-smoothie'
-Plug 'kassio/neoterm'
-Plug 'mhinz/vim-startify'
-Plug 'rhysd/open-pdf.vim'
-Plug 'brooth/far.vim'
-Plug 'roryokane/detectindent'
+Plug 'pechorin/any-jump.vim' " Code inspections/references
+Plug 'airblade/vim-gitgutter' " Show git differences
+Plug 'itchyny/lightline.vim' " Tabline
+Plug 'preservim/nerdtree' "File explorer
+Plug 'preservim/nerdcommenter' " Do comments
+Plug 'mg979/vim-visual-multi' " Multiple cursors
+Plug 'w0rp/ale' " Linter
+Plug 'psliwka/vim-smoothie' " Smooth scrolling
+Plug 'kassio/neoterm' " Terminal shortcuts
+Plug 'mhinz/vim-startify' " Start menu for vim
+Plug 'brooth/far.vim' " Find and Replace
+Plug 'roryokane/detectindent' " Detect default identation
+" tpope vim plugins
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-eunuch' " UNIX commands in vim
+Plug 'tpope/vim-surround' " Do surroundings
+Plug 'tpope/vim-abolish' " Change word structures
+Plug 'tpope/vim-endwise' " End structures
+" Themes
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/gruvbox-material'
 Plug 'shinchu/lightline-gruvbox.vim'
@@ -140,7 +139,7 @@ set noshowmode
 map <C-o> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right" " NERDTree on the right
 let NERDTreeMinimalUI = 1
-let NERDTreeShowHidden=1 " Show hidden files
+let NERDTreeShowHidden = 1 " Show hidden files
 let g:NERDTreeStatusline = ""
 " Close window if NERDTree is the last one
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
