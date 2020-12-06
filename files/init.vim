@@ -6,13 +6,9 @@ let mapleader = ","
 call plug#begin()
 Plug 'sheerun/vim-polyglot' " Language packs
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Completion
-" Fuzzy finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'pechorin/any-jump.vim' " Code inspections/references
 Plug 'airblade/vim-gitgutter' " Show git differences
 Plug 'itchyny/lightline.vim' " Tabline
-Plug 'preservim/nerdtree' "File explorer
 Plug 'preservim/nerdcommenter' " Do comments
 Plug 'mg979/vim-visual-multi' " Multiple cursors
 Plug 'w0rp/ale' " Linter
@@ -21,6 +17,14 @@ Plug 'kassio/neoterm' " Terminal shortcuts
 Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'brooth/far.vim' " Find and Replace
 Plug 'roryokane/detectindent' " Detect default identation
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" NERDTree
+Plug 'preservim/nerdtree' "File explorer
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax highlighting
+Plug 'Xuyuanp/nerdtree-git-plugin' " Git status in files
+Plug 'ryanoasis/vim-devicons' " Icons in files
 " tpope vim plugins
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch' " UNIX commands in vim
