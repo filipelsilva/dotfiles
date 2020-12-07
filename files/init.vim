@@ -61,6 +61,11 @@ let g:gruvbox_material_background = 'hard'
 
 colorscheme gruvbox-material
 
+" Undo across exits
+set undodir=~/.vim-undo
+set undofile
+set undolevels=1000
+
 " Tabs = 4 spaces
 set tabstop=4
 set softtabstop=0 noexpandtab
