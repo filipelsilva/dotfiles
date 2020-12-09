@@ -14,6 +14,7 @@ Plug 'mg979/vim-visual-multi' " Multiple cursors
 Plug 'w0rp/ale' " Linter
 Plug 'psliwka/vim-smoothie' " Smooth scrolling
 Plug 'kassio/neoterm' " Terminal shortcuts
+Plug 'voldikss/vim-floaterm' " Floating terminals
 Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'brooth/far.vim' " Find and Replace
 Plug 'roryokane/detectindent' " Detect default identation
@@ -97,6 +98,13 @@ set showtabline=1
 
 " Lenght marker
 set colorcolumn=80,100
+
+" Floaterm
+let g:floaterm_keymap_new = '<Leader>fn'
+let g:floaterm_keymap_prev = '<Leader>fo'
+let g:floaterm_keymap_next = '<Leader>fp'
+let g:floaterm_keymap_toggle = '<Leader>ft'
+let g:floaterm_autoclose = 2 " Close always
 
 " Easy window navigation
 map <C-h> <C-w>h
