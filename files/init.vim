@@ -124,6 +124,20 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
+" Shortcut to use blackhole register by default
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+nnoremap <leader>D "_D
+vnoremap <leader>D "_D
+nnoremap <leader>c "_c
+vnoremap <leader>c "_c
+nnoremap <leader>C "_C
+vnoremap <leader>C "_C
+nnoremap <leader>x "_x
+vnoremap <leader>x "_x
+nnoremap <leader>X "_X
+vnoremap <leader>X "_X
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
 nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
