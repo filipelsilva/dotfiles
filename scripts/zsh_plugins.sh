@@ -9,7 +9,7 @@ curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 
 # Geometry
 mkdir -p ~/.zsh-themes
-git clone https://github.com/geometry-zsh/geometry ~/.zsh-themes/geometry
+git clone https://github.com/geometry-zsh/geometry ~/.oh-my-zsh/custom/themes/geometry
 
 # Zoxide
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sudo sh

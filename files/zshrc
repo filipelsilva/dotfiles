@@ -104,7 +104,7 @@ fif() {
 export ZSH="/home/$USER/.oh-my-zsh"
 
 # Theme
-#ZSH_THEME="spaceship"
+ZSH_THEME="geometry/geometry"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -198,9 +198,6 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 # Starship
 #eval "$(starship init zsh)"
-
-# Geometry
-source /home/$USER/.zsh-themes/geometry/geometry.zsh
 
 # Forgit
 source /home/$USER/.config/forgit/forgit.plugin.zsh
