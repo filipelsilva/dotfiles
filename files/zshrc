@@ -197,9 +197,15 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 # Starship
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 
+# Geometry
+source /home/$USER/.zsh-themes/geometry/geometry.zsh
+
+# Forgit
 source /home/$USER/.config/forgit/forgit.plugin.zsh
+
+# Cargo
 source ~/.cargo/env
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

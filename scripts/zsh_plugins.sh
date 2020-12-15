@@ -7,6 +7,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Starship
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 
+# Geometry
+mkdir -p ~/.zsh-themes
+git clone https://github.com/geometry-zsh/geometry ~/.zsh-themes/geometry
+
 # Zoxide
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sudo sh
 
