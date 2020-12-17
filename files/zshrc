@@ -25,14 +25,16 @@ alias mv="mv"
 alias mkdir="mkdir -p"
 
 #Update packages
+alias apt-update="sudo apt update && sudo apt upgrade"
+alias pip-update="pip_upgrade_outdated -3"
 alias cargo-update="cargo install-update -a"
 if (( ${+commands[apt]} )); then
   alias pu="sudo apt update && sudo apt upgrade"
 elif (( ${+commands[pacman]} )); then
   alias pu="sudo pacman -Syu"
+elif (( ${+commands[dnf]} )); then
+  alias pu="sudo dnf upgrade"
 fi
-alias apt-update="sudo apt update && sudo apt upgrade"
-alias pip-update="pip_upgrade_outdated -3 && pip_upgrade_outdated -2"
 
 # See all processes
 alias psa="ps aux"

@@ -7,4 +7,5 @@ sudo apt-get install -qq -y zsh git curl wget glances htop neovim golang python3
     python3-pip python3-setuptools gcc valgrind gdb unzip zip tmux tmate p7zip-full\
     make lynx ripgrep fd-find silversearcher-ag nodejs npm neofetch screenfetch entr\
     clang-format
+
 # GUI: meld, vscode, discord, obs-studio, etc.

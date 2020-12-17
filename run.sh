@@ -11,6 +11,8 @@ if ( command -v apt-get &> /dev/null ); then
 	./scripts/apt_install.sh > /dev/null 2>&1
 elif ( command -v pacman &> /dev/null ); then
 	./scripts/pacman_install.sh > /dev/null 2>&1
+elif ( command -v dnf &> /dev/null ); then
+	./scripts/dnf_install.sh > /dev/null 2>&1
 fi
 
 echo "# 2. Installing other programs (this will also take a while)..."
