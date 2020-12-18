@@ -8,11 +8,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 
 # Geometry
-mkdir -p ~/.zsh-themes
 git clone https://github.com/geometry-zsh/geometry ~/.oh-my-zsh/custom/themes/geometry
 
 # Typewritten
 git clone https://github.com/reobin/typewritten.git ~/.oh-my-zsh/custom/themes/typewritten
+
+# BigPath
+git clone https://github.com/Tesohh/omzbigpath ~/.oh-my-zsh/custom/themes/bigpath
 
 # Zoxide
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sudo sh
