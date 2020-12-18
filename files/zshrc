@@ -107,6 +107,7 @@ export ZSH="/home/$USER/.oh-my-zsh"
 
 # Theme
 #ZSH_THEME="geometry/geometry"
+#ZSH_THEME="bigpath/bigpath"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -207,7 +208,6 @@ export TYPEWRITTEN_CURSOR="terminal"
 export TYPEWRITTEN_RELATIVE_PATH="adaptive"
 export TYPEWRITTEN_PROMPT_LAYOUT="singleline" #_verbose"
 export TYPEWRITTEN_COLOR_MAPPINGS="secondary:green"
-
 fpath+=$HOME/.oh-my-zsh/custom/themes/typewritten
 autoload -U promptinit; promptinit
 prompt typewritten
