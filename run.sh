@@ -8,29 +8,29 @@ sudo -s echo "# Getting password..."
 
 echo "# 1. Getting the system up to date and installing apt packages (this will take a while)..."
 if ( command -v apt-get &> /dev/null ); then
-	./scripts/apt_install.sh > /dev/null 2>&1
+	./scripts/apt_install.sh
 elif ( command -v pacman &> /dev/null ); then
-	./scripts/pacman_install.sh > /dev/null 2>&1
+	./scripts/pacman_install.sh
 elif ( command -v dnf &> /dev/null ); then
-	./scripts/dnf_install.sh > /dev/null 2>&1
+	./scripts/dnf_install.sh
 fi
 
 echo "# 2. Installing other programs (this will also take a while)..."
 echo "# 2.1. Pip"
-./scripts/pip_programs.sh > /dev/null 2>&1
+./scripts/pip_programs.sh
 echo "# 2.2. Cargo"
-./scripts/cargo_programs.sh > /dev/null 2>&1
+./scripts/cargo_programs.sh
 echo "# 2.3. Miscellaneous"
-./scripts/other_programs.sh > /dev/null 2>&1
+./scripts/other_programs.sh
 
 echo "# 3. Installing zsh plugins..."
-./scripts/zsh_plugins.sh > /dev/null 2>&1
+./scripts/zsh_plugins.sh
 
 echo "# 4. Installing vim plugin managers..."
-./scripts/vim_plugins.sh > /dev/null 2>&1
+./scripts/vim_plugins.sh
 
 echo "# 5. Linking dotfiles..."
-./scripts/linker_dotfiles.sh > /dev/null 2>&1
+./scripts/linker_dotfiles.sh
 
 echo "# 6. Post instalation things..."
 ./scripts/post_install.sh
