@@ -1,17 +1,11 @@
 ## Specifics from my main machine
 
-# Mudar em cada semestre; info tecnico dos amiguinhos
-#alias turnos="cat /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/turnos.exe.txt"
-#alias horario="open /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/horario.png"
-#alias links="cat /home/filipelsilva/OneDrive/2º\ Ano/1º\ Semestre/Calendários/Horário/Horário.txt"
-
 # Deemix
-#alias deemix="python3 /home/filipelsilva/Transferências/Programs/deemix/server.py"
+alias deemix="python3 /home/filipelsilva/Downloads/Programs/deemix/server.py"
 
 # Change between intel and nvidia graphics card
-#alias intel="sudo prime-select intel && reboot"
-#alias nvidia="sudo prime-select nvidia && reboot"
-##
+alias intel="sudo prime-select intel && reboot"
+alias nvidia="sudo prime-select nvidia && reboot"
 
 # Para pesquisa
 alias fd=fdfind
