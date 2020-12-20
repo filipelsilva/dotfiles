@@ -1,5 +1,5 @@
 # Deemix
-alias deemix="python3 /home/filipelsilva/Downloads/Programs/deemix/server.py"
+alias deemix="python3 /home/filipelsilva/Programs/deemix-pyweb/server.py"
 
 # Change between intel and nvidia graphics card
 alias intel="sudo prime-select intel && reboot"
