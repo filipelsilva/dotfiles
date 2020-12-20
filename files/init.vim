@@ -24,7 +24,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree' "File explorer
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax highlighting
 Plug 'Xuyuanp/nerdtree-git-plugin' " Git status in files
-Plug 'ryanoasis/vim-devicons' " Icons in files
 " tpope vim plugins
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch' " UNIX commands in vim
