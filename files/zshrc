@@ -1,5 +1,3 @@
-## Specifics from my main machine
-
 # Deemix
 alias deemix="python3 /home/filipelsilva/Downloads/Programs/deemix/server.py"
 
