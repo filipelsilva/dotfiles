@@ -1,6 +1,9 @@
 # Deemix
 alias deemix="python3 /home/filipelsilva/Programs/deemix-pyweb/server.py"
 
+# Tor Browser
+alias tor-browser="(cd /home/filipelsilva/Programs/tor-browser_en-US && ./start-tor-browser.desktop)"
+
 # Change between intel and nvidia graphics card
 alias intel="sudo prime-select intel && reboot"
 alias nvidia="sudo prime-select nvidia && reboot"
