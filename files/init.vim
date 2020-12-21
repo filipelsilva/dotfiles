@@ -17,6 +17,7 @@ Plug 'kassio/neoterm' " Terminal shortcuts
 Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'brooth/far.vim' " Find and Replace
 Plug 'roryokane/detectindent' " Detect default identation
+Plug 'rstacruz/vim-closer' " Close brackets (pair with vim-endwise)
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
