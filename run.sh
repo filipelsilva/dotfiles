@@ -7,13 +7,7 @@ echo "#########################"
 sudo -s echo "# Getting password..."
 
 echo "# 1. Getting the system up to date and installing apt packages (this will take a while)..."
-if ( command -v apt-get &> /dev/null ); then
-	./scripts/apt_install.sh
-elif ( command -v pacman &> /dev/null ); then
-	./scripts/pacman_install.sh
-elif ( command -v dnf &> /dev/null ); then
-	./scripts/dnf_install.sh
-fi
+./scripts/package_install.sh
 
 echo "# 2. Installing other programs (this will also take a while)..."
 echo "# 2.1. Pip"

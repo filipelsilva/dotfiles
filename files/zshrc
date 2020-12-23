@@ -189,11 +189,6 @@ export DISABLE_AUTO_TITLE='true'
 # Tmux color for zsh suggestions 
 export TERM=xterm-256color
 
-# Go
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-
 # Starship
 #eval "$(starship init zsh)"
 
