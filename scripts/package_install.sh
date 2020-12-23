@@ -5,26 +5,26 @@ if ( command -v apt-get &> /dev/null ); then
 
     sudo apt-get -qq update  
     sudo apt-get -qq -y upgrade  
-    sudo apt-get install -qq -y zsh git curl wget glances htop neovim golang\
+    sudo apt-get install -qq -y zsh git curl wget glances htop neovim\
         python3-dev python3-pip python3-setuptools gcc valgrind gdb unzip zip\
         tmux tmate p7zip-full make lynx ripgrep fd-find silversearcher-ag\
-        nodejs npm neofetch screenfetch entr clang-format
+        nodejs npm neofetch screenfetch entr
 
 elif ( command -v pacman &> /dev/null ); then
 
     sudo pacman -Syu --noconfirm
-    sudo pacman -S --noconfirm zsh git curl wget glances htop neovim go \
-        python-pip python python-setuptools gcc valgrind gdb unzip zip tmux \
-        tmate p7zip lynx ripgrep fd the_silver_searcher nodejs npm neofetch \
-        screenfetch pkg-config make entr clang
+    sudo pacman -S --noconfirm zsh git curl wget glances htop neovim python-pip\
+        python python-setuptools gcc valgrind gdb unzip zip tmux tmate p7zip\
+        lynx ripgrep fd the_silver_searcher nodejs npm neofetch screenfetch\
+        pkg-config make entr
 
 elif ( command -v dnf &> /dev/null ); then
 
     sudo dnf -y upgrade
-    sudo dnf -y install zsh git curl wget glances htop neovim golang\
-        python3-devel python3-pip python3-setuptools gcc valgrind gdb unzip\
-        zip tmux tmate p7zip make lynx ripgrep fd-find the_silver_searcher\
-        nodejs npm neofetch screenfetch entr clang util-linux-user openssl-devel
+    sudo dnf -y install zsh git curl wget glances htop neovim python3-devel\
+        python3-pip python3-setuptools gcc valgrind gdb unzip zip tmux tmate\
+        p7zip make lynx ripgrep fd-find the_silver_searcher nodejs npm neofetch\
+        screenfetch entr util-linux-user openssl-devel
 
 fi
 
