@@ -18,6 +18,7 @@ Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'brooth/far.vim' " Find and Replace
 Plug 'roryokane/detectindent' " Detect default identation
 Plug 'rstacruz/vim-closer' " Close brackets (pair with vim-endwise)
+Plug 'haya14busa/incsearch.vim' " Searcher
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -76,6 +77,19 @@ set smarttab
 set number
 set relativenumber
 
+" Incsearch.vim
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+set hlsearch " :h g:incsearch#auto_nohlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
 " Useful stuff
 set hidden
 set nowrap
@@ -84,8 +98,6 @@ set copyindent
 set showmatch
 set ignorecase
 set smartcase
-set hlsearch
-set incsearch
 set pastetoggle=<F2>
 nmap <silent> ,/ :nohlsearch<CR>
 cmap w!! w !sudo tee % >/dev/null
