@@ -186,9 +186,6 @@ eval $(thefuck --alias)
 eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 export DISABLE_AUTO_TITLE='true'
 
-# Tmux color for zsh suggestions 
-export TERM=xterm-256color
-
 # Starship
 #eval "$(starship init zsh)"
 
