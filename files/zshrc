@@ -102,7 +102,7 @@ export ZSH="/home/$USER/.oh-my-zsh"
 
 # Theme
 #ZSH_THEME="geometry/geometry"
-ZSH_THEME="bigpath/bigpath"
+ZSH_THEME="filipe"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
