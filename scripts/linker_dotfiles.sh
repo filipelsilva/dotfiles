@@ -10,3 +10,4 @@ ln -s ~/dotfiles/files/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/files/tmate.conf ~/.tmate.conf
 ln -s ~/dotfiles/files/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/files/starship.toml ~/.config/starship.toml
+ln -s ~/dotfiles/files/filipe.zsh-theme ~/.oh-my-zsh/custom/themes/filipe.zsh-theme
