@@ -11,3 +11,4 @@ ln -s ~/dotfiles/files/tmate.conf ~/.tmate.conf
 ln -s ~/dotfiles/files/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/files/starship.toml ~/.config/starship.toml
 ln -s ~/dotfiles/files/filipe.zsh-theme ~/.oh-my-zsh/custom/themes/filipe.zsh-theme
+ln -s ~/dotfiles/files/filipe2.zsh-theme ~/.oh-my-zsh/custom/themes/filipe2.zsh-theme
