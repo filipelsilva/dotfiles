@@ -179,9 +179,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Exa colors
 export EXA_COLORS="\
-in=36:\
 ln=35:\
-di=34:\
 lp=33:\
 da=38;5;240:\
 uu=38;5;245:\
