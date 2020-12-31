@@ -14,7 +14,7 @@ git clone https://github.com/geometry-zsh/geometry ~/.oh-my-zsh/custom/themes/ge
 git clone https://github.com/reobin/typewritten.git ~/.oh-my-zsh/custom/themes/typewritten
 
 # K (ls alternative)
-git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
+git clone https://github.com/supercrabtree/k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/k
 
 # Zoxide
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sudo sh
