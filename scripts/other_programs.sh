@@ -11,7 +11,6 @@ git clone https://github.com/wfxr/forgit ~/.config/forgit
 git clone https://github.com/eth-p/bat-extras ~/.bat-extras
 (cd ~/.bat-extras && sudo ./build.sh)
 sudo mv ~/.bat-extras/bin/batdiff /usr/local/bin
-rm -rf ~/.bat-extras
 
 # Cheat.sh
 curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
