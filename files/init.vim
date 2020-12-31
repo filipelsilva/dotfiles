@@ -9,6 +9,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Completion
 Plug 'pechorin/any-jump.vim' " Code inspections/references
 Plug 'airblade/vim-gitgutter' " Show git differences
 Plug 'itchyny/lightline.vim' " Tabline
+"Plug 'hoob3rt/lualine.nvim' " Tabline (TRY ON NEOVIM 0.5.0)
 Plug 'preservim/nerdcommenter' " Do comments
 Plug 'mg979/vim-visual-multi' " Multiple cursors
 Plug 'w0rp/ale' " Linter
@@ -134,6 +135,13 @@ let g:lightline = {
     \   'gitbranch': 'FugitiveHead'
     \ },
 	\ }
+
+" Lualine
+"lua << EOF
+"local lualine = require('lualine')
+"lualine.status()
+"lualine.theme = 'gruvbox'
+"EOF
 
 " Undo across exits
 set undodir=~/.vim-undo
