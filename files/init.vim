@@ -19,6 +19,7 @@ Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'brooth/far.vim' " Find and Replace
 Plug 'roryokane/detectindent' " Detect default identation
 Plug 'rstacruz/vim-closer' " Close brackets (pair with vim-endwise)
+Plug 'mbbill/undotree' " Undo menu
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -146,7 +147,7 @@ let g:lightline = {
 " Undo across exits
 set undodir=~/.vim-undo
 set undofile
-set undolevels=1000
+set undolevels=10000
 
 " Tabs = 4 spaces
 set tabstop=4
@@ -184,6 +185,9 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
   \}
 nnoremap <C-p> :Files<CR>
+
+" Gundo.vim
+nnoremap <F5> :UndotreeToggle<CR>
 
 " Tab complete
 let g:deoplete#enable_at_startup = 1
