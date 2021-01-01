@@ -208,7 +208,7 @@ eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 export DISABLE_AUTO_TITLE='true'
 
 # RPROMPT with no space on right side
-#export ZLE_RPROMPT_INDENT=0
+export ZLE_RPROMPT_INDENT=0
 
 # Starship
 #eval "$(starship init zsh)"
