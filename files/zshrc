@@ -20,15 +20,14 @@ alias mv="mv"
 alias mkdir="mkdir -p"
 
 #Update packages
-alias apt-update="sudo apt update && sudo apt upgrade"
-alias pip-update="pip_upgrade_outdated -3"
-alias cargo-update="cargo install-update -a"
+alias pipup="pip_upgrade_outdated -3"
+alias cargoup="cargo install-update -a"
 if (( ${+commands[apt]} )); then
-  alias pu="sudo apt update && sudo apt upgrade"
+  alias pakup="sudo apt update && sudo apt upgrade"
 elif (( ${+commands[pacman]} )); then
-  alias pu="sudo pacman -Syu"
+  alias pakup="sudo pacman -Syu"
 elif (( ${+commands[dnf]} )); then
-  alias pu="sudo dnf upgrade"
+  alias pakup="sudo dnf upgrade"
 fi
 
 # See all processes
@@ -47,7 +46,7 @@ alias tn="t new -t"
 alias tp="tmuxp"
 
 # Nvim to vim transition
-alias v="nvim -p"
+alias vim="nvim -p"
 alias oldvim="\vim"
 
 # Git quality of life improvement
