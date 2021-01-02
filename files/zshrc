@@ -23,11 +23,11 @@ alias mkdir="mkdir -p"
 alias pipup="pip_upgrade_outdated -3"
 alias cargoup="cargo install-update -a"
 if (( ${+commands[apt]} )); then
-  alias pakup="sudo apt update && sudo apt upgrade"
+  alias pu="sudo apt update && sudo apt upgrade"
 elif (( ${+commands[pacman]} )); then
-  alias pakup="sudo pacman -Syu"
+  alias pu="sudo pacman -Syu"
 elif (( ${+commands[dnf]} )); then
-  alias pakup="sudo dnf upgrade"
+  alias pu="sudo dnf upgrade"
 fi
 
 # See all processes
