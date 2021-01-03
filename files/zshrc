@@ -43,6 +43,7 @@ alias t="tmux"
 alias ta="t a -t"
 alias tls="t ls"
 alias tn="t new -d -t"
+alias tkill="tmux kill-session -t"
 alias tp="tmuxp"
 
 # Nvim to vim transition
