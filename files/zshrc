@@ -42,11 +42,12 @@ function psgrep() {
 alias t="tmux"
 alias ta="t a -t"
 alias tls="t ls"
-alias tn="t new -t"
+alias tn="t new -t -d"
 alias tp="tmuxp"
 
 # Nvim to vim transition
 alias vim="nvim -p"
+alias v="nvim -p"
 alias oldvim="\vim"
 
 # Git quality of life improvement
