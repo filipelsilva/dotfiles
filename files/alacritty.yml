@@ -485,9 +485,11 @@ selection:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 #shell:
-#  program: /bin/bash
+#  program: /bin/zsh
 #  args:
-#    - --login
+#    - -l
+#    - -c
+#    - "tmux attach || tmux"
 
 # Startup directory
 #
