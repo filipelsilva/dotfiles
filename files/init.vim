@@ -20,6 +20,7 @@ Plug 'brooth/far.vim' " Find and Replace
 Plug 'roryokane/detectindent' " Detect default identation
 Plug 'rstacruz/vim-closer' " Close brackets (pair with vim-endwise)
 Plug 'mbbill/undotree' " Undo menu
+Plug 'godlygeek/tabular' " Format columns
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
