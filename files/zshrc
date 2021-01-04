@@ -177,6 +177,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+
 # Exa colors
 export EXA_COLORS="\
 lp=33:\
