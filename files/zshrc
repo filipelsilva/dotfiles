@@ -14,6 +14,10 @@ alias fd=fdfind
 # Open folders/files as if you were in the file manager
 alias open="xdg-open"
 
+# Zsh configuration and reload
+alias zshsource="source ~/.zshrc && echo 'sourced zshrc'"
+alias zshconfig="nvim ~/.zshrc && zshsource"
+
 # Basic commands
 alias cp="cp -r"
 alias mv="mv"
