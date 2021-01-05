@@ -42,7 +42,7 @@ call plug#end()
 " Transparent background
 "hi Normal guibg=NONE ctermbg=NONE 
 
-"" Force background
+" Force background
 "autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 
 " Colorscheme
