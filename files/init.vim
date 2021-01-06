@@ -10,7 +10,13 @@ Plug 'pechorin/any-jump.vim' " Code inspections/references
 Plug 'airblade/vim-gitgutter' " Show git differences
 Plug 'itchyny/lightline.vim' " Tabline
 "Plug 'hoob3rt/lualine.nvim' " Tabline (TRY ON NEOVIM 0.5.0)
+Plug 'preservim/tagbar' " Class outline viewer
 Plug 'preservim/nerdcommenter' " Do comments
+Plug 'tpope/vim-fugitive' " Git wrapper
+Plug 'tpope/vim-eunuch' " UNIX commands in vim
+Plug 'tpope/vim-surround' " Do surroundings
+Plug 'tpope/vim-abolish' " Change word structures
+Plug 'tpope/vim-endwise' " End structures
 Plug 'mg979/vim-visual-multi' " Multiple cursors
 Plug 'w0rp/ale' " Linter
 Plug 'psliwka/vim-smoothie' " Smooth scrolling
@@ -27,12 +33,6 @@ Plug 'junegunn/fzf.vim'
 " NERDTree
 Plug 'preservim/nerdtree' "File explorer
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax highlighting
-" tpope vim plugins
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-eunuch' " UNIX commands in vim
-Plug 'tpope/vim-surround' " Do surroundings
-Plug 'tpope/vim-abolish' " Change word structures
-Plug 'tpope/vim-endwise' " End structures
 " Themes
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/gruvbox-material'
@@ -190,6 +190,16 @@ nnoremap <C-p> :Files<CR>
 
 " Gundo.vim
 nnoremap <F5> :UndotreeToggle<CR>
+
+"" Tagbar
+" Focus the panel when opening it
+let g:tagbar_autofocus = 1
+" Highlight the active tag
+let g:tagbar_autoshowtag = 1
+" Make panel vertical and place on the right
+let g:tagbar_position = 'botright vertical'
+" Mapping to open and close the panel
+nmap <F8> :TagbarToggle<CR>
 
 " Tab complete
 let g:deoplete#enable_at_startup = 1
