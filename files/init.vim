@@ -27,6 +27,7 @@ Plug 'roryokane/detectindent' " Detect default identation
 Plug 'rstacruz/vim-closer' " Close brackets (pair with vim-endwise)
 Plug 'mbbill/undotree' " Undo menu
 Plug 'godlygeek/tabular' " Format columns
+Plug 'dyng/ctrlsf.vim' "Async finder
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -187,6 +188,16 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
   \}
 nnoremap <C-p> :Files<CR>
+
+" CtrlSF
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 " Gundo.vim
 nnoremap <F5> :UndotreeToggle<CR>
