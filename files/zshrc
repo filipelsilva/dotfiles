@@ -1,3 +1,7 @@
+###############################################################################
+############ Aliases ##########################################################
+###############################################################################
+
 # Deemix
 alias deemix="python3 /home/filipelsilva/Programs/deemix-pyweb/server.py"
 
@@ -53,14 +57,10 @@ alias oldvim="\vim"
 # Git quality of life improvement
 alias gtree="git log --graph --all"
 
-# Funcao para arranjar links de um website e sacar tudo para a pasta
-function linkdump() {
-  lynx -dump -listonly -nonumbers $1 | grep .pdf > dump.txt
-  wget -i dump.txt
-  rm dump.txt
-}
+###############################################################################
+############ Fzf ##############################################################
+###############################################################################
 
-## Fzf
 # Make fzf not collide with zsh
 export FZF_COMPLETION_TRIGGER='++'
 
@@ -87,6 +87,10 @@ _fzf_compgen_dir() {
   fdfind --type d . "$1"
 }
 
+###############################################################################
+############ Functions ########################################################
+###############################################################################
+
 # find-in-file - usage: fif <SEARCH_TERM>
 fif() {
   if [ ! "$#" -gt 0 ]; then
@@ -95,58 +99,47 @@ fif() {
   fi
   rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --preview "rg --ignore-case --pretty --context 10 '$1' {}"
 }
-##
+
+# Linkdump 
+function linkdump() {
+  lynx -dump -listonly -nonumbers $1 | grep .pdf > dump.txt
+  wget -i dump.txt
+  rm dump.txt
+}
+
+# [K]ill [P]rocess
+function kp() {
+  local pid=$(ps -ef | sed 1d | eval "fzf -m --header='[kill:process]'" | awk '{print $2}')
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+    kp
+  fi
+}
+
+# [F]ind [P]ath
+function fp() {
+  local loc=$(echo $PATH | sed -e $'s/:/\\\n/g' | eval "fzf --header='[find:path]'")
+  if [[ -d $loc ]]; then
+    echo "$(rg --files $loc | rev | cut -d"/" -f1 | rev)" | eval "fzf --header='[find:exe] => ${loc}' >/dev/null"
+    fp
+  fi
+}
+
+###############################################################################
+############ Other ############################################################
+###############################################################################
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$USER/.oh-my-zsh"
 
 # Theme
-#ZSH_THEME="geometry/geometry"
 ZSH_THEME="filipe"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
+# Other settings
 HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+ENABLE_CORRECTION="true"
+HIST_STAMPS="yyyy-mm-dd"
 
 plugins=(
   zsh-autosuggestions
@@ -160,22 +153,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # Exa colors
 export EXA_COLORS="\
@@ -195,17 +172,7 @@ gw=38;5;242:\
 gx=38;5;242:\
 tr=38;5;242:\
 tw=38;5;242:\
-tx=38;5;242"
- 
-# Zoxide integration 
-eval "$(zoxide init zsh)"
-
-# TheFuck integration
-eval $(thefuck --alias)
-
-# Tmuxp integration
-eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
-export DISABLE_AUTO_TITLE='true'
+tx=38;5;242" 
 
 # RPROMPT with no space on right side
 #export ZLE_RPROMPT_INDENT=0
@@ -223,14 +190,21 @@ export DISABLE_AUTO_TITLE='true'
 #autoload -U promptinit; promptinit
 #prompt typewritten
 
+# Zoxide integration 
+eval "$(zoxide init zsh)"
+
+# TheFuck integration
+eval $(thefuck --alias)
+
+# Tmuxp integration
+eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
+export DISABLE_AUTO_TITLE='true'
+
 # Forgit
 source /home/$USER/.config/forgit/forgit.plugin.zsh
 
 # Cargo
 source ~/.cargo/env
 
-# Scripts
-fpath=( ~/.zsh "${fpath[@]}" )
-for script in ~/.zsh/**; autoload -Uz $script
-
+# Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
