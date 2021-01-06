@@ -1,5 +1,5 @@
 ###############################################################################
-############ Aliases ##########################################################
+############ Aliases / Keybinds ###############################################
 ###############################################################################
 
 # Deemix
@@ -19,6 +19,7 @@ alias fd=fdfind
 alias open="xdg-open"
 
 # Zsh configuration and reload
+bindkey -s '^e' 'nvim ~/.zshrc && source ~/.zshrc^M'
 alias zshsource="source ~/.zshrc && echo 'sourced zshrc'"
 alias zshconfig="nvim ~/.zshrc && zshsource"
 
