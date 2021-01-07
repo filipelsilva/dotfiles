@@ -6,7 +6,7 @@ echo "#########################"
 
 sudo echo "# Getting password..."
 
-echo "# 1. Getting the system up to date and installing apt packages (this will take a while)..."
+echo "# 1. Getting the system up to date and installing packages (this will take a while)..."
 ./scripts/package_install.sh
 
 echo "# 2. Installing other programs (this will also take a while)..."
