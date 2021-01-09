@@ -1,8 +1,11 @@
+" vim:fileencoding=utf-8:ft=conf:foldmethod=marker
+
 set nocompatible
 
 " <leader> key bind
 let mapleader = ","
 
+" Plugins {{{
 call plug#begin()
 Plug 'sheerun/vim-polyglot' " Language packs
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Completion
@@ -39,6 +42,9 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/gruvbox-material'
 Plug 'shinchu/lightline-gruvbox.vim'
 call plug#end()
+" }}}
+
+" Colors/Themes {{{
 
 " Transparent background
 "hi Normal guibg=NONE ctermbg=NONE 
@@ -63,8 +69,9 @@ set background=dark
 let g:gruvbox_material_background = 'hard'
 
 colorscheme gruvbox-material
+" }}}
 
-" Useful stuff
+" Settings {{{
 set hidden
 set nowrap
 set autoindent
@@ -82,9 +89,34 @@ set splitbelow
 set splitright
 set showtabline=1
 set mouse=a
+set colorcolumn=80,100 " Lenght marker
 
-" Lenght marker
-set colorcolumn=80,100
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
+nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
+
+" Undo across exits
+set undodir=~/.vim-undo
+set undofile
+set undolevels=10000
+
+" Tabs = 4 spaces
+set tabstop=4
+set softtabstop=0 noexpandtab
+set shiftwidth=4
+set shiftround
+set smarttab
+
+" Sidebar with numbers
+set number
+set relativenumber
+
+" Lightline workaround
+set laststatus=2
+set noshowmode
+" }}}
+
+" Keymaps {{{
 
 " Easy window navigation
 map <C-h> <C-w>h
@@ -117,10 +149,9 @@ nnoremap <leader>x "_x
 vnoremap <leader>x "_x
 nnoremap <leader>X "_X
 vnoremap <leader>X "_X
+" }}}
 
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
-nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
+" Plugin Configurations {{{
 
 " Detect Identation
 augroup DetectIndent
@@ -146,28 +177,6 @@ let g:lightline = {
 "lualine.status()
 "lualine.theme = 'gruvbox'
 "EOF
-
-" Undo across exits
-set undodir=~/.vim-undo
-set undofile
-set undolevels=10000
-
-" Tabs = 4 spaces
-set tabstop=4
-set softtabstop=0 noexpandtab
-set shiftwidth=4
-set shiftround
-set smarttab
-
-" Sidebar with numbers
-set number
-set relativenumber
-
-" Lightline workaround
-set laststatus=2
-set noshowmode
-
-" To copy with mouse without line numbers: Ctrl+CLICK
 
 "" NERDTree
 map <C-o> :NERDTreeToggle<CR>
@@ -226,3 +235,4 @@ function! s:check_back_space() abort
 let col = col('.') - 1
 return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+" }}}

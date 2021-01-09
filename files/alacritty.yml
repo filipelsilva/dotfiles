@@ -1,8 +1,12 @@
+# vim:fileencoding=utf-8:ft=conf:foldmethod=marker
+
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+# env {{{
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
+
 env:
   # TERM variable
   #
@@ -80,61 +84,34 @@ window:
   # Override the variant of the GTK theme. Commonly supported values are `dark` and `light`.
   # Set this to `None` to use the default theme variant.
   #gtk_theme_variant: None
+# }}}
 
-scrolling:
+scrolling: # {{{
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
   history: 10000
 
   # Scrolling distance multiplier.
   #multiplier: 3
+# }}}
 
-# Font configuration
+# Font configuration {{{
 font:
   # Normal (roman) font face
   normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
     family: Iosevka Term #Extended
-
-    # This `style` can be specified to pick a specific face.
     style: Regular
 
-  # Bold font face
   bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
     family: Iosevka Term #Extended
-
-    # This `style` can be specified to pick a specific face.
     style: Bold
 
-  # Italic font face
   italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
     family: Iosevka Term #Extended
-
-    # This `style` can be specified to pick a specific face.
     style: Italic
 
-  # Bold italic font face
   bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
     family: Iosevka Term #Extended
-
-    # This `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Point size
@@ -161,8 +138,9 @@ font:
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
+#}}}
 
-schemes:
+schemes: # {{{
   gruvbox_material_hard_dark: &gruvbox_material_hard_dark
     primary:
       background: '0x1d2021'
@@ -390,11 +368,12 @@ schemes:
       magenta: '#8c738c'
       cyan: '#6d96a5'
       white: '#aeb3bb'
+# }}}
 
 # Apply the color scheme.
 colors: *gruvbox_material_hard_dark
 
-# Bell
+# Bell # {{{
 #
 # The bell is rung every time the BEL control character is received.
 #bell:
@@ -434,20 +413,23 @@ colors: *gruvbox_material_hard_dark
   #     args: ["Hello, World!"]
   #
   #command: None
+# }}}
 
-# Background opacity
+# Background opacity # {{{
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
 background_opacity: 1.0 
+# }}}
 
-selection:
+selection: # {{{
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: true
+# }}}
 
-#cursor:
+#cursor: # {{{
   # Cursor style
   #
   # Values for `style`:
@@ -474,8 +456,9 @@ selection:
 
 # Live config reload (changes require restart)
 #live_config_reload: true
+# }}}
 
-# Shell
+# Shell # {{{
 #
 # You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
 # Entries in `shell.args` are passed unmodified as arguments to the shell.
@@ -490,8 +473,9 @@ shell:
     - -l
     - -c
     - "tmux attach || tmux"
+# }}}
 
-# Startup directory
+# Startup directory # {{{
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
@@ -509,8 +493,9 @@ shell:
 
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
+# }}}
 
-#mouse:
+#mouse: # {{{
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
@@ -543,8 +528,9 @@ shell:
     # These are the modifiers that need to be held down for opening URLs when clicking
     # on them. The available modifiers are documented in the key binding section.
     #modifiers: None
+# }}}
 
-# Mouse bindings
+# Mouse bindings # {{{
 #
 # Mouse bindings are specified as a list of objects, much like the key
 # bindings further below.
@@ -568,8 +554,9 @@ shell:
 # - `mods` (see key bindings)
 #mouse_bindings:
 #  - { mouse: Middle, action: PasteSelection }
+# }}}
 
-# Key bindings
+# Key bindings # {{{
 #
 # Key bindings are specified as a list of objects. For example, this is the
 # default paste binding:
@@ -825,3 +812,4 @@ key_bindings:
 
   # Print all received window events.
   #print_events: false
+  # }}}
