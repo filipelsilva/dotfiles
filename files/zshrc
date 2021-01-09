@@ -1,6 +1,6 @@
 # vim:fileencoding=utf-8:ft=conf:foldmethod=marker
 
-############# Aliases / Keybinds #############
+############# Aliases / Keybinds ############# {{{
 
 # Deemix
 alias deemix="python3 /home/filipelsilva/Programs/deemix-pyweb/server.py"
@@ -54,7 +54,9 @@ alias oldvim="\vim"
 # Git quality of life improvement
 alias gtree="git log --graph --all"
 
-############# Fzf #############
+# }}}
+
+############# Fzf ############# {{{
 
 # Make fzf not collide with zsh
 export FZF_COMPLETION_TRIGGER='++'
@@ -82,7 +84,9 @@ _fzf_compgen_dir() {
   fdfind --type d . "$1"
 }
 
-############# Functions #############
+# }}}
+
+############# Functions ############# {{{
 
 # find-in-file - usage: fif <SEARCH_TERM>
 function fif() {
@@ -129,7 +133,9 @@ function switch() {
   reboot
 }
 
-############# Other #############
+# }}}
+
+############# Plugins/Themes/Other ############# {{{
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$USER/.oh-my-zsh"
@@ -209,3 +215,5 @@ source ~/.cargo/env
 
 # Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# }}}
