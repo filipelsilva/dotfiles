@@ -3,8 +3,10 @@
 # Dotfiles
 rm ~/.zshrc
 mkdir -p ~/.config/nvim
+mkdir -p ~/.config/kitty
 mkdir -p ~/.zsh
 ln -s ~/dotfiles/files/init.vim ~/.config/nvim/init.vim
+ln -s ~/dotfiles/files/kitty.conf ~/.config/kitty/kitty.conf
 ln -s ~/dotfiles/files/alacritty.yml ~/.alacritty.yml
 ln -s ~/dotfiles/files/zshrc ~/.zshrc
 ln -s ~/dotfiles/files/tmux.conf ~/.tmux.conf
