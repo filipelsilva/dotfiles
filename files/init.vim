@@ -65,8 +65,8 @@ endif
 
 syntax on
 set background=dark
-let g:gruvbox_material_background = 'hard'
 
+"let g:gruvbox_material_background = 'hard'
 "colorscheme gruvbox-material
 colorscheme base16-gruvbox-dark-pale
 " }}}
