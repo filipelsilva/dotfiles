@@ -1,11 +1,10 @@
-" vim:fileencoding=utf-8:ft=conf:foldmethod=marker
-
 set nocompatible
 
 " <leader> key bind
 let mapleader = ","
 
-" Plugins {{{
+""""""""""""" Plugins
+
 call plug#begin()
 Plug 'sheerun/vim-polyglot' " Language packs
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Completion
@@ -42,9 +41,8 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/gruvbox-material'
 Plug 'shinchu/lightline-gruvbox.vim'
 call plug#end()
-" }}}
 
-" Colors/Themes {{{
+""""""""""""" Colors/Themes
 
 " Transparent background
 "hi Normal guibg=NONE ctermbg=NONE 
@@ -69,9 +67,9 @@ set background=dark
 let g:gruvbox_material_background = 'hard'
 
 colorscheme gruvbox-material
-" }}}
 
-" Settings {{{
+""""""""""""" Settings
+
 set hidden
 set nowrap
 set autoindent
@@ -114,9 +112,8 @@ set relativenumber
 " Lightline workaround
 set laststatus=2
 set noshowmode
-" }}}
 
-" Keymaps {{{
+""""""""""""" Keymaps
 
 " Easy window navigation
 map <C-h> <C-w>h
@@ -149,9 +146,8 @@ nnoremap <leader>x "_x
 vnoremap <leader>x "_x
 nnoremap <leader>X "_X
 vnoremap <leader>X "_X
-" }}}
 
-" Plugin Configurations {{{
+""""""""""""" Plugin Configurations
 
 " Detect Identation
 augroup DetectIndent
@@ -235,4 +231,3 @@ function! s:check_back_space() abort
 let col = col('.') - 1
 return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-" }}}
