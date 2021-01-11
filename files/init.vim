@@ -37,9 +37,10 @@ Plug 'preservim/nerdtree' "File explorer
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax highlighting
 " Themes
 Plug 'chriskempson/base16-vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'sainnhe/gruvbox-material'
 Plug 'shinchu/lightline-gruvbox.vim'
+"Plug 'NLKNguyen/papercolor-theme'
+"Plug 'sainnhe/gruvbox-material'
+"Plug 'shinchu/lightline-gruvbox.vim'
 call plug#end()
 " }}}
 
@@ -163,7 +164,7 @@ augroup END
 
 " Make lightline work with vim-fugitive
 let g:lightline = {
-    \ 'colorscheme': 'gruvbox_material',
+    \ 'colorscheme': 'gruvbox',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
