@@ -77,17 +77,16 @@ local color0E='#d485ad'
 local color0F='#d65d0e'
 
 export FZF_DEFAULT_OPTS="
+--color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
+--color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
+--color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
 --layout=reverse
 --info=inline
 --height=80%
 --multi
 --preview-window=:hidden
 --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
---color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'
 --bind '?:toggle-preview'
---color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
---color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
---color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
 "
 
 # Fzf using fd instead of find
