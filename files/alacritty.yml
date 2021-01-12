@@ -186,6 +186,31 @@ schemes: # {{{
       magenta: '0xd5c4a1'
       cyan:    '0xd65d0e'
       white:   '0xebdbb2'
+  base16_default_dark: &base16_default_dark
+    primary:
+      background: '0x181818'
+      foreground: '0xd8d8d8'
+    cursor:
+      text: '0x181818'
+      cursor: '0xd8d8d8'
+    normal:
+      black:   '0x181818'
+      red:     '0xab4642'
+      green:   '0xa1b56c'
+      yellow:  '0xf7ca88'
+      blue:    '0x7cafc2'
+      magenta: '0xba8baf'
+      cyan:    '0x86c1b9'
+      white:   '0xd8d8d8'
+    bright:
+      black:   '0x585858'
+      red:     '0xdc9656'
+      green:   '0x282828'
+      yellow:  '0x383838'
+      blue:    '0xb8b8b8'
+      magenta: '0xe8e8e8'
+      cyan:    '0xa16946'
+      white:   '0xf8f8f8'
   onedark: &onedark
     primary:
       background: '0x1e2127'
