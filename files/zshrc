@@ -7,7 +7,9 @@ alias deemix="python3 /home/filipelsilva/Programs/deemix-pyweb/server.py"
 alias tor-browser="(cd /home/filipelsilva/Programs/tor-browser_en-US && ./start-tor-browser.desktop)"
 
 # Para pesquisa
-alias fd=fdfind
+if (( ${+commands[fdfind]} )); then
+  alias fd=fdfind
+fi
 
 # Open folders/files as if you were in the file manager
 alias open="xdg-open"
@@ -90,7 +92,7 @@ export FZF_DEFAULT_OPTS="
 "
 
 # Fzf using fd instead of find
-export FZF_DEFAULT_COMMAND="fdfind --hidden --follow --exclude '.git'"
+export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude '.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
