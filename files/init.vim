@@ -1,5 +1,3 @@
-set nocompatible
-
 " <leader> key bind
 let mapleader = ","
 
@@ -64,7 +62,6 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-syntax on
 set background=dark
 
 "let g:gruvbox_material_background = 'hard'
@@ -73,6 +70,8 @@ colorscheme base16-gruvbox-dark-pale
 " }}}
 
 " Settings {{{
+set nocompatible
+set nomodeline
 set foldenable
 set foldmethod=marker
 set hidden
@@ -93,6 +92,14 @@ set splitright
 set showtabline=1
 set mouse=a
 set colorcolumn=80,100 " Lenght marker
+filetype plugin indent on
+syntax on
+set wildmode=longest:full,full
+set wildmenu
+set scrolloff=5
+set whichwrap+=<,>
+set ruler
+set showcmd
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
@@ -105,7 +112,7 @@ set undolevels=10000
 
 " Tabs = 4 spaces
 set tabstop=4
-set softtabstop=0 noexpandtab
+set softtabstop=4 noexpandtab
 set shiftwidth=4
 set shiftround
 set smarttab
@@ -152,6 +159,10 @@ nnoremap <leader>x "_x
 vnoremap <leader>x "_x
 nnoremap <leader>X "_X
 vnoremap <leader>X "_X
+
+" move vertically by visual line with j and k
+nnoremap j gj
+nnoremap k gk
 " }}}
 
 " Plugin Configurations {{{
