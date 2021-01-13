@@ -6,18 +6,13 @@ alias deemix="python3 /home/filipelsilva/Programs/deemix-pyweb/server.py"
 # Tor Browser
 alias tor-browser="(cd /home/filipelsilva/Programs/tor-browser_en-US && ./start-tor-browser.desktop)"
 
-# Para pesquisa
-if (( ${+commands[fdfind]} )); then
-  alias fd=fdfind
-fi
-
 # Open folders/files as if you were in the file manager
 alias open="xdg-open"
 
 # Zsh configuration and reload
-bindkey -s '^e' 'nvim ~/.zshrc && source ~/.zshrc^M'
 alias zshsource="source ~/.zshrc && echo 'sourced zshrc'"
 alias zshconfig="nvim ~/.zshrc && zshsource"
+bindkey -s '^e' "zshconfig\n"
 
 # Basic commands
 alias cp="cp -r"
@@ -31,8 +26,6 @@ if (( ${+commands[apt]} )); then
   alias pu="sudo apt update && sudo apt upgrade"
 elif (( ${+commands[pacman]} )); then
   alias pu="sudo pacman -Syu"
-elif (( ${+commands[dnf]} )); then
-  alias pu="sudo dnf upgrade"
 fi
 
 # See all processes
@@ -57,6 +50,11 @@ alias gtree="git log --graph --all"
 # }}}
 
 ############# Fzf ############# {{{
+
+# Ubuntu uses fdfind, all other use fd. Standardization.
+if (( ${+commands[fdfind]} )); then
+  alias fd=fdfind
+fi
 
 # Make fzf not collide with zsh
 export FZF_COMPLETION_TRIGGER='++'
@@ -92,15 +90,21 @@ export FZF_DEFAULT_OPTS="
 "
 
 # Fzf using fd instead of find
-export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude '.git'"
+local FD_DEFAULT_OPTS="--hidden --follow --exclude '.git'"
+if (( ${+commands[fdfind]} )); then
+  local FD_NAME="fdfind"
+elif (( ${+commands[fd]} )); then
+  local FD_NAME="fd"
+fi
+export FZF_DEFAULT_COMMAND="$FD_NAME $FD_DEFAULT_OPTS"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
 _fzf_compgen_path() {
-  fdfind . "$1"
+  fd . "$1"
 }
 _fzf_compgen_dir() {
-  fdfind --type d . "$1"
+  fd --type d . "$1"
 }
 
 # }}}
@@ -113,7 +117,7 @@ function fif() {
     echo "Need a string to search for!";
     return 1;
   fi
-  rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --preview "rg --ignore-case --pretty --context 10 '$1' {}"
+  rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --header='[find in file]' --preview "rg --ignore-case --pretty --context 10 '$1' {}"
 }
 
 # Linkdump 
