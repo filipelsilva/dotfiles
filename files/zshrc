@@ -1,10 +1,10 @@
 ############# Aliases / Keybinds ############# {{{
 
 # Deemix
-alias deemix="python3 /home/filipelsilva/Programs/deemix-pyweb/server.py"
+alias deemix="python3 /home/$USER/Programs/deemix-pyweb/server.py"
 
 # Tor Browser
-alias tor-browser="(cd /home/filipelsilva/Programs/tor-browser_en-US && ./start-tor-browser.desktop)"
+alias tor-browser="(cd /home/$USER/Programs/tor-browser_en-US && ./start-tor-browser.desktop)"
 
 # Open folders/files as if you were in the file manager
 alias open="xdg-open"
@@ -175,8 +175,6 @@ plugins=(
   zsh-autosuggestions
   zsh-aliases-exa
   fast-syntax-highlighting
-  #z
-  k
   fzf
   colored-man-pages
   git
