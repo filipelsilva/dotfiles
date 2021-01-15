@@ -97,7 +97,6 @@ syntax on
 set wildmode=longest:full,full
 set wildmenu
 set scrolloff=5
-set whichwrap+=<,>
 set ruler
 set showcmd
 
