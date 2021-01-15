@@ -5,7 +5,7 @@ rm ~/.zshrc
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Starship
-curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+#curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 
 # Geometry
 #git clone https://github.com/geometry-zsh/geometry ~/.oh-my-zsh/custom/themes/geometry
