@@ -167,7 +167,7 @@ export ZSH="/home/$USER/.oh-my-zsh"
 ZSH_THEME="filipe"
 
 # Bat theme
-export BAT_THEME="gruvbox"
+export BAT_THEME="base16"
 
 # Other settings
 HYPHEN_INSENSITIVE="true"
