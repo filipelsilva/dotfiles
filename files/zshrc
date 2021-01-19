@@ -47,6 +47,11 @@ alias oldvim="\vim"
 # Git quality of life improvement
 alias gtree="git log --graph --all"
 
+# Ubuntu has bat as batcat
+if (( ${+commands[batcat]} )); then
+  alias bat=batcat
+fi
+
 # }}}
 
 ############# Fzf ############# {{{
