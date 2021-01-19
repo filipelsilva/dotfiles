@@ -19,10 +19,11 @@ Also, there are two Zsh custom prompts.
 ## 2. Installers
 
 Scripts made by me, in order to install:
-* Packages (very basic, could crash due to old package names)
+* Packages
 * Plugins
 * Programs
 and also to symlink the dotfiles to `/home/`.
+Keep in mind: these are **very likely to break**.
 
 ## Usage
 
