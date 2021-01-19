@@ -22,6 +22,7 @@ Scripts made by me, in order to install:
 * Packages
 * Plugins
 * Programs
+
 and also to symlink the dotfiles to `/home/`.
 Keep in mind: these are **very likely to break**.
 
