@@ -27,6 +27,7 @@ Plug 'rstacruz/vim-closer' " Close brackets (pair with vim-endwise)
 Plug 'mbbill/undotree' " Undo menu
 Plug 'godlygeek/tabular' " Format columns
 Plug 'dyng/ctrlsf.vim' "Async finder
+Plug 'easymotion/vim-easymotion' " Easier movement on vim
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
