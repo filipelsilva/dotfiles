@@ -227,7 +227,7 @@ tx=38;5;242"
 #prompt typewritten
 
 # Zoxide integration 
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd j)"
 
 # TheFuck integration
 eval $(thefuck --alias)
