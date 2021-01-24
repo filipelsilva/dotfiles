@@ -32,9 +32,8 @@ Plug 'easymotion/vim-easymotion' " Easier movement on vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " File explorer
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-"Plug 'preservim/nerdtree' "NERDtree
-"Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax highlighting
+Plug 'preservim/nerdtree' "NERDtree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax highlighting
 " Themes
 Plug 'chriskempson/base16-vim'
 Plug 'shinchu/lightline-gruvbox.vim'
@@ -193,24 +192,16 @@ let g:lightline = {
 "lualine.theme = 'gruvbox'
 "EOF
 
-"" CHADtree
-map <C-o> :CHADopen<CR>
-let g:chadtree_settings = {
-   \'view': {'open_direction': 'right'},
-   \'theme': {'icon_glyph_set': 'ascii'},
-   \}
-
-"" NERDTree {{{
-"map <C-o> :NERDTreeToggle<CR>
-"let g:NERDTreeWinPos = "right" " NERDTree on the right
-"let NERDTreeMinimalUI = 1
-"let NERDTreeShowHidden = 1 " Show hidden files
-"let g:NERDTreeStatusline = ""
-"" Close window if NERDTree is the last one
-"autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-"let g:NERDTreeHighlightFolders = 1
-"let g:NERDTreeHighlightFoldersFullName = 1
-" }}}
+"" NERDTree
+map <C-o> :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right" " NERDTree on the right
+let NERDTreeMinimalUI = 1
+let NERDTreeShowHidden = 1 " Show hidden files
+let g:NERDTreeStatusline = ""
+" Close window if NERDTree is the last one
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeHighlightFolders = 1
+let g:NERDTreeHighlightFoldersFullName = 1
 
 " Fzf
 nnoremap <C-p> :Files<CR>
