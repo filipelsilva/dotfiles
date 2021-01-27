@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Programs
-sudo pip3 install --upgrade tmuxp thefuck bpytop pip-upgrade-outdated pynvim
+pip3 install --user --upgrade tmuxp thefuck bpytop pip-upgrade-outdated pynvim

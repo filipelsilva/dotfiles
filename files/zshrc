@@ -165,6 +165,9 @@ function switch() {
 
 ############# Plugins/Themes/Other ############# {{{
 
+# Pip
+export PATH=$PATH:/home/$USER/.local/bin
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$USER/.oh-my-zsh"
 
@@ -240,7 +243,7 @@ export DISABLE_AUTO_TITLE='true'
 source /home/$USER/.config/forgit/forgit.plugin.zsh
 
 # Cargo
-source ~/.cargo/env
+source /home/$USER/.cargo/env
 
 # Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
