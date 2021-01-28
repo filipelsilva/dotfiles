@@ -151,16 +151,6 @@ function fp() {
   fi
 }
 
-# Change between intel and nvidia graphics card
-function switch() {
-  if sudo prime-select query | grep -q 'intel'; then
-    sudo prime-select nvidia
-  else
-    sudo prime-select intel
-  fi
-  reboot
-}
-
 # }}}
 
 ############# Plugins/Themes/Other ############# {{{
