@@ -153,8 +153,8 @@ function pu {
     sudo apt update && sudo apt upgrade
   elif (( ${+commands[pacman]} )); then
     sudo pacman -Syu
-    if (( ${+commands[yay]} )); then
-      yay -Syu --devel --timeupdate
+    if (( ${+commands[paru]} )); then
+      paru -Sua
     fi
   fi
 }
