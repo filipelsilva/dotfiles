@@ -22,11 +22,6 @@ alias mkdir="mkdir -p"
 #Update packages
 alias pipup="pip_upgrade_outdated -3"
 alias cargoup="cargo install-update -a"
-if (( ${+commands[apt]} )); then
-  alias pu="sudo apt update && sudo apt upgrade"
-elif (( ${+commands[pacman]} )); then
-  alias pu="sudo pacman -Syu"
-fi
 
 # See all processes
 alias psa="ps aux | fzf ${FZF_DEFAULT_OPTS} --header='[name:process]'"
@@ -148,6 +143,19 @@ function fp() {
   if [[ -d $loc ]]; then
     echo "$(rg --files $loc | rev | cut -d"/" -f1 | rev)" | eval "fzf --header='[find:exe] => ${loc}' >/dev/null"
     fp
+  fi
+}
+
+# [P]ackage [U]pdate
+
+function pu {
+  if (( ${+commands[apt]} )); then
+    sudo apt update && sudo apt upgrade
+  elif (( ${+commands[pacman]} )); then
+    sudo pacman -Syu
+    if (( ${+commands[yay]} )); then
+      yay -Syu --devel --timeupdate
+    fi
   fi
 }
 
