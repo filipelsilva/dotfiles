@@ -69,7 +69,9 @@ window:
 
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: false
-
+  
+  WINIT_HIDPI_FACTOR: 1
+  
   # Window class (Linux/BSD only):
   #class:
     # Application instance name

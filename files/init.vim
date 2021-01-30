@@ -76,7 +76,7 @@ set nomodeline
 set foldenable
 set foldmethod=marker
 set hidden
-set nowrap
+"set nowrap
 set autoindent
 set copyindent
 set showmatch
