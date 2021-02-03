@@ -236,7 +236,7 @@ nmap <F8> :TagbarToggle<CR>
 
 " Tab complete
 let g:deoplete#enable_at_startup = 1
-
+call deoplete#custom#source('file', 'rank', 600)
 call deoplete#custom#option({
    \ 'auto_complete_popup': 'manual',
    \ })
