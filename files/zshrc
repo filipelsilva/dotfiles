@@ -147,7 +147,6 @@ function fp() {
 }
 
 # [P]ackage [U]pdate
-
 function pu {
   if (( ${+commands[apt]} )); then
     sudo apt update && sudo apt upgrade
