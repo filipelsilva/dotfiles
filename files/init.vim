@@ -79,7 +79,7 @@ set hidden
 "set nowrap
 set autoindent
 set copyindent
-set showmatch
+"set showmatch
 set ignorecase
 set smartcase
 set hlsearch
@@ -196,7 +196,7 @@ let g:lightline = {
 map <C-o> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right" " NERDTree on the right
 let NERDTreeMinimalUI = 1
-let NERDTreeShowHidden = 1 " Show hidden files
+"let NERDTreeShowHidden = 1 " Show hidden files
 let g:NERDTreeStatusline = ""
 " Close window if NERDTree is the last one
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
