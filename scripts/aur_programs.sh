@@ -1,9 +1,9 @@
 #!/bin/bash
 
 sudo pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/paru.git ~/.paru
-(cd ~/.paru && makepkg -si)
+git clone https://aur.archlinux.org/aur.git ~/.aur
+(cd ~/.aur && makepkg -si)
 
-paru -S --noconfirm tealdeer git-delta topgrade 
+aur -S --noconfirm tealdeer git-delta topgrade bottom dust sd
 # Extras: 
-# paru -S --noconfirm optimus-manager ttf-iosevka ttf-iosevka-term
+# aur -S --noconfirm optimus-manager ttf-iosevka ttf-iosevka-term

@@ -20,14 +20,15 @@ Plug 'mg979/vim-visual-multi' " Multiple cursors
 Plug 'w0rp/ale' " Linter
 Plug 'psliwka/vim-smoothie' " Smooth scrolling
 Plug 'kassio/neoterm' " Terminal shortcuts
-Plug 'mhinz/vim-startify' " Start menu for vim
+Plug 'mhinz/vim-startify' " Start menu for vim append file
 Plug 'brooth/far.vim' " Find and Replace
 Plug 'roryokane/detectindent' " Detect default identation
 Plug 'rstacruz/vim-closer' " Close brackets (pair with vim-endwise)
 Plug 'mbbill/undotree' " Undo menu
-Plug 'godlygeek/tabular' " Format columns
 Plug 'dyng/ctrlsf.vim' "Async finder
 Plug 'easymotion/vim-easymotion' " Easier movement on vim
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } } " Templates
+Plug 'junegunn/vim-easy-align' " Align by columns
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -221,8 +222,17 @@ nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
-" Gundo.vim
+" Undo Tree
 nnoremap <F5> :UndotreeToggle<CR>
+
+" DoGe
+let g:doge_mapping = '<Leader>dg'
+
+"" Vim-Easy-Align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 "" Tagbar
 " Focus the panel when opening it

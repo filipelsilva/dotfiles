@@ -12,5 +12,5 @@ git clone https://github.com/mosmeh/indexa ~/indexa
 rm -rf ~/indexa
 
 if ( command -v apt-get &> /dev/null ); then
-	cargo install exa tokei hyperfine tealdeer git-delta topgrade
+	cargo install exa tokei hyperfine tealdeer git-delta topgrade bottom du-dust sd
 fi
