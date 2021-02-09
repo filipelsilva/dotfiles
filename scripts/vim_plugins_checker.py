@@ -1,3 +1,5 @@
+#!env python3
+
 import webbrowser
 
 def charposition(string, char):

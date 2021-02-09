@@ -25,7 +25,6 @@ Plug 'brooth/far.vim' " Find and Replace
 Plug 'roryokane/detectindent' " Detect default identation
 Plug 'rstacruz/vim-closer' " Close brackets (pair with vim-endwise)
 Plug 'mbbill/undotree' " Undo menu
-Plug 'dyng/ctrlsf.vim' "Async finder
 Plug 'easymotion/vim-easymotion' " Easier movement on vim
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } } " Templates
 Plug 'junegunn/vim-easy-align' " Align by columns
@@ -40,7 +39,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'shinchu/lightline-gruvbox.vim'
 "Plug 'NLKNguyen/papercolor-theme'
 "Plug 'sainnhe/gruvbox-material'
-"Plug 'shinchu/lightline-gruvbox.vim'
 call plug#end()
 " }}}
 
@@ -211,16 +209,6 @@ let g:fzf_action = {
    \ 'ctrl-s': 'split',
    \ 'ctrl-v': 'vsplit'
    \}
-
-" CtrlSF
-nmap     <C-F>f <Plug>CtrlSFPrompt
-vmap     <C-F>f <Plug>CtrlSFVwordPath
-vmap     <C-F>F <Plug>CtrlSFVwordExec
-nmap     <C-F>n <Plug>CtrlSFCwordPath
-nmap     <C-F>p <Plug>CtrlSFPwordPath
-nnoremap <C-F>o :CtrlSFOpen<CR>
-nnoremap <C-F>t :CtrlSFToggle<CR>
-inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 " Undo Tree
 nnoremap <F5> :UndotreeToggle<CR>
