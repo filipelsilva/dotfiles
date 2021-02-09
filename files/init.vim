@@ -96,7 +96,7 @@ filetype plugin indent on
 syntax on
 set wildmode=longest:full,full
 set wildmenu
-set scrolloff=5
+"set scrolloff=5
 set ruler
 set showcmd
 
