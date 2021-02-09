@@ -6,3 +6,6 @@ nvim -c ":so ~/.config/nvim/init.vim" -c "q"
 
 # Set default shell
 chsh -s "$(command -v zsh)"
+
+# Set completion theme
+fast-theme forest
