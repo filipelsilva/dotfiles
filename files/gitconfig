@@ -5,3 +5,6 @@
 	editor = code
 [diff]
 	tool = meld
+[delta]
+	line-numbers = true
+	#side-by-side = true
