@@ -1,5 +1,5 @@
-PROMPT='%B%{$fg[yellow]%}%n@%m/%{$fg[red]%}%2~%{$fg[cyan]%}/$(git_prompt_info)%b%{$reset_color%} '
-RPROMPT='%{$reset_color%}%B%(?..%{$fg[red]%}ERR:%?|)%{$fg[yellow]%}%*%b%{$reset_color%}'
+PROMPT='%B%{$fg[magenta]%}%n@%m/%{$fg[red]%}%2~%{$fg[cyan]%}/$(git_prompt_info)%b%{$reset_color%} '
+RPROMPT='%{$reset_color%}%B%(?..%{$fg[red]%}ERR:%?|)%{$fg[magenta]%}%*%b%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX="/%{$reset_color%}"
