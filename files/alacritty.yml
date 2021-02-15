@@ -13,8 +13,10 @@ env:
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
   TERM: alacritty
+  #WINIT_HIDPI_FACTOR: "1"
+# }}}
 
-window:
+window: # {{{
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
