@@ -15,5 +15,6 @@ ln -s ~/dotfiles/files/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/files/starship.toml ~/.config/starship.toml
 ln -s ~/dotfiles/files/filipe.zsh-theme ~/.oh-my-zsh/custom/themes/filipe.zsh-theme
 ln -s ~/dotfiles/files/filipe2.zsh-theme ~/.oh-my-zsh/custom/themes/filipe2.zsh-theme
+ln -s ~/dotfiles/files/filipe3.zsh-theme ~/.oh-my-zsh/custom/themes/filipe3.zsh-theme
 ln -s ~/dotfiles/files/zsh/fp ~/.zsh/fp
 ln -s ~/dotfiles/files/zsh/kp ~/.zsh/kp
