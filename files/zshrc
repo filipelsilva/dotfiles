@@ -169,7 +169,7 @@ export PATH=$PATH:/home/$USER/.local/bin
 export ZSH="/home/$USER/.oh-my-zsh"
 
 # Theme
-ZSH_THEME="filipe"
+ZSH_THEME="filipe2"
 
 # Bat theme
 export BAT_THEME="base16"
