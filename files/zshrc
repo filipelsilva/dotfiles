@@ -162,6 +162,9 @@ function pu {
 
 ############# Plugins/Themes/Other ############# {{{
 
+# Editor
+export EDITOR=nvim
+
 # Pip
 export PATH=$PATH:/home/$USER/.local/bin
 
@@ -186,6 +189,8 @@ plugins=(
   fzf
   colored-man-pages
   git
+  sudo
+  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
