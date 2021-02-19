@@ -4,7 +4,7 @@ let mapleader = ","
 " Plugins {{{
 call plug#begin()
 Plug 'sheerun/vim-polyglot' " Language packs
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Completion
+Plug 'lifepillar/vim-mucomplete' " Completion
 Plug 'pechorin/any-jump.vim' " Code inspections/references
 Plug 'airblade/vim-gitgutter' " Show git differences
 Plug 'itchyny/lightline.vim' " Tabline
@@ -166,6 +166,10 @@ nnoremap k gk
 
 " Plugin Configurations {{{
 
+" MuComplete
+set completeopt+=menuone
+"let g:mucomplete#enable_auto_at_startup = 1
+
 " Detect Identation
 augroup DetectIndent
    autocmd!
@@ -232,18 +236,4 @@ let g:tagbar_position = 'botright vertical'
 " Mapping to open and close the panel
 nmap <F8> :TagbarToggle<CR>
 
-" Tab complete
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#source('file', 'rank', 600)
-call deoplete#custom#option({
-   \ 'auto_complete_popup': 'manual',
-   \ })
-inoremap <silent><expr> <TAB>
-   \ pumvisible() ? "\<C-n>" :
-   \ <SID>check_back_space() ? "\<Tab>" :
-   \ deoplete#complete()
-function! s:check_back_space() abort
-let col = col('.') - 1
-return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 " }}}
