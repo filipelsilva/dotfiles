@@ -20,7 +20,7 @@ Plug 'mg979/vim-visual-multi' " Multiple cursors
 Plug 'w0rp/ale' " Linter
 Plug 'psliwka/vim-smoothie' " Smooth scrolling
 Plug 'kassio/neoterm' " Terminal shortcuts
-Plug 'mhinz/vim-startify' " Start menu for vim append file
+Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'brooth/far.vim' " Find and Replace
 Plug 'roryokane/detectindent' " Detect default identation
 Plug 'rstacruz/vim-closer' " Close brackets (pair with vim-endwise)
