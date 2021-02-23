@@ -14,7 +14,9 @@ echo "# 2.1. Pip"
 ./scripts/pip_programs.sh
 echo "# 2.2. Cargo"
 ./scripts/cargo_programs.sh
-echo "# 2.3. Miscellaneous"
+echo "# 2.3. Go"
+./scripts/go_programs.sh
+echo "# 2.4. Miscellaneous"
 ./scripts/other_programs.sh
 
 echo "# 3. Installing zsh plugins..."

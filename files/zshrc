@@ -178,6 +178,9 @@ export EDITOR=nvim
 # Pip
 export PATH=$PATH:/home/$USER/.local/bin
 
+# Go
+export PATH=$PATH:/home/$USER/go/bin
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$USER/.oh-my-zsh"
 
