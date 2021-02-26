@@ -70,6 +70,7 @@ colorscheme base16-gruvbox-dark-pale
 " }}}
 
 " Settings {{{
+set guicursor=
 set nocompatible
 set nomodeline
 set foldenable

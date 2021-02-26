@@ -321,14 +321,14 @@ selection: # {{{
   save_to_clipboard: true
 # }}}
 
-#cursor: # {{{
+cursor: # {{{
   # Cursor style
   #
   # Values for `style`:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  # style: Underline 
+  style: Beam 
 
   # Vi mode cursor style
   #
