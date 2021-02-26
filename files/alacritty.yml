@@ -328,7 +328,7 @@ cursor: # {{{
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  style: Beam 
+  style: Underline 
 
   # Vi mode cursor style
   #
