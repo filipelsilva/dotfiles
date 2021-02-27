@@ -111,7 +111,7 @@ _fzf_compgen_dir() {
 
 ############# Functions ############# {{{
 
-# find-in-file - usage: fif <SEARCH_TERM>
+# [F]ind-[I]n-[F]ile
 function fif() {
   if [ ! "$#" -gt 0 ]; then
     echo "Need a string to search for!";
@@ -120,8 +120,8 @@ function fif() {
   rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --header='[find in file]' --preview "rg --ignore-case --pretty --context 10 '$1' {}"
 }
 
-# Linkdump 
-function linkdump() {
+# [Li]nk[du]mp
+function lidu() {
   lynx -dump -listonly -nonumbers $1 | grep .pdf > dump.txt
   wget -i dump.txt
   rm dump.txt
