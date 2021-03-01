@@ -1,5 +1,8 @@
 ############# Aliases / Keybinds ############# {{{
 
+# Temporary
+alias links="bat ~/OneDrive/tecnico/2º\ Ano/2º\ Semestre/Calendários/links.txt"
+
 # Deemix
 alias deemix="python3 /home/$USER/Programs/deemix-pyweb/server.py"
 
