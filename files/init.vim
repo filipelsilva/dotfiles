@@ -15,7 +15,6 @@ Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'tpope/vim-eunuch' " UNIX commands in vim
 Plug 'tpope/vim-surround' " Do surroundings
 Plug 'tpope/vim-abolish' " Change word structures
-Plug 'tpope/vim-endwise' " End structures
 Plug 'mg979/vim-visual-multi' " Multiple cursors
 Plug 'w0rp/ale' " Linter
 Plug 'psliwka/vim-smoothie' " Smooth scrolling
@@ -23,7 +22,7 @@ Plug 'kassio/neoterm' " Terminal shortcuts
 Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'brooth/far.vim' " Find and Replace
 Plug 'roryokane/detectindent' " Detect default identation
-Plug 'rstacruz/vim-closer' " Close brackets (pair with vim-endwise)
+Plug 'jiangmiao/auto-pairs' " Close brackets
 Plug 'mbbill/undotree' " Undo menu
 Plug 'easymotion/vim-easymotion' " Easier movement on vim
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } } " Templates
