@@ -8,4 +8,4 @@ nvim -c ":so ~/.config/nvim/init.vim" -c "q" -c "q"
 chsh -s "$(command -v zsh)"
 
 # Set completion theme
-zsh -c "source ~/.zshrc && fast-theme forest"
+zsh -c "source ~/.zshrc && fast-theme free"
