@@ -220,13 +220,6 @@ let g:lightline = {
 	\ },
 	\ }
 
-" Lualine
-"lua << EOF
-"local lualine = require('lualine')
-"lualine.status()
-"lualine.theme = 'gruvbox'
-"EOF
-
 "" NERDTree
 map <C-o> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right" " NERDTree on the right
