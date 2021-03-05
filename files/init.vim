@@ -3,12 +3,16 @@ let mapleader = ","
 
 " Plugins {{{
 call plug#begin()
+if has('nvim-0.5.0')
+	Plug 'hoob3rt/lualine.nvim' " Tabline
+else
+	Plug 'itchyny/lightline.vim' " Tabline
+	Plug 'shinchu/lightline-gruvbox.vim' " Lightline theme
+endif
 Plug 'sheerun/vim-polyglot' " Language packs
 Plug 'lifepillar/vim-mucomplete' " Completion
 Plug 'pechorin/any-jump.vim' " Code inspections/references
 Plug 'airblade/vim-gitgutter' " Show git differences
-Plug 'itchyny/lightline.vim' " Tabline
-"Plug 'hoob3rt/lualine.nvim' " Tabline (TRY ON NEOVIM 0.5.0)
 Plug 'preservim/tagbar' " Class outline viewer
 Plug 'preservim/nerdcommenter' " Do comments
 Plug 'tpope/vim-fugitive' " Git wrapper
@@ -25,7 +29,6 @@ Plug 'roryokane/detectindent' " Detect default identation
 Plug 'jiangmiao/auto-pairs' " Close brackets
 Plug 'mbbill/undotree' " Undo menu
 Plug 'easymotion/vim-easymotion' " Easier movement on vim
-Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } } " Templates
 Plug 'junegunn/vim-easy-align' " Align by columns
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -35,7 +38,6 @@ Plug 'preservim/nerdtree' "NERDtree
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax highlighting
 " Themes
 Plug 'chriskempson/base16-vim'
-Plug 'shinchu/lightline-gruvbox.vim'
 "Plug 'NLKNguyen/papercolor-theme'
 "Plug 'sainnhe/gruvbox-material'
 call plug#end()
@@ -54,11 +56,11 @@ set t_Co=256
 highlight Comment cterm=italic gui=italic
 
 if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
 if (has("termguicolors"))
-    set termguicolors
+	set termguicolors
 endif
 
 set background=dark
@@ -105,7 +107,7 @@ nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
 nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
 
 " Undo across exits
-set undodir=~/.vim-undo
+set undodir=/home/$USER/.vim-undo
 set undofile
 set undolevels=10000
 
@@ -170,24 +172,52 @@ nnoremap k gk
 set completeopt+=menuone
 "let g:mucomplete#enable_auto_at_startup = 1
 
-" Detect Identation
-augroup DetectIndent
-   autocmd!
-   autocmd BufReadPost *  DetectIndent
-augroup END
+"" Detect Identation
+"augroup DetectIndent
+"   autocmd!
+"   autocmd BufReadPost *  DetectIndent
+"augroup END
+
+" Lualine
+let g:lualine = {
+	\'options' : {
+	\  'theme' : 'gruvbox_material',
+	\  'section_separators' : ['', ''],
+	\  'component_separators' : ['', ''],
+	\  'icons_enabled' : v:false,
+	\},
+	\'sections' : {
+	\  'lualine_a' : [ ['mode', {'upper': v:true,},], ],
+	\  'lualine_b' : [ ['filename', {'file_status': v:false,},], ],
+	\  'lualine_c' : [ ['branch'], ],
+	\  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
+	\  'lualine_y' : [ 'progress' ],
+	\  'lualine_z' : [ 'location' ],
+	\},
+	\'inactive_sections' : {
+	\  'lualine_a' : [  ],
+	\  'lualine_b' : [  ],
+	\  'lualine_c' : [ 'filename' ],
+	\  'lualine_x' : [ 'location' ],
+	\  'lualine_y' : [  ],
+	\  'lualine_z' : [  ],
+	\},
+	\'extensions' : [ 'fzf' ],
+	\}
+lua require("lualine").status()
 
 " Make lightline work with vim-fugitive
 let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-    \   'right': [ [ 'lineinfo' ], [ 'percent' ],
-    \             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
-    \ },
-    \ 'component_function': {
-    \   'gitbranch': 'FugitiveHead'
-    \ },
+		\ 'colorscheme': 'gruvbox',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+	\   'right': [ [ 'lineinfo' ], [ 'percent' ],
+	\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
+	\ },
+	\ 'component_function': {
+	\   'gitbranch': 'FugitiveHead'
+	\ },
 	\ }
 
 " Lualine
@@ -211,16 +241,13 @@ let g:NERDTreeHighlightFoldersFullName = 1
 " Fzf
 nnoremap <C-p> :Files<CR>
 let g:fzf_action = {
-   \'ctrl-t': 'tab split',
-   \ 'ctrl-s': 'split',
-   \ 'ctrl-v': 'vsplit'
-   \}
+	\'ctrl-t': 'tab split',
+	\ 'ctrl-s': 'split',
+	\ 'ctrl-v': 'vsplit'
+	\}
 
 " Undo Tree
 nnoremap <F5> :UndotreeToggle<CR>
-
-" DoGe
-let g:doge_mapping = '<Leader>dg'
 
 "" Vim-Easy-Align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
