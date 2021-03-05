@@ -150,11 +150,6 @@ function fp() {
   fi
 }
 
-# [Send]
-function send() {
-  git add -A && git commit -m "$*" && git push
-}
-
 # [L]azy[G]it
 function lg() {
   export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
