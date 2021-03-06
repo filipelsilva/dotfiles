@@ -5,6 +5,7 @@ let mapleader = ","
 call plug#begin()
 if has('nvim-0.5.0')
 	Plug 'hoob3rt/lualine.nvim' " Status line
+	Plug 'mkitt/tabline.vim'
 else
 	Plug 'itchyny/lightline.vim' " Status line
 	Plug 'shinchu/lightline-gruvbox.vim' " Lightline theme
