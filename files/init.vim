@@ -36,6 +36,7 @@ Plug 'jiangmiao/auto-pairs' " Close brackets
 Plug 'mbbill/undotree' " Undo menu
 Plug 'easymotion/vim-easymotion' " Easier movement on vim
 Plug 'junegunn/vim-easy-align' " Align by columns
+Plug 'wellle/context.vim' " Show context of code
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
