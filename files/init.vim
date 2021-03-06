@@ -14,7 +14,8 @@ else
 	Plug 'itchyny/lightline.vim' " Status line
 	Plug 'shinchu/lightline-gruvbox.vim' " Lightline theme
 endif
-Plug 'sheerun/vim-polyglot' " Language packs
+"Plug 'sheerun/vim-polyglot' " Language packs
+Plug 'nvim-treesitter/nvim-treesitter' "Language packs
 Plug 'lifepillar/vim-mucomplete' " Completion
 Plug 'pechorin/any-jump.vim' " Code inspections/references
 Plug 'airblade/vim-gitgutter' " Show git differences
