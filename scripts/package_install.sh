@@ -20,7 +20,7 @@ elif ( command -v pacman &> /dev/null ); then
         lynx ripgrep fd the_silver_searcher nodejs npm neofetch screenfetch\
         pkg-config make entr rlwrap ctags hexyl bat cmake shellcheck go exa\
         tokei hyperfine
-    ./scripts/yay_programs.sh
+    ./scripts/aur_programs.sh
 
 fi
 
