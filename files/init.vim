@@ -5,7 +5,11 @@ let mapleader = ","
 call plug#begin()
 if has('nvim-0.5.0')
 	Plug 'hoob3rt/lualine.nvim' " Status line
-	Plug 'mkitt/tabline.vim'
+	Plug 'mkitt/tabline.vim' " Tabline
+	" Telescope.nvim
+	Plug 'nvim-lua/popup.nvim' 
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim'
 else
 	Plug 'itchyny/lightline.vim' " Status line
 	Plug 'shinchu/lightline-gruvbox.vim' " Lightline theme
@@ -178,6 +182,12 @@ set completeopt+=menuone
 "   autocmd!
 "   autocmd BufReadPost *  DetectIndent
 "augroup END
+
+" Telescope.nvim
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Lualine
 let g:lualine = {
