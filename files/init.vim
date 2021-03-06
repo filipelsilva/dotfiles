@@ -4,9 +4,9 @@ let mapleader = ","
 " Plugins {{{
 call plug#begin()
 if has('nvim-0.5.0')
-	Plug 'hoob3rt/lualine.nvim' " Tabline
+	Plug 'hoob3rt/lualine.nvim' " Status line
 else
-	Plug 'itchyny/lightline.vim' " Tabline
+	Plug 'itchyny/lightline.vim' " Status line
 	Plug 'shinchu/lightline-gruvbox.vim' " Lightline theme
 endif
 Plug 'sheerun/vim-polyglot' " Language packs
