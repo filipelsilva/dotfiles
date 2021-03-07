@@ -6,10 +6,6 @@ call plug#begin()
 if has('nvim-0.5.0')
 	Plug 'hoob3rt/lualine.nvim' " Status line
 	Plug 'mkitt/tabline.vim' " Tabline
-	" Telescope.nvim
-	Plug 'nvim-lua/popup.nvim' 
-	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim'
 else
 	Plug 'itchyny/lightline.vim' " Status line
 	Plug 'shinchu/lightline-gruvbox.vim' " Lightline theme
@@ -33,9 +29,7 @@ Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'brooth/far.vim' " Find and Replace
 Plug 'roryokane/detectindent' " Detect default identation
 Plug 'jiangmiao/auto-pairs' " Close brackets
-Plug 'mbbill/undotree' " Undo menu
 Plug 'easymotion/vim-easymotion' " Easier movement on vim
-Plug 'junegunn/vim-easy-align' " Align by columns
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -174,19 +168,9 @@ nnoremap k gk
 
 " Plugin Configurations {{{
 
-" Treesitter
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    -- disable = { "c", "rust" },  -- list of language that will be disabled
-  },
-}
-EOF
-
 " MuComplete
 set completeopt+=menuone
+set completeopt-=preview
 "let g:mucomplete#enable_auto_at_startup = 1
 
 "" Detect Identation
@@ -195,11 +179,18 @@ set completeopt+=menuone
 "   autocmd BufReadPost *  DetectIndent
 "augroup END
 
-" Telescope.nvim
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" Fzf
+nnoremap <leader>ff <cmd>Files<cr>
+nnoremap <leader>fg <cmd>Rg<cr>
+nnoremap <leader>fb <cmd>Buffers<cr>
+nnoremap <leader>fh <cmd>Helptags<cr>
+nnoremap <leader>fc <cmd>Commits<cr>
+let g:fzf_action = {
+	\ 'ctrl-t': 'tab split',
+	\ 'ctrl-s': 'split',
+	\ 'ctrl-v': 'vsplit'
+	\}
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
 " Lualine
 let g:lualine = {
@@ -254,23 +245,6 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeHighlightFoldersFullName = 1
 
-" Fzf
-nnoremap <C-p> :Files<CR>
-let g:fzf_action = {
-	\ 'ctrl-t': 'tab split',
-	\ 'ctrl-s': 'split',
-	\ 'ctrl-v': 'vsplit'
-	\}
-
-" Undo Tree
-nnoremap <F5> :UndotreeToggle<CR>
-
-"" Vim-Easy-Align
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
 "" Tagbar
 " Focus the panel when opening it
 let g:tagbar_autofocus = 1
@@ -280,5 +254,16 @@ let g:tagbar_autoshowtag = 1
 let g:tagbar_position = 'botright vertical'
 " Mapping to open and close the panel
 nmap <F8> :TagbarToggle<CR>
+
+" Treesitter
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    -- disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
 
 " }}}
