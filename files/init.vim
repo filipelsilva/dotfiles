@@ -1,5 +1,5 @@
 " <leader> key bind
-let mapleader = ","
+let mapleader = " "
 
 " Plugins {{{
 call plug#begin()
@@ -36,7 +36,6 @@ Plug 'jiangmiao/auto-pairs' " Close brackets
 Plug 'mbbill/undotree' " Undo menu
 Plug 'easymotion/vim-easymotion' " Easier movement on vim
 Plug 'junegunn/vim-easy-align' " Align by columns
-Plug 'wellle/context.vim' " Show context of code
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -175,6 +174,17 @@ nnoremap k gk
 
 " Plugin Configurations {{{
 
+" Treesitter
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    -- disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
+
 " MuComplete
 set completeopt+=menuone
 "let g:mucomplete#enable_auto_at_startup = 1
@@ -247,7 +257,7 @@ let g:NERDTreeHighlightFoldersFullName = 1
 " Fzf
 nnoremap <C-p> :Files<CR>
 let g:fzf_action = {
-	\'ctrl-t': 'tab split',
+	\ 'ctrl-t': 'tab split',
 	\ 'ctrl-s': 'split',
 	\ 'ctrl-v': 'vsplit'
 	\}
