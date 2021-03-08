@@ -6,11 +6,12 @@ call plug#begin()
 if has('nvim-0.5.0')
 	Plug 'hoob3rt/lualine.nvim' " Status line
 	Plug 'mkitt/tabline.vim' " Tabline
+	Plug 'nvim-treesitter/nvim-treesitter' " Language packs
 else
 	Plug 'itchyny/lightline.vim' " Status line
 	Plug 'shinchu/lightline-gruvbox.vim' " Lightline theme
+	Plug 'sheerun/vim-polyglot' " Language packs
 endif
-Plug 'nvim-treesitter/nvim-treesitter' "Language packs
 Plug 'lifepillar/vim-mucomplete' " Completion
 Plug 'pechorin/any-jump.vim' " Code inspections/references
 Plug 'airblade/vim-gitgutter' " Show git differences
@@ -191,46 +192,48 @@ let g:fzf_action = {
 	\}
 
 " Lualine
-let g:lualine = {
-	\'options' : {
-	\  'theme' : 'gruvbox_material',
-	\  'section_separators' : ['', ''],
-	\  'component_separators' : ['', ''],
-	\  'icons_enabled' : v:false,
-	\},
-	\'sections' : {
-	\  'lualine_a' : [ ['mode', {'upper': v:true,},], ],
-	\  'lualine_b' : [ ['filename', {'file_status': v:false,},], ],
-	\  'lualine_c' : [ ['branch'], ],
-	\  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
-	\  'lualine_y' : [ 'progress' ],
-	\  'lualine_z' : [ 'location' ],
-	\},
-	\'inactive_sections' : {
-	\  'lualine_a' : [  ],
-	\  'lualine_b' : [  ],
-	\  'lualine_c' : [ 'filename' ],
-	\  'lualine_x' : [ 'location' ],
-	\  'lualine_y' : [  ],
-	\  'lualine_z' : [  ],
-	\},
-	\'extensions' : [ 'fzf' ],
-	\}
-lua require("lualine").status()
-
-" Make lightline work with vim-fugitive
-let g:lightline = {
-		\ 'colorscheme': 'gruvbox',
-	\ 'active': {
-	\   'left': [ [ 'mode', 'paste' ],
-	\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-	\   'right': [ [ 'lineinfo' ], [ 'percent' ],
-	\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
-	\ },
-	\ 'component_function': {
-	\   'gitbranch': 'FugitiveHead'
-	\ },
-	\ }
+if has('nvim-0.5.0')
+	let g:lualine = {
+		\'options' : {
+		\  'theme' : 'gruvbox_material',
+		\  'section_separators' : ['', ''],
+		\  'component_separators' : ['', ''],
+		\  'icons_enabled' : v:false,
+		\},
+		\'sections' : {
+		\  'lualine_a' : [ ['mode', {'upper': v:true,},], ],
+		\  'lualine_b' : [ ['filename', {'file_status': v:false,},], ],
+		\  'lualine_c' : [ ['branch'], ],
+		\  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
+		\  'lualine_y' : [ 'progress' ],
+		\  'lualine_z' : [ 'location' ],
+		\},
+		\'inactive_sections' : {
+		\  'lualine_a' : [  ],
+		\  'lualine_b' : [  ],
+		\  'lualine_c' : [ 'filename' ],
+		\  'lualine_x' : [ 'location' ],
+		\  'lualine_y' : [  ],
+		\  'lualine_z' : [  ],
+		\},
+		\'extensions' : [ 'fzf' ],
+		\}
+	lua require("lualine").status()
+else
+	" Make lightline work with vim-fugitive
+	let g:lightline = {
+			\ 'colorscheme': 'gruvbox',
+		\ 'active': {
+		\   'left': [ [ 'mode', 'paste' ],
+		\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+		\   'right': [ [ 'lineinfo' ], [ 'percent' ],
+		\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
+		\ },
+		\ 'component_function': {
+		\   'gitbranch': 'FugitiveHead'
+		\ },
+		\ }
+endif
 
 "" NERDTree
 map <C-o> :NERDTreeToggle<CR>
@@ -254,14 +257,16 @@ let g:tagbar_position = 'botright vertical'
 nmap <F8> :TagbarToggle<CR>
 
 " Treesitter
+if has('nvim-0.5.0')
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    -- disable = { "c", "rust" },  -- list of language that will be disabled
-  },
+	ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	highlight = {
+		enable = true,              -- false will disable the whole extension
+		-- disable = { "c", "rust" },  -- list of language that will be disabled
+	},
 }
 EOF
+endif
 
 " }}}
