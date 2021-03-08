@@ -15,8 +15,6 @@ endif
 Plug 'lifepillar/vim-mucomplete' " Completion
 Plug 'pechorin/any-jump.vim' " Code inspections/references
 Plug 'airblade/vim-gitgutter' " Show git differences
-Plug 'preservim/tagbar' " Class outline viewer
-Plug 'preservim/nerdcommenter' " Do comments
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'tpope/vim-eunuch' " UNIX commands in vim
 Plug 'tpope/vim-surround' " Do surroundings
@@ -185,6 +183,7 @@ nnoremap <leader>fg <cmd>Rg<cr>
 nnoremap <leader>fb <cmd>Buffers<cr>
 nnoremap <leader>fh <cmd>Helptags<cr>
 nnoremap <leader>fc <cmd>Commits<cr>
+nnoremap <leader>ft <cmd>BTags<cr>
 let g:fzf_action = {
 	\ 'ctrl-t': 'tab split',
 	\ 'ctrl-s': 'split',
@@ -245,16 +244,6 @@ let g:NERDTreeStatusline = ""
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeHighlightFoldersFullName = 1
-
-"" Tagbar
-" Focus the panel when opening it
-let g:tagbar_autofocus = 1
-" Highlight the active tag
-let g:tagbar_autoshowtag = 1
-" Make panel vertical and place on the right
-let g:tagbar_position = 'botright vertical'
-" Mapping to open and close the panel
-nmap <F8> :TagbarToggle<CR>
 
 " Treesitter
 if has('nvim-0.5.0')
