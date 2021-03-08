@@ -64,7 +64,7 @@ colorscheme base16-gruvbox-dark-pale
 " }}}
 
 " Settings {{{
-let mapleader = " " " <leader> key bind
+let mapleader = " " "<leader> key bind
 "set guicursor=
 set nocompatible
 set nomodeline
