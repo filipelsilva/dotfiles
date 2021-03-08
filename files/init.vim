@@ -222,7 +222,7 @@ if has('nvim-0.5.0')
 else
 	" Make lightline work with vim-fugitive
 	let g:lightline = {
-			\ 'colorscheme': 'gruvbox',
+		\ 'colorscheme': 'gruvbox',
 		\ 'active': {
 		\   'left': [ [ 'mode', 'paste' ],
 		\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
