@@ -147,11 +147,12 @@ vnoremap <leader>x "_x
 nnoremap <leader>X "_X
 vnoremap <leader>X "_X
 
-" move vertically by visual line with j and k
+" Move vertically by visual line with j and k
 nnoremap j gj
 nnoremap k gk
 
-" normal mode in terminal shortcut
+" Terminal shortcuts
+nnoremap <leader>t <cmd>terminal<cr>
 tnoremap <Esc><Esc> <C-\><C-n>
 " }}}
 
@@ -187,6 +188,7 @@ function! GitStatus()
   return printf('+%d ~%d -%d', a, m, r)
 endfunction
 
+" Status lines
 if has('nvim-0.5.0')
 	" Lualine
 	let g:lualine = {
