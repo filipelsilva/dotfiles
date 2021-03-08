@@ -9,8 +9,8 @@ if ( command -v apt-get &> /dev/null ); then
     sudo apt-get install -qq -y zsh git curl wget glances htop neovim\
         python3-dev python3-pip python3-setuptools gcc valgrind gdb unzip zip\
         tmux tmate p7zip-full make lynx ripgrep fd-find silversearcher-ag\
-        nodejs npm neofetch screenfetch entr rlwrap ctags hexyl bat cmake\
-        shellcheck lazygit golang-go
+        nodejs npm neofetch screenfetch entr rlwrap exuberant-ctags hexyl bat\
+        cmake shellcheck lazygit golang-go
 
 elif ( command -v pacman &> /dev/null ); then
 
