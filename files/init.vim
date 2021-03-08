@@ -77,6 +77,7 @@ set wildmode=longest:full,full
 set wildmenu
 set ruler
 set showcmd
+set nohlsearch
 "set guicursor=
 "set scrolloff=5
 "set showmatch
@@ -149,6 +150,9 @@ vnoremap <leader>X "_X
 " move vertically by visual line with j and k
 nnoremap j gj
 nnoremap k gk
+
+" normal mode in terminal shortcut
+tnoremap <Esc><Esc> <C-\><C-n>
 " }}}
 
 " Plugin Configurations {{{
