@@ -10,7 +10,7 @@ if ( command -v apt-get &> /dev/null ); then
         python3-dev python3-pip python3-setuptools gcc valgrind gdb unzip zip\
         tmux tmate p7zip-full make lynx ripgrep fd-find silversearcher-ag\
         nodejs npm neofetch screenfetch entr rlwrap exuberant-ctags hexyl bat\
-        cmake shellcheck lazygit golang-go
+        cmake shellcheck lazygit golang
 
 elif ( command -v pacman &> /dev/null ); then
 
