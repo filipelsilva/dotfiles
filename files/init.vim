@@ -1,6 +1,3 @@
-" <leader> key bind
-let mapleader = " "
-
 " Plugins {{{
 call plug#begin()
 if has('nvim-0.5.0')
@@ -67,6 +64,7 @@ colorscheme base16-gruvbox-dark-pale
 " }}}
 
 " Settings {{{
+let mapleader = " " " <leader> key bind
 "set guicursor=
 set nocompatible
 set nomodeline
