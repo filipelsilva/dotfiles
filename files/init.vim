@@ -45,30 +45,22 @@ highlight Comment cterm=italic gui=italic
 if (has("nvim"))
 	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
-
 if (has("termguicolors"))
 	set termguicolors
 endif
 
-set background=dark
-
-"let g:gruvbox_material_background = 'hard'
-"colorscheme gruvbox-material
 colorscheme base16-gruvbox-dark-pale
 " }}}
 
 " Settings {{{
 let mapleader = " " "<leader> key bind
-"set guicursor=
 set nocompatible
 set nomodeline
 set foldenable
 set foldmethod=marker
 set hidden
-"set nowrap
 set autoindent
 set copyindent
-"set showmatch
 set ignorecase
 set smartcase
 set hlsearch
@@ -83,9 +75,12 @@ filetype plugin indent on
 syntax on
 set wildmode=longest:full,full
 set wildmenu
-"set scrolloff=5
 set ruler
 set showcmd
+"set guicursor=
+"set scrolloff=5
+"set showmatch
+"set nowrap
 
 " Undo across exits
 set undodir=/home/$USER/.vim-undo
