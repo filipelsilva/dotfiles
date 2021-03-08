@@ -177,8 +177,14 @@ let g:fzf_action = {
 	\ 'ctrl-v': 'vsplit'
 	\}
 
-" Lualine
+" Gitgutter
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+
 if has('nvim-0.5.0')
+	" Lualine
 	let g:lualine = {
 		\'options' : {
 		\  'theme' : 'gruvbox_material',
@@ -189,7 +195,7 @@ if has('nvim-0.5.0')
 		\'sections' : {
 		\  'lualine_a' : [ ['mode', {'upper': v:true,},], ],
 		\  'lualine_b' : [ ['filename', {'file_status': v:false,},], ],
-		\  'lualine_c' : [ ['branch'], ],
+		\  'lualine_c' : [ ['branch'], ['GitStatus'], ],
 		\  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
 		\  'lualine_y' : [ 'progress' ],
 		\  'lualine_z' : [ 'location' ],
@@ -211,12 +217,13 @@ else
 		\ 'colorscheme': 'gruvbox',
 		\ 'active': {
 		\   'left': [ [ 'mode', 'paste' ],
-		\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+		\             [ 'gitbranch', 'readonly', 'filename', 'modified', 'gitgutter' ] ],
 		\   'right': [ [ 'lineinfo' ], [ 'percent' ],
 		\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
 		\ },
 		\ 'component_function': {
-		\   'gitbranch': 'FugitiveHead'
+		\   'gitbranch': 'FugitiveHead',
+		\	'gitgutter': 'GitStatus'
 		\ },
 		\ }
 endif
