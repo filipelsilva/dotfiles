@@ -14,12 +14,9 @@ Plug 'airblade/vim-gitgutter' " Show git differences
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'tpope/vim-eunuch' " UNIX commands in vim
 Plug 'tpope/vim-surround' " Do surroundings
-Plug 'tpope/vim-abolish' " Change word structures
 Plug 'mg979/vim-visual-multi' " Multiple cursors
-"Plug 'w0rp/ale' " Linter
 Plug 'psliwka/vim-smoothie' " Smooth scrolling
 Plug 'mhinz/vim-startify' " Start menu for vim
-Plug 'brooth/far.vim' " Find and Replace
 Plug 'roryokane/detectindent' " Detect default identation
 Plug 'jiangmiao/auto-pairs' " Close brackets
 Plug 'easymotion/vim-easymotion' " Easier movement on vim
@@ -28,7 +25,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " File explorer
 Plug 'preservim/nerdtree' " NERDtree
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax highlighting
 " Themes
 Plug 'chriskempson/base16-vim'
 call plug#end()
