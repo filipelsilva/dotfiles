@@ -217,7 +217,7 @@ else
 		\ 'colorscheme': 'gruvbox',
 		\ 'active': {
 		\   'left': [ [ 'mode', 'paste' ],
-		\             [ 'gitbranch', 'readonly', 'filename', 'modified', 'gitgutter' ] ],
+		\             [ 'filename', 'gitbranch', 'gitgutter', 'readonly', 'modified' ] ],
 		\   'right': [ [ 'lineinfo' ], [ 'percent' ],
 		\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
 		\ },
