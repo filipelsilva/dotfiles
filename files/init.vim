@@ -10,7 +10,6 @@ else
 	Plug 'itchyny/lightline.vim' " Status line
 	Plug 'shinchu/lightline-gruvbox.vim' " Lightline theme
 endif
-"Plug 'sheerun/vim-polyglot' " Language packs
 Plug 'nvim-treesitter/nvim-treesitter' "Language packs
 Plug 'lifepillar/vim-mucomplete' " Completion
 Plug 'pechorin/any-jump.vim' " Code inspections/references
@@ -38,8 +37,6 @@ Plug 'preservim/nerdtree' "NERDtree
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax highlighting
 " Themes
 Plug 'chriskempson/base16-vim'
-"Plug 'NLKNguyen/papercolor-theme'
-"Plug 'sainnhe/gruvbox-material'
 call plug#end()
 " }}}
 
@@ -86,9 +83,6 @@ set smartcase
 set hlsearch
 set incsearch
 set pastetoggle=<F2>
-nmap <silent> ,/ :nohlsearch<CR>
-cmap w!! w !sudo tee % >/dev/null
-nnoremap « :
 set splitbelow
 set splitright
 set showtabline=1
@@ -101,10 +95,6 @@ set wildmenu
 "set scrolloff=5
 set ruler
 set showcmd
-
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
-nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
 
 " Undo across exits
 set undodir=/home/$USER/.vim-undo
@@ -128,6 +118,15 @@ set noshowmode
 " }}}
 
 " Keymaps {{{
+
+" General
+nmap <silent> ,/ :nohlsearch<CR>
+cmap w!! w !sudo tee % >/dev/null
+nnoremap « :
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
+nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
 
 " Easy window navigation
 map <C-h> <C-w>h
@@ -190,7 +189,6 @@ let g:fzf_action = {
 	\ 'ctrl-s': 'split',
 	\ 'ctrl-v': 'vsplit'
 	\}
-let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
 " Lualine
 let g:lualine = {

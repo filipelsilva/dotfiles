@@ -93,7 +93,8 @@ export FZF_DEFAULT_OPTS="
 " #--preview-window=:hidden"
 
 # Fzf using fd instead of find
-local FD_DEFAULT_OPTS="--hidden --follow --exclude '.git'"
+#local FD_DEFAULT_OPTS="--hidden --follow --exclude 'Games' --exclude '.git' --exclude '.wine'"
+local FD_DEFAULT_OPTS="--follow"
 if (( ${+commands[fdfind]} )); then
   local FD_NAME="fdfind"
 elif (( ${+commands[fd]} )); then
