@@ -154,7 +154,7 @@ nnoremap k gk
 
 " Terminal shortcuts
 nnoremap <leader>t <cmd>terminal<cr>
-tnoremap <Esc><Esc> <C-\><C-n>
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 " }}}
 
 " Plugin Configurations {{{
@@ -176,12 +176,12 @@ let g:fzf_action = {
 	\ 'ctrl-s': 'split',
 	\ 'ctrl-v': 'vsplit'
 	\}
-nnoremap <leader>ff <cmd>Files<cr>
-nnoremap <leader>fg <cmd>Rg<cr>
-nnoremap <leader>fb <cmd>Buffers<cr>
-nnoremap <leader>fh <cmd>Helptags<cr>
-nnoremap <leader>fc <cmd>Commits<cr>
-nnoremap <leader>ft <cmd>BTags<cr>
+nnoremap <silent> <leader>ff <cmd>Files<cr>
+nnoremap <silent> <leader>fg <cmd>Rg<cr>
+nnoremap <silent> <leader>fb <cmd>Buffers<cr>
+nnoremap <silent> <leader>fh <cmd>Helptags<cr>
+nnoremap <silent> <leader>fc <cmd>Commits<cr>
+nnoremap <silent> <leader>ft <cmd>BTags<cr>
 
 " Gitgutter
 function! GitStatus()
