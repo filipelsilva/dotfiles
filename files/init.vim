@@ -202,7 +202,7 @@ if has('nvim-0.5.0')
 		\'sections' : {
 		\  'lualine_a' : [ ['mode', {'upper': v:true,},], ],
 		\  'lualine_b' : [ ['filename', {'file_status': v:false,},], ],
-		\  'lualine_c' : [ ['branch'], ['GitStatus'], ],
+		\  'lualine_c' : [ 'branch', 'GitStatus' ],
 		\  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
 		\  'lualine_y' : [ 'progress' ],
 		\  'lualine_z' : [ 'location' ],
