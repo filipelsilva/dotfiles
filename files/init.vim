@@ -10,7 +10,7 @@ else
 	Plug 'sheerun/vim-polyglot' " Language packs
 endif
 Plug 'lifepillar/vim-mucomplete' " Completion
-Plug 'airblade/vim-gitgutter' " Show git differences
+Plug 'mhinz/vim-signify' " Show repo differences
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'tpope/vim-eunuch' " UNIX commands in vim
 Plug 'tpope/vim-surround' " Do surroundings
@@ -183,10 +183,18 @@ nnoremap <silent> <leader>fh <cmd>Helptags<cr>
 nnoremap <silent> <leader>fc <cmd>Commits<cr>
 nnoremap <silent> <leader>ft <cmd>BTags<cr>
 
-" Gitgutter
-function! GitStatus()
-  let [a,m,r] = GitGutterGetHunkSummary()
-  return printf('+%d ~%d -%d', a, m, r)
+"" Signify
+" Update sign column every quarter second
+set updatetime=250
+
+" Git status for file (diff)
+function! GitStatusLine()
+	let stats = sy#repo#get_stats_decorated()
+	if empty(stats)
+		return '%t'
+	else
+		return '%t '. stats
+	endif
 endfunction
 
 " Status lines
@@ -201,8 +209,8 @@ if has('nvim-0.5.0')
 		\},
 		\'sections' : {
 		\  'lualine_a' : [ ['mode', {'upper': v:true,},], ],
-		\  'lualine_b' : [ ['filename', {'file_status': v:false,},], ],
-		\  'lualine_c' : [ 'branch', 'GitStatus' ],
+		\  'lualine_b' : [ 'GitStatusLine' ],
+		\  'lualine_c' : [ 'branch' ],
 		\  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
 		\  'lualine_y' : [ 'progress' ],
 		\  'lualine_z' : [ 'location' ],
@@ -224,13 +232,13 @@ else
 		\ 'colorscheme': 'gruvbox',
 		\ 'active': {
 		\   'left': [ [ 'mode', 'paste' ],
-		\             [ 'filename', 'gitbranch', 'gitgutter', 'readonly', 'modified' ] ],
+		\             [ 'gitdiff', 'gitbranch', 'readonly', 'modified' ] ],
 		\   'right': [ [ 'lineinfo' ], [ 'percent' ],
 		\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
 		\ },
 		\ 'component_function': {
 		\   'gitbranch': 'FugitiveHead',
-		\	'gitgutter': 'GitStatus'
+		\	'gitdiff': 'GitStatusLine'
 		\ },
 		\ }
 endif
