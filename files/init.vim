@@ -14,6 +14,7 @@ Plug 'airblade/vim-gitgutter' " Show git differences
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'tpope/vim-eunuch' " UNIX commands in vim
 Plug 'tpope/vim-surround' " Do surroundings
+Plug 'tpope/vim-abolish' " Change word structures
 Plug 'mg979/vim-visual-multi' " Multiple cursors
 Plug 'psliwka/vim-smoothie' " Smooth scrolling
 Plug 'mhinz/vim-startify' " Start menu for vim
