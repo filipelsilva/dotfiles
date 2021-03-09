@@ -183,21 +183,8 @@ nnoremap <silent> <leader>fh <cmd>Helptags<cr>
 nnoremap <silent> <leader>fc <cmd>Commits<cr>
 nnoremap <silent> <leader>ft <cmd>BTags<cr>
 
-"" Signify
-" Update sign column every quarter second
+" Signify
 set updatetime=100
-
-" Git status for file (diff)
-function! GitStatusLine()
-	let stats = sy#repo#get_stats_decorated()
-	if empty(stats)
-		return '%t'
-	else
-		return '%t '. stats
-	endif
-endfunction
-
-" Maps
 nmap <leader>sn <plug>(signify-next-hunk)
 nmap <leader>sp <plug>(signify-prev-hunk)
 
@@ -213,7 +200,7 @@ if has('nvim-0.5.0')
 		\},
 		\'sections' : {
 		\  'lualine_a' : [ ['mode', {'upper': v:true,},], ],
-		\  'lualine_b' : [ 'GitStatusLine' ],
+		\  'lualine_b' : [ ['filename', {'file_status': v:false,},] ],
 		\  'lualine_c' : [ 'branch' ],
 		\  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
 		\  'lualine_y' : [ 'progress' ],
@@ -236,13 +223,12 @@ else
 		\ 'colorscheme': 'gruvbox',
 		\ 'active': {
 		\   'left': [ [ 'mode', 'paste' ],
-		\             [ 'gitdiff', 'gitbranch', 'readonly', 'modified' ] ],
+		\             [ 'filename', 'gitbranch', 'readonly', 'modified' ] ],
 		\   'right': [ [ 'lineinfo' ], [ 'percent' ],
 		\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
 		\ },
 		\ 'component_function': {
 		\   'gitbranch': 'FugitiveHead',
-		\	'gitdiff': 'GitStatusLine'
 		\ },
 		\ }
 endif
