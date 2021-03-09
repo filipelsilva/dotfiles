@@ -171,17 +171,17 @@ set completeopt-=preview
 "augroup END
 
 " Fzf
+let g:fzf_action = {
+	\ 'ctrl-t': 'tab split',
+	\ 'ctrl-s': 'split',
+	\ 'ctrl-v': 'vsplit'
+	\}
 nnoremap <leader>ff <cmd>Files<cr>
 nnoremap <leader>fg <cmd>Rg<cr>
 nnoremap <leader>fb <cmd>Buffers<cr>
 nnoremap <leader>fh <cmd>Helptags<cr>
 nnoremap <leader>fc <cmd>Commits<cr>
 nnoremap <leader>ft <cmd>BTags<cr>
-let g:fzf_action = {
-	\ 'ctrl-t': 'tab split',
-	\ 'ctrl-s': 'split',
-	\ 'ctrl-v': 'vsplit'
-	\}
 
 " Gitgutter
 function! GitStatus()
