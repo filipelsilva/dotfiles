@@ -185,7 +185,7 @@ nnoremap <silent> <leader>ft <cmd>BTags<cr>
 
 "" Signify
 " Update sign column every quarter second
-set updatetime=250
+set updatetime=100
 
 " Git status for file (diff)
 function! GitStatusLine()
@@ -196,6 +196,10 @@ function! GitStatusLine()
 		return '%t '. stats
 	endif
 endfunction
+
+" Maps
+nmap <leader>sn <plug>(signify-next-hunk)
+nmap <leader>sp <plug>(signify-prev-hunk)
 
 " Status lines
 if has('nvim-0.5.0')
