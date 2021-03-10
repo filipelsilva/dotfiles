@@ -193,7 +193,7 @@ nmap <leader>sp <plug>(signify-prev-hunk)
 
 " Status lines
 if has('nvim-0.5.0')
-	" Lualine
+	" Lualine {{{
 	let g:lualine = {
 		\'options' : {
 		\  'theme' : 'gruvbox_material',
@@ -220,8 +220,9 @@ if has('nvim-0.5.0')
 		\'extensions' : [ 'fzf' ],
 		\}
 	lua require("lualine").status()
+	" }}}
 else
-	" Make lightline work with vim-fugitive
+	" Lightline {{{
 	let g:lightline = {
 		\ 'colorscheme': 'gruvbox',
 		\ 'active': {
@@ -234,6 +235,7 @@ else
 		\   'gitbranch': 'FugitiveHead',
 		\ },
 		\ }
+	" }}}
 endif
 
 "" NERDTree
