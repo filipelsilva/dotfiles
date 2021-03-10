@@ -9,6 +9,7 @@ else
 	Plug 'shinchu/lightline-gruvbox.vim' " Lightline theme
 	Plug 'sheerun/vim-polyglot' " Language packs
 endif
+Plug 'dense-analysis/ale' " While no better alternative arrives, linter
 Plug 'lifepillar/vim-mucomplete' " Completion
 Plug 'mhinz/vim-signify' " Show repo differences
 Plug 'tpope/vim-fugitive' " Git wrapper
@@ -70,7 +71,7 @@ set wildmode=longest:full,full
 set wildmenu
 set ruler
 set showcmd
-set guicursor=
+"set guicursor=
 set scrolloff=5
 set signcolumn=yes
 
