@@ -39,8 +39,8 @@ alias tkill="tmux kill-session -t"
 alias tp="tmuxp"
 
 # Nvim to vim transition
-alias vim="nvim -p"
-alias v="nvim -p"
+alias vim="nvim"
+alias v="nvim"
 alias oldvim="\vim"
 
 # Git quality of life improvement
@@ -249,7 +249,7 @@ tx=38;5;242"
 #autoload -U promptinit; promptinit
 #prompt typewritten
 
-# Zoxide integration 
+# Zoxide integration
 eval "$(zoxide init zsh --cmd j)"
 
 # TheFuck integration
