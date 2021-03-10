@@ -32,14 +32,6 @@ call plug#end()
 " }}}
 
 " Colors/Themes {{{
-
-" Transparent background
-"hi Normal guibg=NONE ctermbg=NONE 
-
-" Force background
-"autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-
-" Colorscheme
 set t_Co=256
 highlight Comment cterm=italic gui=italic
 
@@ -64,7 +56,7 @@ set autoindent
 set copyindent
 set ignorecase
 set smartcase
-set hlsearch
+set nohlsearch
 set incsearch
 set pastetoggle=<F2>
 set splitbelow
@@ -78,11 +70,9 @@ set wildmode=longest:full,full
 set wildmenu
 set ruler
 set showcmd
-set nohlsearch
-"set guicursor=
-"set scrolloff=5
-"set showmatch
-"set nowrap
+set guicursor=
+set scrolloff=5
+set signcolumn=yes
 
 " Undo across exits
 set undodir=/home/$USER/.vim-undo
@@ -157,11 +147,23 @@ nnoremap <leader>t <cmd>terminal<cr>
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 " }}}
 
+" Functions {{{
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+augroup stopwhitespace
+	autocmd!
+	autocmd BufWritePre * :call TrimWhitespace()
+augroup END
+" }}}
+
 " Plugin Configurations {{{
 
 " MuComplete
-set completeopt+=menuone
-set completeopt-=preview
+set completeopt=menuone,noinsert,noselect
 "let g:mucomplete#enable_auto_at_startup = 1
 
 "" Detect Identation
@@ -256,5 +258,4 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 endif
-
 " }}}
