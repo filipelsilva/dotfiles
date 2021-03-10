@@ -2,7 +2,7 @@
 call plug#begin()
 if has('nvim-0.5.0')
 	Plug 'hoob3rt/lualine.nvim' " Status line
-	"Plug 'mkitt/tabline.vim' " Tabline
+	Plug 'webdevel/tabulous' " Tabline (for now, is needed)
 	Plug 'nvim-treesitter/nvim-treesitter' " Language packs
 else
 	Plug 'itchyny/lightline.vim' " Status line
@@ -13,8 +13,8 @@ Plug 'dense-analysis/ale' " While no better alternative arrives, linter
 Plug 'lifepillar/vim-mucomplete' " Completion
 Plug 'mhinz/vim-signify' " Show repo differences
 Plug 'tpope/vim-fugitive' " Git wrapper
-Plug 'tpope/vim-eunuch' " UNIX commands in vim
 Plug 'tpope/vim-surround' " Do surroundings
+Plug 'tpope/vim-commentary' " Comment stuff
 Plug 'tpope/vim-abolish' " Change word structures
 Plug 'mg979/vim-visual-multi' " Multiple cursors
 Plug 'psliwka/vim-smoothie' " Smooth scrolling
@@ -22,13 +22,10 @@ Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'roryokane/detectindent' " Detect default identation
 Plug 'jiangmiao/auto-pairs' " Close brackets
 Plug 'easymotion/vim-easymotion' " Easier movement on vim
-" Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-" File explorer
+Plug 'junegunn/fzf.vim' " Fuzzy finder
 Plug 'preservim/nerdtree' " NERDtree
-" Themes
-Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim' " Themes
 call plug#end()
 " }}}
 
@@ -150,7 +147,11 @@ augroup END
 set completeopt=menuone,noinsert,noselect
 "let g:mucomplete#enable_auto_at_startup = 1
 
-"" Detect Identation
+" Tabulous
+let tabulousCloseStr = ''
+let tabulousLabelNameOptions = ':.'
+
+" Detect Identation
 "augroup DetectIndent
 "   autocmd!
 "   autocmd BufReadPost * DetectIndent
