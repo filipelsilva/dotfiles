@@ -153,7 +153,7 @@ set completeopt=menuone,noinsert,noselect
 "" Detect Identation
 "augroup DetectIndent
 "   autocmd!
-"   autocmd BufReadPost *  DetectIndent
+"   autocmd BufReadPost * DetectIndent
 "augroup END
 
 " Fzf
