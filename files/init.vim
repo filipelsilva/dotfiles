@@ -2,7 +2,7 @@
 call plug#begin()
 if has('nvim-0.5.0')
 	Plug 'hoob3rt/lualine.nvim' " Status line
-	Plug 'mkitt/tabline.vim' " Tabline
+	"Plug 'mkitt/tabline.vim' " Tabline
 	Plug 'nvim-treesitter/nvim-treesitter' " Language packs
 else
 	Plug 'itchyny/lightline.vim' " Status line
@@ -98,32 +98,23 @@ set noshowmode
 
 " Keymaps {{{
 
-" General
-nmap <silent> ,/ :nohlsearch<CR>
-cmap w!! w !sudo tee % >/dev/null
-nnoremap « :
-
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
 nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
+
+" Move vertically by visual line with j and k
+nnoremap j gj
+nnoremap k gk
+
+" Terminal shortcuts
+nnoremap <leader>t <cmd>terminal<cr>
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-" Go to tab by number
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
 
 " Shortcut to use blackhole register by default
 nnoremap <leader>d "_d
@@ -138,14 +129,6 @@ nnoremap <leader>x "_x
 vnoremap <leader>x "_x
 nnoremap <leader>X "_X
 vnoremap <leader>X "_X
-
-" Move vertically by visual line with j and k
-nnoremap j gj
-nnoremap k gk
-
-" Terminal shortcuts
-nnoremap <leader>t <cmd>terminal<cr>
-tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 " }}}
 
 " Functions {{{
