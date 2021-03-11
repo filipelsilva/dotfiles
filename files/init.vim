@@ -24,7 +24,6 @@ Plug 'jiangmiao/auto-pairs' " Close brackets
 Plug 'easymotion/vim-easymotion' " Easier movement on vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Fuzzy finder
-Plug 'preservim/nerdtree' " NERDtree
 Plug 'chriskempson/base16-vim' " Themes
 call plug#end()
 " }}}
@@ -94,8 +93,7 @@ nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
 nnoremap j gj
 nnoremap k gk
 
-" Terminal shortcuts
-nnoremap <leader>t <cmd>terminal<cr>
+" Esc in terminal or in Fzf windows
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
 " Easy window navigation
@@ -150,20 +148,23 @@ let tabulousLabelNameOptions = ':.'
 "augroup END
 
 " Fzf {{{
-let g:fzf_action = { 'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit' }
-let g:fzf_layout = { 'right': '40%' }
-let g:fzf_preview_window = ['up:50%']
-nnoremap <silent> <leader>ff <cmd>Files<cr>
-nnoremap <silent> <leader>fg <cmd>Rg<cr>
-nnoremap <silent> <leader>fb <cmd>Buffers<cr>
-nnoremap <silent> <leader>fh <cmd>Helptags<cr>
-nnoremap <silent> <leader>fc <cmd>Commits<cr>
-nnoremap <silent> <leader>ft <cmd>BTags<cr>
+nnoremap <silent> <leader>f <cmd>Files<cr>
+nnoremap <silent> <leader>g <cmd>Rg<cr>
+nnoremap <silent> <leader>b <cmd>Buffers<cr>
+nnoremap <silent> <leader>t <cmd>BTags<cr>
 " No numbers in Fzf
 augroup FzfNoNumbers
     autocmd!
     autocmd FileType fzf exe 'setlocal nonumber norelativenumber'
 augroup END
+" Actions / Layouts
+let g:fzf_action = {
+			\'ctrl-t':'tab split',
+			\'ctrl-s':'split',
+			\'ctrl-v':'vsplit'
+			\}
+let g:fzf_layout = { 'down': '40%' }
+let g:fzf_preview_window = ['right:50%']
 " }}}
 
 " Signify
@@ -209,18 +210,6 @@ else
 				\ }
 	" }}}
 endif
-
-" NERDTree {{{
-map <C-o> :NERDTreeToggle<CR>
-let g:NERDTreeWinPos = "right" " NERDTree on the right
-let NERDTreeMinimalUI = 1
-"let NERDTreeShowHidden = 1 " Show hidden files
-let g:NERDTreeStatusline = ""
-" Close window if NERDTree is the last one
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeHighlightFolders = 1
-let g:NERDTreeHighlightFoldersFullName = 1
-" }}}
 
 " Treesitter {{{
 if has('nvim-0.5.0')
