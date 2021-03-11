@@ -61,36 +61,27 @@ set splitbelow
 set splitright
 set showtabline=1
 set mouse=a
-set colorcolumn=80,100 " Lenght marker
+set colorcolumn=80,100
 filetype plugin indent on
 syntax on
 set wildmode=longest:full,full
 set wildmenu
 set ruler
 set showcmd
-"set guicursor=
 set scrolloff=5
 set signcolumn=yes
-
-" Undo across exits
+set number
+set relativenumber
+set laststatus=2
+set noshowmode
 set undodir=/home/$USER/.vim-undo
 set undofile
 set undolevels=10000
-
-" Tabs = 4 spaces
 set tabstop=4
 set softtabstop=4 noexpandtab
 set shiftwidth=4
 set shiftround
 set smarttab
-
-" Sidebar with numbers
-set number
-set relativenumber
-
-" Lightline workaround
-set laststatus=2
-set noshowmode
 " }}}
 
 " Keymaps {{{
