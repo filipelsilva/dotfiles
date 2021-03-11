@@ -150,11 +150,11 @@ let tabulousLabelNameOptions = ':.'
 "augroup END
 
 " Fzf {{{
-let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
+let g:fzf_action = { 'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit' }
 "let g:fzf_layout = { 'down': '40%' }
 "let g:fzf_preview_window = ['right:60%']
 let g:fzf_layout = { 'right': '40%' }
-let g:fzf_preview_window = ['down:50%']
+let g:fzf_preview_window = ['up:50%']
 nnoremap <silent> <leader>ff <cmd>Files<cr>
 nnoremap <silent> <leader>fg <cmd>Rg<cr>
 nnoremap <silent> <leader>fb <cmd>Buffers<cr>
