@@ -103,7 +103,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Shortcut to use blackhole register by default
+" Shortcuts to use blackhole register {{{
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 nnoremap <leader>D "_D
@@ -116,6 +116,7 @@ nnoremap <leader>x "_x
 vnoremap <leader>x "_x
 nnoremap <leader>X "_X
 vnoremap <leader>X "_X
+" }}}
 " }}}
 
 " Functions {{{
