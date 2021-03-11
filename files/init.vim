@@ -68,7 +68,7 @@ set wildmenu
 set ruler
 set showcmd
 set scrolloff=5
-set signcolumn=yes
+set signcolumn=number
 set number
 set relativenumber
 set laststatus=2
@@ -81,6 +81,7 @@ set softtabstop=4 noexpandtab
 set shiftwidth=4
 set shiftround
 set smarttab
+set nowrap
 " }}}
 
 " Keymaps {{{
@@ -148,18 +149,24 @@ let tabulousLabelNameOptions = ':.'
 "   autocmd BufReadPost * DetectIndent
 "augroup END
 
-" Fzf
+" Fzf {{{
 let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
 "let g:fzf_layout = { 'down': '40%' }
 "let g:fzf_preview_window = ['right:60%']
 let g:fzf_layout = { 'right': '40%' }
-let g:fzf_preview_window = ['down:60%']
+let g:fzf_preview_window = ['down:50%']
 nnoremap <silent> <leader>ff <cmd>Files<cr>
 nnoremap <silent> <leader>fg <cmd>Rg<cr>
 nnoremap <silent> <leader>fb <cmd>Buffers<cr>
 nnoremap <silent> <leader>fh <cmd>Helptags<cr>
 nnoremap <silent> <leader>fc <cmd>Commits<cr>
 nnoremap <silent> <leader>ft <cmd>BTags<cr>
+" No numbers in Fzf
+augroup FzfNoNumbers
+    autocmd!
+    autocmd FileType fzf exe 'setlocal nonumber norelativenumber'
+augroup END
+" }}}
 
 " Signify
 set updatetime=100
