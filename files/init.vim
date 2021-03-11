@@ -133,86 +133,72 @@ augroup END
 
 " Plugin Configurations {{{
 
-" MuComplete {{{
+" MuComplete
 set completeopt=menuone,noinsert,noselect
 "let g:mucomplete#enable_auto_at_startup = 1
-" }}}
 
-" Tabulous {{{
+" Tabulous
 let tabulousCloseStr = ''
 let tabulousLabelNameOptions = ':.'
-" }}}
 
-" DetectIndent {{{
+" DetectIndent
 "augroup DetectIndent
 "   autocmd!
 "   autocmd BufReadPost * DetectIndent
 "augroup END
-"}}}
 
-" Fzf {{{
-let g:fzf_action = {
-	\ 'ctrl-t': 'tab split',
-	\ 'ctrl-s': 'split',
-	\ 'ctrl-v': 'vsplit'
-	\}
+" Fzf
+let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
 nnoremap <silent> <leader>ff <cmd>Files<cr>
 nnoremap <silent> <leader>fg <cmd>Rg<cr>
 nnoremap <silent> <leader>fb <cmd>Buffers<cr>
 nnoremap <silent> <leader>fh <cmd>Helptags<cr>
 nnoremap <silent> <leader>fc <cmd>Commits<cr>
 nnoremap <silent> <leader>ft <cmd>BTags<cr>
-" }}}
 
-" Signify {{{
+" Signify
 set updatetime=100
 nmap <leader>sn <plug>(signify-next-hunk)
 nmap <leader>sp <plug>(signify-prev-hunk)
-" }}}
 
-" Statusline {{{
+" Statuslines
 if has('nvim-0.5.0')
+	" Lualine {{{
 	let g:lualine = {
-		\'options' : {
-		\  'theme' : 'gruvbox_material',
-		\  'section_separators' : ['', ''],
-		\  'component_separators' : ['', ''],
-		\  'icons_enabled' : v:false,
-		\},
-		\'sections' : {
-		\  'lualine_a' : [ ['mode', {'upper': v:true,},], ],
-		\  'lualine_b' : [ ['filename', {'file_status': v:false,},] ],
-		\  'lualine_c' : [ 'branch' ],
-		\  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
-		\  'lualine_y' : [ 'progress' ],
-		\  'lualine_z' : [ 'location' ],
-		\},
-		\'inactive_sections' : {
-		\  'lualine_a' : [  ],
-		\  'lualine_b' : [  ],
-		\  'lualine_c' : [ 'filename' ],
-		\  'lualine_x' : [ 'location' ],
-		\  'lualine_y' : [  ],
-		\  'lualine_z' : [  ],
-		\},
-		\'extensions' : [ 'fzf' ],
-		\}
+				\'options' : {
+				\  'theme' : 'gruvbox_material',
+				\  'section_separators' : ['', ''],
+				\  'component_separators' : ['', ''],
+				\  'icons_enabled' : v:false,
+				\},
+				\'sections' : {
+				\  'lualine_a' : [ ['mode', {'upper': v:true,},], ],
+				\  'lualine_b' : [ ['filename', {'file_status': v:false,},], 'diff' ],
+				\  'lualine_c' : [ 'branch' ],
+				\  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
+				\  'lualine_y' : [ 'progress' ],
+				\  'lualine_z' : [ 'location' ],
+				\},
+				\'extensions' : [ 'fzf' ],
+				\}
+	" }}}
 	lua require("lualine").status()
 else
+	" Lightline {{{
 	let g:lightline = {
-		\ 'colorscheme': 'gruvbox',
-		\ 'active': {
-		\   'left': [ [ 'mode', 'paste' ],
-		\             [ 'filename', 'gitbranch', 'readonly', 'modified' ] ],
-		\   'right': [ [ 'lineinfo' ], [ 'percent' ],
-		\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
-		\ },
-		\ 'component_function': {
-		\   'gitbranch': 'FugitiveHead',
-		\ },
-		\ }
+				\ 'colorscheme': 'gruvbox',
+				\ 'active': {
+				\   'left': [ [ 'mode', 'paste' ],
+				\             [ 'filename', 'gitbranch', 'readonly', 'modified' ] ],
+				\   'right': [ [ 'lineinfo' ], [ 'percent' ],
+				\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
+				\ },
+				\ 'component_function': {
+				\   'gitbranch': 'FugitiveHead',
+				\ },
+				\ }
+	" }}}
 endif
-" }}}
 
 " NERDTree {{{
 map <C-o> :NERDTreeToggle<CR>
