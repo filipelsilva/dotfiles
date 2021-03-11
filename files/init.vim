@@ -151,8 +151,6 @@ let tabulousLabelNameOptions = ':.'
 
 " Fzf {{{
 let g:fzf_action = { 'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit' }
-"let g:fzf_layout = { 'down': '40%' }
-"let g:fzf_preview_window = ['right:60%']
 let g:fzf_layout = { 'right': '40%' }
 let g:fzf_preview_window = ['up:50%']
 nnoremap <silent> <leader>ff <cmd>Files<cr>
