@@ -30,9 +30,6 @@ call plug#end()
 " }}}
 
 " Colors/Themes {{{
-set t_Co=256
-highlight Comment cterm=italic gui=italic
-
 if (has("nvim"))
 	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
@@ -40,6 +37,8 @@ if (has("termguicolors"))
 	set termguicolors
 endif
 
+set t_Co=256
+highlight Comment cterm=italic gui=italic
 colorscheme base16-gruvbox-dark-pale
 " }}}
 
@@ -134,21 +133,24 @@ augroup END
 
 " Plugin Configurations {{{
 
-" MuComplete
+" MuComplete {{{
 set completeopt=menuone,noinsert,noselect
 "let g:mucomplete#enable_auto_at_startup = 1
+" }}}
 
-" Tabulous
+" Tabulous {{{
 let tabulousCloseStr = ''
 let tabulousLabelNameOptions = ':.'
+" }}}
 
-" Detect Identation
+" DetectIndent {{{
 "augroup DetectIndent
 "   autocmd!
 "   autocmd BufReadPost * DetectIndent
 "augroup END
+"}}}
 
-" Fzf
+" Fzf {{{
 let g:fzf_action = {
 	\ 'ctrl-t': 'tab split',
 	\ 'ctrl-s': 'split',
@@ -160,15 +162,16 @@ nnoremap <silent> <leader>fb <cmd>Buffers<cr>
 nnoremap <silent> <leader>fh <cmd>Helptags<cr>
 nnoremap <silent> <leader>fc <cmd>Commits<cr>
 nnoremap <silent> <leader>ft <cmd>BTags<cr>
+" }}}
 
-" Signify
+" Signify {{{
 set updatetime=100
 nmap <leader>sn <plug>(signify-next-hunk)
 nmap <leader>sp <plug>(signify-prev-hunk)
+" }}}
 
-" Status lines
+" Statusline {{{
 if has('nvim-0.5.0')
-	" Lualine {{{
 	let g:lualine = {
 		\'options' : {
 		\  'theme' : 'gruvbox_material',
@@ -195,9 +198,7 @@ if has('nvim-0.5.0')
 		\'extensions' : [ 'fzf' ],
 		\}
 	lua require("lualine").status()
-	" }}}
 else
-	" Lightline {{{
 	let g:lightline = {
 		\ 'colorscheme': 'gruvbox',
 		\ 'active': {
@@ -210,10 +211,10 @@ else
 		\   'gitbranch': 'FugitiveHead',
 		\ },
 		\ }
-	" }}}
 endif
+" }}}
 
-"" NERDTree
+" NERDTree {{{
 map <C-o> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right" " NERDTree on the right
 let NERDTreeMinimalUI = 1
@@ -223,8 +224,9 @@ let g:NERDTreeStatusline = ""
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeHighlightFoldersFullName = 1
+" }}}
 
-" Treesitter
+" Treesitter {{{
 if has('nvim-0.5.0')
 lua << EOF
 require'nvim-treesitter.configs'.setup {
@@ -236,4 +238,5 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 endif
+" }}}
 " }}}
