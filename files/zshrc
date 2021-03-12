@@ -39,9 +39,7 @@ alias tkill="tmux kill-session -t"
 alias tp="tmuxp"
 
 # Nvim to vim transition
-alias vim="nvim"
 alias v="nvim"
-alias oldvim="\vim"
 
 # Git quality of life improvement
 alias gtree="git log --graph --all"

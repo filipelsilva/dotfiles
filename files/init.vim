@@ -138,6 +138,7 @@ nnoremap <silent> <leader>f <cmd>Files<cr>
 nnoremap <silent> <leader>g <cmd>Rg<cr>
 nnoremap <silent> <leader>b <cmd>Buffers<cr>
 nnoremap <silent> <leader>t <cmd>BTags<cr>
+nnoremap <silent> <leader>l <cmd>Lines<cr>
 " No numbers in Fzf
 augroup FzfNoNumbers
     autocmd!
