@@ -4,9 +4,6 @@ if has('nvim-0.5.0')
 	Plug 'hoob3rt/lualine.nvim' " Status line
 	Plug 'webdevel/tabulous' " Tabline (for now, is needed)
 	Plug 'nvim-treesitter/nvim-treesitter' " Language packs
-	"Plug 'nvim-lua/popup.nvim'
-	"Plug 'nvim-lua/plenary.nvim'
-	"Plug 'nvim-telescope/telescope.nvim' " Fzf alternative in Lua
 else
 	Plug 'itchyny/lightline.vim' " Status line
 	Plug 'shinchu/lightline-gruvbox.vim' " Lightline theme
@@ -136,20 +133,6 @@ augroup END
 
 " Plugin Configurations {{{
 
-" MuComplete
-set completeopt=menuone,noinsert,noselect
-"let g:mucomplete#enable_auto_at_startup = 1
-
-" Tabulous
-let tabulousCloseStr = ''
-let tabulousLabelNameOptions = ':.'
-
-" DetectIndent
-"augroup DetectIndent
-"   autocmd!
-"   autocmd BufReadPost * DetectIndent
-"augroup END
-
 " Fzf {{{
 nnoremap <silent> <leader>f <cmd>Files<cr>
 nnoremap <silent> <leader>g <cmd>Rg<cr>
@@ -172,11 +155,6 @@ autocmd! FileType fzf set laststatus=0 noshowmode noruler
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:50%']
 " }}}
-
-" Signify
-set updatetime=100
-nmap <leader>sn <plug>(signify-next-hunk)
-nmap <leader>sp <plug>(signify-prev-hunk)
 
 " Statuslines
 if has('nvim-0.5.0')
@@ -229,4 +207,26 @@ require'nvim-treesitter.configs'.setup {
 EOF
 endif
 " }}}
-" }}}
+
+" MuComplete
+set completeopt=menuone,noinsert,noselect
+"let g:mucomplete#enable_auto_at_startup = 1
+
+" Tabulous
+let tabulousCloseStr = ''
+let tabulousLabelNameOptions = ':.'
+
+" DetectIndent
+"augroup DetectIndent
+"   autocmd!
+"   autocmd BufReadPost * DetectIndent
+"augroup END
+
+" Signify
+set updatetime=100
+nmap <leader>sn <plug>(signify-next-hunk)
+nmap <leader>sp <plug>(signify-prev-hunk)
+
+" Startify
+let g:startify_fortune_use_unicode = 1
+"" }}}
