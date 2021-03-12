@@ -9,3 +9,8 @@ chsh -s "$(command -v zsh)"
 
 # Set completion theme
 zsh -c "source ~/.zshrc"
+
+echo "Put this in ~/.profile:
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape'
+setxkbmap -option shift:both_capslock"
