@@ -4,6 +4,9 @@ if has('nvim-0.5.0')
 	Plug 'hoob3rt/lualine.nvim' " Status line
 	Plug 'webdevel/tabulous' " Tabline (for now, is needed)
 	Plug 'nvim-treesitter/nvim-treesitter' " Language packs
+	"Plug 'nvim-lua/popup.nvim'
+	"Plug 'nvim-lua/plenary.nvim'
+	"Plug 'nvim-telescope/telescope.nvim' " Fzf alternative in Lua
 else
 	Plug 'itchyny/lightline.vim' " Status line
 	Plug 'shinchu/lightline-gruvbox.vim' " Lightline theme
@@ -163,6 +166,9 @@ let g:fzf_action = {
 			\'ctrl-s':'split',
 			\'ctrl-v':'vsplit'
 			\}
+" No statusline in fzf
+autocmd! FileType fzf set laststatus=0 noshowmode noruler
+			\| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:50%']
 " }}}
@@ -190,7 +196,6 @@ if has('nvim-0.5.0')
 				\  'lualine_y' : [ 'progress' ],
 				\  'lualine_z' : [ 'location' ],
 				\},
-				\'extensions' : [ 'fzf' ],
 				\}
 	" }}}
 	lua require("lualine").status()
