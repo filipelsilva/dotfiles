@@ -3,12 +3,11 @@ call plug#begin()
 if has('nvim-0.5.0')
 	Plug 'hoob3rt/lualine.nvim' " Status line
 	Plug 'webdevel/tabulous' " Tabline (for now, is needed)
-	Plug 'nvim-treesitter/nvim-treesitter' " Language packs
 else
 	Plug 'itchyny/lightline.vim' " Status line
 	Plug 'shinchu/lightline-gruvbox.vim' " Lightline theme
-	Plug 'sheerun/vim-polyglot' " Language packs
 endif
+Plug 'sheerun/vim-polyglot' " Language packs
 Plug 'dense-analysis/ale' " While no better alternative arrives, linter
 Plug 'lifepillar/vim-mucomplete' " Completion
 Plug 'mhinz/vim-signify' " Show repo differences
