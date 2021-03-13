@@ -1,7 +1,7 @@
 " Plugins {{{
 call plug#begin()
 Plug 'itchyny/lightline.vim' " Status line
-Plug 'mike-hearn/base16-vim-lightline'
+Plug 'mike-hearn/base16-vim-lightline' " Theme for lightline
 Plug 'sheerun/vim-polyglot' " Language packs
 Plug 'dense-analysis/ale' " While no better alternative arrives, linter
 Plug 'lifepillar/vim-mucomplete' " Completion
@@ -186,10 +186,6 @@ let g:lightline = {
 " MuComplete
 set completeopt=menuone,noinsert,noselect
 "let g:mucomplete#enable_auto_at_startup = 1
-
-" Tabulous
-let tabulousCloseStr = ''
-let tabulousLabelNameOptions = ':.'
 
 " DetectIndent
 "augroup DetectIndent
