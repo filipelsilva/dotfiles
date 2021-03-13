@@ -201,20 +201,6 @@ else
 	" }}}
 endif
 
-" Treesitter {{{
-if has('nvim-0.5.0')
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-	ensure_installed = "maintained", -- one of "all", "maintained" or a list of languages
-	highlight = {
-		enable = true,              -- false will disable the whole extension
-		-- disable = { "c", "rust" },  -- list of language that will be disabled
-	},
-}
-EOF
-endif
-" }}}
-
 " MuComplete
 set completeopt=menuone,noinsert,noselect
 "let g:mucomplete#enable_auto_at_startup = 1
