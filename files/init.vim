@@ -21,7 +21,6 @@ Plug 'psliwka/vim-smoothie' " Smooth scrolling
 Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'roryokane/detectindent' " Detect default identation
 Plug 'jiangmiao/auto-pairs' " Close brackets
-Plug 'easymotion/vim-easymotion' " Easier movement on vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Fuzzy finder
 Plug 'chriskempson/base16-vim' " Themes
