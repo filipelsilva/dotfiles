@@ -69,7 +69,8 @@ set undodir=/home/$USER/.vim-undo
 set undofile
 set undolevels=10000
 set tabstop=4
-set softtabstop=4 noexpandtab
+set softtabstop=4
+set noexpandtab
 set shiftwidth=4
 set shiftround
 set smarttab
