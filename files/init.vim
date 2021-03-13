@@ -86,7 +86,7 @@ set nowrap
 " Keymaps {{{
 
 " Copy/Paste from other programs
-vnoremap <C-c> "*y :let @+=@*<CR>
+vnoremap <C-y> "*y :let @+=@*<CR>
 map <C-p> <Esc>"+p
 
 " Quickly edit/reload the vimrc file
