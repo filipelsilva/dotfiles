@@ -1,12 +1,7 @@
 " Plugins {{{
 call plug#begin()
-if has('nvim-0.5.0')
-	Plug 'hoob3rt/lualine.nvim' " Status line
-	Plug 'webdevel/tabulous' " Tabline (for now, is needed)
-else
-	Plug 'itchyny/lightline.vim' " Status line
-	Plug 'shinchu/lightline-gruvbox.vim' " Lightline theme
-endif
+Plug 'itchyny/lightline.vim' " Status line
+Plug 'mike-hearn/base16-vim-lightline'
 Plug 'sheerun/vim-polyglot' " Language packs
 Plug 'dense-analysis/ale' " While no better alternative arrives, linter
 Plug 'lifepillar/vim-mucomplete' " Completion
@@ -65,7 +60,7 @@ set wildmenu
 set ruler
 set showcmd
 set scrolloff=5
-set signcolumn=number
+set signcolumn=yes
 set number
 set relativenumber
 set laststatus=2
@@ -125,11 +120,17 @@ vnoremap <leader>X "_X
 " }}}
 
 " Functions {{{
-fun! TrimWhitespace()
+function! LightlineFilename()
+  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  let modified = &modified ? ' [+]' : ''
+  return filename . modified
+endfunction
+
+function! TrimWhitespace()
 	let l:save = winsaveview()
 	keeppatterns %s/\s\+$//e
 	call winrestview(l:save)
-endfun
+endfunction
 
 augroup stopwhitespace
 	autocmd!
@@ -145,10 +146,10 @@ nnoremap <silent> <leader>g <cmd>Rg<cr>
 nnoremap <silent> <leader>b <cmd>Buffers<cr>
 nnoremap <silent> <leader>t <cmd>BTags<cr>
 nnoremap <silent> <leader>l <cmd>Lines<cr>
-" No numbers in Fzf
+" No left column in Fzf
 augroup FzfNoNumbers
     autocmd!
-    autocmd FileType fzf exe 'setlocal nonumber norelativenumber'
+    autocmd FileType fzf exe 'setlocal nonumber norelativenumber signcolumn=no'
 augroup END
 " Actions / Layouts
 let g:fzf_action = {
@@ -163,43 +164,24 @@ let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:50%']
 " }}}
 
-" Statuslines
-if has('nvim-0.5.0')
-	" Lualine {{{
-	let g:lualine = {
-				\'options' : {
-				\  'theme' : 'gruvbox_material',
-				\  'section_separators' : ['', ''],
-				\  'component_separators' : ['', ''],
-				\  'icons_enabled' : v:false,
-				\},
-				\'sections' : {
-				\  'lualine_a' : [ ['mode', {'upper': v:true,},], ],
-				\  'lualine_b' : [ ['filename', {'file_status': v:false,},], 'diff' ],
-				\  'lualine_c' : [ 'branch' ],
-				\  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
-				\  'lualine_y' : [ 'progress' ],
-				\  'lualine_z' : [ 'location' ],
-				\},
-				\}
-	" }}}
-	lua require("lualine").status()
-else
-	" Lightline {{{
-	let g:lightline = {
-				\ 'colorscheme': 'gruvbox',
-				\ 'active': {
-				\   'left': [ [ 'mode', 'paste' ],
-				\             [ 'filename', 'gitbranch', 'readonly', 'modified' ] ],
-				\   'right': [ [ 'lineinfo' ], [ 'percent' ],
-				\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
-				\ },
-				\ 'component_function': {
-				\   'gitbranch': 'FugitiveHead',
-				\ },
-				\ }
-	" }}}
-endif
+" Lightline {{{
+let g:lightline = {
+			\ 'colorscheme': 'base16_gruvbox_dark_pale',
+			\ 'active': {
+			\   'left': [ [ 'mode', 'paste' ],
+			\             [ 'filename' ],
+			\             [ 'readonly', 'gitbranch' ] ],
+			\   'right': [ [ 'lineinfo' ], [ 'percent' ],
+			\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
+			\ },
+			\ 'component_function': {
+			\   'gitbranch': 'FugitiveHead',
+			\	'filename': 'LightlineFilename',
+			\ },
+			\ 'separator': { 'left': '', 'right': '' },
+			\ 'subseparator': { 'left': '', 'right': '' }
+			\ }
+" }}}
 
 " MuComplete
 set completeopt=menuone,noinsert,noselect
