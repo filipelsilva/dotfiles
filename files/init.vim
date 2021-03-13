@@ -89,6 +89,10 @@ set nowrap
 vnoremap <C-y> "*y :let @+=@*<CR>
 map <C-p> <Esc>"+p
 
+" Move blocks of code
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
 nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
