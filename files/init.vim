@@ -146,17 +146,17 @@ nnoremap <silent> <leader>g <cmd>Rg<cr>
 nnoremap <silent> <leader>b <cmd>Buffers<cr>
 nnoremap <silent> <leader>t <cmd>BTags<cr>
 nnoremap <silent> <leader>l <cmd>Lines<cr>
-" No left column in Fzf
-augroup FzfNoNumbers
-    autocmd!
-    autocmd FileType fzf exe 'setlocal nonumber norelativenumber signcolumn=no'
-augroup END
 " Actions / Layouts
 let g:fzf_action = {
 			\'ctrl-t':'tab split',
 			\'ctrl-s':'split',
 			\'ctrl-v':'vsplit'
 			\}
+" No left column in Fzf
+augroup FzfNoNumbers
+    autocmd!
+    autocmd FileType fzf exe 'setlocal nonumber norelativenumber signcolumn=no'
+augroup END
 " No statusline in fzf
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
 			\| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
