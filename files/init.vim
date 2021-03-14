@@ -35,7 +35,6 @@ colorscheme base16-gruvbox-dark-pale
 " }}}
 
 " Settings {{{
-let mapleader = " " "<leader> key bind
 set nocompatible
 set nomodeline
 set foldenable
@@ -79,9 +78,14 @@ set nowrap
 
 " Keymaps {{{
 
+"<leader> key bind
+let mapleader = " "
+
 " Copy/Paste from other programs
 vnoremap <C-y> "*y :let @+=@*<CR>
-map <C-p> <Esc>"+p
+vnoremap <C-d> "*d :let @+=@*<CR>
+inoremap <C-p> <Esc>"+p
+nnoremap <C-p> <Esc>"+p
 
 " Move blocks of code
 vnoremap J :m '>+1<CR>gv=gv
