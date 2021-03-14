@@ -11,7 +11,6 @@ Plug 'tpope/vim-surround' " Do surroundings
 Plug 'tpope/vim-commentary' " Comment stuff
 Plug 'tpope/vim-abolish' " Change word structures
 Plug 'aklt/vim-substitute' " Shortcuts to substitution
-Plug 'mg979/vim-visual-multi' " Multiple cursors
 Plug 'psliwka/vim-smoothie' " Smooth scrolling
 Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'roryokane/detectindent' " Detect default identation
