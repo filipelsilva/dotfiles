@@ -84,12 +84,15 @@ let mapleader = " "
 " Copy/Paste from other programs
 vnoremap <C-y> "*y :let @+=@*<CR>
 vnoremap <C-d> "*d :let @+=@*<CR>
-inoremap <C-p> <Esc>"+p
-nnoremap <C-p> <Esc>"+p
+"inoremap <C-p> <Esc>"+p
+"nnoremap <C-p> <Esc>"+p
 
 " Move blocks of code
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+" Run line as command, output here
+noremap Q !!$SHELL<CR>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
