@@ -162,12 +162,11 @@ let g:fzf_action = {
 			\'ctrl-s':'split',
 			\'ctrl-v':'vsplit'
 			\}
-" No left column in Fzf
+" Strip down fzf buffer
 augroup FzfNoNumbers
     autocmd!
     autocmd FileType fzf exe 'setlocal nonumber norelativenumber signcolumn=no'
 augroup END
-" No statusline in fzf
 autocmd! FileType fzf set laststatus=0 noruler
 			\| autocmd BufLeave <buffer> set laststatus=2 ruler
 " }}}
