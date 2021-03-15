@@ -194,12 +194,6 @@ let g:lightline = {
 set completeopt=menuone,noinsert,noselect
 "let g:mucomplete#enable_auto_at_startup = 1
 
-" DetectIndent
-"augroup DetectIndent
-"   autocmd!
-"   autocmd BufReadPost * DetectIndent
-"augroup END
-
 " Signify
 set updatetime=100
 nmap <leader>sn <plug>(signify-next-hunk)
@@ -207,4 +201,10 @@ nmap <leader>sp <plug>(signify-prev-hunk)
 
 " Startify
 let g:startify_fortune_use_unicode = 1
+
+" DetectIndent
+"augroup DetectIndent
+"   autocmd!
+"   autocmd BufReadPost * DetectIndent
+"augroup END
 "" }}}
