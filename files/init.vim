@@ -166,8 +166,8 @@ augroup FzfNoNumbers
     autocmd FileType fzf exe 'setlocal nonumber norelativenumber signcolumn=no'
 augroup END
 " No statusline in fzf
-autocmd! FileType fzf set laststatus=0 noshowmode noruler
-			\| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+autocmd! FileType fzf set laststatus=0 noruler
+			\| autocmd BufLeave <buffer> set laststatus=2 ruler
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:50%']
 " }}}
