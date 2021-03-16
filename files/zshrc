@@ -15,7 +15,6 @@ alias open="xdg-open"
 # Zsh configuration and reload
 alias zshsource="source ~/.zshrc && echo 'sourced zshrc'"
 alias zshconfig="nvim ~/.zshrc && zshsource"
-bindkey -s '^e' "zshconfig\n"
 
 # Basic commands
 alias cp="cp -r"
@@ -23,7 +22,7 @@ alias mv="mv"
 alias mkdir="mkdir -p"
 alias ip='ip --color=auto'
 
-#Update packages
+# Update packages
 alias pipup="pip_upgrade_outdated -3"
 alias cargoup="cargo install-update -a"
 
@@ -32,10 +31,6 @@ alias psa="ps aux | fzf ${FZF_DEFAULT_OPTS} --header='[name:process]'"
 
 # Aliases for tmux
 alias t="tmux"
-alias ta="t a -t"
-alias tls="t ls"
-alias tn="t new -d -s"
-alias tkill="tmux kill-session -t"
 alias tp="tmuxp"
 
 # Nvim to vim transition
@@ -205,47 +200,20 @@ plugins=(
   fzf
   colored-man-pages
   git
-  sudo
-  web-search
+  tmux
+  vi-mode
+  vagrant
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # Exa colors
-export EXA_COLORS="\
-lp=33:\
-bl=38;5;220:\
-da=38;5;238:\
-uu=38;5;240:\
-un=38;5;160:\
-gu=38;5;240:\
-gn=38:5:160:\
-ur=38;5;245:\
-uw=38;5;245:\
-ux=38;5;245:\
-ue=38;5;245:\
-gr=38;5;242:\
-gw=38;5;242:\
-gx=38;5;242:\
-tr=38;5;242:\
-tw=38;5;242:\
-tx=38;5;242"
+export EXA_COLORS="lp=33:bl=38;5;220:da=38;5;238:uu=38;5;240:un=38;5;160:\
+gu=38;5;240:gn=38:5:160:ur=38;5;245:uw=38;5;245:ux=38;5;245:ue=38;5;245:\
+gr=38;5;242:gw=38;5;242:gx=38;5;242:tr=38;5;242:tw=38;5;242:tx=38;5;242"
 
 # RPROMPT with no space on right side
 #export ZLE_RPROMPT_INDENT=0
-
-# Starship
-#eval "$(starship init zsh)"
-
-# Typewritten (comment ZSH_THEME for this)
-#export TYPEWRITTEN_SYMBOL="$"
-#export TYPEWRITTEN_CURSOR="terminal"
-#export TYPEWRITTEN_RELATIVE_PATH="adaptive"
-#export TYPEWRITTEN_PROMPT_LAYOUT="singleline" #_verbose"
-#export TYPEWRITTEN_COLOR_MAPPINGS="secondary:green"
-#fpath+=$HOME/.oh-my-zsh/custom/themes/typewritten
-#autoload -U promptinit; promptinit
-#prompt typewritten
 
 # Zoxide integration
 eval "$(zoxide init zsh --cmd j)"
