@@ -215,6 +215,10 @@ gr=38;5;242:gw=38;5;242:gx=38;5;242:tr=38;5;242:tw=38;5;242:tx=38;5;242"
 # RPROMPT with no space on right side
 #export ZLE_RPROMPT_INDENT=0
 
+# Vi-mode
+MODE_INDICATOR=""
+VI_MODE_SET_CURSOR=true
+
 # Zoxide integration
 eval "$(zoxide init zsh --cmd j)"
 
