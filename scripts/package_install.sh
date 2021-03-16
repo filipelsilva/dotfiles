@@ -15,7 +15,7 @@ if ( command -v apt-get &> /dev/null ); then
 elif ( command -v pacman &> /dev/null ); then
 
     sudo pacman -Syu --noconfirm
-    sudo pacman -S --noconfirm zsh git curl wget glances htop python-pip\
+    sudo pacman -S --noconfirm zsh git curl wget glances htop neovim python-pip\
         python python-setuptools gcc valgrind gdb unzip zip tmux tmate xclip\
         lynx ripgrep fd the_silver_searcher nodejs npm neofetch screenfetch\
         pkg-config make entr rlwrap ctags hexyl bat cmake shellcheck go exa\
