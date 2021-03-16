@@ -1,51 +1,3 @@
-############# Aliases / Keybinds ############# {{{
-
-# Temporary
-alias links="bat ~/OneDrive/tecnico/2º\ Ano/2º\ Semestre/Calendários/links.txt"
-
-# Deemix
-alias deemix="python3 /home/$USER/Programs/deemix-pyweb/server.py"
-
-# Tor Browser
-alias tor-browser="(cd /home/$USER/Programs/tor-browser_en-US && ./start-tor-browser.desktop)"
-
-# Open folders/files as if you were in the file manager
-alias open="xdg-open"
-
-# Zsh configuration and reload
-alias zshsource="source ~/.zshrc && echo 'sourced zshrc'"
-alias zshconfig="nvim ~/.zshrc && zshsource"
-
-# Basic commands
-alias cp="cp -r"
-alias mv="mv"
-alias mkdir="mkdir -p"
-alias ip='ip --color=auto'
-
-# Update packages
-alias pipup="pip_upgrade_outdated -3"
-alias cargoup="cargo install-update -a"
-
-# See all processes
-alias psa="ps aux | fzf ${FZF_DEFAULT_OPTS} --header='[name:process]'"
-
-# Aliases for tmux
-alias t="tmux"
-alias tp="tmuxp"
-
-# Nvim to vim transition
-alias v="nvim"
-
-# Git quality of life improvement
-alias gtree="git log --graph --all"
-
-# Ubuntu has bat as batcat
-if (( ${+commands[batcat]} )); then
-  alias bat=batcat
-fi
-
-# }}}
-
 ############# Fzf ############# {{{
 
 # Ubuntu uses fdfind, all other use fd. Standardization.
@@ -73,16 +25,16 @@ local color0D='#83adad'
 local color0E='#d485ad'
 local color0F='#d65d0e'
 
-export FZF_DEFAULT_OPTS="
---color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
---color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
---color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
---layout=reverse-list
---info=inline
---height=80%
---multi
---preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
---bind '?:toggle-preview'
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D \
+--color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C \
+--color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D \
+--layout=reverse-list \
+--info=inline \
+--height=80% \
+--multi \
+--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200' \
+--bind '?:toggle-preview' \
 "
 #--preview-window=:hidden"
 
@@ -90,20 +42,67 @@ export FZF_DEFAULT_OPTS="
 #local FD_DEFAULT_OPTS="--hidden --follow --exclude 'Games' --exclude '.git' --exclude '.wine'"
 local FD_DEFAULT_OPTS="--follow"
 if (( ${+commands[fdfind]} )); then
-  local FD_NAME="fdfind"
+	local FD_NAME="fdfind"
 elif (( ${+commands[fd]} )); then
-  local FD_NAME="fd"
+	local FD_NAME="fd"
 fi
 export FZF_DEFAULT_COMMAND="$FD_NAME $FD_DEFAULT_OPTS"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
 _fzf_compgen_path() {
-  fd . "$1"
+	fd . "$1"
 }
 _fzf_compgen_dir() {
-  fd --type d . "$1"
+	fd --type d . "$1"
 }
+
+# }}}
+
+############# Aliases / Keybinds ############# {{{
+
+# Temporary
+alias links="bat ~/OneDrive/tecnico/2º\ Ano/2º\ Semestre/Calendários/links.txt"
+
+# Deemix
+alias deemix="python3 /home/$USER/Programs/deemix-pyweb/server.py"
+
+# Tor Browser
+alias tor-browser="(cd /home/$USER/Programs/tor-browser_en-US && ./start-tor-browser.desktop)"
+
+# Open folders/files as if you were in the file manager
+alias open="xdg-open"
+
+# Zsh configuration and reload
+alias zshsource="source ~/.zshrc && echo 'sourced zshrc'"
+alias zshconfig="nvim ~/.zshrc && zshsource"
+
+# Basic commands
+alias cp="cp -r"
+alias mkdir="mkdir -p"
+alias ip='ip --color=auto'
+
+# Update packages
+alias pipup="pip_upgrade_outdated -3"
+alias cargoup="cargo install-update -a"
+
+# See all processes
+alias psa="ps aux | fzf ${FZF_DEFAULT_OPTS} --header='[name:process]'"
+
+# Aliases for tmux
+alias t="tmux"
+alias tp="tmuxp"
+
+# Nvim to vim transition
+alias v="nvim"
+
+# Git quality of life improvement
+alias gtree="git log --graph --all"
+
+# Ubuntu has bat as batcat
+if (( ${+commands[batcat]} )); then
+  alias bat=batcat
+fi
 
 # }}}
 
