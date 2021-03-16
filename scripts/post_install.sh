@@ -14,3 +14,6 @@ echo "Put this in ~/.profile:
 setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
 setxkbmap -option shift:both_capslock"
+
+echo "Put this in ~/.inputrc:
+set editing-mode vi"
