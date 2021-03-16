@@ -15,7 +15,6 @@ Plug 'psliwka/vim-smoothie' " Smooth scrolling
 Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'roryokane/detectindent' " Detect default identation
 Plug 'jiangmiao/auto-pairs' " Close brackets
-Plug 'dhruvasagar/vim-table-mode' " Tables in vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Fuzzy finder
 Plug 'chriskempson/base16-vim' " Themes
@@ -202,13 +201,4 @@ nmap <leader>sp <plug>(signify-prev-hunk)
 
 " Startify
 let g:startify_fortune_use_unicode = 1
-
-" Table Mode
-let g:table_mode_map_prefix = '<C-t>'
-
-"" DetectIndent
-"augroup DetectIndent
-"   autocmd!
-"   autocmd BufReadPost * DetectIndent
-"augroup END
 "" }}}
