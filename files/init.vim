@@ -80,7 +80,6 @@ let mapleader = " "
 
 " Replace word under cursor
 nnoremap ;; :%s/\<<C-r><C-w>\>//g<Left><Left>
-vnoremap ;; :%s/\<<C-r>\>"//g<Left><Left>
 
 " Copy/Paste from other programs
 vnoremap <C-y> "*y :let @+=@*<CR>
