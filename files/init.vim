@@ -1,32 +1,27 @@
 " Plugins {{{
 call plug#begin()
-Plug 'itchyny/lightline.vim' " Status line
-Plug 'mike-hearn/base16-vim-lightline' " Theme for lightline
-Plug 'sheerun/vim-polyglot' " Language packs
-Plug 'dense-analysis/ale' " While no better alternative arrives, linter
-Plug 'lifepillar/vim-mucomplete' " Completion
 Plug 'mhinz/vim-signify' " Show repo differences
+Plug 'tpope/vim-sleuth' " Detect default identation
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'tpope/vim-surround' " Do surroundings
 Plug 'tpope/vim-commentary' " Comment stuff
 Plug 'tpope/vim-abolish' " Change word structures
-Plug 'aklt/vim-substitute' " Shortcuts to substitution
-Plug 'psliwka/vim-smoothie' " Smooth scrolling
-Plug 'mhinz/vim-startify' " Start menu for vim
-Plug 'roryokane/detectindent' " Detect default identation
 Plug 'jiangmiao/auto-pairs' " Close brackets
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Fuzzy finder
+Plug 'mhinz/vim-startify' " Start menu for vim
+Plug 'itchyny/lightline.vim' " Status line
+Plug 'mike-hearn/base16-vim-lightline' " Theme for lightline
 Plug 'chriskempson/base16-vim' " Themes
 call plug#end()
 " }}}
 
 " Colorschemes {{{
 if (has("nvim"))
-	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 if (has("termguicolors"))
-	set termguicolors
+    set termguicolors
 endif
 
 set t_Co=256
@@ -56,6 +51,7 @@ filetype plugin indent on
 syntax on
 set wildmode=longest:full,full
 set wildmenu
+set completeopt=menuone,noinsert,noselect
 set ruler
 set showcmd
 set scrolloff=5
@@ -74,9 +70,13 @@ set shiftwidth=4
 set shiftround
 set smarttab
 set nowrap
+set updatetime=100
 " }}}
 
 " Keymaps {{{
+
+" Replace word under cursor
+nnoremap ;; :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 "<leader> key bind
 let mapleader = " "
@@ -128,22 +128,40 @@ vnoremap <leader>X "_X
 " }}}
 
 " Functions {{{
-function! LightlineFilename()
-  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  let modified = &modified ? ' [+]' : ''
-  return filename . modified
-endfunction
 
+" Tab complete {{{
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+	return "\<tab>"
+    else
+	return "\<c-p>"
+    endif
+endfunction
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
+" }}}
+
+" Lightline filename without two spaces for modified {{{
+function! LightlineFilename()
+    let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+    let modified = &modified ? ' [+]' : ''
+    return filename . modified
+endfunction
+" }}}
+
+" Whitespace remover on write {{{
 function! TrimWhitespace()
-	let l:save = winsaveview()
-	keeppatterns %s/\s\+$//e
-	call winrestview(l:save)
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
 endfunction
 
 augroup stopwhitespace
-	autocmd!
-	autocmd BufWritePre * :call TrimWhitespace()
+    autocmd!
+    autocmd BufWritePre * :call TrimWhitespace()
 augroup END
+" }}}
 " }}}
 
 " Plugin Configurations {{{
@@ -158,44 +176,39 @@ nnoremap <silent> <leader>l <cmd>Lines<cr>
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:50%']
 let g:fzf_action = {
-			\'ctrl-t':'tab split',
-			\'ctrl-s':'split',
-			\'ctrl-v':'vsplit'
-			\}
+	    \'ctrl-t':'tab split',
+	    \'ctrl-s':'split',
+	    \'ctrl-v':'vsplit'
+	    \}
 " Strip down fzf buffer
 augroup FzfNoNumbers
     autocmd!
     autocmd FileType fzf exe 'setlocal nonumber norelativenumber signcolumn=no'
 augroup END
 autocmd! FileType fzf set laststatus=0 noruler
-			\| autocmd BufLeave <buffer> set laststatus=2 ruler
+	    \| autocmd BufLeave <buffer> set laststatus=2 ruler
 " }}}
 
 " Lightline {{{
 let g:lightline = {
-			\ 'colorscheme': 'base16_gruvbox_dark_pale',
-			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ],
-			\             [ 'filename' ],
-			\             [ 'readonly', 'gitbranch' ] ],
-			\   'right': [ [ 'lineinfo' ], [ 'percent' ],
-			\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
-			\ },
-			\ 'component_function': {
-			\   'gitbranch': 'FugitiveHead',
-			\	'filename': 'LightlineFilename',
-			\ },
-			\ 'separator': { 'left': '', 'right': '' },
-			\ 'subseparator': { 'left': '', 'right': '' }
-			\ }
+	    \ 'colorscheme': 'base16_gruvbox_dark_pale',
+	    \ 'active': {
+	    \   'left': [ [ 'mode', 'paste' ],
+	    \             [ 'filename' ],
+	    \             [ 'readonly', 'gitbranch' ] ],
+	    \   'right': [ [ 'lineinfo' ], [ 'percent' ],
+	    \             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
+	    \ },
+	    \ 'component_function': {
+	    \   'gitbranch': 'FugitiveHead',
+	    \	'filename': 'LightlineFilename',
+	    \ },
+	    \ 'separator': { 'left': '', 'right': '' },
+	    \ 'subseparator': { 'left': '', 'right': '' }
+	    \ }
 " }}}
 
-" MuComplete
-set completeopt=menuone,noinsert,noselect
-"let g:mucomplete#enable_auto_at_startup = 1
-
 " Signify
-set updatetime=100
 nmap <leader>sn <plug>(signify-next-hunk)
 nmap <leader>sp <plug>(signify-prev-hunk)
 
