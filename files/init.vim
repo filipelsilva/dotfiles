@@ -1,5 +1,6 @@
 " Plugins {{{
 call plug#begin()
+Plug 'lifepillar/vim-mucomplete' " Completion plugin
 Plug 'mhinz/vim-signify' " Show repo differences
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'tpope/vim-surround' " Do surroundings
@@ -127,19 +128,6 @@ vnoremap <leader>X "_X
 " }}}
 
 " Functions {{{
-
-" Tab complete {{{
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-	return "\<tab>"
-    else
-	return "\<c-p>"
-    endif
-endfunction
-inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
-" }}}
 
 " Lightline filename without two spaces for modified {{{
 function! LightlineFilename()
