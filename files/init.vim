@@ -75,11 +75,12 @@ set updatetime=100
 
 " Keymaps {{{
 
-" Replace word under cursor
-nnoremap ;; :%s/\<<C-r><C-w>\>//g<Left><Left>
-
 "<leader> key bind
 let mapleader = " "
+
+" Replace word under cursor
+nnoremap ;; :%s/\<<C-r><C-w>\>//g<Left><Left>
+vnoremap ;; :%s/\<<C-r>\>"//g<Left><Left>
 
 " Copy/Paste from other programs
 vnoremap <C-y> "*y :let @+=@*<CR>
@@ -190,8 +191,8 @@ let g:lightline = {
 	    \   'gitbranch': 'FugitiveHead',
 	    \	'filename': 'LightlineFilename',
 	    \ },
-	    \ 'separator': { 'left': '', 'right': '' },
-	    \ 'subseparator': { 'left': '', 'right': '' }
+	    \ 'separator': { 'Left': '', 'right': '' },
+	    \ 'subseparator': { 'Left': '', 'right': '' }
 	    \ }
 " }}}
 
