@@ -1,11 +1,10 @@
 " Plugins {{{
 call plug#begin()
 Plug 'mhinz/vim-signify' " Show repo differences
-Plug 'tpope/vim-sleuth' " Detect default identation
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'tpope/vim-surround' " Do surroundings
 Plug 'tpope/vim-commentary' " Comment stuff
-Plug 'tpope/vim-abolish' " Change word structures
+Plug 'tpope/vim-sleuth' " Detect default identation
 Plug 'jiangmiao/auto-pairs' " Close brackets
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Fuzzy finder
