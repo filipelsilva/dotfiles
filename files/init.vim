@@ -2,7 +2,6 @@
 call plug#begin()
 Plug 'lifepillar/vim-mucomplete' " Completion plugin
 Plug 'mhinz/vim-signify' " Show repo differences
-Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'tpope/vim-surround' " Do surroundings
 Plug 'tpope/vim-commentary' " Comment stuff
 Plug 'tpope/vim-sleuth' " Detect default identation
@@ -183,12 +182,11 @@ let g:lightline = {
 	    \ 'active': {
 	    \   'left': [ [ 'mode', 'paste' ],
 	    \             [ 'filename' ],
-	    \             [ 'readonly', 'gitbranch' ] ],
+	    \             [ 'readonly' ] ],
 	    \   'right': [ [ 'lineinfo' ], [ 'percent' ],
 	    \             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
 	    \ },
 	    \ 'component_function': {
-	    \   'gitbranch': 'FugitiveHead',
 	    \	'filename': 'LightlineFilename',
 	    \ },
 	    \ 'separator': { 'Left': '', 'right': '' },
