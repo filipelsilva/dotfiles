@@ -7,7 +7,6 @@ Plug 'tpope/vim-surround' " Do surroundings
 Plug 'tpope/vim-commentary' " Comment stuff
 Plug 'mhinz/vim-signify' " Show repo differences
 Plug 'mhinz/vim-startify' " Start menu for vim
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Fuzzy finder
 Plug 'itchyny/lightline.vim' " Status line
 Plug 'mike-hearn/base16-vim-lightline' " Theme for lightline
