@@ -1,14 +1,14 @@
 " Plugins {{{
 call plug#begin()
 Plug 'lifepillar/vim-mucomplete' " Completion plugin
-Plug 'mhinz/vim-signify' " Show repo differences
+Plug 'jiangmiao/auto-pairs' " Close brackets
+Plug 'tpope/vim-sleuth' " Detect default identation
 Plug 'tpope/vim-surround' " Do surroundings
 Plug 'tpope/vim-commentary' " Comment stuff
-Plug 'tpope/vim-sleuth' " Detect default identation
-Plug 'jiangmiao/auto-pairs' " Close brackets
+Plug 'mhinz/vim-signify' " Show repo differences
+Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Fuzzy finder
-Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'itchyny/lightline.vim' " Status line
 Plug 'mike-hearn/base16-vim-lightline' " Theme for lightline
 Plug 'chriskempson/base16-vim' " Themes
