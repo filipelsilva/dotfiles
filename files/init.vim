@@ -5,6 +5,7 @@ Plug 'jiangmiao/auto-pairs' " Close brackets
 Plug 'tpope/vim-sleuth' " Detect default identation
 Plug 'tpope/vim-surround' " Do surroundings
 Plug 'tpope/vim-commentary' " Comment stuff
+Plug 'tpope/vim-fugitive' " Git stuff
 Plug 'mhinz/vim-signify' " Show repo differences
 Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
