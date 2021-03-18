@@ -160,7 +160,7 @@ nnoremap <silent> <leader>g <cmd>Rg<cr>
 nnoremap <silent> <leader>b <cmd>Buffers<cr>
 nnoremap <silent> <leader>t <cmd>BTags<cr>
 nnoremap <silent> <leader>l <cmd>Lines<cr>
-nnoremap <silent> <leader>c <cmd>BCommits<cr>
+nnoremap <silent> <leader>c <cmd>Commits<cr>
 " Actions / Layouts
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:50%']
