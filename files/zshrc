@@ -198,10 +198,7 @@ plugins=(
   fast-syntax-highlighting
   fzf
   colored-man-pages
-  git
-  tmux
   vi-mode
-  vagrant
 )
 
 source $ZSH/oh-my-zsh.sh
