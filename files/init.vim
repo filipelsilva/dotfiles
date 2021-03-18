@@ -17,10 +17,10 @@ call plug#end()
 
 " Colorschemes {{{
 if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 if (has("termguicolors"))
-    set termguicolors
+	set termguicolors
 endif
 
 set t_Co=256
@@ -112,18 +112,18 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Shortcuts to use blackhole register {{{
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
-nnoremap <leader>D "_D
-vnoremap <leader>D "_D
-nnoremap <leader>c "_c
-vnoremap <leader>c "_c
-nnoremap <leader>C "_C
-vnoremap <leader>C "_C
-nnoremap <leader>x "_x
-vnoremap <leader>x "_x
-nnoremap <leader>X "_X
-vnoremap <leader>X "_X
+"nnoremap <leader>d "_d
+"vnoremap <leader>d "_d
+"nnoremap <leader>D "_D
+"vnoremap <leader>D "_D
+"nnoremap <leader>c "_c
+"vnoremap <leader>c "_c
+"nnoremap <leader>C "_C
+"vnoremap <leader>C "_C
+"nnoremap <leader>x "_x
+"vnoremap <leader>x "_x
+"nnoremap <leader>X "_X
+"vnoremap <leader>X "_X
 " }}}
 " }}}
 
@@ -131,22 +131,22 @@ vnoremap <leader>X "_X
 
 " Lightline filename without two spaces for modified {{{
 function! LightlineFilename()
-    let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-    let modified = &modified ? ' [+]' : ''
-    return filename . modified
+	let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+	let modified = &modified ? ' [+]' : ''
+	return filename . modified
 endfunction
 " }}}
 
 " Whitespace remover on write {{{
 function! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
+	let l:save = winsaveview()
+	keeppatterns %s/\s\+$//e
+	call winrestview(l:save)
 endfunction
 
 augroup stopwhitespace
-    autocmd!
-    autocmd BufWritePre * :call TrimWhitespace()
+	autocmd!
+	autocmd BufWritePre * :call TrimWhitespace()
 augroup END
 " }}}
 " }}}
@@ -159,39 +159,40 @@ nnoremap <silent> <leader>g <cmd>Rg<cr>
 nnoremap <silent> <leader>b <cmd>Buffers<cr>
 nnoremap <silent> <leader>t <cmd>BTags<cr>
 nnoremap <silent> <leader>l <cmd>Lines<cr>
+nnoremap <silent> <leader>c <cmd>BCommits<cr>
 " Actions / Layouts
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:50%']
 let g:fzf_action = {
-	    \'ctrl-t':'tab split',
-	    \'ctrl-s':'split',
-	    \'ctrl-v':'vsplit'
-	    \}
+			\'ctrl-t':'tab split',
+			\'ctrl-s':'split',
+			\'ctrl-v':'vsplit'
+			\}
 " Strip down fzf buffer
 augroup FzfNoNumbers
-    autocmd!
-    autocmd FileType fzf exe 'setlocal nonumber norelativenumber signcolumn=no'
+	autocmd!
+	autocmd FileType fzf exe 'setlocal nonumber norelativenumber signcolumn=no'
 augroup END
 autocmd! FileType fzf set laststatus=0 noruler
-	    \| autocmd BufLeave <buffer> set laststatus=2 ruler
+			\| autocmd BufLeave <buffer> set laststatus=2 ruler
 " }}}
 
 " Lightline {{{
 let g:lightline = {
-	    \ 'colorscheme': 'base16_gruvbox_dark_pale',
-	    \ 'active': {
-	    \   'left': [ [ 'mode', 'paste' ],
-	    \             [ 'filename' ],
-	    \             [ 'readonly' ] ],
-	    \   'right': [ [ 'lineinfo' ], [ 'percent' ],
-	    \             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
-	    \ },
-	    \ 'component_function': {
-	    \	'filename': 'LightlineFilename',
-	    \ },
-	    \ 'separator': { 'Left': '', 'right': '' },
-	    \ 'subseparator': { 'Left': '', 'right': '' }
-	    \ }
+			\ 'colorscheme': 'base16_gruvbox_dark_pale',
+			\ 'active': {
+			\   'left': [ [ 'mode', 'paste' ],
+			\             [ 'filename' ],
+			\             [ 'readonly' ] ],
+			\   'right': [ [ 'lineinfo' ], [ 'percent' ],
+			\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
+			\ },
+			\ 'component_function': {
+			\	'filename': 'LightlineFilename',
+			\ },
+			\ 'separator': { 'Left': '', 'right': '' },
+			\ 'subseparator': { 'Left': '', 'right': '' }
+			\ }
 " }}}
 
 " Signify
