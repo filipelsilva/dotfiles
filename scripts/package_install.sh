@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if ( command -v apt-get &> /dev/null ); then
+
     sudo add-apt-repository ppa:lazygit-team/release
     sudo add-apt-repository ppa:longsleep/golang-backports
     sudo apt-get -qq update
