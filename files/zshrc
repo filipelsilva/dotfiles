@@ -168,7 +168,7 @@ export PATH=$PATH:/home/$USER/go/bin
 export ZSH="/home/$USER/.oh-my-zsh"
 
 # Theme
-ZSH_THEME="filipe3"
+ZSH_THEME="filipe"
 
 # Bat theme
 export BAT_THEME="base16"
