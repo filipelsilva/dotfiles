@@ -30,6 +30,8 @@ colorscheme base16-gruvbox-dark-pale
 " }}}
 
 " Settings {{{
+syntax on
+filetype plugin indent on
 set nocompatible
 set nomodeline
 set foldenable
@@ -47,8 +49,6 @@ set splitright
 set showtabline=1
 set mouse=a
 set colorcolumn=80,100
-filetype plugin indent on
-syntax on
 set wildmode=longest:full,full
 set wildmenu
 set completeopt=menuone,noinsert,noselect
