@@ -207,10 +207,6 @@ eval "$(zoxide init zsh --cmd j)"
 # TheFuck integration
 eval $(thefuck --alias)
 
-# Tmuxp integration
-eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
-export DISABLE_AUTO_TITLE='true'
-
 # Forgit
 source /home/$USER/.config/forgit/forgit.plugin.zsh
 
