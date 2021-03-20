@@ -1,3 +1,0 @@
-#!/bin/bash
-
-go get -u github.com/ayoisaiah/f2/cmd/...
