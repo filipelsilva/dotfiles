@@ -43,7 +43,6 @@ set ignorecase
 set smartcase
 set nohlsearch
 set incsearch
-set pastetoggle=<F2>
 set splitbelow
 set splitright
 set showtabline=1
