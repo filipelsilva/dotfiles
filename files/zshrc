@@ -206,6 +206,7 @@ source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 MODE_INDICATOR=""
 VI_MODE_SET_CURSOR=true
 bindkey -M viins '^[.' insert-last-word # Alt + . working in insert mode
+bindkey -M viins '^[[3~' delete-char # Delete in insert mode
 
 # Zoxide integration
 eval "$(zoxide init zsh --cmd j)"
