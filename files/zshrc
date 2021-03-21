@@ -200,6 +200,7 @@ gr=38;5;242:gw=38;5;242:gx=38;5;242:tr=38;5;242:tw=38;5;242:tx=38;5;242"
 # Vi-mode
 MODE_INDICATOR=""
 VI_MODE_SET_CURSOR=true
+bindkey -M viins '^[.' insert-last-word # Alt + . working in insert mode
 
 # Zoxide integration
 eval "$(zoxide init zsh --cmd j)"
