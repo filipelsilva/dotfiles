@@ -1,12 +1,12 @@
 #!/bin/bash
 
-mkdir $HOME/.zsh
-
-# Zsh-vi-mode
-git clone https://github.com/jeffreytse/zsh-vi-mode.git $HOME/.zsh/zsh-vi-mode
+mkdir -p $HOME/.zsh
 
 # Zoxide
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sudo sh
+
+# Zsh-vi-mode
+git clone https://github.com/jeffreytse/zsh-vi-mode.git $HOME/.zsh/zsh-vi-mode
 
 # Fast syntax highlighting
 git clone https://github.com/zdharma/fast-syntax-highlighting.git $HOME/.zsh/fast-syntax-highlighting
