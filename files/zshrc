@@ -216,9 +216,6 @@ eval $(thefuck --alias)
 # Forgit
 source /home/$USER/.config/forgit/forgit.plugin.zsh
 
-# Cargo (only on ubuntu)
-#source /home/$USER/.cargo/env
-
 # Fzf (in order to source after zsh-vi-mode)
 function zvm_after_init() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
