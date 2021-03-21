@@ -77,6 +77,8 @@ alias zshsource="source ~/.zshrc && echo 'sourced zshrc'"
 alias zshconfig="nvim ~/.zshrc && zshsource"
 
 # Basic commands
+alias ".."="cd .."
+alias -- -='cd -'
 alias cp="cp -r"
 alias mkdir="mkdir -p"
 alias ip='ip --color=auto'
@@ -218,6 +220,7 @@ source /home/$USER/.config/forgit/forgit.plugin.zsh
 #source /home/$USER/.cargo/env
 
 # Fzf
+source $HOME/.fzf/shell/key-bindings.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # }}}
