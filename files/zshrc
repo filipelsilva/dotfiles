@@ -219,8 +219,9 @@ source /home/$USER/.config/forgit/forgit.plugin.zsh
 # Cargo (only on ubuntu)
 #source /home/$USER/.cargo/env
 
-# Fzf
-source $HOME/.fzf/shell/key-bindings.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Fzf (in order to source after zsh-vi-mode)
+function zvm_after_init() {
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+}
 
 # }}}
