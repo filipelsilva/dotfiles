@@ -99,7 +99,6 @@ alias v="nvim"
 
 # Exa as ls
 alias ls="exa"
-alias lsa="ls -lha"
 alias l="exa -lbF --git"
 alias ll="exa -lbGF --git"
 alias llm="exa -lbGd --git --sort=modified"
@@ -107,6 +106,7 @@ alias la="exa -lbhHigUmuSa --time-style=long-iso --git --color-scale"
 alias lx="exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale"
 alias lS="exa -1"
 alias lt="exa --tree --level=2"
+alias lsa="ls -lha"
 
 # Ubuntu has bat as batcat
 if (( ${+commands[batcat]} )); then
@@ -168,15 +168,6 @@ function pu {
 
 ############# Plugins/Themes/Other ############# {{{
 
-# Command history
-HISTFILE=$HOME/.zsh_history
-HISTSIZE=50000
-SAVEHIST=50000
-setopt extended_history
-setopt share_history
-setopt hist_find_no_dups
-setopt hist_ignore_space
-
 # Prompt
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
@@ -189,21 +180,34 @@ zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:git:*' formats '%F{cyan}:%b%u%c%f'
 PROMPT='%B%F{magenta}%n@%m %F{blue}%1~${vcs_info_msg_0_} %(?..%F{red}%? )%F{magenta}$%b%f '
 
+# Completion menu
+eval "$(dircolors)"
+zstyle ':completion:*:*:*:*:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path "$HOME/.zsh/zcompcache"
+autoload -U compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
+# Command history
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt extended_history
+setopt share_history
+setopt hist_find_no_dups
+setopt hist_ignore_space
+
 # Exa colors
 export EXA_COLORS="lp=33:bl=38;5;220:da=38;5;238:uu=38;5;240:un=38;5;160:\
 gu=38;5;240:gn=38;5;160:ur=38;5;245:uw=38;5;245:ux=38;5;245:ue=38;5;245:\
 gr=38;5;242:gw=38;5;242:gx=38;5;242:tr=38;5;242:tw=38;5;242:tx=38;5;242"
 
-# Editor
+# Variables
 export EDITOR=nvim
-
-# Pip
-export PATH=$PATH:$HOME/.local/bin
-
-# Go
-export PATH=$PATH:$HOME/go/bin
-
-# Bat theme
+export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin
 export BAT_THEME="base16"
 
 # Vim-mode
@@ -212,33 +216,13 @@ MODE_CURSOR_VIINS="bar"
 MODE_CURSOR_VISUAL="block"
 MODE_CURSOR_VLINE="block"
 
-# Zoxide integration
-eval "$(zoxide init zsh --cmd j)"
-
-# TheFuck integration
-eval $(thefuck --alias)
-
-# Forgit
-source $HOME/.config/forgit/forgit.plugin.zsh
-
-# Completion menu
-eval "$(dircolors)"
-zstyle ':completion:*:*:*:*:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion:*' special-dirs true
-# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path "$HOME/.zsh/zcompcache"
-autoload -U compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-
 # Plugins
+eval "$(zoxide init zsh --cmd j)"
+eval $(thefuck --alias)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $HOME/.config/forgit/forgit.plugin.zsh
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $HOME/.zsh/zsh-vim-mode/zsh-vim-mode.plugin.zsh
-
-# Fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # }}}
