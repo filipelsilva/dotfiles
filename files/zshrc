@@ -197,16 +197,11 @@ export PATH=$PATH:/home/$USER/go/bin
 # Bat theme
 export BAT_THEME="base16"
 
-# Plugins
-source $HOME/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-
-# Vi-mode
+# Vim-mode
 MODE_INDICATOR=""
-VI_MODE_SET_CURSOR=true
-bindkey -M viins '^[.' insert-last-word # Alt + . working in insert mode
-bindkey -M viins '^[[3~' delete-char # Delete in insert mode
+MODE_CURSOR_VIINS="bar"
+MODE_CURSOR_VISUAL="block"
+MODE_CURSOR_VLINE="block"
 
 # Zoxide integration
 eval "$(zoxide init zsh --cmd j)"
@@ -217,9 +212,12 @@ eval $(thefuck --alias)
 # Forgit
 source /home/$USER/.config/forgit/forgit.plugin.zsh
 
-# Fzf (in order to source after zsh-vi-mode)
-function zvm_after_init() {
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-}
+# Plugins
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $HOME/.zsh/zsh-vim-mode/zsh-vim-mode.plugin.zsh
+
+# Fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # }}}
