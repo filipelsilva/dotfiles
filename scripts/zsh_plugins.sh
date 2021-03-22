@@ -1,19 +1,15 @@
 #!/bin/bash
 
-# Oh-my-zsh
-rm ~/.zshrc
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+mkdir -p $HOME/.zsh
 
 # Zoxide
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sudo sh
 
+# Zsh-vim-mode
+git clone https://github.com/softmoth/zsh-vim-mode.git $HOME/.zsh/zsh-vim-mode
+
 # Fast syntax highlighting
-git clone https://github.com/zdharma/fast-syntax-highlighting.git \
-    ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+git clone https://github.com/zdharma/fast-syntax-highlighting.git $HOME/.zsh/fast-syntax-highlighting
 
 # Zsh autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions \
-    ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# Exa aliases
-git clone https://github.com/DarrinTisdale/zsh-aliases-exa ~/.oh-my-zsh/custom/plugins/zsh-aliases-exa
+git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
