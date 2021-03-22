@@ -216,9 +216,7 @@ source /home/$USER/.config/forgit/forgit.plugin.zsh
 autoload -U compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 zstyle ':completion:*:*:*:*:*' menu select
-# zstyle ':completion:*' menu yes select
 zstyle ':completion:*' special-dirs true
-zstyle ':completion:*' list-colors ''
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path "$HOME/.zsh/zcompcache"
 
