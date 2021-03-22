@@ -58,7 +58,7 @@ _fzf_compgen_dir() {
 
 # }}}
 
-############# Aliases / Keybinds ############# {{{
+############# Aliases/Keybinds ############# {{{
 
 # Temporary
 alias links="bat $HOME/OneDrive/tecnico/2º\ Ano/2º\ Semestre/Calendários/links.txt"
