@@ -212,6 +212,16 @@ eval $(thefuck --alias)
 # Forgit
 source /home/$USER/.config/forgit/forgit.plugin.zsh
 
+# Completion menu
+autoload -U compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+zstyle ':completion:*:*:*:*:*' menu select
+# zstyle ':completion:*' menu yes select
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' list-colors ''
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path "$HOME/.zsh/zcompcache"
+
 # Plugins
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
