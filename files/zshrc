@@ -61,13 +61,13 @@ _fzf_compgen_dir() {
 ############# Aliases / Keybinds ############# {{{
 
 # Temporary
-alias links="bat ~/OneDrive/tecnico/2º\ Ano/2º\ Semestre/Calendários/links.txt"
+alias links="bat $HOME/OneDrive/tecnico/2º\ Ano/2º\ Semestre/Calendários/links.txt"
 
 # Deemix
-alias deemix="python3 /home/$USER/Programs/deemix-pyweb/server.py"
+alias deemix="python3 $HOME/Programs/deemix-pyweb/server.py"
 
 # Tor Browser
-alias tor-browser="(cd /home/$USER/Programs/tor-browser_en-US && ./start-tor-browser.desktop)"
+alias tor-browser="(cd $HOME/Programs/tor-browser_en-US && ./start-tor-browser.desktop)"
 
 # Open folders/files as if you were in the file manager
 alias open="xdg-open"
@@ -198,10 +198,10 @@ gr=38;5;242:gw=38;5;242:gx=38;5;242:tr=38;5;242:tw=38;5;242:tx=38;5;242"
 export EDITOR=nvim
 
 # Pip
-export PATH=$PATH:/home/$USER/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 
 # Go
-export PATH=$PATH:/home/$USER/go/bin
+export PATH=$PATH:$HOME/go/bin
 
 # Bat theme
 export BAT_THEME="base16"
@@ -219,7 +219,7 @@ eval "$(zoxide init zsh --cmd j)"
 eval $(thefuck --alias)
 
 # Forgit
-source /home/$USER/.config/forgit/forgit.plugin.zsh
+source $HOME/.config/forgit/forgit.plugin.zsh
 
 # Completion menu
 eval "$(dircolors)"

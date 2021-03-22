@@ -59,7 +59,7 @@ set number
 set relativenumber
 set laststatus=2
 set noshowmode
-set undodir=/home/$USER/.vim-undo
+set undodir=$HOME/.vim-undo
 set undofile
 set undolevels=10000
 set tabstop=4
@@ -154,12 +154,12 @@ augroup END
 " Plugin Configurations {{{
 
 " Fzf {{{
-nnoremap <silent> <leader>f <cmd>Files<cr>
-nnoremap <silent> <leader>g <cmd>Rg<cr>
-nnoremap <silent> <leader>b <cmd>Buffers<cr>
-nnoremap <silent> <leader>t <cmd>BTags<cr>
-nnoremap <silent> <leader>l <cmd>Lines<cr>
-nnoremap <silent> <leader>c <cmd>Commits<cr>
+nnoremap <silent> <leader>f <cmd>Files<CR>
+nnoremap <silent> <leader>g <cmd>Rg<CR>
+nnoremap <silent> <leader>b <cmd>Buffers<CR>
+nnoremap <silent> <leader>t <cmd>BTags<CR>
+nnoremap <silent> <leader>l <cmd>Lines<CR>
+nnoremap <silent> <leader>c <cmd>Commits<CR>
 " Actions / Layouts
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:50%']
