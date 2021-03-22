@@ -168,7 +168,7 @@ function pu {
 
 ############# Plugins/Themes/Other ############# {{{
 
-# Prompt
+# Prompt {{{
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
@@ -179,8 +179,9 @@ zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:git:*' formats '%F{cyan}:%b%u%c%f'
 PROMPT='%B%F{magenta}%n@%m %F{blue}%1~${vcs_info_msg_0_} %(?..%F{red}%? )%F{magenta}$%b%f '
+# }}}
 
-# Completion menu
+# Completion menu {{{
 eval "$(dircolors)"
 zstyle ':completion:*:*:*:*:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:*:*:*:*' menu select
@@ -190,8 +191,9 @@ zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path "$HOME/.zsh/zcompcache"
 autoload -U compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
+# }}}
 
-# Command history
+# Command history {{{
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=50000
 SAVEHIST=50000
@@ -199,16 +201,17 @@ setopt extended_history
 setopt share_history
 setopt hist_find_no_dups
 setopt hist_ignore_space
+# }}}
 
-# Exa colors
-export EXA_COLORS="lp=33:bl=38;5;220:da=38;5;238:uu=38;5;240:un=38;5;160:\
-gu=38;5;240:gn=38;5;160:ur=38;5;245:uw=38;5;245:ux=38;5;245:ue=38;5;245:\
-gr=38;5;242:gw=38;5;242:gx=38;5;242:tr=38;5;242:tw=38;5;242:tx=38;5;242"
+# Plugin/Variable configuration {{{
 
 # Variables
 export EDITOR=nvim
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin
 export BAT_THEME="base16"
+export EXA_COLORS="lp=33:bl=38;5;220:da=38;5;238:uu=38;5;240:un=38;5;160:\
+gu=38;5;240:gn=38;5;160:ur=38;5;245:uw=38;5;245:ux=38;5;245:ue=38;5;245:\
+gr=38;5;242:gw=38;5;242:gx=38;5;242:tr=38;5;242:tw=38;5;242:tx=38;5;242"
 
 # Vim-mode
 MODE_INDICATOR=""
@@ -216,13 +219,16 @@ MODE_CURSOR_VIINS="bar"
 MODE_CURSOR_VISUAL="block"
 MODE_CURSOR_VLINE="block"
 
-# Plugins
+# }}}
+
+# Plugins {{{
 eval "$(zoxide init zsh --cmd j)"
 eval $(thefuck --alias)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $HOME/.config/forgit/forgit.plugin.zsh
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $HOME/.zsh/zsh-vim-mode/zsh-vim-mode.plugin.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# }}}
 
 # }}}
