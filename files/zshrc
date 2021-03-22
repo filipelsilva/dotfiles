@@ -168,6 +168,15 @@ function pu {
 
 ############# Plugins/Themes/Other ############# {{{
 
+# Command history
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt EXTENDED_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_SPACE
+
 # Prompt
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
@@ -213,12 +222,16 @@ eval $(thefuck --alias)
 source /home/$USER/.config/forgit/forgit.plugin.zsh
 
 # Completion menu
-autoload -U compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
+eval "$(dircolors)"
+zstyle ':completion:*:*:*:*:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*' special-dirs true
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path "$HOME/.zsh/zcompcache"
+autoload -U compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
 
 # Plugins
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
