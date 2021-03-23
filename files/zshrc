@@ -221,9 +221,9 @@ setopt hist_ignore_space
 export EDITOR=nvim
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin
 export BAT_THEME="base16"
-export EXA_COLORS="lp=33:bl=38;5;220:da=38;5;238:uu=38;5;240:un=38;5;160:\
+export EXA_COLORS="lp=33:bl=38;5;220:da=38;5;240:uu=38;5;240:un=38;5;160:\
 gu=38;5;240:gn=38;5;160:ur=38;5;245:uw=38;5;245:ux=38;5;245:ue=38;5;245:\
-gr=38;5;242:gw=38;5;242:gx=38;5;242:tr=38;5;242:tw=38;5;242:tx=38;5;242"
+gr=38;5;240:gw=38;5;240:gx=38;5;240:tr=38;5;240:tw=38;5;240:tx=38;5;240"
 
 # Vim-mode
 MODE_INDICATOR=""
