@@ -180,16 +180,16 @@ function pu {
 ############# Plugins/Themes/Other ############# {{{
 
 # Prompt {{{
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:git:*' formats '%F{cyan}:%b%u%c%f'
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
 PROMPT='%B%F{magenta}%n@%m %F{blue}%1~${vcs_info_msg_0_} %(?..%F{red}%? )%F{magenta}$%b%f '
 # }}}
 
