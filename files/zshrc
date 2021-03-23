@@ -201,6 +201,10 @@ PROMPT='%B%F{magenta}%n@%m %F{blue}%1~${vcs_info_msg_0_} %(?..%F{red}%? )%F{mage
 # }}}
 
 # Completion menu {{{
+setopt always_to_end
+setopt auto_menu
+setopt complete_in_word
+setopt flow_control
 eval "$(dircolors)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:*:*:*:*' menu select
@@ -219,6 +223,7 @@ SAVEHIST=50000
 setopt extended_history
 setopt share_history
 setopt hist_find_no_dups
+setopt hist_expire_dups_first
 setopt hist_ignore_space
 # }}}
 
