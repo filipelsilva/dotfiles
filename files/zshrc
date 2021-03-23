@@ -2,7 +2,7 @@
 
 # Ubuntu uses fdfind, all other use fd. Standardization.
 if (( ${+commands[fdfind]} )); then
-	alias fd=fdfind
+    alias fd=fdfind
 fi
 
 # Make fzf not collide with zsh
@@ -40,20 +40,20 @@ export FZF_DEFAULT_OPTS=" \
 # Fzf using fd instead of find
 local FD_DEFAULT_OPTS="--follow"
 if (( ${+commands[fdfind]} )); then
-	local FD_NAME="fdfind"
+    local FD_NAME="fdfind"
 elif (( ${+commands[fd]} )); then
-	local FD_NAME="fd"
+    local FD_NAME="fd"
 fi
 export FZF_DEFAULT_COMMAND="$FD_NAME $FD_DEFAULT_OPTS"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
 _fzf_compgen_path() {
-	fd . "$1"
+    fd . "$1"
 }
 
 _fzf_compgen_dir() {
-	fd --type d . "$1"
+    fd --type d . "$1"
 }
 
 # }}}
@@ -110,7 +110,7 @@ alias lsa="ls -lha"
 
 # Ubuntu has bat as batcat
 if (( ${+commands[batcat]} )); then
-	alias bat=batcat
+    alias bat=batcat
 fi
 
 # }}}
@@ -119,48 +119,47 @@ fi
 
 # [F]ind-[I]n-[F]ile
 function fif() {
-	if [ ! "$#" -gt 0 ]; then
-		echo "Need a string to search for!";
-		return 1;
-	fi
-	rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --header='[find in file]' --preview "rg --ignore-case --pretty --context 10 '$1' {}"
+    if [ ! "$#" -gt 0 ]; then
+	echo "Need a string to search for!";
+	return 1;
+    fi
+    rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --header='[find in file]' --preview "rg --ignore-case --pretty --context 10 '$1' {}"
 }
 
 # [Li]nk[du]mp
 function lidu() {
-	lynx -dump -listonly -nonumbers $1 | grep .pdf > dump.txt
-	wget -i dump.txt
-	rm dump.txt
+    lynx -dump -listonly -nonumbers $1 | grep .pdf > dump.txt
+    wget -i dump.txt
+    rm dump.txt
 }
 
 # [K]ill [P]rocess
 function kp() {
-	local pid=$(ps -ef | sed 1d | eval "fzf -m --header='[kill:process]'" | awk '{print $2}')
-	if [ "x$pid" != "x" ]
-	then
-		echo $pid | xargs kill -${1:-9}
-		kp
-	fi
+    local pid=$(ps -ef | sed 1d | eval "fzf -m --header='[kill:process]'" | awk '{print $2}')
+    if [ "x$pid" != "x" ]
+    then
+	echo $pid | xargs kill -${1:-9}
+	kp
+    fi
 }
 
 # [F]ind [P]ath
 function fp() {
-	local loc=$(echo $PATH | sed -e $'s/:/\\\n/g' | eval "fzf --header='[find:path]'")
-	if [[ -d $loc ]]; then
-		echo "$(rg --files $loc | rev | cut -d"/" -f1 | rev)" | eval "fzf --header='[find:exe] => ${loc}' >/dev/null"
-		fp
-	fi
+    local loc=$(echo $PATH | sed -e $'s/:/\\\n/g' | eval "fzf --header='[find:path]'")
+    if [[ -d $loc ]]; then
+	echo "$(rg --files $loc | rev | cut -d"/" -f1 | rev)" | eval "fzf --header='[find:exe] => ${loc}' >/dev/null"
+	fp
+    fi
 }
 
 # [P]ackage [U]pdate
-function pu {
-	if (( ${+commands[apt]} )); then
-		sudo apt update && sudo apt upgrade
-	elif (( ${+commands[pacman]} )); then
-		sudo pacman -Syu
-		if (( ${+commands[yay]} )); then
-			yay -Syu --devel --timeupdate
-		fi
+function pu() {
+    if (( ${+commands[apt]} )); then
+	sudo apt update && sudo apt upgrade
+    elif (( ${+commands[pacman]} )); then
+	sudo pacman -Syu
+	if (( ${+commands[yay]} )); then
+	    yay -Syu --devel --timeupdate
 	fi
 }
 
@@ -168,10 +167,6 @@ function pu {
 +vi-git-untracked(){
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
         git status --porcelain | grep '??' &> /dev/null ; then
-        # This will show the marker if there are any untracked files in repo.
-        # If instead you want to show the marker only if there are untracked
-        # files in $PWD, use:
-        #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
         hook_com[staged]+='?'
     fi
 }
@@ -181,7 +176,6 @@ function pu {
 
 # Prompt {{{
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
-#zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '*'
