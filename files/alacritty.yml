@@ -99,19 +99,19 @@ scrolling: # {{{
 font:
   # Normal (roman) font face
   normal:
-    family: Iosevka Term #Extended
+    family: Iosevka
     style: Regular
 
   bold:
-    family: Iosevka Term #Extended
+    family: Iosevka
     style: Bold
 
   italic:
-    family: Iosevka Term #Extended
+    family: Iosevka
     style: Italic
 
   bold_italic:
-    family: Iosevka Term #Extended
+    family: Iosevka
     style: Bold Italic
 
   # Point size
