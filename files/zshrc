@@ -172,20 +172,14 @@ function pu() {
     fi
 }
 
+# Show relation to remote branch
 function +vi-git-st() {
     local ahead behind
     local -a gitstatus
-
-    # for git prior to 1.7
-    # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
     ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
-    (( $ahead )) && gitstatus+=( "+${ahead}" )
-
-    # for git prior to 1.7
-    # behind=$(git rev-list HEAD..origin/${hook_com[branch]} | wc -l)
+    (( $ahead )) && gitstatus+=( ">${ahead}" )
     behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
-    (( $behind )) && gitstatus+=( "-${behind}" )
-
+    (( $behind )) && gitstatus+=( "<${behind}" )
     hook_com[misc]+=${(j:/:)gitstatus}
 }
 # }}}
@@ -198,7 +192,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '*'
-zstyle ':vcs_info:git:*' formats '%F{cyan}:%b%u%c%m%f'
+zstyle ':vcs_info:git:*' formats '%F{cyan}:%b%m%u%c%f'
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
