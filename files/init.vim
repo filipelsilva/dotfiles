@@ -32,6 +32,7 @@ colorscheme base16-gruvbox-dark-pale
 " Settings {{{
 syntax on
 filetype plugin indent on
+set guicursor=
 set nocompatible
 set nomodeline
 set foldenable
