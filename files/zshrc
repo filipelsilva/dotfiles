@@ -232,6 +232,7 @@ setopt hist_ignore_space
 
 # Variables
 export EDITOR=nvim
+export VISUAL=nvim
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin
 export BAT_THEME="base16"
 export EXA_COLORS="lp=33:bl=38;5;220:da=38;5;240:uu=38;5;240:un=38;5;160:\
@@ -251,8 +252,8 @@ eval "$(zoxide init zsh --cmd j)"
 eval $(thefuck --alias)
 source $HOME/.config/forgit/forgit.plugin.zsh
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $HOME/.zsh/zsh-vim-mode/zsh-vim-mode.plugin.zsh
+source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # }}}
 
