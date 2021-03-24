@@ -228,9 +228,7 @@ setopt hist_expire_dups_first
 setopt hist_ignore_space
 # }}}
 
-# Plugin/Variable configuration {{{
-
-# Variables
+# Variables {{{
 export EDITOR=nvim
 export VISUAL=nvim
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin
@@ -238,23 +236,15 @@ export BAT_THEME="base16"
 export EXA_COLORS="lp=33:bl=38;5;220:da=38;5;240:uu=38;5;240:un=38;5;160:\
 gu=38;5;240:gn=38;5;160:ur=38;5;245:uw=38;5;245:ux=38;5;245:ue=38;5;245:\
 gr=38;5;240:gw=38;5;240:gx=38;5;240:tr=38;5;240:tw=38;5;240:tx=38;5;240"
-
-# Vim-mode
-MODE_INDICATOR=""
-MODE_CURSOR_VIINS="bar"
-MODE_CURSOR_VISUAL="block"
-MODE_CURSOR_VLINE="block"
-
 # }}}
 
 # Plugins {{{
 eval "$(zoxide init zsh --cmd j)"
 eval $(thefuck --alias)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $HOME/.config/forgit/forgit.plugin.zsh
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.zsh/zsh-vim-mode/zsh-vim-mode.plugin.zsh
 source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # }}}
 
 # }}}
