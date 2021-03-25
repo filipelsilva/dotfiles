@@ -160,7 +160,7 @@ function up() {
 }
 
 # Show untracked files in git repo:
-function +vi-git-untracked() {
++vi-git-untracked() {
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
         git status --porcelain | grep '??' &> /dev/null ; then
         hook_com[staged]+='?'
@@ -168,7 +168,7 @@ function +vi-git-untracked() {
 }
 
 # Show relation to remote branch
-function +vi-git-st() {
++vi-git-st() {
     local ahead behind
     local -a gitstatus
     ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
