@@ -4,9 +4,6 @@
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
-# Forgit
-git clone https://github.com/wfxr/forgit ~/.config/forgit
-
 # Bat-extras (specifically: batdiff)
 git clone https://github.com/eth-p/bat-extras ~/.bat-extras
 (cd ~/.bat-extras && sudo ./build.sh)

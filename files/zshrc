@@ -242,7 +242,7 @@ gr=38;5;240:gw=38;5;240:gx=38;5;240:tr=38;5;240:tw=38;5;240:tx=38;5;240"
 # }}}
 
 # Plugins {{{
-source $HOME/.config/forgit/forgit.plugin.zsh
+source $HOME/.zsh/forgit/forgit.plugin.zsh
 source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
