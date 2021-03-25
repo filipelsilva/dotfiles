@@ -2,7 +2,6 @@
 call plug#begin()
 Plug 'lifepillar/vim-mucomplete' " Completion plugin
 Plug 'jiangmiao/auto-pairs' " Close brackets
-Plug 'tpope/vim-sleuth' " Detect default identation
 Plug 'tpope/vim-surround' " Do surroundings
 Plug 'tpope/vim-commentary' " Comment stuff
 Plug 'tpope/vim-fugitive' " Git stuff
@@ -102,6 +101,9 @@ nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
 " Move vertically by visual line with j and k
 nnoremap j gj
 nnoremap k gk
+
+" See tabs and spaces
+nnoremap <leader>w :set listchars=space:_,tab:>~ list<CR>
 
 " Esc in terminal or in Fzf windows
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
