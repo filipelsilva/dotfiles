@@ -246,8 +246,8 @@ eval "$(zoxide init zsh --cmd j)"
 eval $(thefuck --alias)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $HOME/.config/forgit/forgit.plugin.zsh
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # }}}
 
 # }}}
