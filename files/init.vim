@@ -102,8 +102,9 @@ nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
 nnoremap j gj
 nnoremap k gk
 
-" See tabs and spaces
+" Toggle visualization of tabs and spaces
 nnoremap <leader>w :set listchars=space:_,tab:>~ list<CR>
+nnoremap <leader>W :set listchars=<CR>
 
 " Esc in terminal or in Fzf windows
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
