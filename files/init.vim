@@ -116,10 +116,10 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Shortcuts to use blackhole register {{{
-"nnoremap <leader>d "_d
-"vnoremap <leader>d "_d
-"nnoremap <leader>D "_D
-"vnoremap <leader>D "_D
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+nnoremap <leader>D "_D
+vnoremap <leader>D "_D
 "nnoremap <leader>c "_c
 "vnoremap <leader>c "_c
 "nnoremap <leader>C "_C
