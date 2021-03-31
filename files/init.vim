@@ -48,6 +48,8 @@ set splitright
 set showtabline=1
 set mouse=a
 set colorcolumn=80,100
+"set cursorcolumn
+"set cursorline
 set wildmode=longest:full,full
 set wildmenu
 set completeopt=menuone,noinsert,noselect
