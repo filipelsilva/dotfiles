@@ -51,9 +51,6 @@ set completeopt=menuone,noinsert,noselect
 set ruler
 set showcmd
 set scrolloff=5
-" set signcolumn=yes
-set number
-set relativenumber
 set undodir=$HOME/.vim-undo
 set undofile
 set undolevels=10000
@@ -65,10 +62,11 @@ set shiftround
 set smarttab
 set nowrap
 set updatetime=100
+set number
+set relativenumber
+" set signcolumn=yes
 set laststatus=0
 " set noshowmode
-" set cursorcolumn
-" set cursorline
 " }}}
 
 " Keymaps {{{
