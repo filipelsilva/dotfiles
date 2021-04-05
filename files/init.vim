@@ -44,7 +44,7 @@ set splitbelow
 set splitright
 set showtabline=1
 set mouse=a
-set colorcolumn=80,100
+set colorcolumn=80
 set wildmode=longest:full,full
 set wildmenu
 set completeopt=menuone,noinsert,noselect
@@ -63,7 +63,7 @@ set updatetime=100
 set number
 set relativenumber
 set noruler
-set laststatus=1
+set laststatus=0
 " }}}
 
 " Keymaps {{{

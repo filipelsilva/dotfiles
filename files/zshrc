@@ -59,8 +59,7 @@ alias zshsource="source ~/.zshrc && echo 'sourced zshrc'"
 alias zshconfig="nvim ~/.zshrc && zshsource"
 
 # Basic commands
-alias "~"="cd ~"
-alias ".."="cd .."
+alias ..="cd .."
 alias -- -='cd -'
 alias cp="cp -r"
 alias mkdir="mkdir -p"
