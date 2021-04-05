@@ -238,7 +238,7 @@ schemes: # {{{
 # }}}
 
 # Apply the color scheme.
-colors: *base16_gruvbox_dark_pale
+colors: *gruvbox
 
 # Bell # {{{
 #

@@ -48,8 +48,6 @@ set colorcolumn=80,100
 set wildmode=longest:full,full
 set wildmenu
 set completeopt=menuone,noinsert,noselect
-set ruler
-set showcmd
 set scrolloff=5
 set undodir=$HOME/.vim-undo
 set undofile
@@ -64,9 +62,8 @@ set nowrap
 set updatetime=100
 set number
 set relativenumber
-" set signcolumn=yes
+set noruler
 set laststatus=0
-" set noshowmode
 " }}}
 
 " Keymaps {{{
