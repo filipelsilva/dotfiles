@@ -48,8 +48,6 @@ set splitright
 set showtabline=1
 set mouse=a
 set colorcolumn=80,100
-"set cursorcolumn
-"set cursorline
 set wildmode=longest:full,full
 set wildmenu
 set completeopt=menuone,noinsert,noselect
@@ -59,8 +57,6 @@ set scrolloff=5
 set signcolumn=yes
 set number
 set relativenumber
-set laststatus=2
-set noshowmode
 set undodir=$HOME/.vim-undo
 set undofile
 set undolevels=10000
@@ -72,6 +68,10 @@ set shiftround
 set smarttab
 set nowrap
 set updatetime=100
+set laststatus=0
+" set noshowmode
+" set cursorcolumn
+" set cursorline
 " }}}
 
 " Keymaps {{{
