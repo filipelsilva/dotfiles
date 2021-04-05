@@ -96,6 +96,8 @@ nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
 " Move vertically by visual line with j and k
 nnoremap j gj
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " Toggle visualization of tabs and spaces
 nnoremap <leader>w :set listchars=space:_,tab:>~ list<CR>
