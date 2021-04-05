@@ -169,10 +169,10 @@ let g:fzf_action = {
 " Strip down fzf buffer
 augroup FzfNoNumbers
 	autocmd!
-	autocmd FileType fzf exe 'setlocal nonumber norelativenumber signcolumn=no'
+	autocmd FileType fzf exe 'setlocal nonumber norelativenumber'
 augroup END
-autocmd! FileType fzf set laststatus=0 noruler
-			\| autocmd BufLeave <buffer> set laststatus=2 ruler
+autocmd! FileType fzf set laststatus=0
+			\| autocmd BufLeave <buffer> set laststatus=1
 " }}}
 
 " Signify
