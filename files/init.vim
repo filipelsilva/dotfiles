@@ -22,6 +22,10 @@ endif
 
 set t_Co=256
 highlight Comment cterm=italic gui=italic
+highlight Folded ctermbg=none
+highlight FoldColumn ctermbg=none
+
+let g:gruvbox_italic = 1
 colorscheme gruvbox
 " }}}
 
@@ -31,7 +35,6 @@ filetype plugin indent on
 set guicursor=
 set nocompatible
 set nomodeline
-set foldenable
 set foldmethod=marker
 set hidden
 set autoindent
