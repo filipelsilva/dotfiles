@@ -63,7 +63,7 @@ set updatetime=100
 set number
 set relativenumber
 set noruler
-set laststatus=0
+set laststatus=1
 " }}}
 
 " Keymaps {{{
