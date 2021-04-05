@@ -4,7 +4,6 @@ Plug 'lifepillar/vim-mucomplete' " Completion plugin
 Plug 'jiangmiao/auto-pairs' " Close brackets
 Plug 'tpope/vim-surround' " Do surroundings
 Plug 'tpope/vim-commentary' " Comment stuff
-Plug 'tpope/vim-fugitive' " Git stuff
 Plug 'mhinz/vim-signify' " Show repo differences
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Fuzzy finder
@@ -130,14 +129,6 @@ vnoremap <leader>D "_D
 
 " Functions {{{
 
-" Lightline filename without two spaces for modified {{{
-function! LightlineFilename()
-	let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-	let modified = &modified ? ' [+]' : ''
-	return filename . modified
-endfunction
-" }}}
-
 " Whitespace remover on write {{{
 function! TrimWhitespace()
 	let l:save = winsaveview()
@@ -160,7 +151,7 @@ nnoremap <silent> <leader>g <cmd>Rg<CR>
 nnoremap <silent> <leader>b <cmd>Buffers<CR>
 nnoremap <silent> <leader>t <cmd>BTags<CR>
 nnoremap <silent> <leader>l <cmd>Lines<CR>
-nnoremap <silent> <leader>c <cmd>Commits<CR>
+nnoremap <silent> <leader>c <cmd>BCommits<CR>
 " Actions / Layouts
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:50%']
