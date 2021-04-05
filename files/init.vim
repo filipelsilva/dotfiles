@@ -6,12 +6,9 @@ Plug 'tpope/vim-surround' " Do surroundings
 Plug 'tpope/vim-commentary' " Comment stuff
 Plug 'tpope/vim-fugitive' " Git stuff
 Plug 'mhinz/vim-signify' " Show repo differences
-Plug 'mhinz/vim-startify' " Start menu for vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Fuzzy finder
-Plug 'itchyny/lightline.vim' " Status line
-Plug 'mike-hearn/base16-vim-lightline' " Theme for lightline
-Plug 'chriskempson/base16-vim' " Themes
+Plug 'gruvbox-community/gruvbox'
 call plug#end()
 " }}}
 
@@ -25,7 +22,7 @@ endif
 
 set t_Co=256
 highlight Comment cterm=italic gui=italic
-colorscheme base16-gruvbox-dark-pale
+colorscheme gruvbox
 " }}}
 
 " Settings {{{
@@ -54,7 +51,7 @@ set completeopt=menuone,noinsert,noselect
 set ruler
 set showcmd
 set scrolloff=5
-set signcolumn=yes
+" set signcolumn=yes
 set number
 set relativenumber
 set undodir=$HOME/.vim-undo
@@ -183,28 +180,7 @@ autocmd! FileType fzf set laststatus=0 noruler
 			\| autocmd BufLeave <buffer> set laststatus=2 ruler
 " }}}
 
-" Lightline {{{
-let g:lightline = {
-			\ 'colorscheme': 'base16_gruvbox_dark_pale',
-			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ],
-			\             [ 'filename' ],
-			\             [ 'readonly' ] ],
-			\   'right': [ [ 'lineinfo' ], [ 'percent' ],
-			\             [ 'binary', 'fileformat', 'fileencoding', 'filetype' ] ]
-			\ },
-			\ 'component_function': {
-			\	'filename': 'LightlineFilename',
-			\ },
-			\ 'separator': { 'Left': '', 'right': '' },
-			\ 'subseparator': { 'Left': '', 'right': '' }
-			\ }
-" }}}
-
 " Signify
 nmap <leader>sn <plug>(signify-next-hunk)
 nmap <leader>sp <plug>(signify-prev-hunk)
-
-" Startify
-let g:startify_fortune_use_unicode = 1
-"" }}}
+" }}}
