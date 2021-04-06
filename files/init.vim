@@ -125,7 +125,7 @@ vnoremap <leader>D "_D
 
 " Functions {{{
 
-" Whitespace remover on write {{{
+" Whitespace remover on write
 function! TrimWhitespace()
 	let l:save = winsaveview()
 	keeppatterns %s/\s\+$//e
@@ -136,7 +136,6 @@ augroup stopwhitespace
 	autocmd!
 	autocmd BufWritePre * :call TrimWhitespace()
 augroup END
-" }}}
 " }}}
 
 " Plugin Configurations {{{
