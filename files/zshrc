@@ -66,7 +66,7 @@ alias mkdir="mkdir -p"
 alias ip='ip --color=auto'
 
 # Update packages
-alias pipup="pip_upgrade_outdated -3"
+alias pipup="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 alias cargoup="cargo install-update -a"
 
 # See all processes
