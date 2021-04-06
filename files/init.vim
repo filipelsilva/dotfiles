@@ -63,7 +63,6 @@ set nowrap
 set updatetime=100
 set number
 set relativenumber
-set noruler
 set laststatus=0
 " }}}
 
