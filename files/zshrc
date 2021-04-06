@@ -65,9 +65,8 @@ alias cp="cp -r"
 alias mkdir="mkdir -p"
 alias ip='ip --color=auto'
 
-# Update packages
+# Update pip packages
 alias pipup="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
-alias cargoup="cargo install-update -a"
 
 # See all processes
 alias psa="ps aux | fzf ${FZF_DEFAULT_OPTS} --header='[name:process]'"
