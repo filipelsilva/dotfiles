@@ -159,7 +159,7 @@ function up() {
 }
 # }}}
 
-############# Plugins/Themes/Other ############# {{{
+############# Zsh config / Variables ############# {{{
 
 # Prompt {{{
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked

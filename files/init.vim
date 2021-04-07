@@ -108,24 +108,42 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Shortcuts to use blackhole register {{{
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
-nnoremap <leader>D "_D
-vnoremap <leader>D "_D
-"nnoremap <leader>c "_c
-"vnoremap <leader>c "_c
-"nnoremap <leader>C "_C
-"vnoremap <leader>C "_C
-"nnoremap <leader>x "_x
-"vnoremap <leader>x "_x
-"nnoremap <leader>X "_X
-"vnoremap <leader>X "_X
+" nnoremap <leader>d "_d
+" vnoremap <leader>d "_d
+" nnoremap <leader>D "_D
+" vnoremap <leader>D "_D
+" nnoremap <leader>c "_c
+" vnoremap <leader>c "_c
+" nnoremap <leader>C "_C
+" vnoremap <leader>C "_C
+" nnoremap <leader>x "_x
+" vnoremap <leader>x "_x
+" nnoremap <leader>X "_X
+" vnoremap <leader>X "_X
 " }}}
 " }}}
 
 " Functions {{{
 
-" Whitespace remover on write
+" FZF Buffer Delete (:BD) {{{
+function! s:list_buffers()
+	redir => list
+	silent ls
+	redir END
+	return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+	execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+command! BD call fzf#run(fzf#wrap({
+			\ 'source': s:list_buffers(),
+			\ 'sink*': { lines -> s:delete_buffers(lines) },
+			\ }))
+" }}}
+
+" Whitespace remover on write {{{
 function! TrimWhitespace()
 	let l:save = winsaveview()
 	keeppatterns %s/\s\+$//e
@@ -137,6 +155,7 @@ augroup stopwhitespace
 	autocmd BufWritePre * :call TrimWhitespace()
 augroup END
 " }}}
+" }}}
 
 " Plugin Configurations {{{
 
@@ -147,6 +166,7 @@ nnoremap <silent> <leader>b <cmd>Buffers<CR>
 nnoremap <silent> <leader>t <cmd>BTags<CR>
 nnoremap <silent> <leader>l <cmd>Lines<CR>
 nnoremap <silent> <leader>c <cmd>BCommits<CR>
+nnoremap <silent> <leader>d <cmd>BD<CR>
 " Actions / Layouts
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:50%']
