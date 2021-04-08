@@ -30,40 +30,26 @@ colorscheme gruvbox
 " Settings {{{
 syntax on
 filetype plugin indent on
+set nomodeline hidden nocompatible
+" Cursor always terminal default
 set guicursor=
-set nocompatible
-set nomodeline
-set foldmethod=marker
-set hidden
-set autoindent
-set copyindent
-set ignorecase
-set smartcase
-set nohlsearch
-set incsearch
-set splitbelow
-set splitright
-set showtabline=1
-set mouse=a
-set colorcolumn=80
-set wildmode=longest:full,full
-set wildmenu
+" Folds (marker = 3*'{')
+set foldmethod=marker " Folds
+" Search settings
+set ignorecase smartcase nohlsearch incsearch
+" Splits like 'normal' editors
+set splitbelow splitright
+" Completion menu settings
+set wildmenu wildmode=longest:full,full
 set completeopt=menuone,noinsert,noselect
-set scrolloff=5
-set undodir=$HOME/.vim-undo
-set undofile
-set undolevels=10000
-set tabstop=4
-set softtabstop=4
-set noexpandtab
-set shiftwidth=4
-set shiftround
-set smarttab
-set nowrap
-set updatetime=100
-set number
-set relativenumber
-set laststatus=0
+" Undo settings
+set undofile undolevels=10000 undodir=$HOME/.vim-undo
+" Indentation settings
+set autoindent copyindent tabstop=4 softtabstop=4 noexpandtab shiftwidth=4 shiftround smarttab
+" Visual settings
+set nowrap number relativenumber showtabline=0 laststatus=0
+" Other settings
+set mouse=a colorcolumn=80 scrolloff=5 updatetime=100
 " }}}
 
 " Keymaps {{{
@@ -108,40 +94,22 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Shortcuts to use blackhole register {{{
-" nnoremap <leader>d "_d
-" vnoremap <leader>d "_d
-" nnoremap <leader>D "_D
-" vnoremap <leader>D "_D
-" nnoremap <leader>c "_c
-" vnoremap <leader>c "_c
-" nnoremap <leader>C "_C
-" vnoremap <leader>C "_C
-" nnoremap <leader>x "_x
-" vnoremap <leader>x "_x
-" nnoremap <leader>X "_X
-" vnoremap <leader>X "_X
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+nnoremap <leader>D "_D
+vnoremap <leader>D "_D
+nnoremap <leader>c "_c
+vnoremap <leader>c "_c
+nnoremap <leader>C "_C
+vnoremap <leader>C "_C
+nnoremap <leader>x "_x
+vnoremap <leader>x "_x
+nnoremap <leader>X "_X
+vnoremap <leader>X "_X
 " }}}
 " }}}
 
 " Functions {{{
-
-" FZF Buffer Delete (:BD) {{{
-function! s:list_buffers()
-	redir => list
-	silent ls
-	redir END
-	return split(list, "\n")
-endfunction
-
-function! s:delete_buffers(lines)
-	execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
-endfunction
-
-command! BD call fzf#run(fzf#wrap({
-			\ 'source': s:list_buffers(),
-			\ 'sink*': { lines -> s:delete_buffers(lines) },
-			\ }))
-" }}}
 
 " Whitespace remover on write {{{
 function! TrimWhitespace()
@@ -162,11 +130,8 @@ augroup END
 " Fzf {{{
 nnoremap <silent> <leader>f <cmd>Files<CR>
 nnoremap <silent> <leader>g <cmd>Rg<CR>
-nnoremap <silent> <leader>b <cmd>Buffers<CR>
 nnoremap <silent> <leader>t <cmd>BTags<CR>
-nnoremap <silent> <leader>l <cmd>Lines<CR>
-nnoremap <silent> <leader>c <cmd>BCommits<CR>
-nnoremap <silent> <leader>d <cmd>BD<CR>
+nnoremap <silent> <leader>b <cmd>Buffers<CR>
 " Actions / Layouts
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:50%']
