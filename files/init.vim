@@ -31,25 +31,35 @@ colorscheme gruvbox
 syntax on
 filetype plugin indent on
 set nomodeline hidden nocompatible
+
 " Cursor always terminal default
 set guicursor=
+
 " Folds (marker = 3*'{')
 set foldmethod=marker " Folds
+
 " Search settings
 set ignorecase smartcase nohlsearch incsearch
+
 " Splits like 'normal' editors
 set splitbelow splitright
+
 " Completion menu settings
 set wildmenu wildmode=longest:full,full
 set completeopt=menuone,noinsert,noselect
+
 " Undo settings
 set undofile undolevels=10000 undodir=$HOME/.vim-undo
+
 " Indentation settings
 set autoindent copyindent tabstop=4 softtabstop=4 noexpandtab shiftwidth=4 shiftround smarttab
+
 " Visual settings
 set nowrap number relativenumber showtabline=0 laststatus=0
+
 " Other settings
 set mouse=a colorcolumn=80 scrolloff=5 updatetime=100
+
 " }}}
 
 " Keymaps {{{
