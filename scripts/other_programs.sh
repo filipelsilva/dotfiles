@@ -4,11 +4,6 @@
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
-# Bat-extras (specifically: batdiff)
-git clone https://github.com/eth-p/bat-extras ~/.bat-extras
-(cd ~/.bat-extras && sudo ./build.sh)
-sudo mv ~/.bat-extras/bin/batdiff /usr/local/bin
-
 # Cheat.sh
 curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
 sudo chmod +x /usr/local/bin/cht.sh

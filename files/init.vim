@@ -1,18 +1,20 @@
 " Plugins {{{
-call plug#begin()
-Plug 'lifepillar/vim-mucomplete' " Completion plugin
-Plug 'jiangmiao/auto-pairs' " Close brackets
-Plug 'tpope/vim-surround' " Do surroundings
-Plug 'tpope/vim-commentary' " Comment stuff
-Plug 'mhinz/vim-signify' " Show repo differences
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim' " Fuzzy finder
-Plug 'gruvbox-community/gruvbox'
-call plug#end()
+packadd minpac
+call minpac#init()
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('lifepillar/vim-mucomplete') " Completion plugin
+call minpac#add('jiangmiao/auto-pairs') " Close brackets
+call minpac#add('tpope/vim-surround') " Do surroundings
+call minpac#add('tpope/vim-commentary') " Comment stuff
+call minpac#add('mhinz/vim-signify') " Show repo differences
+call minpac#add('junegunn/fzf')
+call minpac#add('junegunn/fzf.vim') " Fuzzy finder
+call minpac#add('gruvbox-community/gruvbox')
 " }}}
 
 " Colorschemes {{{
 set t_Co=256
+set background=dark
 
 if (has("nvim"))
 	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -37,7 +39,7 @@ set nomodeline hidden nocompatible
 set guicursor=
 
 " Folds (marker = 3*'{')
-set foldmethod=marker " Folds
+set foldmethod=marker
 
 " Search settings
 set ignorecase smartcase nohlsearch incsearch
@@ -49,6 +51,9 @@ set splitbelow splitright
 set wildmenu wildmode=longest:full,full
 set completeopt=menuone,noinsert,noselect
 
+" Backspace settings
+set backspace=indent,eol,start
+
 " Undo settings
 set undofile undolevels=10000 undodir=$HOME/.vim-undo
 
@@ -56,7 +61,7 @@ set undofile undolevels=10000 undodir=$HOME/.vim-undo
 set autoindent copyindent tabstop=4 softtabstop=4 noexpandtab shiftwidth=4 shiftround smarttab
 
 " Visual settings
-set nowrap number relativenumber showtabline=0 laststatus=0
+set nowrap number relativenumber showcmd showtabline=0 laststatus=0
 
 " Other settings
 set mouse=a colorcolumn=80 scrolloff=5 updatetime=100
@@ -129,10 +134,10 @@ function! TrimWhitespace()
 	call winrestview(l:save)
 endfunction
 
-augroup stopwhitespace
-	autocmd!
-	autocmd BufWritePre * :call TrimWhitespace()
-augroup END
+" augroup stopwhitespace
+" 	autocmd!
+" 	autocmd BufWritePre * :call TrimWhitespace()
+" augroup END
 " }}}
 " }}}
 

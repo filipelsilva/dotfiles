@@ -1,16 +1,18 @@
 [user]
 	email = 57916727+filipelsilva@users.noreply.github.com
 	name = Filipe Ligeiro Silva
+
 [core]
-	editor = code
+	editor = nvim
+
 [diff]
 	tool = vimdiff
+
 [difftool "vimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
 [merge]
 	tool = vimdiff
+
 [mergetool "vimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-[delta]
-	line-numbers = true
-	#side-by-side = true
