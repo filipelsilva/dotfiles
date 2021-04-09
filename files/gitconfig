@@ -2,14 +2,29 @@
 	email = 57916727+filipelsilva@users.noreply.github.com
 	name = Filipe Ligeiro Silva
 
+[delta]
+	features = line-numbers decorations gruvbox-dark
+
+[interactive]
+    diffFilter = delta --color-only
+
 [core]
+	pager = delta
 	editor = nvim
 
-[diff]
-	tool = vimdiff
+[pager]
+	log = delta
+	show = delta
+	diff = delta
 
-[difftool "vimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[diff]
+	tool = delta
+
+[difftool]
+	prompt = false
+
+[difftool "delta"]
+	cmd = delta $LOCAL $REMOTE
 
 [merge]
 	tool = vimdiff
