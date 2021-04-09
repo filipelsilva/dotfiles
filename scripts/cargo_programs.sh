@@ -6,7 +6,7 @@ if ( command -v apt-get &> /dev/null ); then
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 	source $HOME/.cargo/env
 
-	cargo install exa hyperfine tealdeer git-delta topgrade bottom du-dust sd
+	cargo install exa hyperfine tealdeer git-delta topgrade bottom du-dust sd zoxide
 fi
 
 # Programs (Arch already has most of these in Pacman/AUR)

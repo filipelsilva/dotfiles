@@ -2,9 +2,6 @@
 
 mkdir -p $HOME/.zsh
 
-# Zoxide
-curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sudo sh
-
 # Forgit
 git clone https://github.com/wfxr/forgit $HOME/.zsh/forgit
 
