@@ -123,7 +123,7 @@ function! PackInit() abort
 	call minpac#add('tpope/vim-surround') " Do surroundings
 	call minpac#add('tpope/vim-commentary') " Comment stuff
 	call minpac#add('mhinz/vim-signify') " Show repo differences
-	call minpac#add('junegunn/fzf')
+	call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
 	call minpac#add('junegunn/fzf.vim') " Fuzzy finder
 	call minpac#add('gruvbox-community/gruvbox')
 endfunction

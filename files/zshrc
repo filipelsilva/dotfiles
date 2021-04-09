@@ -132,11 +132,20 @@ function fp() {
 	fi
 }
 
-# [U]pgrade [P]lugins
+# [Up]grade
 function up() {
-	for folder in $HOME/.zsh/**; do
-		(echo $folder && cd $folder && git pull)
-	done
+	if (( ${+commands[apt]} )); then
+		sudo apt update && sudo apt upgrade
+	elif (( ${+commands[yay]} )); then
+		yay -Syu --devel --timeupdate
+	fi
+	cargo install-update -a
+	pipup
+	zgen selfupdate
+	zgen update
+	tldr --update
+	cd ~/.fzf && git pull && ./install
+	nvim -c ":PackUpdate"
 }
 
 # Show untracked files in git repo:
@@ -215,7 +224,7 @@ bindkey "\e." insert-last-word
 export GIT_PAGER=delta
 export EDITOR=nvim
 export VISUAL=nvim
-export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin
 export BAT_THEME="gruvbox-dark"
 export EXA_COLORS="lp=33:bl=38;5;220:da=38;5;240:uu=38;5;240:un=38;5;160:\
 gu=38;5;240:gn=38;5;160:ur=38;5;245:uw=38;5;245:ux=38;5;245:ue=38;5;245:\
@@ -223,12 +232,16 @@ gr=38;5;240:gw=38;5;240:gx=38;5;240:tr=38;5;240:tw=38;5;240:tx=38;5;240"
 # }}}
 
 # Plugins {{{
+source "${HOME}/.zgen/zgen.zsh"
+if ! zgen saved; then
+	zgen load wfxr/forgit
+	zgen load zsh-users/zsh-autosuggestions
+	zgen load zdharma/fast-syntax-highlighting
+	zgen save
+fi
+
 eval "$(zoxide init zsh --cmd j)"
-eval $(thefuck --alias)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source $HOME/.zsh/forgit/forgit.plugin.zsh
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 # }}}
 
 # }}}
