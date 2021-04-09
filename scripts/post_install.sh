@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install neovim plugins
-nvim -c ":PlugInstall" -c "q" -c "q"
+nvim -c ":PackUpdate" -c "q" -c "q"
 nvim -c ":so ~/.config/nvim/init.vim" -c "q" -c "q"
 
 # Set default shell
