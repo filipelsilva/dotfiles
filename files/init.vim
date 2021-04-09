@@ -1,35 +1,3 @@
-" Plugins {{{
-packadd minpac
-call minpac#init()
-call minpac#add('k-takata/minpac', {'type': 'opt'})
-call minpac#add('lifepillar/vim-mucomplete') " Completion plugin
-call minpac#add('jiangmiao/auto-pairs') " Close brackets
-call minpac#add('tpope/vim-surround') " Do surroundings
-call minpac#add('tpope/vim-commentary') " Comment stuff
-call minpac#add('mhinz/vim-signify') " Show repo differences
-call minpac#add('junegunn/fzf')
-call minpac#add('junegunn/fzf.vim') " Fuzzy finder
-call minpac#add('gruvbox-community/gruvbox')
-" }}}
-
-" Colorschemes {{{
-set t_Co=256
-set background=dark
-
-if (has("nvim"))
-	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-if (has("termguicolors"))
-	set termguicolors
-endif
-
-let g:gruvbox_italic = 1
-let g:gruvbox_sign_column = 'dark0'
-let g:gruvbox_color_column = 'dark0_soft'
-let g:gruvbox_italicize_strings = 1
-colorscheme gruvbox
-" }}}
-
 " Settings {{{
 syntax on
 filetype plugin indent on
@@ -91,8 +59,8 @@ vnoremap K :m '<-2<CR>gv=gv
 noremap Q !!$SHELL<CR>
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e ~/.config/nvim/init.vim<CR>
-nmap <silent> <leader>sv :so ~/.config/nvim/init.vim<CR>
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Move vertically by visual line with j and k
 nnoremap j gj
@@ -125,23 +93,45 @@ vnoremap <leader>X "_X
 " }}}
 " }}}
 
-" Functions {{{
+" Colorschemes {{{
+set t_Co=256
+set background=dark
 
-" Whitespace remover on write {{{
-function! TrimWhitespace()
-	let l:save = winsaveview()
-	keeppatterns %s/\s\+$//e
-	call winrestview(l:save)
+if (has("nvim"))
+	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+	set termguicolors
+endif
+
+let g:gruvbox_italic = 1
+let g:gruvbox_sign_column = 'dark0'
+let g:gruvbox_color_column = 'dark0_soft'
+let g:gruvbox_italicize_strings = 1
+colorscheme gruvbox
+" }}}
+
+" Plugins {{{
+
+" Minpac {{{
+function! PackInit() abort
+	packadd minpac
+	call minpac#init()
+	call minpac#add('k-takata/minpac', {'type': 'opt'})
+	call minpac#add('lifepillar/vim-mucomplete') " Completion plugin
+	call minpac#add('jiangmiao/auto-pairs') " Close brackets
+	call minpac#add('tpope/vim-surround') " Do surroundings
+	call minpac#add('tpope/vim-commentary') " Comment stuff
+	call minpac#add('mhinz/vim-signify') " Show repo differences
+	call minpac#add('junegunn/fzf')
+	call minpac#add('junegunn/fzf.vim') " Fuzzy finder
+	call minpac#add('gruvbox-community/gruvbox')
 endfunction
 
-" augroup stopwhitespace
-" 	autocmd!
-" 	autocmd BufWritePre * :call TrimWhitespace()
-" augroup END
+command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
+command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
+command! PackStatus packadd minpac | call minpac#status()
 " }}}
-" }}}
-
-" Plugin Configurations {{{
 
 " Fzf {{{
 nnoremap <silent> <leader>f <cmd>Files<CR>
