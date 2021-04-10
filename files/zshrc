@@ -144,7 +144,7 @@ function up() {
 	zgen selfupdate
 	zgen update
 	tldr --update
-	cd ~/.fzf && git pull && ./install
+	(cd ~/.fzf && git pull && ./install)
 	nvim -c ":PackUpdate"
 }
 
