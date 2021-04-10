@@ -221,7 +221,11 @@ bindkey "\e." insert-last-word
 # }}}
 
 # Variables {{{
+FORGIT_LOG_FZF_OPTS='
+--bind="ctrl-e:execute(echo {} |grep -Eo [a-f0-9]+ |head -1 |xargs git show |nvim -)"
+'
 export GIT_PAGER=delta
+export FORGIT_PAGER=delta
 export EDITOR=nvim
 export VISUAL=nvim
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin

@@ -17,6 +17,7 @@
 [delta]
 	features = decorations
 	syntax-theme = gruvbox-dark
+	side-by-side = false
 
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
