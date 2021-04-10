@@ -40,7 +40,7 @@ _fzf_compgen_dir() {
 
 # }}}
 
-# Aliases/Keybinds {{{
+# Aliases {{{
 
 # Temporary
 alias links="bat $HOME/OneDrive/tecnico/2º\ Ano/2º\ Semestre/Calendários/links.txt"
@@ -219,9 +219,6 @@ bindkey "\e." insert-last-word
 # }}}
 
 # Variables {{{
-FORGIT_LOG_FZF_OPTS='
---bind="ctrl-e:execute(echo {} |grep -Eo [a-f0-9]+ |head -1 |xargs git show |nvim -)"
-'
 export GIT_PAGER=delta
 export FORGIT_PAGER=delta
 export EDITOR=nvim
@@ -231,6 +228,9 @@ export BAT_THEME="gruvbox-dark"
 export EXA_COLORS="lp=33:bl=38;5;220:da=38;5;240:uu=38;5;240:un=38;5;160:\
 gu=38;5;240:gn=38;5;160:ur=38;5;245:uw=38;5;245:ux=38;5;245:ue=38;5;245:\
 gr=38;5;240:gw=38;5;240:gx=38;5;240:tr=38;5;240:tw=38;5;240:tx=38;5;240"
+FORGIT_LOG_FZF_OPTS='
+--bind="ctrl-e:execute(echo {} |grep -Eo [a-f0-9]+ |head -1 |xargs git show |nvim -)"
+'
 # }}}
 
 # Plugins {{{
