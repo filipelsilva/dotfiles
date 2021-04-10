@@ -118,14 +118,29 @@ function! PackInit() abort
 	packadd minpac
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
-	call minpac#add('lifepillar/vim-mucomplete') " Completion plugin
-	call minpac#add('jiangmiao/auto-pairs') " Close brackets
-	call minpac#add('tpope/vim-surround') " Do surroundings
-	call minpac#add('tpope/vim-commentary') " Comment stuff
-	call minpac#add('mhinz/vim-signify') " Show repo differences
+
+	" Completion plugin
+	call minpac#add('lifepillar/vim-mucomplete') 
+
+	" Close brackets
+	call minpac#add('jiangmiao/auto-pairs') 
+
+	" Do surroundings
+	call minpac#add('tpope/vim-surround') 
+
+	" Comment stuff
+	call minpac#add('tpope/vim-commentary') 
+
+	" Show repo differences
+	call minpac#add('mhinz/vim-signify') 
+
+	" Fuzzy finder
 	call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
-	call minpac#add('junegunn/fzf.vim') " Fuzzy finder
+	call minpac#add('junegunn/fzf.vim') 
+
+	" Colorscheme
 	call minpac#add('gruvbox-community/gruvbox')
+
 endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
