@@ -1,4 +1,4 @@
-############# Fzf ############# {{{
+# Fzf {{{
 
 # Ubuntu uses fdfind, all other use fd. Standardization.
 if (( ${+commands[fdfind]} )); then
@@ -40,7 +40,7 @@ _fzf_compgen_dir() {
 
 # }}}
 
-############# Aliases/Keybinds ############# {{{
+# Aliases/Keybinds {{{
 
 # Temporary
 alias links="bat $HOME/OneDrive/tecnico/2º\ Ano/2º\ Semestre/Calendários/links.txt"
@@ -96,7 +96,7 @@ fi
 
 # }}}
 
-############# Functions ############# {{{
+# Functions {{{
 
 # [F]ind-[I]n-[F]ile
 function fif() {
@@ -167,8 +167,6 @@ function up() {
     hook_com[misc]+=${(j:/:)gitstatus}
 }
 # }}}
-
-############# Zsh config / Variables ############# {{{
 
 # Prompt {{{
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
@@ -246,6 +244,4 @@ fi
 
 eval "$(zoxide init zsh --cmd j)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# }}}
-
 # }}}
