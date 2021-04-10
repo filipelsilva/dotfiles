@@ -15,7 +15,7 @@
     diffFilter = delta --color-only
 
 [delta]
-	features = decorations side-by-side
+	features = decorations
 	syntax-theme = gruvbox-dark
 
 [delta "decorations"]
