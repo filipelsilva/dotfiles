@@ -221,6 +221,7 @@ bindkey "\e." insert-last-word
 # Variables {{{
 export GIT_PAGER=delta
 export FORGIT_PAGER=delta
+export MANPAGER='nvim +Man!'
 export EDITOR=nvim
 export VISUAL=nvim
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin
