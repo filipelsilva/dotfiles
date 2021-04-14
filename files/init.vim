@@ -92,6 +92,22 @@ nnoremap <leader>X "_X
 vnoremap <leader>X "_X
 " }}}
 
+" Functions {{{
+
+" TrimWhitespace {{{
+fun! TrimWhitespace()
+	let l:save = winsaveview()
+	keeppatterns %s/\s\+$//e
+	call winrestview(l:save)
+endfun
+
+augroup stopwhitespace
+	autocmd!
+	autocmd BufWritePre * :call TrimWhitespace()
+augroup END
+" }}}
+" }}}
+
 " Colorscheme {{{
 set t_Co=256
 set background=dark
@@ -119,26 +135,26 @@ function! PackInit() abort
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 	" Completion plugin
-	call minpac#add('lifepillar/vim-mucomplete') 
+	call minpac#add('lifepillar/vim-mucomplete')
 
 	" Close brackets
-	call minpac#add('jiangmiao/auto-pairs') 
+	call minpac#add('jiangmiao/auto-pairs')
 
 	" Do surroundings
-	call minpac#add('tpope/vim-surround') 
+	call minpac#add('tpope/vim-surround')
 
 	" Comment stuff
-	call minpac#add('tpope/vim-commentary') 
+	call minpac#add('tpope/vim-commentary')
 
 	" Indentation detector
 	call minpac#add('vim-scripts/yaifa.vim')
 
 	" Show repo differences
-	call minpac#add('mhinz/vim-signify') 
+	call minpac#add('mhinz/vim-signify')
 
 	" Fuzzy finder
 	call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
-	call minpac#add('junegunn/fzf.vim') 
+	call minpac#add('junegunn/fzf.vim')
 
 	" Colorscheme
 	call minpac#add('gruvbox-community/gruvbox')
