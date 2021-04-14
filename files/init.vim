@@ -25,7 +25,8 @@ set backspace=indent,eol,start
 set undofile undolevels=10000 undodir=$HOME/.vim-undo
 
 " Indentation settings
-set autoindent copyindent tabstop=4 softtabstop=4 noexpandtab shiftwidth=4 shiftround smarttab
+" set autoindent copyindent shiftround smarttab noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
+set autoindent copyindent shiftround smarttab
 
 " Visual settings
 set nowrap number relativenumber showcmd showtabline=0 laststatus=0
@@ -129,6 +130,9 @@ function! PackInit() abort
 	" Comment stuff
 	call minpac#add('tpope/vim-commentary') 
 
+	" Indentation detector
+	call minpac#add('vim-scripts/yaifa.vim')
+
 	" Show repo differences
 	call minpac#add('mhinz/vim-signify') 
 
@@ -163,6 +167,12 @@ augroup FzfNoNumbers
 augroup END
 autocmd! FileType fzf set laststatus=0 | autocmd BufLeave <buffer> set laststatus=1
 " }}}
+
+" Yaifa: Set automatically indentation settings
+augroup DetectIndent
+   autocmd!
+   autocmd BufReadPost * YAIFAMagic
+augroup END
 
 " Signify
 nmap <leader>sn <plug>(signify-next-hunk)
