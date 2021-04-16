@@ -126,8 +126,8 @@ colorscheme gruvbox
 " Plugins {{{
 
 " Minpac {{{
-command! PackUpdate source $MYVIMRC | call minpac#update()
-command! PackClean  source $MYVIMRC | call minpac#clean()
+command! PackUpdate source $MYVIMRC | call PackInit() |call minpac#update()
+command! PackClean  source $MYVIMRC | call PackInit() |call minpac#clean()
 
 function! PackInit() abort
 	packadd minpac
