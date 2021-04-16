@@ -126,6 +126,9 @@ colorscheme gruvbox
 " Plugins {{{
 
 " Minpac {{{
+command! PackUpdate source $MYVIMRC | call minpac#update()
+command! PackClean  source $MYVIMRC | call minpac#clean()
+
 function! PackInit() abort
 	packadd minpac
 	call minpac#init()
@@ -157,9 +160,6 @@ function! PackInit() abort
 	call minpac#add('gruvbox-community/gruvbox')
 
 endfunction
-
-command! PackUpdate source $MYVIMRC | call minpac#update()
-command! PackClean  source $MYVIMRC | call minpac#clean()
 " }}}
 
 " Fzf {{{
