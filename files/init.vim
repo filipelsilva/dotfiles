@@ -25,7 +25,8 @@ set backspace=indent,eol,start
 set undofile undolevels=10000 undodir=$HOME/.vim-undo
 
 " Indentation settings
-set autoindent copyindent shiftround smarttab noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
+set autoindent copyindent shiftround smarttab
+set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
 set nowrap number relativenumber showcmd showtabline=0 laststatus=0
@@ -100,10 +101,7 @@ fun! TrimWhitespace()
 	call winrestview(l:save)
 endfun
 
-augroup stopwhitespace
-	autocmd!
-	autocmd BufWritePre * :call TrimWhitespace()
-augroup END
+command! TrimWhitespace call TrimWhitespace()
 " }}}
 " }}}
 
@@ -160,8 +158,8 @@ function! PackInit() abort
 
 endfunction
 
-command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
-command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
+command! PackUpdate source $MYVIMRC | call minpac#update()
+command! PackClean  source $MYVIMRC | call minpac#clean()
 " }}}
 
 " Fzf {{{
