@@ -188,6 +188,7 @@ setopt always_to_end
 setopt auto_menu
 setopt complete_in_word
 setopt flow_control
+setopt autocd
 eval "$(dircolors)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:*:*:*:*' menu select
