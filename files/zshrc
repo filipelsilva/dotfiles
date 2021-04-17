@@ -98,6 +98,22 @@ fi
 
 # Functions {{{
 
+# [Up]grade
+function up() {
+	if (( ${+commands[apt]} )); then
+		sudo apt update && sudo apt upgrade
+	elif (( ${+commands[yay]} )); then
+		yay -Syu --devel --timeupdate
+	fi
+	cargo install-update -a
+	pipup
+	zgen selfupdate
+	zgen update
+	tldr --update
+	(cd ~/.fzf && git pull && ./install)
+	nvim -c ":PackUpdate"
+}
+
 # [F]ind-[I]n-[F]ile
 function fif() {
 	if [ ! "$#" -gt 0 ]; then
@@ -130,22 +146,6 @@ function fp() {
 		echo "$(rg --files $loc | rev | cut -d"/" -f1 | rev)" | eval "fzf --header='[find:exe] => ${loc}' >/dev/null"
 		fp
 	fi
-}
-
-# [Up]grade
-function up() {
-	if (( ${+commands[apt]} )); then
-		sudo apt update && sudo apt upgrade
-	elif (( ${+commands[yay]} )); then
-		yay -Syu --devel --timeupdate
-	fi
-	cargo install-update -a
-	pipup
-	zgen selfupdate
-	zgen update
-	tldr --update
-	(cd ~/.fzf && git pull && ./install)
-	nvim -c ":PackUpdate"
 }
 
 # Show untracked files in git repo:
