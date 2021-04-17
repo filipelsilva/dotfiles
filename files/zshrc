@@ -100,18 +100,17 @@ fi
 
 # [Up]grade
 function up() {
-	if (( ${+commands[apt]} )); then
-		sudo apt update && sudo apt upgrade
-	elif (( ${+commands[yay]} )); then
-		yay -Syu --devel --timeupdate
-	fi
-	cargo install-update -a && pipup &&	zgen selfupdate && zgen update
-	tldr --update
+	if (( ${+commands[apt]} )); then sudo apt update && sudo apt upgrade
+	elif (( ${+commands[yay]} )); then yay -Syu --devel --timeupdate; fi
+
 	cd $HOME/.fzf && git fetch
 	LOCAL=$(git rev-parse @)
 	REMOTE=$(git rev-parse @{u})
 	if [ $LOCAL != $REMOTE ]; then ./install; fi
 	cd -
+
+	cargo install-update -a && pipup &&	zgen selfupdate && zgen update
+	tldr --update
 	nvim -c ":PackUpdate"
 }
 
