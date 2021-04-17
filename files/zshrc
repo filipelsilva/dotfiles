@@ -110,7 +110,14 @@ function up() {
 	zgen selfupdate
 	zgen update
 	tldr --update
-	(cd ~/.fzf && git pull && ./install)
+	cd $HOME/.fzf
+	git fetch
+	LOCAL=$(git rev-parse @)
+	REMOTE=$(git rev-parse @{u})
+	if [ $LOCAL != $REMOTE ]; then
+		./install
+	fi
+	cd -
 	nvim -c ":PackUpdate"
 }
 
