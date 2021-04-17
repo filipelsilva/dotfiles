@@ -174,8 +174,8 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '*'
-# zstyle ':vcs_info:git:*' formats '%F{cyan}:(%s)%b%m%u%c%f'
-zstyle ':vcs_info:git:*' formats '%F{cyan}:%b%m%u%c%f'
+zstyle ':vcs_info:git:*' formats '%F{cyan}:(%s)%b%m%u%c%f'
+# zstyle ':vcs_info:git:*' formats '%F{cyan}:%b%m%u%c%f'
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
@@ -236,11 +236,18 @@ gr=38;5;240:gw=38;5;240:gx=38;5;240:tr=38;5;240:tw=38;5;240:tx=38;5;240"
 source "${HOME}/.zgen/zgen.zsh"
 if ! zgen saved; then
 	zgen load wfxr/forgit
-	zgen load zsh-users/zsh-autosuggestions
 	zgen load zdharma/fast-syntax-highlighting
+	zgen load zsh-users/zsh-autosuggestions
+	zgen load zsh-users/zsh-history-substring-search
 	zgen save
 fi
 
 eval "$(zoxide init zsh --cmd j)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Zsh history substring search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 # }}}
