@@ -153,7 +153,6 @@ function! PackInit() abort
 	call minpac#add('mhinz/vim-signify')
 
 	" Fuzzy finder
-	call minpac#add('junegunn/fzf')
 	call minpac#add('junegunn/fzf.vim')
 
 	" Colorscheme
@@ -163,6 +162,8 @@ endfunction
 " }}}
 
 " Fzf {{{
+set runtimepath+=$HOME/.fzf
+
 nnoremap <silent> <leader>f <cmd>Files<CR>
 nnoremap <silent> <leader>g <cmd>Rg<CR>
 nnoremap <silent> <leader>t <cmd>BTags<CR>
