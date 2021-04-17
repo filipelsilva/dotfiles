@@ -105,18 +105,12 @@ function up() {
 	elif (( ${+commands[yay]} )); then
 		yay -Syu --devel --timeupdate
 	fi
-	cargo install-update -a
-	pipup
-	zgen selfupdate
-	zgen update
+	cargo install-update -a && pipup &&	zgen selfupdate && zgen update
 	tldr --update
-	cd $HOME/.fzf
-	git fetch
+	cd $HOME/.fzf && git fetch
 	LOCAL=$(git rev-parse @)
 	REMOTE=$(git rev-parse @{u})
-	if [ $LOCAL != $REMOTE ]; then
-		./install
-	fi
+	if [ $LOCAL != $REMOTE ]; then ./install; fi
 	cd -
 	nvim -c ":PackUpdate"
 }
