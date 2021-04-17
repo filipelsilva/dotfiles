@@ -153,7 +153,7 @@ function! PackInit() abort
 	call minpac#add('mhinz/vim-signify')
 
 	" Fuzzy finder
-	call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
+	call minpac#add('junegunn/fzf')
 	call minpac#add('junegunn/fzf.vim')
 
 	" Colorscheme
