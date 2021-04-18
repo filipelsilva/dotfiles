@@ -59,8 +59,13 @@ vnoremap K :m '<-2<CR>gv=gv
 noremap Q !!$SHELL<CR>
 
 " Open $SHELL in splits
-noremap <silent> <leader>t :vsplit term://$SHELL<CR>
-noremap <silent> <leader>T :split term://$SHELL<CR>
+if has('nvim')
+	noremap <silent> <leader>t :vsplit term://$SHELL<CR>
+	noremap <silent> <leader>T :split term://$SHELL<CR>
+else
+	noremap <silent> <leader>t :vertical terminal<CR>
+	noremap <silent> <leader>T :terminal<CR>
+endif
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
