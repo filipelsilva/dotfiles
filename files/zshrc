@@ -179,7 +179,7 @@ autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
-PROMPT='%B%F{magenta}%n@%m %F{blue}%1~${vcs_info_msg_0_} %(?..%F{red}%? )%F{magenta}$%b%f '
+PROMPT='%B%F{magenta}%n@%m %F{blue}%~${vcs_info_msg_0_} %(?..%F{red}%? )%F{magenta}$%b%f '
 # }}}
 
 # Completion menu {{{

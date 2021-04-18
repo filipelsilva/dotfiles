@@ -58,6 +58,10 @@ vnoremap K :m '<-2<CR>gv=gv
 " Run line as command, output here
 noremap Q !!$SHELL<CR>
 
+" Open $SHELL in splits
+noremap <silent> <leader>t :vsplit term://$SHELL<CR>
+noremap <silent> <leader>T :split term://$SHELL<CR>
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -167,7 +171,6 @@ set runtimepath+=$HOME/.fzf
 " Keymaps
 nnoremap <silent> <leader>f <cmd>Files<CR>
 nnoremap <silent> <leader>g <cmd>Rg<CR>
-nnoremap <silent> <leader>t <cmd>BTags<CR>
 nnoremap <silent> <leader>b <cmd>Buffers<CR>
 
 " Actions / Layouts
