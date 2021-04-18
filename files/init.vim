@@ -60,8 +60,8 @@ noremap Q !!$SHELL<CR>
 
 " Open $SHELL in splits
 if has('nvim')
-	noremap <silent> <leader>t :vsplit term://$SHELL<CR>
-	noremap <silent> <leader>T :split term://$SHELL<CR>
+	noremap <silent> <leader>t :vsplit term://$SHELL<CR>i
+	noremap <silent> <leader>T :split term://$SHELL<CR>i
 else
 	noremap <silent> <leader>t :vertical terminal<CR>
 	noremap <silent> <leader>T :terminal<CR>
