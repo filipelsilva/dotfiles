@@ -41,15 +41,17 @@ set mouse=a colorcolumn=80 scrolloff=5 updatetime=100
 "<leader> key bind
 let mapleader = " "
 
-" Replace word under cursor
-nnoremap ;; :%s/\<<C-r><C-w>\>//g<Left><Left>
-vnoremap ;; "zy<Esc>:%s/<C-r>z//g<Left><Left>
+" Replace word under cursor (',': wherever | ';': word only)
+nnoremap , :%s/<c-r><c-w>//g<left><left>
+vnoremap , "zy<esc>:%s/<c-r>z//g<left><left>
+nnoremap ; :%s/\<<c-r><c-w>\>//g<left><left>
+vnoremap ; "zy<esc>:%s/\<<c-r>z\>//g<left><left>
 
 " Copy/Paste from other programs
 vnoremap <C-y> "*y :let @+=@*<CR>
 vnoremap <C-d> "*d :let @+=@*<CR>
-"inoremap <C-p> <Esc>"+p
-"nnoremap <C-p> <Esc>"+p
+nnoremap <C-p> <Esc>"+p
+inoremap <C-p> <Esc>"+p
 
 " Move blocks of code
 vnoremap J :m '>+1<CR>gv=gv
