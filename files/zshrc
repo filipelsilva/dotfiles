@@ -179,7 +179,7 @@ autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
-PROMPT='%B%F{magenta}%n@%m %F{blue}%~${vcs_info_msg_0_} %(?..%F{red}%? )%F{magenta}$%b%f '
+PROMPT='%B%F{magenta}%n@%m %F{blue}%1~${vcs_info_msg_0_} %(?..%F{red}%? )%F{magenta}$%b%f '
 # }}}
 
 # Completion menu {{{
@@ -235,8 +235,8 @@ gr=38;5;240:gw=38;5;240:gx=38;5;240:tr=38;5;240:tw=38;5;240:tx=38;5;240"
 source "${HOME}/.zgen/zgen.zsh"
 if ! zgen saved; then
 	zgen load wfxr/forgit
-	zgen load zdharma/fast-syntax-highlighting
 	zgen load zsh-users/zsh-autosuggestions
+	zgen load zdharma/fast-syntax-highlighting
 	zgen load zsh-users/zsh-history-substring-search
 	zgen save
 fi
