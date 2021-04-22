@@ -178,7 +178,7 @@ set runtimepath+=$HOME/.fzf
 " Keymaps
 nnoremap <silent> <leader>f <cmd>Files<CR>
 nnoremap <silent> <leader>g <cmd>Rg<CR>
-nnoremap <silent> <leader>t <cmd>Buffers<CR>
+nnoremap <silent> <leader>d <cmd>Buffers<CR>
 
 " Actions / Layouts
 let g:fzf_layout = { 'down': '40%' }
