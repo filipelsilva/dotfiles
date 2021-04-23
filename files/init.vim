@@ -148,15 +148,6 @@ function! PackInit() abort
 	" Completion plugin
 	call minpac#add('lifepillar/vim-mucomplete')
 
-	" Close brackets
-	call minpac#add('jiangmiao/auto-pairs')
-
-	" Do surroundings
-	call minpac#add('tpope/vim-surround')
-
-	" Comment stuff
-	call minpac#add('tpope/vim-commentary')
-
 	" Indentation detector
 	call minpac#add('vim-scripts/yaifa.vim')
 
