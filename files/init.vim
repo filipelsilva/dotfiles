@@ -163,26 +163,11 @@ function! PackInit() abort
 endfunction
 " }}}
 
-" Fzf {{{
+" Fzf
 set runtimepath+=$HOME/.fzf
-
-" Keymaps
 nnoremap <silent> <leader>f <cmd>Files<CR>
 nnoremap <silent> <leader>g <cmd>Rg<CR>
 nnoremap <silent> <leader>d <cmd>Buffers<CR>
-
-" Actions / Layouts
-let g:fzf_layout = { 'down': '40%' }
-let g:fzf_preview_window = ['right:50%']
-let g:fzf_action = { 'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit' }
-
-" Strip down fzf buffer
-augroup FzfNoNumbers
-	autocmd!
-	autocmd FileType fzf exe 'setlocal nonumber norelativenumber'
-augroup END
-autocmd! FileType fzf set laststatus=0 | autocmd BufLeave <buffer> set laststatus=1
-" }}}
 
 " Signify
 nmap <leader>sn <plug>(signify-next-hunk)
