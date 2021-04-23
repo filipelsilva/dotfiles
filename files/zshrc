@@ -55,8 +55,8 @@ alias tor-browser="(cd $HOME/Programs/tor-browser_en-US && ./start-tor-browser.d
 alias open="xdg-open"
 
 # Zsh configuration and reload
-alias zshsource="source ~/.zshrc && echo 'sourced zshrc'"
-alias zshconfig="nvim ~/.zshrc && zshsource"
+alias zshsource="source $HOME/.zshrc && echo 'sourced zshrc'"
+alias zshconfig="nvim $HOME/.zshrc && zshsource"
 
 # Basic commands
 alias ..="cd .."
@@ -243,7 +243,7 @@ if ! zgen saved; then
 fi
 
 eval "$(zoxide init zsh --cmd j)"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 # Zsh history substring search
 bindkey '^[[A' history-substring-search-up
