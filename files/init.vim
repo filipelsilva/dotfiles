@@ -106,11 +106,11 @@ vnoremap <leader>X "_X
 " Functions {{{
 
 " TrimWhitespace {{{
-fun! TrimWhitespace()
+function! TrimWhitespace()
 	let l:save = winsaveview()
 	keeppatterns %s/\s\+$//e
 	call winrestview(l:save)
-endfun
+endfunction
 
 command! TrimWhitespace call TrimWhitespace()
 " }}}
@@ -158,7 +158,7 @@ endfunction
 set runtimepath+=$HOME/.fzf
 nnoremap <silent> <leader>f <cmd>Files<CR>
 nnoremap <silent> <leader>g <cmd>Rg<CR>
-nnoremap <silent> <leader>d <cmd>Buffers<CR>
+nnoremap <silent> <leader>j <cmd>Buffers<CR>
 
 " Signify
 nmap <leader>sn <plug>(signify-next-hunk)
