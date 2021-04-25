@@ -20,12 +20,13 @@ export FZF_DEFAULT_OPTS=" \
 "
 
 # Fzf using fd instead of find
-local FD_DEFAULT_OPTS="--follow"
 if (( ${+commands[fdfind]} )); then
     local FD_NAME="fdfind"
 elif (( ${+commands[fd]} )); then
     local FD_NAME="fd"
 fi
+
+local FD_DEFAULT_OPTS="--follow"
 export FZF_DEFAULT_COMMAND="$FD_NAME $FD_DEFAULT_OPTS"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
