@@ -161,7 +161,7 @@ endfunction
 " Fzf
 set runtimepath+=$HOME/.fzf
 nnoremap <silent> <leader>f <cmd>Files<CR>
-nnoremap <silent> <leader>g <cmd>Rg<CR>
+nnoremap <silent> <leader>r <cmd>Rg<CR>
 nnoremap <silent> <leader>j <cmd>Buffers<CR>
 
 " Signify
