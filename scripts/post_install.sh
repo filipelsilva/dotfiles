@@ -9,7 +9,7 @@ chsh -s "$(command -v zsh)"
 zsh -c "source $HOME/.zshrc"
 
 # Set completion theme
-zsh -c "fast-theme forest"
+#zsh -c "fast-theme forest"
 
 # Vi mode in other programs
 echo "set editing-mode vi" >> $HOME/.inputrc
