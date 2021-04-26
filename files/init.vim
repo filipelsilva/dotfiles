@@ -34,6 +34,8 @@ set nowrap number relativenumber showcmd showtabline=0 laststatus=0
 " Other settings
 set mouse=a colorcolumn=80 scrolloff=5 updatetime=100
 
+" Terminal with no numbers
+autocmd TermOpen * setlocal nonumber norelativenumber
 " }}}
 
 " Keymaps {{{
