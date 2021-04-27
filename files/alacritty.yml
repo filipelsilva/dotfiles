@@ -146,7 +146,7 @@ schemes: # {{{
       # background: &gruvbox_dark_bg '#1d2021' # hard constrast
       background: &gruvbox_dark_bg '#282828'
       # background: &gruvbox_dark_bg '#32302f' # soft constrast
-      foreground: '#d9d9d9'
+      foreground: '#ebdbb2'
       # foreground: '#fbf1c7' # original foreground
       bright_foreground: '#f9f5d7'
       dim_foreground: '#f2e5bc'
