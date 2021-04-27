@@ -92,12 +92,12 @@ alias lt="tree -L 2"
 
 # Exa as ls
 #alias ls="exa"
-#alias l="exa -lbgFH"
+#alias l="exa -lbgH"
 #alias lsa="ls -ha"
-#alias la="exa -lbgFHa"
+#alias la="exa -lbgHa"
 #alias lsr="exa --recurse"
-#alias lr="exa -lbgFH --recurse"
-#alias lar="exa -lbgFHa --recurse"
+#alias lr="exa -lbgH --recurse"
+#alias lar="exa -lbgHa --recurse"
 #alias lt="exa --tree --level=2"
 
 # Ubuntu has bat as batcat
