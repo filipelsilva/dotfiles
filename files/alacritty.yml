@@ -143,12 +143,13 @@ draw_bold_text_with_bright_colors: false
 schemes: # {{{
   gruvbox: &gruvbox
     primary:
-      # background:        &gruvbox_dark_bg '#1d2021' # hard constrast
-      background:        &gruvbox_dark_bg '#282828'
-      # background:        &gruvbox_dark_bg '#32302f' # soft constrast
-      foreground:        '#fbf1c7'
+      # background: &gruvbox_dark_bg '#1d2021' # hard constrast
+      background: &gruvbox_dark_bg '#282828'
+      # background: &gruvbox_dark_bg '#32302f' # soft constrast
+      foreground: '#d9d9d9'
+      # foreground: '#fbf1c7' # original foreground
       bright_foreground: '#f9f5d7'
-      dim_foreground:    '#f2e5bc'
+      dim_foreground: '#f2e5bc'
     cursor:
       text:   CellBackground
       cursor: CellForeground
