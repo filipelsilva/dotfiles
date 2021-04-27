@@ -8,7 +8,7 @@ if ( command -v apt-get &> /dev/null ); then
         python3-dev python3-pip python3-setuptools gcc valgrind gdb unzip zip\
         tmux make lynx ripgrep fd-find silversearcher-ag nodejs npm neofetch\
         screenfetch entr rlwrap exuberant-ctags hexyl bat cmake shellcheck\
-        pypy golang
+        pypy golang tree
 
 elif ( command -v pacman &> /dev/null ); then
 
@@ -17,7 +17,7 @@ elif ( command -v pacman &> /dev/null ); then
         python python-setuptools pypy gcc valgrind gdb unzip zip tmux lynx go\
         ripgrep fd the_silver_searcher nodejs npm neofetch screenfetch xclip\
         pkg-config make entr rlwrap ctags hexyl bat cmake shellcheck exa\
-        hyperfine
+        hyperfine tree
     ./scripts/aur_programs.sh
 
 fi

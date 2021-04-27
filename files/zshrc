@@ -79,17 +79,23 @@ alias tp="tmuxp"
 # Nvim to vim transition
 alias v="nvim"
 
+# Ls aliases
+alias ls="ls --color=auto"
+alias lsa="ls -A"
+alias l="ls -lh"
+alias la="ls -lhA"
+
 # Exa as ls
-alias ls="exa"
-alias l="exa -lbF --git"
-alias ll="exa -lbGF --git"
-alias llm="exa -lbGd --git --sort=modified"
-alias la="exa -lbhHigUmuSa --time-style=long-iso --git --color-scale"
-alias lx="exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale"
-alias lS="exa -1"
-alias lt="exa --tree --level=2"
-alias lr="exa --recurse"
-alias lsa="ls -lha"
+#alias ls="exa"
+#alias l="exa -lbF --git"
+#alias ll="exa -lbGF --git"
+#alias llm="exa -lbGd --git --sort=modified"
+#alias la="exa -lbhHigUmuSa --time-style=long-iso --git --color-scale"
+#alias lx="exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale"
+#alias lS="exa -1"
+#alias lt="exa --tree --level=2"
+#alias lr="exa --recurse"
+#alias lsa="ls -lha"
 
 # Ubuntu has bat as batcat
 if (( ${+commands[batcat]} )); then
