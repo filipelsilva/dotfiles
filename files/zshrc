@@ -81,7 +81,7 @@ alias v="nvim"
 alias vim="nvim"
 
 # Ls aliases
-alias ls="ls --color=auto"
+alias ls="ls -N --color=auto"
 alias l="ls -lh"
 alias lsa="ls -A"
 alias la="ls -lhA"
