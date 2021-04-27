@@ -92,9 +92,9 @@ alias vim="nvim"
 
 # Exa as ls
 alias ls="exa"
-alias l="exa -lbgFH --git"
+alias l="exa -lbgFH"
 alias lsa="ls -ha"
-alias la="exa -lbgFHa --git"
+alias la="exa -lbgFHa"
 alias lsr="exa --recurse"
 alias lr="exa -lbgFH --recurse"
 alias lar="exa -lbgFHa --recurse"
