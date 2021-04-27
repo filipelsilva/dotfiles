@@ -92,12 +92,12 @@ alias vim="nvim"
 
 # Exa as ls
 alias ls="exa"
-alias l="exa -lbgF --git"
+alias l="exa -lbgFH --git"
 alias lsa="ls -ha"
-alias la="exa -lbgFa --git"
+alias la="exa -lbgFHa --git"
 alias lsr="exa --recurse"
-alias lr="exa -l --recurse"
-alias lar="exa -la --recurse"
+alias lr="exa -lbgFH --recurse"
+alias lar="exa -lbgFHa --recurse"
 alias lt="exa --tree --level=2"
 
 # Ubuntu has bat as batcat
