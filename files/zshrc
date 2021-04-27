@@ -81,9 +81,12 @@ alias v="nvim"
 
 # Ls aliases
 alias ls="ls --color=auto"
-alias lsa="ls -A"
 alias l="ls -lh"
+alias lsa="ls -A"
 alias la="ls -lhA"
+alias lsr="ls -R"
+alias lr="ls -lhR"
+alias lar="ls -lhAR"
 
 # Exa as ls
 #alias ls="exa"
