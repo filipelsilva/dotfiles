@@ -77,6 +77,7 @@ alias t="tmux"
 alias tp="tmuxp"
 
 # Nvim to vim transition
+alias v="nvim"
 alias vim="nvim"
 
 # Ls aliases
