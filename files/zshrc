@@ -117,7 +117,7 @@ function up() {
 	cd $HOME/.fzf && git fetch
 	LOCAL=$(git rev-parse @)
 	REMOTE=$(git rev-parse @{u})
-	if [ $LOCAL != $REMOTE ]; then ./install; fi
+	if [ $LOCAL != $REMOTE ]; then git pull && ./install; fi
 	cd -
 
 	cargo install-update -a && pipup &&	zgen selfupdate && zgen update
