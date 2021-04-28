@@ -97,7 +97,6 @@ scrolling: # {{{
 
 # Font configuration {{{
 font:
-  # Normal (roman) font face
   normal:
     family: Iosevka
     style: Regular
