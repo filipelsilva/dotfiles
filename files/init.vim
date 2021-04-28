@@ -163,6 +163,7 @@ set runtimepath+=$HOME/.fzf
 nnoremap <silent> <leader>f <cmd>Files<CR>
 nnoremap <silent> <leader>r <cmd>Rg<CR>
 nnoremap <silent> <leader>j <cmd>Buffers<CR>
+let g:fzf_action = { 'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit' }
 
 " Signify
 nmap <leader>sn <plug>(signify-next-hunk)
