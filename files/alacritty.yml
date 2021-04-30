@@ -142,7 +142,7 @@ draw_bold_text_with_bright_colors: false
 schemes: # {{{
   gruvbox: &gruvbox
     primary:
-      background: &gruvbox_dark_bg '#1d2021' # hard constrast
+      # background: &gruvbox_dark_bg '#1d2021' # hard constrast
       background: &gruvbox_dark_bg '#282828'
       # background: &gruvbox_dark_bg '#32302f' # soft constrast
       foreground: '#ebdbb2'
