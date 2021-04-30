@@ -131,14 +131,13 @@ if (has("termguicolors"))
 	set termguicolors
 endif
 
-"let g:gruvbox_italic = 1
-"let g:gruvbox_italicize_strings = 1
-"let g:gruvbox_invert_selection = 0
-"let g:gruvbox_sign_column = 'dark0'
-"let g:gruvbox_number_column = 'dark0'
-"let g:gruvbox_color_column = 'dark0_soft'
-"colorscheme gruvbox
-colorscheme off 
+let g:gruvbox_italic = 1
+let g:gruvbox_italicize_strings = 1
+let g:gruvbox_invert_selection = 0
+let g:gruvbox_sign_column = 'dark0'
+let g:gruvbox_number_column = 'dark0'
+let g:gruvbox_color_column = 'dark0_soft'
+colorscheme gruvbox
 " }}}
 
 " Plugins {{{
@@ -157,7 +156,6 @@ function! PackInit() abort
 	call minpac#add('lifepillar/vim-mucomplete')    " Completion plugin
 	call minpac#add('mhinz/vim-signify')            " Show repo differences
 	call minpac#add('gruvbox-community/gruvbox')    " Colorscheme
-	call minpac#add('pbrisbin/vim-colors-off')    	" Colorscheme
 
 endfunction
 " }}}
