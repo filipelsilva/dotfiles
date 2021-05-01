@@ -9,10 +9,10 @@ fi
 export FZF_COMPLETION_TRIGGER='++'
 
 # Fzf-tmux (on tmux over 3.2)
-export FZF_TMUX_OPTS="-p 90%,70%"
-if (( $(tmux -V | cut -c 6-) == 3.2 )); then
-	alias fzf="fzf-tmux $FZF_TMUX_OPTS"
-fi
+#export FZF_TMUX_OPTS="-p 90%,70%"
+#if (( $(tmux -V | cut -c 6-) == 3.2 )); then
+#	alias fzf="fzf-tmux $FZF_TMUX_OPTS"
+#fi
 
 # Default options
 export FZF_DEFAULT_OPTS=" \
