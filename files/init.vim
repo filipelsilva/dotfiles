@@ -29,7 +29,7 @@ set autoindent copyindent shiftround smarttab
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set nowrap showcmd showtabline=0 laststatus=0 "number relativenumber 
+set nowrap showcmd showtabline=0 laststatus=0 number relativenumber 
 
 " Other settings
 set mouse=a colorcolumn=80 scrolloff=5 updatetime=100
