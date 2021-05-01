@@ -33,11 +33,6 @@ set nowrap showcmd showtabline=0 laststatus=0 number relativenumber
 
 " Other settings
 set mouse=a colorcolumn=80 scrolloff=5 updatetime=100
-
-" Terminal with no numbers
-if has('nvim')
-	autocmd TermOpen * setlocal nonumber norelativenumber
-endif
 " }}}
 
 " Keymaps {{{
