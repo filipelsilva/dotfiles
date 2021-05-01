@@ -151,11 +151,11 @@ function! PackInit() abort
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-	call minpac#add('vim-scripts/yaifa.vim')        " Indentation detector
-	call minpac#add('junegunn/fzf.vim')             " Fuzzy finder
-	call minpac#add('lifepillar/vim-mucomplete')    " Completion plugin
-	call minpac#add('mhinz/vim-signify')            " Show repo differences
-	call minpac#add('gruvbox-community/gruvbox')    " Colorscheme
+	call minpac#add('vim-scripts/yaifa.vim')    	" Indentation detector
+	call minpac#add('junegunn/fzf.vim')         	" Fuzzy finder
+	call minpac#add('lifepillar/vim-mucomplete')	" Completion plugin
+	call minpac#add('mhinz/vim-signify')        	" Show repo differences
+	call minpac#add('gruvbox-community/gruvbox')	" Colorscheme
 
 endfunction
 " }}}
