@@ -14,7 +14,7 @@ export FZF_DEFAULT_OPTS=" \
 --color info:#83a598,prompt:#bdae93,spinner:#fabd2f,pointer:#83a598,marker:#fe8019,header:#665c54 \
 --layout=reverse-list \
 --info=inline \
---height=70% \
+--height=80% \
 --multi \
 --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200' \
 --preview-window sharp \
@@ -122,7 +122,10 @@ function up() {
 	if [ $LOCAL != $REMOTE ]; then git pull && ./install; fi
 	cd -
 
-	cargo install-update -a && pipup &&	zgen selfupdate && zgen update
+	cargo install-update -a
+	npm update -g
+	pipup
+	zgen selfupdate && zgen update
 	tldr --update
 	nvim -c ":PackUpdate"
 }
@@ -216,12 +219,11 @@ bindkey "^X^E" edit-command-line
 # }}}
 
 # Variables {{{
-export GIT_PAGER=delta
-export FORGIT_PAGER=delta
-export MANPAGER='nvim +Man!'
+export MANPAGER="nvim +Man!"
 export EDITOR=nvim
 export VISUAL=nvim
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin
+export NVM_DIR="$HOME/.nvm"
 export BAT_THEME="gruvbox-dark"
 export BAT_STYLE="plain"
 export EXA_COLORS="lp=33:bl=38;5;220:da=38;5;240:uu=38;5;240:un=38;5;160:\
@@ -242,6 +244,8 @@ fi
 
 eval "$(zoxide init zsh --cmd j)"
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Zsh history substring search
 bindkey '^[[A' history-substring-search-up

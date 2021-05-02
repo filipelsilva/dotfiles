@@ -18,6 +18,6 @@ elif ( command -v pacman &> /dev/null ); then
         ripgrep fd the_silver_searcher nodejs npm neofetch screenfetch xclip\
         pkg-config make entr rlwrap ctags hexyl bat cmake shellcheck exa\
         hyperfine tree
-    ./scripts/aur_programs.sh
+    ./scripts/aur.sh
 
 fi
