@@ -223,7 +223,6 @@ export MANPAGER="nvim +Man!"
 export EDITOR=nvim
 export VISUAL=nvim
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin
-export NVM_DIR="$HOME/.nvm"
 export BAT_THEME="gruvbox-dark"
 export BAT_STYLE="plain"
 export EXA_COLORS="lp=33:bl=38;5;220:da=38;5;240:uu=38;5;240:un=38;5;160:\
@@ -244,8 +243,7 @@ fi
 
 eval "$(zoxide init zsh --cmd j)"
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # Zsh history substring search
 bindkey '^[[A' history-substring-search-up
