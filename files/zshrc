@@ -219,6 +219,10 @@ bindkey "^X^E" edit-command-line
 # }}}
 
 # Variables {{{
+export GIT_PAGER="diff-so-fancy | less --tabs=4 -RFX"
+export FORGIT_PAGER="diff-so-fancy | less --tabs=4 -RFX"
+export FORGIT_SHOW_PAGER="diff-so-fancy | less --tabs=4 -RFX"
+export FORGIT_DIFF_PAGER="diff-so-fancy | less --tabs=4 -RFX"
 export MANPAGER="nvim +Man!"
 export EDITOR=nvim
 export VISUAL=nvim
