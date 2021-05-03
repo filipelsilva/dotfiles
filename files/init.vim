@@ -169,7 +169,7 @@ colorscheme gruvbox
 
 " Minpac {{{
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
-command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
+command! PackClean source $MYVIMRC | call PackInit() | call minpac#clean()
 
 function! PackInit() abort
 	packadd minpac
@@ -180,7 +180,6 @@ function! PackInit() abort
 	call minpac#add('junegunn/fzf.vim')         	" Fuzzy finder
 	call minpac#add('mhinz/vim-signify')        	" Show repo differences
 	call minpac#add('gruvbox-community/gruvbox')	" Colorscheme
-
 endfunction
 " }}}
 
