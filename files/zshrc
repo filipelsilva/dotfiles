@@ -130,8 +130,8 @@ function up() {
 	nvim -c ":PackUpdate"
 }
 
-# [D]iff-[s]o-[f]ancy
-function dsf() {
+# [Di]ff-[I]mproved-[F]ancy
+function diif() {
 	diff -u $1 $2 | diff-so-fancy | less --tabs=4 -RFX
 }
 
