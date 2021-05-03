@@ -16,6 +16,7 @@ set ignorecase smartcase nohlsearch incsearch
 set splitbelow splitright
 
 " Completion menu settings
+set omnifunc=syntaxcomplete#Complete
 set wildmenu wildmode=longest:full,full completeopt=menuone,noinsert,noselect
 
 " Backspace settings
@@ -29,16 +30,58 @@ set autoindent copyindent shiftround smarttab
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set nowrap showcmd showtabline=0 laststatus=0 number relativenumber 
+set nowrap showcmd showtabline=0 laststatus=0 number relativenumber
 
 " Other settings
 set mouse=a colorcolumn=80 scrolloff=5 updatetime=100
+" }}}
+
+" Functions {{{
+
+" Tab completion {{{
+function! TabComplete()
+	if (pumvisible())
+		return "\<C-n>"
+	endif
+	let line = getline('.')
+	let substr = strpart(line, -1, col('.')+1)
+	let substr = matchstr(substr, "[^ \t]*$")
+	if (strlen(substr)==0)
+		return "\<tab>"
+	endif
+	let has_period = match(substr, '\.') != -1
+	let has_slash = match(substr, '\/') != -1
+	if (!has_period && !has_slash)
+		" Matching text
+		return "\<C-x>\<C-p>"
+	elseif (has_slash)
+		" Matching files
+		return "\<C-x>\<C-f>"
+	else
+		" Omnicompletion
+		return "\<C-x>\<C-o>"
+	endif
+endfunction
+" }}}
+
+" TrimWhitespace {{{
+function! TrimWhitespace()
+	let l:save = winsaveview()
+	keeppatterns %s/\s\+$//e
+	call winrestview(l:save)
+endfunction
+
+command! TrimWhitespace call TrimWhitespace()
+" }}}
 " }}}
 
 " Keymaps {{{
 
 "<leader> key bind
 let mapleader = " "
+
+" Tab completion
+inoremap <tab> <c-r>=TabComplete()<cr>
 
 " Replace word under cursor (',': wherever | ';': word only)
 nnoremap , :%s/<c-r><c-w>//g<left><left>
@@ -102,19 +145,6 @@ nnoremap <leader>X "_X
 vnoremap <leader>X "_X
 " }}}
 
-" Functions {{{
-
-" TrimWhitespace {{{
-function! TrimWhitespace()
-	let l:save = winsaveview()
-	keeppatterns %s/\s\+$//e
-	call winrestview(l:save)
-endfunction
-
-command! TrimWhitespace call TrimWhitespace()
-" }}}
-" }}}
-
 " Colorscheme {{{
 set t_Co=256
 set background=dark
@@ -148,7 +178,6 @@ function! PackInit() abort
 
 	call minpac#add('vim-scripts/yaifa.vim')    	" Indentation detector
 	call minpac#add('junegunn/fzf.vim')         	" Fuzzy finder
-	call minpac#add('lifepillar/vim-mucomplete')	" Completion plugin
 	call minpac#add('mhinz/vim-signify')        	" Show repo differences
 	call minpac#add('gruvbox-community/gruvbox')	" Colorscheme
 
