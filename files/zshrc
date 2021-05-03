@@ -250,6 +250,8 @@ eval "$(zoxide init zsh --cmd j)"
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # Zsh history substring search
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="none"
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="none"
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
