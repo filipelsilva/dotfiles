@@ -44,7 +44,7 @@ function! TabComplete()
 		return "\<C-n>"
 	endif
 	let line = getline('.')
-	let substr = strpart(line, -1, col('.')+1)
+	let substr = strpart(line, -1, col('.'))
 	let substr = matchstr(substr, "[^ \t]*$")
 	if (strlen(substr)==0)
 		return "\<tab>"
