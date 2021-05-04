@@ -168,9 +168,6 @@ colorscheme gruvbox
 " Plugins {{{
 
 " Minpac {{{
-command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
-command! PackClean source $MYVIMRC | call PackInit() | call minpac#clean()
-
 function! PackInit() abort
 	packadd minpac
 	call minpac#init()
@@ -181,6 +178,9 @@ function! PackInit() abort
 	call minpac#add('mhinz/vim-signify')        	" Show repo differences
 	call minpac#add('gruvbox-community/gruvbox')	" Colorscheme
 endfunction
+
+command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
+command! PackClean source $MYVIMRC | call PackInit() | call minpac#clean()
 " }}}
 
 " Fzf
