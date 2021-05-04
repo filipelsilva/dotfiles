@@ -68,6 +68,16 @@ alias cp="cp -r"
 alias mkdir="mkdir -p"
 alias ip='ip --color=auto'
 
+# Ls aliases
+alias ls="ls -N --color=auto"
+alias l="ls -lh"
+alias lsa="ls -A"
+alias la="ls -lhA"
+alias lsr="ls -R"
+alias lr="ls -lhR"
+alias lar="ls -lhAR"
+alias lt="tree -L 2"
+
 # Update pip packages
 alias pipup="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 
@@ -81,26 +91,6 @@ alias tp="tmuxp"
 # Nvim to vim transition
 alias v="nvim"
 alias vim="nvim"
-
-# Ls aliases
-alias ls="ls -N --color=auto"
-alias l="ls -lh"
-alias lsa="ls -A"
-alias la="ls -lhA"
-alias lsr="ls -R"
-alias lr="ls -lhR"
-alias lar="ls -lhAR"
-alias lt="tree -L 2"
-
-# Exa as ls
-#alias ls="exa"
-#alias l="exa -lbgH"
-#alias lsa="ls -ha"
-#alias la="exa -lbgHa"
-#alias lsr="exa --recurse"
-#alias lr="exa -lbgH --recurse"
-#alias lar="exa -lbgHa --recurse"
-#alias lt="exa --tree --level=2"
 
 # Ubuntu has bat as batcat
 if (( ${+commands[batcat]} )); then
@@ -273,11 +263,6 @@ export VISUAL=nvim
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/opt/node/bin
 export BAT_THEME="gruvbox-dark"
 export BAT_STYLE="plain"
-export EXA_COLORS="lp=33:bl=38;5;220:da=38;5;240:uu=38;5;240:un=38;5;160:\
-gu=38;5;240:gn=38;5;160:ur=38;5;240:uw=38;5;240:ux=38;5;240:ue=38;5;240:\
-gr=38;5;240:gw=38;5;240:gx=38;5;240:tr=38;5;240:tw=38;5;240:tx=38;5;240:\
-sn=38;5;240:sb=38;5;240:df=38;5;240:ds=38;5;240:in=38;5;240:bl=38;5;240:\
-lc=38;5;240:un=38;5;240:gn=38;5;240"
 # }}}
 
 # Plugins {{{
