@@ -164,12 +164,14 @@ function fp() {
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '*'
-zstyle ':vcs_info:*' formats '%F{magenta}:(%s)%b%m%u%c%f'
+zstyle ':vcs_info:*' formats '[%s:%b%m%u%c]'
+#zstyle ':vcs_info:*' formats '%F{magenta}:(%s)%b%m%u%c%f'
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
-PROMPT='%B%F{white}%n@%m %F{blue}%1~${vcs_info_msg_0_} %(?..%F{red}%? )%F{white}$%b%f '
+PROMPT='%F{#ebdbb2}%n%f%K{#ebdbb2}%F{black}%m%k%F{#ebdbb2}%1~${vcs_info_msg_0_}%f%(?..%F{red}[%?])%f '
+#PROMPT='%B%F{white}%n@%m %F{blue}%1~${vcs_info_msg_0_} %(?..%F{red}%? )%F{white}$%b%f '
 # }}}
 
 # Completion menu {{{
