@@ -158,52 +158,6 @@ function fp() {
 		fp
 	fi
 }
-
-# Git-fzf functions (if no forgit, use these for basic functionality) {{{
-## Check if we are in git repo
-#is_in_git_repo() {
-#	git rev-parse HEAD > /dev/null 2>&1
-#}
-#
-## [G]it [D]iff with fzf
-#gd() {
-#	is_in_git_repo || return
-#	local file=($(git -c color.status=always status --short |
-#	fzf --multi --exit-0 --ansi --nth 2..,.. \
-#		--preview '(git diff --color=always -- {-1} | sed 1,4d; cat {-1})' |
-#	cut -c4- | sed 's/.* -> //'))
-#	if [ -n "$file" ]; then
-#		git diff --color=always -- $file
-#	fi
-#}
-#
-## [G]it [Lo]g with fzf
-#glo() {
-#	is_in_git_repo || return
-#	git log --graph --color=always \
-#		--format="%C(auto)%h%d %s %C(white)%C(bold)%cr" "$@" |
-#	fzf --ansi --no-sort --exit-0 --tiebreak=index +m \
-#		--preview 'f() { set -- $(echo -- "$@" | grep -o "[a-f0-9]\{7\}");
-#			[ $# -eq 0 ] || git show --color=always $1; }; f {}' \
-#		--bind "enter:execute:(grep -o '[a-f0-9]\{7\}' | head -1 |
-#			xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-#			{} FZF-EOF"
-#}
-#
-## [G]it [C]heck[o]ut with fzf (on commits)
-#gco() {
-#	is_in_git_repo || return
-#	git log --graph --color=always \
-#		--format="%C(auto)%h%d %s %C(white)%C(bold)%cr" "$@" |
-#	local commit=$(fzf --ansi --no-sort --exit-0 --tiebreak=index +m \
-#		--preview 'f() { set -- $(echo -- "$@" | grep -o "[a-f0-9]\{7\}");
-#			[ $# -eq 0 ] || git show --color=always $1; }; f {}' |
-#				grep -o '[a-f0-9]\{7\}') 
-#	if [ -n "$commit" ]; then
-#		git checkout $commit
-#	fi
-#}
-# }}}
 # }}}
 
 # Prompt {{{
