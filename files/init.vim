@@ -175,7 +175,6 @@ function! PackInit() abort
 
 	call minpac#add('vim-scripts/yaifa.vim')    	" Indentation detector
 	call minpac#add('junegunn/fzf.vim')         	" Fuzzy finder
-	call minpac#add('mhinz/vim-signify')        	" Show repo differences
 	call minpac#add('gruvbox-community/gruvbox')	" Colorscheme
 endfunction
 
