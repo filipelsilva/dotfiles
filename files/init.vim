@@ -16,7 +16,6 @@ set ignorecase smartcase nohlsearch incsearch
 set splitbelow splitright
 
 " Completion menu settings
-set omnifunc=syntaxcomplete#Complete
 set wildmenu wildmode=longest:full,full completeopt=menuone,noinsert,noselect
 
 " Backspace settings
@@ -49,17 +48,13 @@ function! TabComplete()
 	if (strlen(substr)==0)
 		return "\<tab>"
 	endif
-	let has_period = match(substr, '\.') != -1
 	let has_slash = match(substr, '\/') != -1
-	if (!has_period && !has_slash)
+	if (!has_slash)
 		" Matching text
 		return "\<C-x>\<C-p>"
-	elseif (has_slash)
+	else
 		" Matching files
 		return "\<C-x>\<C-f>"
-	else
-		" Omnicompletion
-		return "\<C-x>\<C-o>"
 	endif
 endfunction
 " }}}
