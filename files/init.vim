@@ -84,12 +84,6 @@ vnoremap , "zy<esc>:%s/<c-r>z//g<left><left>
 nnoremap ; :%s/\<<c-r><c-w>\>//g<left><left>
 vnoremap ; "zy<esc>:%s/\<<c-r>z\>//g<left><left>
 
-" Copy/Paste from other programs
-vnoremap <C-y> "*y :let @+=@*<CR>
-vnoremap <C-d> "*d :let @+=@*<CR>
-nnoremap <C-p> <Esc>"+p
-inoremap <C-p> <Esc>"+p
-
 " Move blocks of code
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -116,16 +110,13 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" Esc in terminal or in Fzf windows
-tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
-
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Shortcuts to use blackhole register
+" Shortcuts to use blackhole register {{{
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 nnoremap <leader>D "_D
@@ -138,6 +129,16 @@ nnoremap <leader>x "_x
 vnoremap <leader>x "_x
 nnoremap <leader>X "_X
 vnoremap <leader>X "_X
+" }}}
+
+" Copy/Paste from other programs
+vnoremap <C-y> "*y :let @+=@*<CR>
+vnoremap <C-d> "*d :let @+=@*<CR>
+nnoremap <C-p> <Esc>"+p
+inoremap <C-p> <Esc>"+p
+
+" Esc in terminal or in Fzf windows
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 " }}}
 
 " Colorscheme {{{
