@@ -67,6 +67,7 @@ alias -- -='cd -'
 alias cp="cp -r"
 alias mkdir="mkdir -p"
 alias ip='ip --color=auto'
+alias diff='diff --color=auto'
 
 # Ls aliases
 alias ls="ls -N" # --color=auto"
