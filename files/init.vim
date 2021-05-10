@@ -78,6 +78,10 @@ let mapleader = " "
 " Tab completion
 inoremap <tab> <c-r>=TabComplete()<cr>
 
+" Buffer jumping
+nnoremap <silent> gb :bn<CR>
+nnoremap <silent> gB :bp<CR>
+
 " Replace word under cursor (',': wherever | ';': word only)
 nnoremap , :%s/<c-r><c-w>//g<left><left>
 vnoremap , "zy<esc>:%s/<c-r>z//g<left><left>
