@@ -165,8 +165,6 @@ colorscheme gruvbox
 " }}}
 
 " Plugins {{{
-
-" Minpac {{{
 function! PackInit() abort
 	packadd minpac
 	call minpac#init()
@@ -181,7 +179,7 @@ command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
 command! PackClean source $MYVIMRC | call PackInit() | call minpac#clean()
 " }}}
 
-" Fzf
+" Fzf {{{
 set runtimepath+=$HOME/.fzf
 nnoremap <silent> <leader>f <cmd>Files<CR>
 nnoremap <silent> <leader>r <cmd>Rg<CR>
