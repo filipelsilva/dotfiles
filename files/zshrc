@@ -8,6 +8,9 @@ fi
 # Make fzf not collide with zsh
 export FZF_COMPLETION_TRIGGER='++'
 
+# Fzf-tmux
+#export FZF_TMUX_OPTS="-p 90%,60%"
+
 # Default options
 export FZF_DEFAULT_OPTS=" \
 --color fg:#ebdbb2,hl:#fabd2f,fg+:#ebdbb2,bg+:#3c3836,hl+:#fabd2f \
