@@ -9,7 +9,7 @@ fi
 export FZF_COMPLETION_TRIGGER='++'
 
 # Fzf-tmux
-#export FZF_TMUX_OPTS="-p 90%,60%"
+#export FZF_TMUX_OPTS="-p 90%,70%"
 
 # Default options
 export FZF_DEFAULT_OPTS=" \
