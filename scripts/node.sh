@@ -4,4 +4,4 @@ curl -sS https://webinstall.dev/node | bash
 $HOME/.local/bin/webi node@stable
 
 # Packages
-npm install -g diff-so-fancy
+npm install --global diff-so-fancy speed-test pen
