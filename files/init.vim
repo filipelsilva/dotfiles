@@ -110,12 +110,6 @@ endif
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" Move vertically by visual line with j and k
-nnoremap <silent> j gj
-nnoremap <silent> k gk
-vnoremap <silent> j gj
-vnoremap <silent> k gk
-
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
