@@ -154,6 +154,7 @@ endif
 
 let g:gruvbox_italic = 1
 let g:gruvbox_italicize_strings = 1
+let g:gruvbox_invert_selection = 0
 let g:gruvbox_sign_column = 'dark0'
 let g:gruvbox_number_column = 'dark0'
 let g:gruvbox_color_column = 'dark0_soft'
