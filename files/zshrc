@@ -54,9 +54,6 @@ alias links="bat $HOME/OneDrive/tecnico/2º\ Ano/2º\ Semestre/Calendários/link
 # Deemix
 alias deemix="python3 $HOME/Programs/deemix-pyweb/server.py"
 
-# Tor Browser
-alias tor-browser="(cd $HOME/Programs/tor-browser_en-US && ./start-tor-browser.desktop)"
-
 # Open folders/files as if you were in the file manager
 alias open="xdg-open"
 
