@@ -145,7 +145,13 @@ if (has("termguicolors"))
 	set termguicolors
 endif
 
-colorscheme gruvbox8
+let g:gruvbox_italic = 1
+let g:gruvbox_italicize_strings = 1
+let g:gruvbox_invert_selection = 0
+let g:gruvbox_sign_column = 'dark0'
+let g:gruvbox_number_column = 'dark0'
+let g:gruvbox_color_column = 'dark0_soft'
+colorscheme gruvbox
 " }}}
 
 " Plugins {{{
@@ -156,7 +162,7 @@ function! PackInit() abort
 
 	call minpac#add('vim-scripts/yaifa.vim')  		" Indentation detector
 	call minpac#add('junegunn/fzf.vim')       		" Fuzzy finder
-	call minpac#add('lifepillar/vim-gruvbox8')		" Colorscheme
+	call minpac#add('gruvbox-community/gruvbox')	" Colorscheme
 endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
