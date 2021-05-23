@@ -132,10 +132,9 @@ vnoremap <leader>X "_X
 " }}}
 
 " Copy/Paste from other programs
-vnoremap <C-y> "*y :let @+=@*<CR>
-vnoremap <C-d> "*d :let @+=@*<CR>
-nnoremap <C-p> <Esc>"+p
-inoremap <C-p> <Esc>"+p
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y gg"+yG
 
 " Esc in terminal or in Fzf windows
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"

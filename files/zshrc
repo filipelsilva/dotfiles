@@ -66,8 +66,10 @@ alias ..="cd .."
 alias -- -='cd -'
 alias cp="cp -r"
 alias mkdir="mkdir -p"
-alias ip='ip --color=auto'
-alias diff='diff --color=auto'
+alias ip="ip --color=auto"
+alias diff="diff --color=auto"
+alias t="tmux"
+alias v="nvim"
 
 # Ls aliases
 alias ls="ls -N" # --color=auto"
@@ -84,14 +86,6 @@ alias pipup="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 
 
 # See all processes
 alias psa="ps aux | fzf ${FZF_DEFAULT_OPTS} --header='[name:process]'"
-
-# Aliases for tmux
-alias t="tmux"
-alias tp="tmuxp"
-
-# Nvim to vim transition
-alias v="nvim"
-alias vim="nvim"
 
 # Ubuntu has bat as batcat
 if (( ${+commands[batcat]} )); then
