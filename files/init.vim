@@ -110,12 +110,6 @@ endif
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
 " Shortcuts to use blackhole register {{{
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
@@ -151,13 +145,7 @@ if (has("termguicolors"))
 	set termguicolors
 endif
 
-let g:gruvbox_italic = 1
-let g:gruvbox_italicize_strings = 1
-let g:gruvbox_invert_selection = 0
-let g:gruvbox_sign_column = 'dark0'
-let g:gruvbox_number_column = 'dark0'
-let g:gruvbox_color_column = 'dark0_soft'
-colorscheme gruvbox
+colorscheme gruvbox8
 " }}}
 
 " Plugins {{{
@@ -166,9 +154,9 @@ function! PackInit() abort
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-	call minpac#add('vim-scripts/yaifa.vim')    	" Indentation detector
-	call minpac#add('junegunn/fzf.vim')         	" Fuzzy finder
-	call minpac#add('gruvbox-community/gruvbox')	" Colorscheme
+	call minpac#add('vim-scripts/yaifa.vim')  		" Indentation detector
+	call minpac#add('junegunn/fzf.vim')       		" Fuzzy finder
+	call minpac#add('lifepillar/vim-gruvbox8')		" Colorscheme
 endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
