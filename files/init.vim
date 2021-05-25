@@ -141,10 +141,9 @@ set background=dark
 if (has("nvim"))
 	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
-if (has("termguicolors"))
-	set notermguicolors
-	"set termguicolors
-endif
+"if (has("termguicolors"))
+"	set termguicolors
+"endif
 
 colorscheme noctu
 " }}}
@@ -172,4 +171,5 @@ nnoremap <silent> <leader>r <cmd>Rg<CR>
 nnoremap <silent> <leader>j <cmd>Buffers<CR>
 let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
 let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
+let g:fzf_preview_window = []
 " }}}
