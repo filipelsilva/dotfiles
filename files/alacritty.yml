@@ -5,14 +5,14 @@
 # environment variables. Some entries may override variables
 # set by alacritty itself.
 
-env:
+#env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: alacritty
+  # TERM: alacritty
   #WINIT_HIDPI_FACTOR: "1"
 # }}}
 
@@ -154,7 +154,7 @@ schemes: # {{{
       blue:    '0x458588'
       magenta: '0xb16286'
       cyan:    '0x689d6a'
-      white:   '0xa89984'
+      white:   '0xebdbb2' # '0xa89984'
     bright:
       black:   '0x928374'
       red:     '0xfb4934'
