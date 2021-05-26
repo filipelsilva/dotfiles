@@ -141,9 +141,6 @@ set background=dark
 if (has("nvim"))
 	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
-"if (has("termguicolors"))
-"	set termguicolors
-"endif
 
 colorscheme filipe
 " }}}
@@ -156,8 +153,6 @@ function! PackInit() abort
 
 	call minpac#add('vim-scripts/yaifa.vim')  		" Indentation detector
 	call minpac#add('junegunn/fzf.vim')       		" Fuzzy finder
-	"call minpac#add('gruvbox-community/gruvbox')	" Colorscheme
-	call minpac#add('noahfrederick/vim-noctu')		" Colorscheme
 endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
