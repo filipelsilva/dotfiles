@@ -147,7 +147,7 @@ schemes: # {{{
       # soft contrast: background = '0x32302f'
       foreground: '0xebdbb2'
     normal:
-      black:   '0x282828'
+      black:   '0x262626' # '0x282828'
       red:     '0xcc241d'
       green:   '0x98971a'
       yellow:  '0xd79921'
