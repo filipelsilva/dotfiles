@@ -73,7 +73,7 @@ alias t="tmux"
 alias v="nvim"
 
 # Ls aliases
-alias ls="ls -N" # --color=auto"
+alias ls="ls -N --color=auto"
 alias l="ls -lh"
 alias lsa="ls -A"
 alias la="ls -lhA"
