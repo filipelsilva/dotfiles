@@ -145,7 +145,7 @@ endif
 "	set termguicolors
 "endif
 
-colorscheme noctu
+colorscheme filipe
 " }}}
 
 " Plugins {{{
