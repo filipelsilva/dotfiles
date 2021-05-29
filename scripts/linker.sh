@@ -8,4 +8,4 @@ ln -s $HOME/dotfiles/files/alacritty.yml $HOME/.alacritty.yml
 ln -s $HOME/dotfiles/files/zshrc $HOME/.zshrc
 ln -s $HOME/dotfiles/files/tmux.conf $HOME/.tmux.conf
 ln -s $HOME/dotfiles/files/gitconfig $HOME/.gitconfig
-ln -s $HOME/filipelsilva/dotfiles/files/nocolorgruvbox.vim $HOME/.config/nvim/colors/nocolorgruvbox.vim
+ln -s $HOME/dotfiles/files/nocolorgruvbox.vim $HOME/.config/nvim/colors/nocolorgruvbox.vim
