@@ -42,10 +42,10 @@ hi NonText      ctermfg=7      ctermbg=none   cterm=none
 hi Normal       ctermfg=none   ctermbg=none   cterm=none
 hi Number       ctermfg=none   ctermbg=none   cterm=none
 hi Operator     ctermfg=none   ctermbg=none   cterm=none
-hi Pmenu        ctermfg=7      ctermbg=11     cterm=none
-hi PmenuSel     ctermfg=none   ctermbg=11     cterm=none
-hi PmenuThumb   ctermfg=none   ctermbg=11     cterm=none
-hi PmenuSbar    ctermfg=none   ctermbg=11     cterm=none
+hi Pmenu        ctermfg=15     ctermbg=7      cterm=none
+hi PmenuSel     ctermfg=3      ctermbg=7      cterm=none
+hi PmenuThumb   ctermfg=15     ctermbg=7      cterm=none
+hi PmenuSbar    ctermfg=none   ctermbg=7      cterm=none
 hi PreProc      ctermfg=none   ctermbg=none   cterm=none
 hi Question     ctermfg=1      ctermbg=none   cterm=bold
 hi Repeat       ctermfg=none   ctermbg=none   cterm=bold
