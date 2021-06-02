@@ -28,8 +28,8 @@ hi DiffText     ctermfg=4      ctermbg=none   cterm=underline
 hi Directory    ctermfg=none   ctermbg=none   cterm=bold
 hi ErrorMsg     ctermfg=none   ctermbg=none   cterm=none
 hi MoreMsg      ctermfg=1      ctermbg=none   cterm=none
-hi Float        ctermfg=13     ctermbg=none   cterm=none
-hi Folded       ctermfg=7      ctermbg=none   cterm=none
+hi Float        ctermfg=5      ctermbg=none   cterm=none
+hi Folded       ctermfg=3      ctermbg=none   cterm=none
 hi Function     ctermfg=10     ctermbg=none   cterm=none
 hi Identifier   ctermfg=4      ctermbg=none   cterm=none
 hi IncSearch    ctermfg=none   ctermbg=8      cterm=none
@@ -41,7 +41,7 @@ hi MatchParen   ctermfg=2      ctermbg=none   cterm=bold
 hi ModeMsg      ctermfg=11     ctermbg=none   cterm=bold
 hi NonText      ctermfg=7      ctermbg=none   cterm=none
 hi Normal       ctermfg=none   ctermbg=none   cterm=none
-hi Number       ctermfg=13     ctermbg=none   cterm=none
+hi Number       ctermfg=5      ctermbg=none   cterm=none
 hi Operator     ctermfg=1      ctermbg=none   cterm=none
 hi Pmenu        ctermfg=none   ctermbg=8      cterm=none
 hi PmenuSel     ctermfg=none   ctermbg=6      cterm=none
