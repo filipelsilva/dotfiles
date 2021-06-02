@@ -151,7 +151,7 @@ if (has("termguicolors"))
 	set notermguicolors
 endif
 
-colorscheme nocolorgruvbox
+colorscheme nocolor
 " }}}
 
 " Plugins {{{
