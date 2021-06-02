@@ -77,6 +77,11 @@ command! TrimWhitespace call TrimWhitespace()
 "<leader> key bind
 let mapleader = " "
 
+" Output the current syntax group
+nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
+
 " Tab completion
 inoremap <tab> <c-r>=TabComplete()<cr>
 
@@ -145,7 +150,7 @@ if (has("termguicolors"))
 	set notermguicolors
 endif
 
-colorscheme nocolorgruvbox
+"colorscheme nocolorgruvbox
 " }}}
 
 " Plugins {{{
