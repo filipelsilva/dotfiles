@@ -27,7 +27,7 @@ hi Directory    ctermfg=none   ctermbg=none   cterm=bold
 hi ErrorMsg     ctermfg=none   ctermbg=none   cterm=none
 hi MoreMsg      ctermfg=1      ctermbg=none   cterm=none
 hi Float        ctermfg=none   ctermbg=none   cterm=none
-hi Folded       ctermfg=11     ctermbg=none   cterm=none
+hi Folded       ctermfg=3      ctermbg=none   cterm=none
 hi Function     ctermfg=none   ctermbg=none   cterm=bold
 hi Identifier   ctermfg=none   ctermbg=none   cterm=italic
 hi IncSearch    ctermfg=none   ctermbg=8      cterm=none
