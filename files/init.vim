@@ -1,5 +1,6 @@
 " Settings {{{
-syntax on
+"syntax on
+syntax off
 filetype plugin indent on
 set encoding=utf-8
 set fileformats=unix,dos,mac
