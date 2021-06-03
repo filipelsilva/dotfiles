@@ -6,7 +6,7 @@ if version > 580
   set background=dark
 endif
 
-let g:colors_name='nocolorgruvbox'
+let g:colors_name='nocolor'
 
 hi Boolean      ctermfg=none   ctermbg=none   cterm=none
 hi Character    ctermfg=none   ctermbg=none   cterm=none

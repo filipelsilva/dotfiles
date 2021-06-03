@@ -6,7 +6,7 @@ if version > 580
   set background=dark
 endif
 
-let g:colors_name='nocolorgruvbox'
+let g:colors_name='color'
 
 hi Boolean      ctermfg=none   ctermbg=none   cterm=none
 hi Character    ctermfg=none   ctermbg=none   cterm=none
@@ -35,7 +35,7 @@ hi Italic       ctermfg=none   ctermbg=none   cterm=italic
 hi Keyword      ctermfg=none   ctermbg=none   cterm=none
 hi Label        ctermfg=none   ctermbg=none   cterm=none
 hi LineNr       ctermfg=7      ctermbg=none   cterm=none
-hi MatchParen   ctermfg=2      ctermbg=none   cterm=bold
+hi MatchParen   ctermfg=3      ctermbg=none   cterm=bold
 hi ModeMsg      ctermfg=11     ctermbg=none   cterm=bold
 hi NonText      ctermfg=7      ctermbg=none   cterm=none
 hi Normal       ctermfg=none   ctermbg=none   cterm=none
