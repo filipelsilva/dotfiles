@@ -12,7 +12,7 @@ hi Boolean      ctermfg=none   ctermbg=none   cterm=none
 hi Character    ctermfg=none   ctermbg=none   cterm=none
 hi ColorColumn  ctermfg=none   ctermbg=8      cterm=none
 hi Comment      ctermfg=8      ctermbg=none   cterm=italic
-hi Conditional  ctermfg=4      ctermbg=none   cterm=none
+hi Conditional  ctermfg=1      ctermbg=none   cterm=none
 hi Constant     ctermfg=5      ctermbg=none   cterm=none
 hi CursorColumn ctermfg=none   ctermbg=none   cterm=none
 hi Cursor       ctermfg=none   ctermbg=none   cterm=none
@@ -47,7 +47,7 @@ hi PmenuThumb   ctermfg=none   ctermbg=none   cterm=none
 hi PmenuSbar    ctermfg=none   ctermbg=none   cterm=none
 hi PreProc      ctermfg=10     ctermbg=none   cterm=none
 hi Question     ctermfg=1      ctermbg=none   cterm=bold
-hi Repeat       ctermfg=4      ctermbg=none   cterm=none
+hi Repeat       ctermfg=1      ctermbg=none   cterm=none
 hi Search       ctermfg=none   ctermbg=8      cterm=none
 hi SignColumn   ctermfg=none   ctermbg=none   cterm=none
 hi Special      ctermfg=12     ctermbg=none   cterm=none
