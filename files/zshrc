@@ -73,7 +73,7 @@ alias t="tmux"
 alias v="nvim"
 
 # Ls aliases
-alias ls="ls -N --color=auto"
+alias ls="ls -N" # --color=auto"
 alias l="ls -lh"
 alias lsa="ls -A"
 alias la="ls -lhA"
@@ -148,7 +148,7 @@ function kp() {
 
 # [F]ind [P]ath
 function fp() {
-	local loc=$(echo $PATH | sed -e $'s/:/\\\n/g' | eval "fzf --header='[find:path]'")
+	local loc=$(echo $PATH | sed -e $'s/:/\\$prompt_newline/g' | eval "fzf --header='[find:path]'")
 	if [[ -d $loc ]]; then
 		echo "$(rg --files $loc | rev | cut -d"/" -f1 | rev)" | eval "fzf --header='[find:exe] => ${loc}' >/dev/null"
 		fp
@@ -160,14 +160,14 @@ function fp() {
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '*'
-#zstyle ':vcs_info:*' formats '[%s:%b%m%u%c]'
-zstyle ':vcs_info:*' formats '%F{magenta}:(%s)%b%m%u%c%f'
+zstyle ':vcs_info:*' formats '[%s:%b%m%u%c]'
+#zstyle ':vcs_info:*' formats '%F{magenta}:(%s)%b%m%u%c%f'
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
-#PROMPT='%F{white}%n%f%K{white}%F{black}%m%k%F{white}%1~${vcs_info_msg_0_}%f%(?..%F{red}[%?])%f '
-PROMPT='%B%F{white}%n@%m %F{blue}%1~${vcs_info_msg_0_} %(?..%F{red}%? )%F{white}$%b%f '
+PROMPT='%F{white}%n%f%K{white}%F{black}%m%k%F{white}%1~${vcs_info_msg_0_}%f%(?..%F{red}[%?])%f '
+#PROMPT='%B%F{white}%n@%m %F{blue}%1~${vcs_info_msg_0_} %(?..%F{red}%? )%F{white}$%b%f '
 # }}}
 
 # Completion menu {{{
