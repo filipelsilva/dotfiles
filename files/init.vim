@@ -139,19 +139,6 @@ nnoremap <leader>Y gg"+yG
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 " }}}
 
-" Colorscheme {{{
-set t_Co=256
-set background=dark
-
-if (has("nvim"))
-	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-if (has("termguicolors"))
-	"set termguicolors
-	set notermguicolors
-endif
-" }}}
-
 " Plugins {{{
 function! PackInit() abort
 	packadd minpac
