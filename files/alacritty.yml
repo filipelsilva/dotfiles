@@ -217,7 +217,7 @@ schemes: # {{{
 # }}}
 
 # Apply the color scheme.
-colors: *gruvbox
+#colors: *gruvbox
 
 # Bell # {{{
 #
