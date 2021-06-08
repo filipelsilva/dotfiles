@@ -139,6 +139,12 @@ nnoremap <leader>Y gg"+yG
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 " }}}
 
+" Colorscheme {{{
+colorscheme default
+set t_Co=256
+set background=dark
+" }}}
+
 " Plugins {{{
 function! PackInit() abort
 	packadd minpac
