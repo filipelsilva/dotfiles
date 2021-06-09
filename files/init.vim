@@ -31,7 +31,7 @@ set autoindent copyindent shiftround smarttab
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set nowrap ruler showcmd showtabline=0 laststatus=0 number relativenumber
+set ruler showcmd laststatus=0
 
 " Other settings
 set mouse=a colorcolumn=80 scrolloff=5 updatetime=100
@@ -77,13 +77,11 @@ command! TrimWhitespace call TrimWhitespace()
 "<leader> key bind
 let mapleader = " "
 
-" Output the current syntax group
-nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
-
 " Tab completion
 inoremap <tab> <c-r>=TabComplete()<cr>
+
+" Toggle numbers
+nnoremap <silent> <leader>n :set invnumber invrelativenumber<CR>
 
 " Buffer jumping
 nnoremap <silent> gb :bn<CR>
@@ -101,6 +99,11 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Run line as command, output here
 noremap Q !!$SHELL<CR>
+
+" Output the current syntax group
+nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 
 " Open $SHELL in splits
 if has('nvim')
