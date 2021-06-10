@@ -143,7 +143,7 @@ tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 " }}}
 
 " Colorscheme {{{
-colorscheme koehler
+colorscheme slate
 set t_Co=256
 set background=dark
 " }}}
