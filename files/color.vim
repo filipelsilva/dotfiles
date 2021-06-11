@@ -41,8 +41,8 @@ hi NonText      ctermfg=7      ctermbg=none   cterm=none
 hi Normal       ctermfg=none   ctermbg=none   cterm=none
 hi Number       ctermfg=5      ctermbg=none   cterm=none
 hi Operator     ctermfg=1      ctermbg=none   cterm=none
-hi Pmenu        ctermfg=none   ctermbg=8      cterm=none
-hi PmenuSel     ctermfg=none   ctermbg=6      cterm=none
+hi Pmenu        ctermfg=none   ctermbg=0      cterm=none
+hi PmenuSel     ctermfg=none   ctermbg=0      cterm=bold,italic
 hi PmenuThumb   ctermfg=none   ctermbg=none   cterm=none
 hi PmenuSbar    ctermfg=none   ctermbg=none   cterm=none
 hi PreProc      ctermfg=6      ctermbg=none   cterm=none
@@ -53,8 +53,8 @@ hi SignColumn   ctermfg=none   ctermbg=none   cterm=none
 hi Special      ctermfg=12     ctermbg=none   cterm=none
 hi SpecialKey   ctermfg=none   ctermbg=none   cterm=none
 hi Statement    ctermfg=1      ctermbg=none   cterm=none
-hi StatusLine   ctermfg=none   ctermbg=8      cterm=none
-hi StatusLineNC ctermfg=none   ctermbg=8      cterm=none
+hi StatusLine   ctermfg=none   ctermbg=0      cterm=none
+hi StatusLineNC ctermfg=none   ctermbg=0      cterm=none
 hi StorageClass ctermfg=3      ctermbg=none   cterm=none
 hi String       ctermfg=2      ctermbg=none   cterm=italic
 hi TabLine      ctermfg=7      ctermbg=11     cterm=none
