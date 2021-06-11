@@ -10,7 +10,7 @@ let g:colors_name='color'
 
 hi Boolean      ctermfg=none   ctermbg=none   cterm=none
 hi Character    ctermfg=none   ctermbg=none   cterm=none
-hi ColorColumn  ctermfg=none   ctermbg=8      cterm=none
+hi ColorColumn  ctermfg=none   ctermbg=0      cterm=none
 hi Comment      ctermfg=8      ctermbg=none   cterm=italic
 hi Conditional  ctermfg=1      ctermbg=none   cterm=none
 hi Constant     ctermfg=5      ctermbg=none   cterm=none
