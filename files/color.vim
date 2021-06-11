@@ -1,9 +1,9 @@
 if version > 580
-  hi clear
-  if exists("syntax_on")
-    syntax reset
-  endif
-  set background=dark
+    hi clear
+    if exists("syntax_on")
+        syntax reset
+    endif
+    set background=dark
 endif
 
 let g:colors_name='color'
@@ -45,7 +45,7 @@ hi Pmenu        ctermfg=none   ctermbg=8      cterm=none
 hi PmenuSel     ctermfg=none   ctermbg=6      cterm=none
 hi PmenuThumb   ctermfg=none   ctermbg=none   cterm=none
 hi PmenuSbar    ctermfg=none   ctermbg=none   cterm=none
-hi PreProc      ctermfg=10     ctermbg=none   cterm=none
+hi PreProc      ctermfg=6      ctermbg=none   cterm=none
 hi Question     ctermfg=1      ctermbg=none   cterm=bold
 hi Repeat       ctermfg=1      ctermbg=none   cterm=none
 hi Search       ctermfg=none   ctermbg=8      cterm=none
