@@ -75,6 +75,7 @@ selection:
 
 cursor:
   style: Block
+  unfocused_hollow: false
 
 shell:
   program: /bin/zsh
