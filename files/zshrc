@@ -219,6 +219,8 @@ export MANPAGER="nvim +Man!"
 export EDITOR=nvim
 export VISUAL=nvim
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/opt/node/bin
+export BAT_THEME="gruvbox-dark"
+export BAT_STYLE="plain"
 # }}}
 
 # Plugins {{{
