@@ -31,10 +31,10 @@ set autoindent copyindent shiftround smarttab
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set ruler showcmd laststatus=0 showtabline=0
+set ruler showcmd colorcolumn=80 laststatus=0 showtabline=0
 
 " Other settings
-set mouse=a colorcolumn=80 scrolloff=5 updatetime=100
+set mouse=a scrolloff=5 updatetime=100
 if !has("nvim")
 	set ttymouse=xterm2
 endif
