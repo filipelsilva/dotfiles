@@ -38,6 +38,12 @@ set mouse=a scrolloff=5 updatetime=100
 if !has("nvim")
 	set ttymouse=xterm2
 endif
+
+" Grep function
+if executable("rg")
+	set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+	set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
 " }}}
 
 " Functions {{{
