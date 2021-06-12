@@ -35,6 +35,9 @@ set ruler showcmd laststatus=0 showtabline=0
 
 " Other settings
 set mouse=a colorcolumn=80 scrolloff=5 updatetime=100
+if !has("nvim")
+	set ttymouse=xterm2
+endif
 " }}}
 
 " Functions {{{
@@ -106,7 +109,7 @@ nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 
 " Open $SHELL in splits
-if has('nvim')
+if has("nvim")
 	noremap <silent> <leader>t :vsplit term://$SHELL<CR>i
 	noremap <silent> <leader>T :split term://$SHELL<CR>i
 else
