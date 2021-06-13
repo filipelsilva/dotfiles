@@ -169,8 +169,9 @@ autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
-PROMPT='%F{white}%n%f%K{white}%F{black}%m%k%F{white}%1~${vcs_info_msg_0_}%f%(?..%F{red}[%?])%f '
-#PROMPT='%B%F{white}%n@%m %F{blue}%1~${vcs_info_msg_0_} %(?..%F{red}%? )%F{white}$%b%f '
+PROMPT='%n%S%m%s%1~${vcs_info_msg_0_}%(?..%F{red}[%?]%f) '
+#PROMPT='[%n@%m %1~]${vcs_info_msg_0_}%(?..%F{red}[%?]%f)$ '
+#PROMPT='%B%n@%m %F{blue}%1~${vcs_info_msg_0_} %(?..%F{red}%? )%f$%b '
 # }}}
 
 # Completion menu {{{
