@@ -7,19 +7,12 @@ There are two sections:
 
 These consist of configurations for the following:
 * Alacritty
-* Git
-* Neovim
-* Starship
-* Tmux/Tmate
+* (Neo)Vim
+* Tmux
 * Zsh
-
-Also, there are three custom Zsh prompts.
+* Git
 
 ## 2. Installers
 
-Scripts made by me, in order to install:
-* Packages
-* Plugins
-* Programs
-and also to symlink the dotfiles to `/home/`.
+Scripts made by me, in order to link the dotfiles to their places and install all needed packages.
 Keep in mind: these are **very likely to break**.
