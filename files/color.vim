@@ -54,7 +54,7 @@ hi Special      ctermfg=12     ctermbg=none   cterm=none
 hi SpecialKey   ctermfg=none   ctermbg=none   cterm=none
 hi Statement    ctermfg=1      ctermbg=none   cterm=none
 hi StatusLine   ctermfg=none   ctermbg=0      cterm=none
-hi StatusLineNC ctermfg=none   ctermbg=0      cterm=none
+hi StatusLineNC ctermfg=none   ctermbg=0      cterm=italic
 hi StorageClass ctermfg=3      ctermbg=none   cterm=none
 hi String       ctermfg=2      ctermbg=none   cterm=italic
 hi TabLine      ctermfg=7      ctermbg=11     cterm=none
