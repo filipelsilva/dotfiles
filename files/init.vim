@@ -88,11 +88,11 @@ let mapleader = " "
 inoremap <tab> <c-r>=TabComplete()<cr>
 
 " Toggle numbers
-nnoremap <silent> <leader>n :set invnumber invrelativenumber<CR>
+nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
 
 " Buffer jumping
-nnoremap <silent> gb :bn<CR>
-nnoremap <silent> gB :bp<CR>
+nnoremap <silent> gb :bn<cr>
+nnoremap <silent> gB :bp<cr>
 
 " Replace word under cursor (',': wherever | ';': word only)
 nnoremap , :%s/<c-r><c-w>//g<left><left>
@@ -101,11 +101,11 @@ nnoremap ; :%s/\<<c-r><c-w>\>//g<left><left>
 vnoremap ; "zy<esc>:%s/\<<c-r>z\>//g<left><left>
 
 " Move blocks of code
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
 
 " Run line as command, output here
-noremap Q !!$SHELL<CR>
+noremap Q !!$SHELL<cr>
 
 " Output the current syntax group
 nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -114,16 +114,16 @@ nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 
 " Open $SHELL in splits
 if has("nvim")
-	noremap <silent> <leader>t :vsplit term://$SHELL<CR>i
-	noremap <silent> <leader>T :split term://$SHELL<CR>i
+	noremap <silent> <leader>t :vsplit term://$SHELL<cr>i
+	noremap <silent> <leader>T :split term://$SHELL<cr>i
 else
-	noremap <silent> <leader>t :vertical terminal<CR>
-	noremap <silent> <leader>T :terminal<CR>
+	noremap <silent> <leader>t :vertical terminal<cr>
+	noremap <silent> <leader>T :terminal<cr>
 endif
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>ev :e $MYVIMRC<cr>
+nmap <silent> <leader>sv :so $MYVIMRC<cr>
 
 " Shortcuts to use blackhole register {{{
 nnoremap <leader>d "_d
@@ -145,8 +145,8 @@ nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
 
-" Esc in terminal or in Fzf windows
-tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
+" esc in terminal or in Fzf windows
+tnoremap <expr> <esc> (&filetype == "fzf") ? "<esc>" : "<c-\><c-n>"
 " }}}
 
 " Colorscheme {{{
@@ -173,10 +173,10 @@ autocmd BufRead * DetectIndent
 
 " Fzf {{{
 set runtimepath+=$HOME/.fzf
-nnoremap <silent> <leader>f <cmd>Files<CR>
-nnoremap <silent> <leader>r <cmd>Rg<CR>
-nnoremap <silent> <leader>j <cmd>Buffers<CR>
 let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
 let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
 let g:fzf_preview_window = []
+nnoremap <silent> <leader>f <cmd>Files<cr>
+nnoremap <silent> <leader>r <cmd>Rg<cr>
+nnoremap <silent> <leader>j <cmd>Buffers<cr>
 " }}}
