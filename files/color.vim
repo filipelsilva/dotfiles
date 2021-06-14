@@ -68,3 +68,4 @@ hi Underlined   ctermfg=none   ctermbg=none   cterm=underline
 hi VertSplit    ctermfg=none   ctermbg=none   cterm=none
 hi Visual       ctermfg=none   ctermbg=none   cterm=reverse
 hi WarningMsg   ctermfg=13     ctermbg=none   cterm=none
+hi WildMenu     ctermfg=0      ctermbg=3      cterm=none
