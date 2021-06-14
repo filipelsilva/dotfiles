@@ -166,7 +166,9 @@ function! PackInit() abort
 endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
-command! PackClean source $MYVIMRC | call PackInit() | call minpac#clean()
+command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
+
+autocmd BufRead * DetectIndent
 " }}}
 
 " Fzf {{{
