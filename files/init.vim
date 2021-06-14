@@ -161,8 +161,8 @@ function! PackInit() abort
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-	call minpac#add('vim-scripts/yaifa.vim')  		" Indentation detector
-	call minpac#add('junegunn/fzf.vim')       		" Fuzzy finder
+	call minpac#add('timakro/vim-yadi') 				" Indentation detector
+	call minpac#add('junegunn/fzf.vim') 				" Fuzzy finder
 endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()

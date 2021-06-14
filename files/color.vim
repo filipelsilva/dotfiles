@@ -42,7 +42,7 @@ hi Normal       ctermfg=none   ctermbg=none   cterm=none
 hi Number       ctermfg=5      ctermbg=none   cterm=none
 hi Operator     ctermfg=1      ctermbg=none   cterm=none
 hi Pmenu        ctermfg=none   ctermbg=0      cterm=none
-hi PmenuSel     ctermfg=none   ctermbg=0      cterm=bold,italic
+hi PmenuSel     ctermfg=0      ctermbg=3      cterm=none
 hi PmenuThumb   ctermfg=none   ctermbg=none   cterm=none
 hi PmenuSbar    ctermfg=none   ctermbg=none   cterm=none
 hi PreProc      ctermfg=6      ctermbg=none   cterm=none
