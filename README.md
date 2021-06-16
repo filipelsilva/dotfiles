@@ -1,7 +1,9 @@
 # Filipe Ligeiro Silva's Dotfiles
 
 These are my dotfiles. You could use them to inspire yourself, and make your own!
+
 From flashier environments to almost greyscale ones, I've tried a lot of different styles :)
+
 The commits are more sporadic on the public version, as I started the private version way earlier, and might still be trying out new things over there. 
 
 There are two sections:
