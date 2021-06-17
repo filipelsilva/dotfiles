@@ -64,13 +64,13 @@ alias zshconfig="nvim $HOME/.zshrc && zshsource"
 
 # Basic commands
 alias ..="cd .."
-alias -- -='cd -'
+alias -- -="cd -"
 alias cp="cp -r"
 alias mkdir="mkdir -p"
 alias ip="ip --color=auto"
 alias diff="diff --color=auto"
-alias t="tmux"
-alias v="nvim"
+alias t=tmux
+alias v=nvim
 
 # Ls aliases
 alias ls="ls -N" # --color=auto"
