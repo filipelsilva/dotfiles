@@ -1,9 +1,11 @@
 " Settings {{{
 syntax on
 filetype plugin indent on
-set encoding=utf-8
-set fileformats=unix,dos,mac
-set nomodeline hidden nocompatible
+if !has("nvim")
+	set ttymouse=xterm2
+endif
+set nomodeline hidden nocompatible encoding=utf-8 fileformats=unix,dos,mac
+set mouse=a scrolloff=5 updatetime=100 shortmess=filmnrwxaoOtT
 
 " Cursor always terminal default
 set guicursor=
@@ -32,12 +34,6 @@ set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
 set ruler showcmd colorcolumn=80 laststatus=0 showtabline=0
-
-" Other settings
-set mouse=a scrolloff=5 updatetime=100
-if !has("nvim")
-	set ttymouse=xterm2
-endif
 
 " Grep function
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
@@ -95,10 +91,10 @@ nnoremap <silent> gb :bn<cr>
 nnoremap <silent> gB :bp<cr>
 
 " Replace word under cursor (',': wherever | ';': word only)
-nnoremap , :%s/<c-r><c-w>//g<left><left>
-vnoremap , "zy<esc>:%s/<c-r>z//g<left><left>
-nnoremap ; :%s/\<<c-r><c-w>\>//g<left><left>
-vnoremap ; "zy<esc>:%s/\<<c-r>z\>//g<left><left>
+nnoremap <leader>r :%s/<c-r><c-w>//g<left><left>
+vnoremap <leader>r "zy<esc>:%s/<c-r>z//g<left><left>
+nnoremap <leader>R :%s/\<<c-r><c-w>\>//g<left><left>
+vnoremap <leader>R "zy<esc>:%s/\<<c-r>z\>//g<left><left>
 
 " Move blocks of code
 vnoremap J :m '>+1<cr>gv=gv
@@ -122,8 +118,8 @@ else
 endif
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<cr>
-nmap <silent> <leader>sv :so $MYVIMRC<cr>
+nmap <silent> <leader>v :e $MYVIMRC<cr>
+nmap <silent> <leader>V :so $MYVIMRC<cr>
 
 " Shortcuts to use blackhole register {{{
 nnoremap <leader>d "_d
@@ -140,7 +136,7 @@ nnoremap <leader>X "_X
 vnoremap <leader>X "_X
 " }}}
 
-" Copy/Paste from other programs
+" Copy to other programs
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
@@ -177,6 +173,6 @@ let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
 let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
 let g:fzf_preview_window = []
 nnoremap <silent> <leader>f <cmd>Files<cr>
-nnoremap <silent> <leader>r <cmd>Rg<cr>
+nnoremap <silent> <leader>s <cmd>Rg<cr>
 nnoremap <silent> <leader>j <cmd>Buffers<cr>
 " }}}
