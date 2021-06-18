@@ -1,11 +1,9 @@
 " Settings {{{
 syntax on
 filetype plugin indent on
-if !has("nvim")
-	set ttymouse=xterm2
-endif
+if !has("nvim") | set ttymouse=xterm2 | endif
 set nomodeline hidden nocompatible encoding=utf-8 fileformats=unix,dos,mac
-set mouse=a scrolloff=5 updatetime=100 shortmess=filmnrwxaoOtT
+set mouse=a scrolloff=5 updatetime=100 ttimeoutlen=0 shortmess=filmnrwxaoOtT
 
 " Cursor always terminal default
 set guicursor=
@@ -91,10 +89,10 @@ nnoremap <silent> gb :bn<cr>
 nnoremap <silent> gB :bp<cr>
 
 " Replace word under cursor (',': wherever | ';': word only)
-nnoremap <leader>r :%s/<c-r><c-w>//g<left><left>
-vnoremap <leader>r "zy<esc>:%s/<c-r>z//g<left><left>
-nnoremap <leader>R :%s/\<<c-r><c-w>\>//g<left><left>
-vnoremap <leader>R "zy<esc>:%s/\<<c-r>z\>//g<left><left>
+nnoremap <leader>s :%s/<c-r><c-w>//g<left><left>
+vnoremap <leader>s "zy<esc>:%s/<c-r>z//g<left><left>
+nnoremap <leader>S :%s/\<<c-r><c-w>\>//g<left><left>
+vnoremap <leader>S "zy<esc>:%s/\<<c-r>z\>//g<left><left>
 
 " Move blocks of code
 vnoremap J :m '>+1<cr>gv=gv
@@ -118,8 +116,8 @@ else
 endif
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>v :e $MYVIMRC<cr>
-nmap <silent> <leader>V :so $MYVIMRC<cr>
+nmap <silent> <leader>e :e $MYVIMRC<cr>
+nmap <silent> <leader>E :so $MYVIMRC<cr>
 
 " Shortcuts to use blackhole register {{{
 nnoremap <leader>d "_d
@@ -173,6 +171,6 @@ let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
 let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
 let g:fzf_preview_window = []
 nnoremap <silent> <leader>f <cmd>Files<cr>
-nnoremap <silent> <leader>s <cmd>Rg<cr>
+nnoremap <silent> <leader>r <cmd>Rg<cr>
 nnoremap <silent> <leader>j <cmd>Buffers<cr>
 " }}}
