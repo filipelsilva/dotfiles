@@ -31,7 +31,7 @@ set autoindent copyindent shiftround smarttab
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set ruler showcmd colorcolumn=80 laststatus=0 showtabline=0
+set ruler showcmd fillchars+=vert:│ colorcolumn=80 laststatus=0 showtabline=0
 
 " Grep function
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
