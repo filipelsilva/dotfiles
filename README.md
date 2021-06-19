@@ -21,3 +21,9 @@ These consist of configurations for the following:
 
 Scripts made by me, in order to link the dotfiles to their places and install all needed packages.
 Keep in mind: these are **very likely to break, use at your own risk**.
+To use them, run:
+```
+git clone https://github.com/filipelsilva/dotfiles-public $HOME/dotfiles
+cd $HOME/dotfiles
+./run.sh
+```
