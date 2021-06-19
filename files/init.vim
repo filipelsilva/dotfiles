@@ -144,7 +144,13 @@ tnoremap <expr> <esc> (&filetype == "fzf") ? "<esc>" : "<c-\><c-n>"
 " }}}
 
 " Colorscheme {{{
+if !has("nvim")
+	set cursorline
+	set cursorlineopt=number
+endif
+
 colorscheme color
+
 set t_Co=256
 set background=dark
 " }}}

@@ -17,7 +17,7 @@ hi Constant     ctermfg=5      ctermbg=none   cterm=none
 hi CursorColumn ctermfg=none   ctermbg=none   cterm=none
 hi Cursor       ctermfg=none   ctermbg=none   cterm=none
 hi CursorLine   ctermfg=none   ctermbg=none   cterm=none
-hi CursorLineNr ctermfg=11     ctermbg=none   cterm=none
+hi CursorLineNr ctermfg=3      ctermbg=none   cterm=none
 hi Define       ctermfg=none   ctermbg=none   cterm=bold
 hi DiffAdd      ctermfg=2      ctermbg=none   cterm=none
 hi DiffChange   ctermfg=4      ctermbg=none   cterm=none
@@ -34,7 +34,7 @@ hi IncSearch    ctermfg=none   ctermbg=8      cterm=none
 hi Italic       ctermfg=none   ctermbg=none   cterm=italic
 hi Keyword      ctermfg=none   ctermbg=none   cterm=none
 hi Label        ctermfg=none   ctermbg=none   cterm=none
-hi LineNr       ctermfg=7      ctermbg=none   cterm=none
+hi LineNr       ctermfg=8      ctermbg=none   cterm=none
 hi MatchParen   ctermfg=3      ctermbg=none   cterm=bold
 hi ModeMsg      ctermfg=11     ctermbg=none   cterm=bold
 hi NonText      ctermfg=7      ctermbg=none   cterm=none
