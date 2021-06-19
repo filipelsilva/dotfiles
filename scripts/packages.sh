@@ -16,7 +16,10 @@ elif ( command -v pacman &> /dev/null ); then
     sudo pacman -S --noconfirm zsh git curl wget glances htop neovim python-pip\
         python python-setuptools pypy gcc valgrind gdb unzip zip tmux lynx tree\
         ripgrep fd the_silver_searcher neofetch screenfetch xclip pkg-config go\
-        make entr rlwrap ctags hexyl bat cmake shellcheck hyperfine onefetch
+        make entr rlwrap ctags hexyl bat cmake shellcheck hyperfine onefetch\
+        lazygit
     ./scripts/aur.sh
 
 fi
+
+# Missing from ubuntu: lazygit, lazydocker, duf
