@@ -14,8 +14,5 @@ zsh -c "source $HOME/.zshrc"
 # Vi mode in other programs
 echo "set editing-mode vi" >> $HOME/.inputrc
 
-# Things to do in other files
-echo "Put this in .profile:
-setxkbmap -option ctrl:nocaps
-xcape -e 'Control_L=Escape'
-setxkbmap -option shift:both_capslock"
+# Swap ESC with CAPS
+echo "setxkbmap -option caps:swapescape" >> $HOME/.profile
