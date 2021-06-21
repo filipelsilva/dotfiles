@@ -15,4 +15,4 @@ zsh -c "source $HOME/.zshrc"
 echo "set editing-mode vi" >> $HOME/.inputrc
 
 # For my keyboard, US international mode 
-echo "setxkbmap -layout us -variant intl" >> $HOME/.xinitrc
+echo "setxkbmap -layout us -variant intl" >> $HOME/.profile
