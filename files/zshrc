@@ -213,7 +213,6 @@ bindkey "\e." insert-last-word
 # Keybind to edit command line in $EDITOR
 autoload -z edit-command-line
 zle -N edit-command-line
-bindkey "^X^E" edit-command-line
 # }}}
 
 # Variables {{{
