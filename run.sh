@@ -14,8 +14,6 @@ echo "# 2.1. Pip"
 ./scripts/pip.sh
 echo "# 2.2. Cargo"
 ./scripts/cargo.sh
-echo "# 2.3. Node"
-./scripts/node.sh
 echo "# 2.3. Miscellaneous"
 ./scripts/other.sh
 
