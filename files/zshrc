@@ -18,12 +18,10 @@ export FZF_DEFAULT_OPTS=" \
 --height=70% \
 --multi \
 --bind '?:toggle-preview' \
+--preview '([[ -f {} ]] && (bat --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200' \
+--preview-window hidden \
 "
 
-#--color fg:#ebdbb2,hl:#fabd2f,fg+:#ebdbb2,bg+:#3c3836,hl+:#fabd2f \
-#--color info:#83a598,prompt:#bdae93,spinner:#fabd2f,pointer:#83a598,marker:#fe8019,header:#665c54 \
-#--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200' \
-#--preview-window sharp \
 
 # Fzf using fd instead of find
 if (( ${+commands[fdfind]} )); then
@@ -32,7 +30,7 @@ elif (( ${+commands[fd]} )); then
     local FD_NAME="fd"
 fi
 
-local FD_DEFAULT_OPTS="--follow"
+local FD_DEFAULT_OPTS="--follow --hidden"
 export FZF_DEFAULT_COMMAND="$FD_NAME $FD_DEFAULT_OPTS"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
@@ -74,6 +72,7 @@ alias v=vim
 
 # Ls aliases
 alias ls="ls -N" # --color=auto"
+alias lx="ls -lisah"
 alias l="ls -lh"
 alias lsa="ls -A"
 alias la="ls -lhA"
