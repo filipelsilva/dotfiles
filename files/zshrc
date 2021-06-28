@@ -205,6 +205,7 @@ setopt hist_ignore_space
 # Vi-mode {{{
 bindkey -v
 KEYTIMEOUT=1
+bindkey "^[[Z" reverse-menu-complete
 bindkey "^[[3~" delete-char
 bindkey "^?" backward-delete-char
 bindkey "\e." insert-last-word
