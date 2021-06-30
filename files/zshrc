@@ -22,7 +22,6 @@ export FZF_DEFAULT_OPTS=" \
 --preview-window hidden \
 "
 
-
 # Fzf using fd instead of find
 if (( ${+commands[fdfind]} )); then
     local FD_NAME="fdfind"
