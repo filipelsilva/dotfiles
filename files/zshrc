@@ -46,12 +46,6 @@ _fzf_compgen_dir() {
 
 # Aliases {{{
 
-# Temporary
-alias links="bat $HOME/OneDrive/tecnico/2º\ Ano/2º\ Semestre/Calendários/links.txt"
-
-# Deemix
-alias deemix="python3 $HOME/Programs/deemix-pyweb/server.py"
-
 # Open folders/files as if you were in the file manager
 alias open="xdg-open"
 
