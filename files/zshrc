@@ -104,7 +104,6 @@ function up() {
 	cd -
 
 	cargo install-update -a
-	npm update -g
 	pipup
 	zgen selfupdate && zgen update
 	tldr --update
