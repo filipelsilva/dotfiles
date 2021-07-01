@@ -71,6 +71,18 @@ endfunction
 
 command! TrimWhitespace call TrimWhitespace()
 " }}}
+
+" FzfFilesWrapper {{{
+function! FzfFilesWrapper()
+	if (system("git rev-parse --is-inside-work-tree") =~ "true")
+		GFiles
+	else
+		Files
+	endif
+endfunction
+
+command! FzfFilesWrapper call FzfFilesWrapper()
+" }}}
 " }}}
 
 " Keymaps {{{
@@ -176,7 +188,7 @@ set runtimepath+=$HOME/.fzf
 let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
 let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
 let g:fzf_preview_window = []
-nnoremap <silent> <leader>f <cmd>Files<cr>
+nnoremap <silent> <leader>f <cmd>FzfFilesWrapper<cr>
 nnoremap <silent> <leader>r <cmd>Rg<cr>
 nnoremap <silent> <leader>j <cmd>Buffers<cr>
 " }}}
