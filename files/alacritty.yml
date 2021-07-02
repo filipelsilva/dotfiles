@@ -8,10 +8,6 @@ window:
     columns: 120
     lines: 30
 
-  padding:
-    x: 4
-    y: 4
-
 scrolling:
   history: 10000
 
