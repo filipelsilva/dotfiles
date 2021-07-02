@@ -15,5 +15,5 @@ zsh -c "source $HOME/.zshrc"
 echo "set editing-mode vi" >> $HOME/.inputrc
 
 # For my keyboard, US international mode and caps replaced with esc
-echo "setxkbmap -layout us -variant intl" >> $HOME/.profile
+#echo "setxkbmap -layout us -variant intl" >> $HOME/.profile
 #echo "setxkbmap -option caps:swapescape" >> $HOME/.profile
