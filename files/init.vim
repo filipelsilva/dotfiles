@@ -24,7 +24,12 @@ set wildmenu wildmode=longest:full,full completeopt=menuone,noinsert,noselect
 set backspace=indent,eol,start
 
 " Undo settings
-set undofile undolevels=10000 undodir=$HOME/.nvim-undo
+set undofile undolevels=10000
+if has("nvim")
+	set undodir=$HOME/.nvim-undo
+else
+	set undodir=$HOME/.vim-undo
+endif
 
 " Indentation settings
 set autoindent copyindent shiftround smarttab
