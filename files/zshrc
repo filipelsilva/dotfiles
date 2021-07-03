@@ -61,7 +61,7 @@ alias mkdir="mkdir -p"
 alias ip="ip --color=auto"
 alias diff="diff --color=auto"
 alias t=tmux
-alias v=vim
+alias v=nvim
 
 # Ls aliases
 alias ls="ls -N" # --color=auto"
