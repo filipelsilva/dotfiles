@@ -5,6 +5,9 @@
 [core]
 	editor = nvim
 
+[alias]
+	tree = log --graph --pretty=oneline --abbrev-commit
+
 [diff]
 	tool = vimdiff
 
