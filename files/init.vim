@@ -41,6 +41,9 @@ set ruler showcmd fillchars+=vert:│ colorcolumn=80 laststatus=0 showtabline=0
 " Grep function
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 set grepformat=%f:%l:%c:%m,%f:%l:%m
+
+" Spell settings
+set spelllang=en,pt
 " }}}
 
 " Functions {{{
@@ -104,6 +107,9 @@ inoremap <tab> <c-r>=TabComplete()<cr>
 
 " Toggle numbers
 nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
+
+" Toggle spell
+nnoremap <silent> <leader>o :set invspell<cr>
 
 " Buffer jumping
 nnoremap <silent> gb :bn<cr>
