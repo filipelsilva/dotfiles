@@ -41,7 +41,7 @@ set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
 set ruler showcmd linebreak laststatus=0 showtabline=0
-set fillchars+=vert:│ colorcolumn=80
+set fillchars+=vert:│ colorcolumn=80 hlsearch
 
 " Grep function
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
@@ -49,6 +49,12 @@ set grepformat=%f:%l:%c:%m,%f:%l:%m
 
 " Spell settings
 set spelllang=en,pt
+
+" Highlight trailing whitespace
+match ErrorMsg '\s\+$'
+
+" Remove trailing whitespaces automatically
+autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 
 " Functions {{{
@@ -75,16 +81,6 @@ function! TabComplete()
 endfunction
 " }}}
 
-" TrimWhitespace {{{
-function! TrimWhitespace()
-	let l:save = winsaveview()
-	keeppatterns %s/\s\+$//e
-	call winrestview(l:save)
-endfunction
-
-command! TrimWhitespace call TrimWhitespace()
-" }}}
-
 " FzfFilesWrapper {{{
 function! FzfFilesWrapper()
 	if (exists(":Files"))
@@ -105,7 +101,7 @@ command! FzfFilesWrapper call FzfFilesWrapper()
 " Keymaps {{{
 
 "<leader> key bind
-let mapleader = " "
+let mapleader = "\<space>"
 
 " Tab completion
 inoremap <tab> <c-r>=TabComplete()<cr>
@@ -120,11 +116,18 @@ nnoremap <silent> <leader>o :set invspell<cr>
 nnoremap <silent> gb :bnext<cr>
 nnoremap <silent> gB :bprev<cr>
 
+" Buffer jumping part 2: jump to last edited buffer
+nnoremap <leader>j <c-^>
+inoremap <leader>j <esc><c-^>
+
 " Replace word under cursor (',': wherever | ';': word only)
 nnoremap <leader>s :%s/<c-r><c-w>//g<left><left>
 vnoremap <leader>s "zy<esc>:%s/<c-r>z//g<left><left>
 nnoremap <leader>S :%s/\<<c-r><c-w>\>//g<left><left>
 vnoremap <leader>S "zy<esc>:%s/\<<c-r>z\>//g<left><left>
+
+" Easier paste from register in Insert mode
+inoremap <c-v> <c-r><c-p>0
 
 " Move blocks of code
 vnoremap J :m '>+1<cr>gv=gv
@@ -132,6 +135,9 @@ vnoremap K :m '<-2<cr>gv=gv
 
 " Run line as command, output here
 noremap Q !!$SHELL<cr>
+
+" Disable highlighting
+nnoremap <silent> <leader>, :nohlsearch<cr>
 
 " Open $SHELL in splits
 if has("nvim")
@@ -147,18 +153,18 @@ nmap <silent> <leader>e :e $MYVIMRC<cr>
 nmap <silent> <leader>E :so $MYVIMRC<cr>
 
 " Shortcuts to use blackhole register
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
-nnoremap <leader>D "_D
-vnoremap <leader>D "_D
-nnoremap <leader>c "_c
-vnoremap <leader>c "_c
-nnoremap <leader>C "_C
-vnoremap <leader>C "_C
-nnoremap <leader>x "_x
-vnoremap <leader>x "_x
-nnoremap <leader>X "_X
-vnoremap <leader>X "_X
+nnoremap <leader><leader>d "_d
+vnoremap <leader><leader>d "_d
+nnoremap <leader><leader>D "_D
+vnoremap <leader><leader>D "_D
+nnoremap <leader><leader>c "_c
+vnoremap <leader><leader>c "_c
+nnoremap <leader><leader>C "_C
+vnoremap <leader><leader>C "_C
+nnoremap <leader><leader>x "_x
+vnoremap <leader><leader>x "_x
+nnoremap <leader><leader>X "_X
+vnoremap <leader><leader>X "_X
 
 " Make . to work with visually selected lines
 vnoremap . :normal.<cr>
@@ -166,7 +172,20 @@ vnoremap . :normal.<cr>
 " Copy to other programs
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
+nnoremap <leader>d "+d
+vnoremap <leader>d "+d
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+" Copy the whole working file
 nnoremap <leader>Y gg"+yG
+
+" Output the current syntax group
+nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 
 " Esc in terminal or in Fzf windows
 tnoremap <expr> <esc> (&filetype == "fzf") ? "<esc>" : "<c-\><c-n>"
@@ -174,12 +193,7 @@ tnoremap <expr> <esc> (&filetype == "fzf") ? "<esc>" : "<c-\><c-n>"
 " Fzf
 nnoremap <silent> <leader>f <cmd>FzfFilesWrapper<cr>
 nnoremap <silent> <leader>r <cmd>Rg<cr>
-nnoremap <silent> <leader>j <cmd>Buffers<cr>
-
-" Output the current syntax group
-nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
+nnoremap <silent> <leader>u <cmd>Buffers<cr>
 " }}}
 
 " Colorscheme {{{
