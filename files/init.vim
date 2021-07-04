@@ -117,8 +117,8 @@ nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
 nnoremap <silent> <leader>o :set invspell<cr>
 
 " Buffer jumping
-nnoremap <silent> gb :bn<cr>
-nnoremap <silent> gB :bp<cr>
+nnoremap <silent> gb :bnext<cr>
+nnoremap <silent> gB :bprev<cr>
 
 " Replace word under cursor (',': wherever | ';': word only)
 nnoremap <leader>s :%s/<c-r><c-w>//g<left><left>
