@@ -126,6 +126,13 @@ vnoremap <leader>s "zy<esc>:%s/<c-r>z//g<left><left>
 nnoremap <leader>S :%s/\<<c-r><c-w>\>//g<left><left>
 vnoremap <leader>S "zy<esc>:%s/\<<c-r>z\>//g<left><left>
 
+" Move blocks of code
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
+
+" Run line as command, output here
+noremap Q !!$SHELL<cr>
+
 " Open $SHELL in splits
 if has("nvim")
 	noremap <silent> <leader>t :vsplit term://$SHELL<cr>i
@@ -153,12 +160,15 @@ vnoremap <leader>x "_x
 nnoremap <leader>X "_X
 vnoremap <leader>X "_X
 
+" Make . to work with visually selected lines
+vnoremap . :normal.<cr>
+
 " Copy to other programs
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
 
-" esc in terminal or in Fzf windows
+" Esc in terminal or in Fzf windows
 tnoremap <expr> <esc> (&filetype == "fzf") ? "<esc>" : "<c-\><c-n>"
 
 " Fzf
