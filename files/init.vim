@@ -139,7 +139,7 @@ endif
 nmap <silent> <leader>e :e $MYVIMRC<cr>
 nmap <silent> <leader>E :so $MYVIMRC<cr>
 
-" Shortcuts to use blackhole register {{{
+" Shortcuts to use blackhole register
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 nnoremap <leader>D "_D
@@ -152,7 +152,6 @@ nnoremap <leader>x "_x
 vnoremap <leader>x "_x
 nnoremap <leader>X "_X
 vnoremap <leader>X "_X
-" }}}
 
 " Copy to other programs
 nnoremap <leader>y "+y
