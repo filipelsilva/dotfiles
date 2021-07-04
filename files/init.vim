@@ -79,10 +79,14 @@ command! TrimWhitespace call TrimWhitespace()
 
 " FzfFilesWrapper {{{
 function! FzfFilesWrapper()
-	if (system("git rev-parse --is-inside-work-tree") =~ "true")
-		GFiles
+	if (exists(":Files"))
+		if (system("git rev-parse --is-inside-work-tree") =~ "true")
+			GFiles
+		else
+			Files
+		endif
 	else
-		Files
+		Explore
 	endif
 endfunction
 
@@ -110,18 +114,6 @@ nnoremap <leader>s :%s/<c-r><c-w>//g<left><left>
 vnoremap <leader>s "zy<esc>:%s/<c-r>z//g<left><left>
 nnoremap <leader>S :%s/\<<c-r><c-w>\>//g<left><left>
 vnoremap <leader>S "zy<esc>:%s/\<<c-r>z\>//g<left><left>
-
-" Move blocks of code
-vnoremap J :m '>+1<cr>gv=gv
-vnoremap K :m '<-2<cr>gv=gv
-
-" Run line as command, output here
-noremap Q !!$SHELL<cr>
-
-" Output the current syntax group
-nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 
 " Open $SHELL in splits
 if has("nvim")
@@ -158,6 +150,16 @@ nnoremap <leader>Y gg"+yG
 
 " esc in terminal or in Fzf windows
 tnoremap <expr> <esc> (&filetype == "fzf") ? "<esc>" : "<c-\><c-n>"
+
+" Fzf
+nnoremap <silent> <leader>f <cmd>FzfFilesWrapper<cr>
+nnoremap <silent> <leader>r <cmd>Rg<cr>
+nnoremap <silent> <leader>j <cmd>Buffers<cr>
+
+" Output the current syntax group
+nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 " }}}
 
 " Colorscheme {{{
@@ -185,15 +187,12 @@ endfunction
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
 command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
 
+" DetectIndent
 autocmd BufRead * DetectIndent
-" }}}
 
-" Fzf {{{
+" Fzf
 set runtimepath+=$HOME/.fzf
 let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
 let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
 let g:fzf_preview_window = []
-nnoremap <silent> <leader>f <cmd>FzfFilesWrapper<cr>
-nnoremap <silent> <leader>r <cmd>Rg<cr>
-nnoremap <silent> <leader>j <cmd>Buffers<cr>
 " }}}
