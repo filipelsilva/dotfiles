@@ -169,7 +169,7 @@ vnoremap <leader><leader>X "_X
 " Make . to work with visually selected lines
 vnoremap . :normal.<cr>
 
-" Copy to other programs
+" Copy/Paste to other programs
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>d "+d
