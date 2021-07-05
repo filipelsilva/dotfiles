@@ -50,9 +50,6 @@ set grepformat=%f:%l:%c:%m,%f:%l:%m
 " Spell settings
 set spelllang=en,pt
 
-" Highlight trailing whitespace
-match ErrorMsg '\s\+$'
-
 " Remove trailing whitespaces automatically
 autocmd BufWritePre * :%s/\s\+$//e
 " }}}
