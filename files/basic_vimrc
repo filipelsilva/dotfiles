@@ -23,18 +23,6 @@ set wildmenu wildmode=longest:full,full completeopt=menuone,noinsert,noselect
 " Backspace settings
 set backspace=indent,eol,start
 
-" Undo, swap/backup files settings
-set undofile undolevels=10000
-if has("nvim")
-	set undodir=$HOME/.nvim-tmp/undo//
-	set directory=$HOME/.nvim-tmp/swp//
-	set backupdir=$HOME/.nvim-tmp/backup//
-else
-	set undodir=$HOME/.vim-tmp/undo//
-	set directory=$HOME/.vim-tmp/swp//
-	set backupdir=$HOME/.vim-tmp/backup//
-endif
-
 " Indentation settings
 set autoindent copyindent shiftround smarttab
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
@@ -42,10 +30,6 @@ set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 " Visual settings
 set ruler showcmd linebreak laststatus=0 showtabline=0
 set fillchars+=vert:│ colorcolumn=80 hlsearch
-
-" Grep function
-set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-set grepformat=%f:%l:%c:%m,%f:%l:%m
 
 " Spell settings
 set spelllang=en,pt
@@ -56,16 +40,30 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Functions {{{
 
-" Setup LSPs {{{
-lua << EOF
-local function setup_servers()
-	require'lspinstall'.setup()
-	local servers = require'lspinstall'.installed_servers()
-	for _, server in pairs(servers) do
-		require'lspconfig'[server].setup{}
-	end
-end
-EOF
+" Tab completion {{{
+function! TabComplete(shift)
+	if (pumvisible())
+		if (a:shift == 1)
+			return "\<C-p>"
+		else
+			return "\<C-n>"
+		endif
+	endif
+	let line = getline('.')
+	let substr = strpart(line, -1, col('.'))
+	let substr = matchstr(substr, "[^ \t]*$")
+	if (strlen(substr) == 0)
+		return "\<tab>"
+	endif
+	let has_slash = match(substr, '\/') != -1
+	if (!has_slash)
+		" Matching text
+		return "\<C-x>\<C-p>"
+	else
+		" Matching files
+		return "\<C-x>\<C-f>"
+	endif
+endfunction
 " }}}
 " }}}
 
@@ -74,9 +72,12 @@ EOF
 "<leader> key bind
 let mapleader = "\<space>"
 
+" Explore files
+nnoremap <silent> <leader>f <cmd>Explore<cr>
+
 " Completion
-inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr> <s-Tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+inoremap <tab> <c-r>=TabComplete(0)<cr>
+inoremap <s-tab> <c-r>=TabComplete(1)<cr>
 
 " Toggle numbers
 nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
@@ -170,44 +171,4 @@ colorscheme color
 
 set t_Co=256
 set background=dark
-" }}}
-
-" Plugins {{{
-function! PackInit() abort
-	packadd minpac
-	call minpac#init()
-	call minpac#add('k-takata/minpac', {'type': 'opt'})
-
-	call minpac#add('timakro/vim-yadi')
-	call minpac#add('neovim/nvim-lspconfig')
-	call minpac#add('kabouzeid/nvim-lspinstall')
-	call minpac#add('nvim-lua/completion-nvim')
-	call minpac#add('nvim-lua/popup.nvim')
-	call minpac#add('nvim-lua/plenary.nvim')
-	call minpac#add('nvim-telescope/telescope.nvim')
-endfunction
-
-command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
-command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
-
-" DetectIndent
-autocmd BufRead * DetectIndent
-
-" Telescope
-nnoremap <leader>f <cmd>Telescope find_files<cr>
-nnoremap <leader>r <cmd>Telescope live_grep<cr>
-nnoremap <leader>j <cmd>Telescope buffers<cr>
-
-" Completion
-autocmd BufEnter * lua require'completion'.on_attach()
-
-" LSP
-lua << EOF
-setup_servers()
-
-require'lspinstall'.post_install_hook = function()
-	setup_servers()
-	vim.cmd("bufdo e")
-end
-EOF
 " }}}
