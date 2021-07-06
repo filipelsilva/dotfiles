@@ -50,32 +50,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Functions {{{
 
-" Tab completion {{{
-function! TabComplete(shift)
-	if (pumvisible())
-		if (a:shift == 1)
-			return "\<C-p>"
-		else
-			return "\<C-n>"
-		endif
-	endif
-	let line = getline('.')
-	let substr = strpart(line, -1, col('.'))
-	let substr = matchstr(substr, "[^ \t]*$")
-	if (strlen(substr) == 0)
-		return "\<tab>"
-	endif
-	let has_slash = match(substr, '\/') != -1
-	if (!has_slash)
-		" Matching text
-		return "\<C-x>\<C-p>"
-	else
-		" Matching files
-		return "\<C-x>\<C-f>"
-	endif
-endfunction
-" }}}
-
 " FzfFilesWrapper {{{
 function! FzfFilesWrapper()
 	if system("git rev-parse --is-inside-work-tree") =~ "true"

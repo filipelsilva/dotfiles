@@ -186,7 +186,6 @@ autocmd BufEnter * lua require'completion'.on_attach()
 " LSP
 lua << EOF
 setup_servers()
-
 require'lspinstall'.post_install_hook = function()
 	setup_servers()
 	vim.cmd("bufdo e")
