@@ -1,9 +1,9 @@
 " Settings {{{
 syntax on
 filetype plugin indent on
-if !has("nvim") | set ttymouse=xterm2 | endif
 set nomodeline hidden nocompatible encoding=utf-8 fileformats=unix,dos,mac
 set mouse=a scrolloff=5 updatetime=100 ttimeoutlen=0 shortmess=filmnrwxaoOtT
+set ttymouse=xterm2
 
 " Cursor always terminal default
 set guicursor=
@@ -132,13 +132,8 @@ noremap Q !!$SHELL<cr>
 nnoremap <silent> <leader>, :nohlsearch<cr>
 
 " Open $SHELL in splits
-if has("nvim")
-	noremap <silent> <leader>t :vsplit term://$SHELL<cr>i
-	noremap <silent> <leader>T :split term://$SHELL<cr>i
-else
-	noremap <silent> <leader>t :vertical terminal<cr>
-	noremap <silent> <leader>T :terminal<cr>
-endif
+noremap <silent> <leader>t :vertical terminal<cr>
+noremap <silent> <leader>T :terminal<cr>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>e :e $MYVIMRC<cr>

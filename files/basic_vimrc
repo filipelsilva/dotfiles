@@ -1,9 +1,9 @@
 " Settings {{{
 syntax on
 filetype plugin indent on
-if !has("nvim") | set ttymouse=xterm2 | endif
 set nomodeline hidden nocompatible encoding=utf-8 fileformats=unix,dos,mac
 set mouse=a scrolloff=5 updatetime=100 ttimeoutlen=0 shortmess=filmnrwxaoOtT
+set ttymouse=xterm2
 
 " Cursor always terminal default
 set guicursor=

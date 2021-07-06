@@ -1,7 +1,6 @@
 " Settings {{{
 syntax on
 filetype plugin indent on
-if !has("nvim") | set ttymouse=xterm2 | endif
 set nomodeline hidden nocompatible encoding=utf-8 fileformats=unix,dos,mac
 set mouse=a scrolloff=5 updatetime=100 ttimeoutlen=0 shortmess=filmnrwxaoOtT
 
@@ -25,15 +24,9 @@ set backspace=indent,eol,start
 
 " Undo, swap/backup files settings
 set undofile undolevels=10000
-if has("nvim")
-	set undodir=$HOME/.nvim-tmp/undo//
-	set directory=$HOME/.nvim-tmp/swp//
-	set backupdir=$HOME/.nvim-tmp/backup//
-else
-	set undodir=$HOME/.vim-tmp/undo//
-	set directory=$HOME/.vim-tmp/swp//
-	set backupdir=$HOME/.vim-tmp/backup//
-endif
+set undodir=$HOME/.nvim-tmp/undo//
+set directory=$HOME/.nvim-tmp/swp//
+set backupdir=$HOME/.nvim-tmp/backup//
 
 " Indentation settings
 set autoindent copyindent shiftround smarttab
@@ -58,7 +51,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Setup LSPs {{{
 lua << EOF
-local function setup_servers()
+function setup_servers()
 	require'lspinstall'.setup()
 	local servers = require'lspinstall'.installed_servers()
 	for _, server in pairs(servers) do
@@ -112,13 +105,8 @@ noremap Q !!$SHELL<cr>
 nnoremap <silent> <leader>, :nohlsearch<cr>
 
 " Open $SHELL in splits
-if has("nvim")
-	noremap <silent> <leader>t :vsplit term://$SHELL<cr>i
-	noremap <silent> <leader>T :split term://$SHELL<cr>i
-else
-	noremap <silent> <leader>t :vertical terminal<cr>
-	noremap <silent> <leader>T :terminal<cr>
-endif
+noremap <silent> <leader>t :vsplit term://$SHELL<cr>i
+noremap <silent> <leader>T :split term://$SHELL<cr>i
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>e :e $MYVIMRC<cr>
