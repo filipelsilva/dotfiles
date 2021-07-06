@@ -149,13 +149,7 @@ nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 " }}}
 
 " Colorscheme {{{
-if !has("nvim")
-	set cursorline
-	set cursorlineopt=number
-endif
-
 colorscheme color
-
 set t_Co=256
 set background=dark
 " }}}
