@@ -38,35 +38,6 @@ set spelllang=en,pt
 autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 
-" Functions {{{
-
-" Tab completion {{{
-function! TabComplete(shift)
-	if (pumvisible())
-		if (a:shift == 1)
-			return "\<C-p>"
-		else
-			return "\<C-n>"
-		endif
-	endif
-	let line = getline('.')
-	let substr = strpart(line, -1, col('.'))
-	let substr = matchstr(substr, "[^ \t]*$")
-	if (strlen(substr) == 0)
-		return "\<tab>"
-	endif
-	let has_slash = match(substr, '\/') != -1
-	if (!has_slash)
-		" Matching text
-		return "\<C-x>\<C-p>"
-	else
-		" Matching files
-		return "\<C-x>\<C-f>"
-	endif
-endfunction
-" }}}
-" }}}
-
 " Keymaps {{{
 
 "<leader> key bind
@@ -74,10 +45,6 @@ let mapleader = "\<space>"
 
 " Explore files
 nnoremap <silent> <leader>f <cmd>Explore<cr>
-
-" Completion
-inoremap <tab> <c-r>=TabComplete(0)<cr>
-inoremap <s-tab> <c-r>=TabComplete(1)<cr>
 
 " Toggle numbers
 nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
@@ -154,21 +121,4 @@ vnoremap <leader>P "+P
 
 " Copy the whole working file
 nnoremap <leader>Y gg"+yG
-
-" Output the current syntax group
-nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
-" }}}
-
-" Colorscheme {{{
-if !has("nvim")
-	set cursorline
-	set cursorlineopt=number
-endif
-
-colorscheme color
-
-set t_Co=256
-set background=dark
 " }}}

@@ -67,10 +67,6 @@ EOF
 "<leader> key bind
 let mapleader = "\<space>"
 
-" Completion
-inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr> <s-Tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-
 " Toggle numbers
 nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
 

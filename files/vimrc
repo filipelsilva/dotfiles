@@ -68,10 +68,6 @@ command! FzfFilesWrapper call FzfFilesWrapper()
 "<leader> key bind
 let mapleader = "\<space>"
 
-" Completion
-inoremap <tab> <c-r>=TabComplete(0)<cr>
-inoremap <s-tab> <c-r>=TabComplete(1)<cr>
-
 " Toggle numbers
 nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
 
