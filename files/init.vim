@@ -135,8 +135,8 @@ vnoremap <leader>y "+y
 nnoremap <leader>d "+d
 vnoremap <leader>d "+d
 nnoremap <leader>p "+p
-nnoremap <leader>P "+P
 vnoremap <leader>p "+p
+nnoremap <leader>P "+P
 vnoremap <leader>P "+P
 
 " Copy the whole working file
