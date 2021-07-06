@@ -47,21 +47,6 @@ set spelllang=en,pt
 autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 
-" Functions {{{
-
-" Setup LSPs {{{
-lua << EOF
-function setup_servers()
-	require'lspinstall'.setup()
-	local servers = require'lspinstall'.installed_servers()
-	for _, server in pairs(servers) do
-		require'lspconfig'[server].setup{}
-	end
-end
-EOF
-" }}}
-" }}}
-
 " Keymaps {{{
 
 "<leader> key bind
@@ -157,12 +142,12 @@ function! PackInit() abort
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 	call minpac#add('timakro/vim-yadi')
-	call minpac#add('neovim/nvim-lspconfig')
-	call minpac#add('kabouzeid/nvim-lspinstall')
-	call minpac#add('nvim-lua/completion-nvim')
 	call minpac#add('nvim-lua/popup.nvim')
 	call minpac#add('nvim-lua/plenary.nvim')
 	call minpac#add('nvim-telescope/telescope.nvim')
+	call minpac#add('nvim-lua/completion-nvim')
+	call minpac#add('neovim/nvim-lspconfig')
+	call minpac#add('kabouzeid/nvim-lspinstall')
 endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
@@ -181,7 +166,16 @@ autocmd BufEnter * lua require'completion'.on_attach()
 
 " LSP
 lua << EOF
+function setup_servers()
+	require'lspinstall'.setup()
+	local servers = require'lspinstall'.installed_servers()
+	for _, server in pairs(servers) do
+		require'lspconfig'[server].setup{}
+	end
+end
+
 setup_servers()
+
 require'lspinstall'.post_install_hook = function()
 	setup_servers()
 	vim.cmd("bufdo e")
