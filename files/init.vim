@@ -57,14 +57,18 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Functions {{{
 
 " Tab completion {{{
-function! TabComplete()
+function! TabComplete(shift)
 	if (pumvisible())
-		return "\<C-n>"
+		if (a:shift == 1)
+			return "\<C-p>"
+		else
+			return "\<C-n>"
+		endif
 	endif
 	let line = getline('.')
 	let substr = strpart(line, -1, col('.'))
 	let substr = matchstr(substr, "[^ \t]*$")
-	if (strlen(substr)==0)
+	if (strlen(substr) == 0)
 		return "\<tab>"
 	endif
 	let has_slash = match(substr, '\/') != -1
@@ -101,7 +105,8 @@ command! FzfFilesWrapper call FzfFilesWrapper()
 let mapleader = "\<space>"
 
 " Tab completion
-inoremap <tab> <c-r>=TabComplete()<cr>
+inoremap <tab> <c-r>=TabComplete(0)<cr>
+inoremap <s-tab> <c-r>=TabComplete(1)<cr>
 
 " Toggle numbers
 nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
