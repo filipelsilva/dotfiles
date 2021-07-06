@@ -114,8 +114,8 @@ nnoremap <silent> gb :bnext<cr>
 nnoremap <silent> gB :bprev<cr>
 
 " Buffer jumping part 2: jump to last edited buffer
-nnoremap <leader>j <c-^>
-inoremap <leader>j <esc><c-^>
+nnoremap <C-k> <C-^>
+inoremap <C-k> <esc><C-^>
 
 " Replace word under cursor (',': wherever | ';': word only)
 nnoremap <leader>s :%s/<c-r><c-w>//g<left><left>
@@ -190,7 +190,7 @@ tnoremap <expr> <esc> (&filetype == "fzf") ? "<esc>" : "<c-\><c-n>"
 " Fzf
 nnoremap <silent> <leader>f <cmd>FzfFilesWrapper<cr>
 nnoremap <silent> <leader>r <cmd>Rg<cr>
-nnoremap <silent> <leader>u <cmd>Buffers<cr>
+nnoremap <silent> <leader>j <cmd>Buffers<cr>
 " }}}
 
 " Colorscheme {{{
