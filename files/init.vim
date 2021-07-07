@@ -6,6 +6,7 @@ function! PackInit() abort
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 	call minpac#add('timakro/vim-yadi')
+	call minpac#add('junegunn/fzf.vim')
 	call minpac#add('nvim-lua/popup.nvim')
 	call minpac#add('nvim-lua/plenary.nvim')
 	call minpac#add('nvim-telescope/telescope.nvim')
@@ -19,6 +20,14 @@ command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
 
 " DetectIndent
 autocmd BufRead * DetectIndent
+
+" Fzf
+set runtimepath+=$HOME/.fzf
+let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
+let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
+"nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
+"nnoremap <silent> <leader>r <cmd>Rg<cr>
+"nnoremap <silent> <leader>j <cmd>Buffers<cr>
 
 " Telescope
 nnoremap <leader>f <cmd>Telescope find_files<cr>
