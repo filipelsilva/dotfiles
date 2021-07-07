@@ -158,7 +158,7 @@ autocmd BufRead * DetectIndent
 set runtimepath+=$HOME/.fzf
 let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
 let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
-let g:fzf_preview_window = []
+"let g:fzf_preview_window = ['right']
 nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
 nnoremap <silent> <leader>r <cmd>Rg<cr>
 nnoremap <silent> <leader>j <cmd>Buffers<cr>
