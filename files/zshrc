@@ -105,7 +105,6 @@ function up() {
 	pipup
 	zgen selfupdate && zgen update
 	tldr --update
-	nvim -c ":PackUpdate"
 }
 
 # [F]ind-[I]n-[F]ile
