@@ -1,4 +1,4 @@
-source /home/filipelsilva/dotfiles/files/defaults.vim
+source $HOME/dotfiles/files/defaults.vim
 
 function! PackInit() abort
 	packadd minpac
