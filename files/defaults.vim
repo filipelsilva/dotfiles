@@ -23,6 +23,18 @@ set wildmenu wildmode=longest:full,full completeopt=menuone,noinsert,noselect
 " Backspace settings
 set backspace=indent,eol,start
 
+" Undo, swap/backup files settings
+set undofile undolevels=10000
+if has("nvim")
+	set undodir=$HOME/.nvim-tmp/undo//
+	set directory=$HOME/.nvim-tmp/swp//
+	set backupdir=$HOME/.nvim-tmp/backup//
+else
+	set undodir=$HOME/.vim-tmp/undo//
+	set directory=$HOME/.vim-tmp/swp//
+	set backupdir=$HOME/.vim-tmp/backup//
+endif
+
 " Indentation settings
 set autoindent copyindent shiftround smarttab
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
@@ -42,9 +54,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 "<leader> key bind
 let mapleader = "\<space>"
-
-" Explore files
-nnoremap <silent> <leader>f <cmd>Explore<cr>
 
 " Toggle numbers
 nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
@@ -127,3 +136,16 @@ nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 " }}}
+
+" Colorscheme {{{
+if !has("nvim")
+	set cursorline
+	set cursorlineopt=number
+endif
+
+colorscheme color
+
+set t_Co=256
+set background=dark
+" }}}
+
