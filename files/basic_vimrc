@@ -44,7 +44,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 let mapleader = "\<space>"
 
 " Explore files
-nnoremap <silent> <leader>f <cmd>Explore<cr>
+nnoremap <silent> <leader>f :Explore<cr>
 
 " Toggle numbers
 nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
