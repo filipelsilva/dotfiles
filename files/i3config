@@ -4,6 +4,10 @@
 # i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Wallpaper
+exec --no-startup-id feh --bg-fill $HOME/Pictures/1157861.jpg
+
+# Modifier key
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
