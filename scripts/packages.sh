@@ -22,5 +22,6 @@ elif ( command -v pacman &> /dev/null ); then
 
 fi
 
-# For manual installation: alacritty, i3, i3status, i3lock, i3bar, dmenu
+# For manual installation:
+# alacritty, i3, i3status, i3lock, i3bar, dmenu, pavucontrol, arandr
 # Missing from ubuntu: duf
