@@ -46,6 +46,8 @@ nnoremap <leader>j <cmd>Telescope buffers<cr>
 
 " Completion
 autocmd BufEnter * lua require'completion'.on_attach()
+inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 " LSP
 lua << EOF

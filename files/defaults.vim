@@ -55,10 +55,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 "<leader> key bind
 let mapleader = "\<space>"
 
-" Tab as <C-n>, Shift-Tab as <C-p>
-inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-
 " Toggle numbers
 nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
 
