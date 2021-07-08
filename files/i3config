@@ -44,8 +44,8 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+# start dmenu
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Change keyboard layout
 bindsym $mod+u exec setxkbmap -layout us -variant intl
