@@ -4,8 +4,8 @@
 rm $HOME/.zshrc
 mkdir -p $HOME/.vim/colors
 mkdir -p $HOME/.config/nvim/colors
-mkdir .vim-tmp/undo .vim-tmp/swp .vim-tmp/backup
-mkdir .nvim-tmp/undo .nvim-tmp/swp .nvim-tmp/backup
+mkdir -p $HOME/.vim-tmp/undo $HOME/.vim-tmp/swp $HOME/.vim-tmp/backup
+mkdir -p $HOME/.nvim-tmp/undo $HOME/.nvim-tmp/swp $HOME/.nvim-tmp/backup
 ln -s $HOME/dotfiles/files/color.vim $HOME/.vim/colors/color.vim
 ln -s $HOME/dotfiles/files/vimrc $HOME/.vimrc
 ln -s $HOME/dotfiles/files/init.vim $HOME/.config/nvim/init.vim
