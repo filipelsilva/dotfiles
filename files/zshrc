@@ -51,6 +51,10 @@ alias open="xdg-open"
 alias zshsource="source $HOME/.zshrc && echo 'sourced zshrc'"
 alias zshconfig="nvim $HOME/.zshrc && zshsource"
 
+# i3 configuration and reload
+alias i3source="i3-msg reload && echo 'sourced i3config'"
+alias i3config="nvim $HOME/.config/i3/config && i3source"
+
 # Basic commands
 alias ..="cd .."
 alias -- -="cd -"
