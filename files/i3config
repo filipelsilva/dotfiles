@@ -3,7 +3,6 @@
 
 # i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
 # Wallpaper
 exec --no-startup-id feh --bg-fill $HOME/Pictures/1157861.jpg
 
@@ -27,7 +26,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "Iosevka-10"
 
 # Change keyboard layout
 bindsym $mod+u exec setxkbmap -layout us -variant intl
