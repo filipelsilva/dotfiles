@@ -11,3 +11,5 @@ fi
 
 # Programs (Arch already has most of these in Pacman/AUR)
 cargo install cargo-update
+
+# Missing are the Iosevka (/Term) fonts, install manually

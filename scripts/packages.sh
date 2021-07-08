@@ -8,7 +8,7 @@ if ( command -v apt-get &> /dev/null ); then
         python3-dev python3-pip python3-setuptools gcc valgrind gdb unzip zip\
         tmux make lynx ripgrep fd-find silversearcher-ag neofetch screenfetch\
         entr rlwrap exuberant-ctags hexyl bat cmake shellcheck pypy golang tree\
-        libssl-dev progress npm atool
+        libssl-dev progress npm atool i3 i3status i3lock dmenu
 
 elif ( command -v pacman &> /dev/null ); then
 
@@ -17,7 +17,7 @@ elif ( command -v pacman &> /dev/null ); then
         python python-setuptools pypy gcc valgrind gdb unzip zip tmux lynx tree\
         ripgrep fd the_silver_searcher neofetch screenfetch xclip pkg-config go\
         make entr rlwrap ctags hexyl bat cmake shellcheck hyperfine onefetch\
-        progress npm atool
+        progress npm atool i3 i3status i3lock i3bar dmenu
     ./scripts/aur.sh
 
 fi
