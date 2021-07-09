@@ -25,11 +25,11 @@ cpu_usage {
 }
 
 disk "/" {
-        format = "HDD %avail (%percentage_used)"
+        format = "DISK %avail (%percentage_used)"
 }
 
 memory {
-        format = "MEM %available (%percentage_used)"
+        format = "RAM %available (%percentage_used)"
 }
 
 battery all {
