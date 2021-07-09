@@ -91,6 +91,15 @@ focus_follows_mouse no
 # Mouse doesn't go to the center of outputs
 mouse_warping none
 
+# PrintScreen of selection
+bindsym Print exec --no-startup-id maim --select "$HOME/Pictures/$(date)"
+
+# PrintScreen of active window
+bindsym Shift+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/$(date)"
+
+# PrintScreen of whole screen
+bindsym $mod+Print exec --no-startup-id maim "$HOME/Pictures/$(date)"
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
