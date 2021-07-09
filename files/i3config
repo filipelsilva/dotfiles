@@ -5,13 +5,13 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # Wallpaper
-exec --no-startup-id feh --bg-fill $HOME/Pictures/1157861.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/gx09or98t4a71.webp
 
 # Detect external monitor
-exec --no-startup-id xrandr | grep "HDMI-0 connected" && xrandr --output HDMI-0 --primary --mode 2560x1440 --rate 143.97 --pos 0x0 --rotate normal --output eDP-1-1 --mode 1920x1080 --rate 144.00 --pos 2560x360 --rotate normal && feh --bg-fill $HOME/Pictures/1157861.jpg
+exec_always --no-startup-id xrandr | grep "HDMI-0 connected" && xrandr --output HDMI-0 --primary --mode 2560x1440 --rate 143.97 --pos 0x0 --rotate normal --output eDP-1-1 --mode 1920x1080 --rate 144.00 --pos 2560x360 --rotate normal && feh --bg-fill $HOME/Pictures/gx09or98t4a71.webp
 
 # Disable suspension
-exec --no-startup-id xset s off && xset -dpms
+exec_always --no-startup-id xset s off && xset -dpms
 
 # Modifier key
 set $mod Mod4
@@ -66,9 +66,8 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # Change container layout (stacked, tabbed, toggle split)
-bindsym $mod+Shift+s layout stacking
-bindsym $mod+Shift+w layout tabbed
-bindsym $mod+Shift+p layout toggle split
+bindsym $mod+Shift+s layout toggle
+bindsym $mod+Shift+Mod1+s layout toggle split
 
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -142,7 +141,9 @@ bindsym $mod+Shift+r reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+Mod1+r restart
 # Exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+Mod1+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# Shutdown the computer
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the shutdown shortcut. Do you really want to shutdown?' -B 'Yes, shutdown' 'shutdown -t now'"
 
 # Resize window (you can also use the mouse for that)
 mode "resize" {
