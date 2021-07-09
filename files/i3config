@@ -3,11 +3,15 @@
 
 # i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
 # Wallpaper
 exec --no-startup-id feh --bg-fill $HOME/Pictures/1157861.jpg
 
 # Detect external monitor
 exec --no-startup-id xrandr | grep "HDMI-0 connected" && xrandr --output HDMI-0 --primary --mode 2560x1440 --rate 143.97 --pos 0x0 --rotate normal --output eDP-1-1 --mode 1920x1080 --rate 144.00 --pos 2560x360 --rotate normal && feh --bg-fill $HOME/Pictures/1157861.jpg
+
+# Disable suspension
+exec --no-startup-id xset s off && xset -dpms
 
 # Modifier key
 set $mod Mod4
