@@ -30,7 +30,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # Start dmenu
-bindsym $mod+space exec --no-startup-id dmenu_run -fn "Iosevka-10"
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "Iosevka-10"
 
 # Change keyboard layout
 bindsym $mod+u exec setxkbmap -layout us -variant intl
@@ -70,10 +70,10 @@ bindsym $mod+Shift+s layout toggle
 bindsym $mod+Shift+Mod1+s layout toggle split
 
 # Toggle tiling / floating
-bindsym $mod+Shift+d floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # Change focus between tiling / floating windows
-bindsym $mod+d focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # Size of floating windows
 floating_minimum_size 75 x 50
