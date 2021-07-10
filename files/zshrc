@@ -52,8 +52,9 @@ alias zshsource="source $HOME/.zshrc && echo 'sourced zshrc'"
 alias zshconfig="nvim $HOME/.zshrc && zshsource"
 
 # i3 configuration and reload
-alias i3source="i3-msg reload && echo 'sourced i3config'"
+alias i3source="i3-msg restart"
 alias i3config="nvim $HOME/.config/i3/config && i3source"
+alias i3statusconfig="nvim $HOME/.config/i3status/config && i3source"
 
 # Basic commands
 alias ..="cd .."
