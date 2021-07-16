@@ -49,10 +49,10 @@ tztime local {
 
 wireless _first_ {
         format_up = "W %ip \"%essid\""
-        format_down = "W: DOWN"
+        format_down = "W DOWN"
 }
 
 ethernet _first_ {
         format_up = "E %ip (%speed)"
-        format_down = "E: DOWN"
+        format_down = "E DOWN"
 }
