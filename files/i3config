@@ -23,6 +23,12 @@ font pango:Iosevka 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# No window names
+for_window [class=".*"] border pixel 1
+
+# Hide borders if only one window is visible
+hide_edge_borders smart
+
 # Start a terminal
 bindsym $mod+Return exec alacritty
 
