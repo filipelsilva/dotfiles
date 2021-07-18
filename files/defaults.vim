@@ -55,6 +55,8 @@ function! TrimWhitespace()
 	keeppatterns %s/\s\+$//e
 	call winrestview(l:save)
 endfunction
+
+command! TrimWhitespace call TrimWhitespace()
 " }}}
 
 " Keymaps {{{
