@@ -24,4 +24,5 @@ fi
 
 # For manual installation:
 # alacritty, i3, i3status, i3lock, i3bar, dmenu, pavucontrol, arandr, maim, xdotool
+# Also, install xfce or other DE: to help automount drives and default apps, etc
 # Missing from ubuntu: duf
