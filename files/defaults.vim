@@ -45,9 +45,16 @@ set fillchars+=vert:│ colorcolumn=80 hlsearch
 
 " Spell settings
 set spelllang=en,pt
+" }}}
 
-" Remove trailing whitespaces automatically
-autocmd BufWritePre * :%s/\s\+$//e
+" Functions {{{
+
+" TrimWhitespace
+function! TrimWhitespace()
+	let l:save = winsaveview()
+	keeppatterns %s/\s\+$//e
+	call winrestview(l:save)
+endfunction
 " }}}
 
 " Keymaps {{{
