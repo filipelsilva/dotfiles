@@ -23,6 +23,6 @@ elif ( command -v pacman &> /dev/null ); then
 fi
 
 # For manual installation:
-# alacritty, i3, i3status, i3lock, i3bar, dmenu, pavucontrol, arandr, maim, xdotool, lxappearance
-# Also, install xfce or other DE: to help automount drives and default apps, etc
+# alacritty, i3, i3status, i3lock, i3bar, dmenu, pavucontrol, arandr, maim, xdotool
+# udiskie, arc-gtk-theme, lxappearance
 # Missing from ubuntu: duf
