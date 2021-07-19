@@ -32,11 +32,14 @@ for_window [class=".*"] border pixel 1
 # Hide borders if only one window is visible
 hide_edge_borders smart
 
+# Kill focused window
+bindsym $mod+Shift+q kill
+
 # Start a terminal
 bindsym $mod+Return exec alacritty
 
-# Kill focused window
-bindsym $mod+Shift+q kill
+# Start a file manager
+bindsym $mod+e exec nemo
 
 # Start dmenu
 bindsym $mod+d exec --no-startup-id dmenu_run -fn "Iosevka-10"
