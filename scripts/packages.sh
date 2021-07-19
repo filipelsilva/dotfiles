@@ -18,10 +18,11 @@ elif ( command -v pacman &> /dev/null ); then
         ripgrep fd the_silver_searcher neofetch screenfetch xclip pkg-config go\
         make entr rlwrap ctags hexyl bat cmake shellcheck hyperfine onefetch\
         progress npm atool
+
+    # For manual installation (in this case Arch only):
+    #sudo pacman -S --noconfirm alacritty i3 i3status i3lock dmenu feh arandr\
+    #    maim pavucontrol xdotool udiskie arc-gtk-theme lxappearance nemo
+
     ./scripts/aur.sh
 
 fi
-
-# For manual installation (in this case Arch only):
-#sudo pacman -S --noconfirm alacritty i3 i3status i3lock dmenu feh arandr maim\
-#    pavucontrol xdotool udiskie arc-gtk-theme lxappearance nemo
