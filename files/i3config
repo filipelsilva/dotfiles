@@ -4,11 +4,11 @@
 # i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Detect external monitor
+exec_always --no-startup-id xrandr | grep "HDMI-0 connected" && xrandr --output HDMI-0 --primary --mode 2560x1440 --rate 143.97 --pos 0x0 --rotate normal --output eDP-1-1 --mode 1920x1080 --rate 144.00 --pos 2560x360 --rotate normal || xrandr --output eDP-1-1 --primary --auto
+
 # Wallpaper
 exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpapers/arch.webp
-
-# Detect external monitor
-exec_always --no-startup-id xrandr | grep "HDMI-1-0 connected" && xrandr --output HDMI-1-0 --primary --mode 2560x1440 --rate 143.97 --pos 0x0 --rotate normal --output eDP1 --mode 1920x1080 --rate 144.00 --pos 2560x360 --rotate normal && feh --bg-fill $HOME/dotfiles/wallpapers/arch.webp
 
 # Disable suspension
 exec_always --no-startup-id xset s off && xset -b -dpms

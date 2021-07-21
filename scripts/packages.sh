@@ -21,7 +21,7 @@ elif ( command -v pacman &> /dev/null ); then
 
     # For manual installation (in this case Arch only):
     #sudo pacman -S --noconfirm alacritty i3 i3status i3lock dmenu feh arandr\
-    #    maim pavucontrol xdotool udiskie arc-gtk-theme lxappearance thunar
+    #    maim pavucontrol xdotool arc-gtk-theme lxappearance thunar
 
     ./scripts/aur.sh
 
