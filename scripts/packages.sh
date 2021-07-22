@@ -17,7 +17,7 @@ elif ( command -v pacman &> /dev/null ); then
         python python-setuptools pypy gcc valgrind gdb unzip zip tmux lynx tree\
         ripgrep fd the_silver_searcher neofetch screenfetch xclip pkg-config go\
         make entr rlwrap ctags hexyl bat cmake shellcheck hyperfine onefetch\
-        progress npm atool
+        progress npm atool pacman-contrib
 
     # For manual installation (in this case Arch only):
     #sudo pacman -S --noconfirm alacritty i3 i3status i3lock dmenu feh arandr\
