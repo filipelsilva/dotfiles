@@ -127,18 +127,6 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 # }}}
 
-# Printscreens {{{
-
-# PrintScreen of selection
-bindsym Print exec --no-startup-id maim --select "$HOME/Pictures/$(date)"
-
-# PrintScreen of active window
-bindsym Shift+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/$(date)"
-
-# PrintScreen of whole screen
-bindsym $mod+Print exec --no-startup-id maim "$HOME/Pictures/$(date)"
-# }}}
-
 # Workspaces {{{
 
 # Define names for default workspaces for which we configure key bindings later on.
@@ -184,7 +172,7 @@ bindsym $mod+Shift+r reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+Mod1+r restart
 
-# Reboot, shutdown, exit i3 {{{
+# MODE: Reboot, shutdown, exit i3 {{{
 mode "(r): reboot, (s): shutdown, (e): exit i3" {
         bindsym r exec --no-startup-id reboot
         bindsym s exec --no-startup-id shutdown -h now
@@ -198,7 +186,7 @@ mode "(r): reboot, (s): shutdown, (e): exit i3" {
 bindsym $mod+q mode "(r): reboot, (s): shutdown, (e): exit i3"
 # }}}
 
-# Resize window (you can also use the mouse for that) {{{
+# MODE: Resize window (you can also use the mouse for that) {{{
 mode "resize" {
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
@@ -222,6 +210,20 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+# }}}
+
+# MODE: Printscreen {{{
+mode "[Printscreen] (s): selection, (a): active window, (w): whole screen" {
+        bindsym s exec --no-startup-id maim --select "$HOME/Pictures/$(date)"; mode "default"
+        bindsym a exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/$(date)"; mode "default"
+        bindsym w exec --no-startup-id maim "$HOME/Pictures/$(date)"; mode "default"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Print mode "default"
+}
+
+bindsym Print mode "[Printscreen] (s): selection, (a): active window, (w): whole screen"
 # }}}
 
 # Start i3bar to display a workspace bar (plus the system information i3status
