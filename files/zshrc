@@ -85,7 +85,7 @@ alias psa="ps aux | fzf ${FZF_DEFAULT_OPTS} --header='[name:process]'"
 
 # Functions {{{
 
-# Start[x]: to use with optimus-manager, instead of startx
+# Start[x]: to use with optimus-manager, instead of default startx
 function x() {
 	if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]];
 	then
@@ -108,6 +108,13 @@ function up() {
 	tldr --update
 }
 
+# [Li]nk[du]mp
+function lidu() {
+	lynx -dump -listonly -nonumbers $1 | grep .pdf > dump.txt
+	wget -i dump.txt
+	rm dump.txt
+}
+
 # [F]ind-[I]n-[F]ile
 function fif() {
 	if [ ! "$#" -gt 0 ]; then
@@ -117,28 +124,12 @@ function fif() {
 	rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --header='[find in file]' --preview "rg --ignore-case --pretty --context 10 '$1' {}"
 }
 
-# [Li]nk[du]mp
-function lidu() {
-	lynx -dump -listonly -nonumbers $1 | grep .pdf > dump.txt
-	wget -i dump.txt
-	rm dump.txt
-}
-
 # [K]ill [P]rocess
 function kp() {
 	local pid=$(ps -ef | sed 1d | eval "fzf -m --header='[kill:process]'" | awk '{print $2}')
 	if [ "x$pid" != "x" ]; then
 		echo $pid | xargs kill -${1:-9}
 		kp
-	fi
-}
-
-# [F]ind [P]ath
-function fp() {
-	local loc=$(echo $PATH | sed -e $'s/:/\\$prompt_newline/g' | eval "fzf --header='[find:path]'")
-	if [[ -d $loc ]]; then
-		echo "$(rg --files $loc | rev | cut -d"/" -f1 | rev)" | eval "fzf --header='[find:exe] => ${loc}' >/dev/null"
-		fp
 	fi
 }
 # }}}
