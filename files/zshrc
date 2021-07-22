@@ -94,6 +94,8 @@ fi
 # }}}
 
 # Functions {{{
+
+# Start[x]: to use with optimus-manager, instead of startx
 function x() {
 	if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]];
 	then
