@@ -1,10 +1,5 @@
 # Fzf {{{
 
-# Ubuntu uses fdfind, all other use fd. Standardization.
-if (( ${+commands[fdfind]} )); then
-    alias fd=fdfind
-fi
-
 # Make fzf not collide with zsh
 export FZF_COMPLETION_TRIGGER='++'
 
@@ -86,11 +81,6 @@ alias pipup="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 
 # See all processes
 alias psa="ps aux | fzf ${FZF_DEFAULT_OPTS} --header='[name:process]'"
 
-# Ubuntu has bat as batcat
-if (( ${+commands[batcat]} )); then
-    alias bat=batcat
-fi
-
 # }}}
 
 # Functions {{{
@@ -106,8 +96,7 @@ function x() {
 
 # [Up]grade
 function up() {
-	if (( ${+commands[apt]} )); then sudo apt update && sudo apt upgrade
-	elif (( ${+commands[yay]} )); then yay -Syu --devel --timeupdate; fi
+	yay -Syu --devel --timeupdate
 
 	cd $HOME/.fzf && git fetch
 	LOCAL=$(git rev-parse @)
@@ -115,8 +104,6 @@ function up() {
 	if [ $LOCAL != $REMOTE ]; then git pull && ./install; fi
 	cd -
 
-	cargo install-update -a
-	pipup
 	zgen selfupdate && zgen update
 	tldr --update
 }
