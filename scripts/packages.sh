@@ -10,4 +10,4 @@ sudo pacman -S --noconfirm zsh git curl wget glances htop neovim python-pip\
 # For manual installation:
 #sudo pacman -S --noconfirm alacritty i3 i3status i3lock dmenu feh arandr\
 #    maim pavucontrol xdotool arc-gtk-theme lxappearance thunar autorandr\
-#    thunar-archive-plugin file-roller nomacs okular
+#    thunar-archive-plugin file-roller nomacs okular brightnessctl
