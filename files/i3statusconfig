@@ -18,6 +18,7 @@ order += "memory"
 order += "battery all"
 order += "wireless _first_"
 order += "ethernet _first_"
+order += "volume master"
 order += "tztime local"
 
 cpu_usage {
@@ -44,10 +45,6 @@ battery all {
         low_threshold = 10
 }
 
-tztime local {
-        format = "%H:%M:%S %d-%m-%Y"
-}
-
 wireless _first_ {
         format_up = "W %ip \"%essid\""
         format_down = "W DOWN"
@@ -56,4 +53,15 @@ wireless _first_ {
 ethernet _first_ {
         format_up = "E %ip (%speed)"
         format_down = "E DOWN"
+}
+
+volume master {
+        format = "VOL: %volume"
+        format_muted = "VOL: muted (%volume)"
+        device = "default"
+        mixer = "Master"
+}
+
+tztime local {
+        format = "%H:%M:%S %d-%m-%Y"
 }
