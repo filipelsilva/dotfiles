@@ -13,11 +13,12 @@ general {
 }
 
 order += "cpu_usage"
-order += "disk /"
 order += "memory"
+order += "disk /"
 order += "battery all"
 order += "wireless _first_"
 order += "ethernet _first_"
+order += "ipv6"
 order += "volume master"
 order += "tztime local"
 
@@ -26,12 +27,12 @@ cpu_usage {
         max_threshold= 75
 }
 
-disk "/" {
-        format = "DISK %avail (%percentage_used)"
-}
-
 memory {
         format = "RAM %available (%percentage_used)"
+}
+
+disk "/" {
+        format = "DISK %avail (%percentage_used)"
 }
 
 battery all {
