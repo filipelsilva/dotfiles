@@ -69,8 +69,8 @@ alias l="ls -lh"
 alias la="ls -lhA"
 alias lx="ls -lisah"
 alias lr="ls -lhR"
-alias lsr="ls -R"
-alias lar="ls -lhAR"
+alias lrs="ls -R"
+alias lra="ls -lhAR"
 
 # Ssh with screen, for targets without xterm-256color
 alias ssh="TERM=xterm-256color ssh"
