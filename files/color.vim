@@ -48,7 +48,7 @@ hi PmenuSbar    ctermfg=none   ctermbg=none   cterm=none
 hi PreProc      ctermfg=6      ctermbg=none   cterm=none
 hi Question     ctermfg=1      ctermbg=none   cterm=bold
 hi Repeat       ctermfg=1      ctermbg=none   cterm=none
-hi Search       ctermfg=none   ctermbg=8      cterm=none
+hi Search       ctermfg=none   ctermbg=none   cterm=reverse
 hi SignColumn   ctermfg=none   ctermbg=none   cterm=none
 hi Special      ctermfg=12     ctermbg=none   cterm=none
 hi SpecialKey   ctermfg=none   ctermbg=none   cterm=none
