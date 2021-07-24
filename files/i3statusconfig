@@ -46,7 +46,7 @@ battery all {
 }
 
 wireless _first_ {
-        format_up = "W %ip \"%essid\""
+        format_up = "W %ip (%quality \"%essid\" %bitrate)"
         format_down = "W DOWN"
 }
 
