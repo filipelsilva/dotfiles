@@ -35,6 +35,10 @@ font:
   offset:
     x: 0
     y: 0
+
+  glyph_offset:
+    x: 0
+    y: 0
 #}}}
 
 colors: # Gruvbox Modified (back and foreground, white colors) {{{
