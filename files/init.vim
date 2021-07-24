@@ -6,6 +6,7 @@ function! PackInit() abort
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 	call minpac#add('timakro/vim-yadi')
+	call minpac#add('nvim-treesitter/nvim-treesitter')
 	call minpac#add('nvim-lua/popup.nvim')
 	call minpac#add('nvim-lua/plenary.nvim')
 	call minpac#add('nvim-telescope/telescope.nvim')
