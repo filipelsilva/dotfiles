@@ -81,6 +81,9 @@ inoremap <c-v> <c-r><c-p>0
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
 
+" Make . to work with visually selected lines
+vnoremap . :normal.<cr>
+
 " Run line as command, output here
 noremap Q !!$SHELL<cr>
 
@@ -113,9 +116,6 @@ nnoremap <leader><leader>x "_x
 vnoremap <leader><leader>x "_x
 nnoremap <leader><leader>X "_X
 vnoremap <leader><leader>X "_X
-
-" Make . to work with visually selected lines
-vnoremap . :normal.<cr>
 
 " Copy/Paste to other programs
 nnoremap <leader>y "+y
