@@ -43,7 +43,7 @@ font:
 
 # Colors {{{
 colors:
-  gruvbox: &gruvbox # Gruvbox Modified (back and foreground, white colors) 
+  gruvbox: &gruvbox # Gruvbox Modified (back and foreground, white colors)
     primary:
       background: '0x1d1f21'
       foreground: '0xc5c8c6'
