@@ -21,18 +21,6 @@ set wildmenu wildmode=longest:full,full completeopt=menuone,noinsert,noselect
 " Backspace settings
 set backspace=indent,eol,start
 
-" Undo, swap/backup files settings
-set undofile undolevels=10000
-if has("nvim")
-	set undodir=$HOME/.nvim-tmp/undo//
-	set directory=$HOME/.nvim-tmp/swp//
-	set backupdir=$HOME/.nvim-tmp/backup//
-else
-	set undodir=$HOME/.vim-tmp/undo//
-	set directory=$HOME/.vim-tmp/swp//
-	set backupdir=$HOME/.vim-tmp/backup//
-endif
-
 " Indentation settings
 set autoindent copyindent shiftround smarttab
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
@@ -154,7 +142,7 @@ if !has("nvim")
 	set cursorlineopt=number
 endif
 
-colorscheme color
+colorscheme default
 
 set t_Co=256
 set background=dark

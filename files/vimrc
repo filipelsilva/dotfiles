@@ -5,8 +5,20 @@ function! PackInit() abort
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
+	" Indentation detector
 	call minpac#add('timakro/vim-yadi')
+
+	" Fzf
 	call minpac#add('junegunn/fzf.vim')
+
+	" Lsp for vim and autoinstall
+	call minpac#add('prabirshrestha/vim-lsp')
+	call minpac#add('mattn/vim-lsp-settings')
+
+	" Completion
+	call minpac#add('prabirshrestha/asyncomplete.vim')
+	call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
+
 endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()

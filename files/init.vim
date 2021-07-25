@@ -5,15 +5,28 @@ function! PackInit() abort
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
+	" Indentation detector
 	call minpac#add('timakro/vim-yadi')
-	call minpac#add('nvim-treesitter/nvim-treesitter')
+
+	" Telescope requirements
 	call minpac#add('nvim-lua/popup.nvim')
 	call minpac#add('nvim-lua/plenary.nvim')
-	call minpac#add('nvim-telescope/telescope.nvim')
+
+	" Make Telescope use fuzzy finder, like FZF
 	call minpac#add('nvim-telescope/telescope-fzy-native.nvim')
-	call minpac#add('nvim-lua/completion-nvim')
+
+	" Telescope
+	call minpac#add('nvim-telescope/telescope.nvim')
+
+	" Lsp for nvim and autoinstall
 	call minpac#add('neovim/nvim-lspconfig')
 	call minpac#add('kabouzeid/nvim-lspinstall')
+
+	" Completion
+	call minpac#add('nvim-lua/completion-nvim')
+
+	" Treesitter
+	call minpac#add('nvim-treesitter/nvim-treesitter')
 endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
@@ -47,8 +60,6 @@ nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
 
 " Completion
 autocmd BufEnter * lua require'completion'.on_attach()
-inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 " LSP
 lua << EOF
