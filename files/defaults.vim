@@ -6,9 +6,6 @@ set nomodeline hidden nocompatible encoding=utf-8 fileformats=unix,dos,mac
 set mouse=a scrolloff=5 updatetime=100 ttimeoutlen=0 shortmess=filmnrwxaoOtT
 if !has("nvim") | set ttymouse=xterm2 | endif
 
-" Cursor always terminal default
-set guicursor=
-
 " Folds (marker = 3*'{')
 set foldmethod=marker
 
