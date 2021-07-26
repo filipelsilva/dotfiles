@@ -27,6 +27,7 @@ function! PackInit() abort
 
 	" Treesitter
 	call minpac#add('nvim-treesitter/nvim-treesitter')
+
 endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
@@ -50,7 +51,15 @@ require('telescope').setup {
 				["<C-x>"] = false,
 			},
 		},
-	}
+	},
+	extensions = {
+		fzf_native = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "smart_case",
+		},
+	},
 }
 require('telescope').load_extension('fzy_native')
 EOF
