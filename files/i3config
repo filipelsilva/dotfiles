@@ -214,9 +214,9 @@ bindsym $mod+r mode "resize"
 
 # MODE: Printscreen {{{
 mode "[Printscreen] (s)election, (a)ctive window, (w)hole screen" {
-        bindsym s exec --no-startup-id maim --select "$HOME/Pictures/$(date)"; mode "default"
-        bindsym a exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/$(date)"; mode "default"
-        bindsym w exec --no-startup-id maim "$HOME/Pictures/$(date)"; mode "default"
+        bindsym s exec --no-startup-id maim --select "$HOME/Pictures/$(date).png"; mode "default"
+        bindsym a exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/$(date).png"; mode "default"
+        bindsym w exec --no-startup-id maim "$HOME/Pictures/$(date).png"; mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
