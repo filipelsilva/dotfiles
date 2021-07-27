@@ -57,29 +57,6 @@ endfunction
 command! TrimWhitespace call TrimWhitespace()
 " }}}
 
-" Tab completion {{{
-function! TabComplete()
-	let line = getline('.')
-	let substr = strpart(line, -1, col('.'))
-	let substr = matchstr(substr, "[^ \t]*$")
-	if (strlen(substr)==0)
-		return "\<tab>"
-	endif
-	let has_period = match(substr, '\.') != -1
-	let has_slash = match(substr, '\/') != -1
-	if (!has_period && !has_slash)
-		" Matching text
-		return "\<c-x>\<c-p>"
-	elseif ( has_slash )
-		" Matching files
-		return "\<c-x>\<c-f>"
-	else
-		" Omnicomplete
-		return "\<c-x>\<c-o>"
-	endif
-endfunction
-" }}}
-
 " }}}
 
 " Keymaps {{{
@@ -88,7 +65,7 @@ endfunction
 let mapleader = "\<space>"
 
 " Easier completion menus
-inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<c-r>=TabComplete()\<cr>"
+inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 " Toggle numbers

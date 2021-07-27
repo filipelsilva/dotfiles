@@ -34,7 +34,3 @@ let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
 nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
 nnoremap <silent> <leader>r <cmd>Rg<cr>
 nnoremap <silent> <leader>j <cmd>Buffers<cr>
-
-" Completion (override defaults.vim completion with custom function)
-inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr> <s-tab> pumvisible() ? "\<c-n>" : "\<tab>"

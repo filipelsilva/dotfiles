@@ -67,10 +67,8 @@ nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Telescope f
 nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
 nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
 
-" Completion (override defaults.vim completion with custom function)
+" Completion
 autocmd BufEnter * lua require'completion'.on_attach()
-inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr> <s-tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " LSP
 lua << EOF
