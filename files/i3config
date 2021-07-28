@@ -59,10 +59,6 @@ bindsym $mod+e exec thunar
 # Start dmenu
 bindsym $mod+d exec --no-startup-id dmenu_run -fn "Iosevka-10"
 
-# Change keyboard layout
-bindsym $mod+p exec setxkbmap -layout pt
-bindsym $mod+u exec setxkbmap -layout us -variant intl
-bindsym $mod+Shift+u exec setxkbmap -layout us
 
 # Split in horizontal orientation
 bindsym $mod+s split h
@@ -170,6 +166,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Reload the configuration file
 bindsym $mod+Shift+r reload
+
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+Mod1+r restart
 
@@ -185,6 +182,35 @@ mode "(r)eboot, (s)hutdown, (e)xit i3" {
 }
 
 bindsym $mod+q mode "(r)eboot, (s)hutdown, (e)xit i3"
+# }}}
+
+# MODE: Change keyboard layout {{{
+mode "[(P)T] | [(U)S] (a)ltgr-intl, (i)ntl" {
+        bindsym p exec setxkbmap -layout pt; mode "default"
+        bindsym u exec setxkbmap -layout us; mode "default"
+        bindsym a exec setxkbmap -layout us -variant altgr-intl; mode "default"
+        bindsym i exec setxkbmap -layout us -variant intl; mode "default"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+p mode "default"
+}
+
+bindsym $mod+p mode "[(P)T] | [(U)S] (a)ltgr-intl, (i)ntl"
+# }}}
+
+# MODE: Printscreen {{{
+mode "[Printscreen] (s)election, (a)ctive window, (w)hole screen" {
+        bindsym s exec --no-startup-id maim --select "$HOME/Pictures/$(date).png"; mode "default"
+        bindsym a exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/$(date).png"; mode "default"
+        bindsym w exec --no-startup-id maim "$HOME/Pictures/$(date).png"; mode "default"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Print mode "default"
+}
+
+bindsym Print mode "[Printscreen] (s)election, (a)ctive window, (w)hole screen"
 # }}}
 
 # MODE: Resize window (you can also use the mouse for that) {{{
@@ -211,20 +237,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-# }}}
-
-# MODE: Printscreen {{{
-mode "[Printscreen] (s)election, (a)ctive window, (w)hole screen" {
-        bindsym s exec --no-startup-id maim --select "$HOME/Pictures/$(date).png"; mode "default"
-        bindsym a exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/$(date).png"; mode "default"
-        bindsym w exec --no-startup-id maim "$HOME/Pictures/$(date).png"; mode "default"
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym Print mode "default"
-}
-
-bindsym Print mode "[Printscreen] (s)election, (a)ctive window, (w)hole screen"
 # }}}
 
 # Start i3bar to display a workspace bar (plus the system information i3status
