@@ -60,8 +60,9 @@ bindsym $mod+e exec thunar
 bindsym $mod+d exec --no-startup-id dmenu_run -fn "Iosevka-10"
 
 # Change keyboard layout
-bindsym $mod+u exec setxkbmap -layout us -variant intl
 bindsym $mod+p exec setxkbmap -layout pt
+bindsym $mod+u exec setxkbmap -layout us -variant intl
+bindsym $mod+Shift+u exec setxkbmap -layout us
 
 # Split in horizontal orientation
 bindsym $mod+s split h
