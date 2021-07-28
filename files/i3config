@@ -185,7 +185,7 @@ bindsym $mod+q mode "(r)eboot, (s)hutdown, (e)xit i3"
 # }}}
 
 # MODE: Change keyboard layout {{{
-mode "[(P)T] | [(U)S] (a)ltgr-intl, (i)ntl" {
+mode "[(P)T] [(U)S] (a)ltgr-intl, (i)ntl" {
         bindsym p exec setxkbmap -layout pt; mode "default"
         bindsym u exec setxkbmap -layout us; mode "default"
         bindsym a exec setxkbmap -layout us -variant altgr-intl; mode "default"
