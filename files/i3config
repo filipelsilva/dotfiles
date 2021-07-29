@@ -196,7 +196,7 @@ mode "[(P)T] [(U)S] (a)ltgr-intl, (i)ntl" {
         bindsym $mod+p mode "default"
 }
 
-bindsym $mod+p mode "[(P)T] | [(U)S] (a)ltgr-intl, (i)ntl"
+bindsym $mod+p mode "[(P)T] [(U)S] (a)ltgr-intl, (i)ntl"
 # }}}
 
 # MODE: Printscreen {{{
