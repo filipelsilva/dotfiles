@@ -78,6 +78,10 @@ nnoremap <silent> <leader>o :set invspell<cr>
 nnoremap <silent> gb :bnext<cr>
 nnoremap <silent> gB :bprev<cr>
 
+" Buffer jumping part 2: jump to last edited buffer
+nnoremap <c-k> <c-^>
+inoremap <c-k> <esc><c-^>
+
 " Replace word under cursor (',': wherever | ';': word only)
 nnoremap <leader>s :%s/<c-r><c-w>//g<left><left>
 vnoremap <leader>s "zy<esc>:%s/<c-r>z//g<left><left>
@@ -106,10 +110,8 @@ nnoremap Y y$
 inoremap <c-v> <c-r><c-p>0
 
 " Move blocks of code
-vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
-inoremap <c-j> <esc>mz:m .+1<cr>==`z
-inoremap <c-k> <esc>mz:m .-2<cr>==`z
+vnoremap J :m '>+1<cr>gv=gv
 nnoremap <leader>j :m .+1<cr>==
 nnoremap <leader>k :m .-2<cr>==
 
