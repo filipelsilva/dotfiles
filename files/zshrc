@@ -3,14 +3,11 @@
 # Make fzf not collide with zsh
 export FZF_COMPLETION_TRIGGER='++'
 
-# Fzf-tmux
-#export FZF_TMUX_OPTS="-p 90%,70%"
-
 # Default options
 export FZF_DEFAULT_OPTS=" \
 --layout=reverse-list \
 --info=inline \
---height=70% \
+--height=10% \
 --multi \
 --bind '?:toggle-preview' \
 "
@@ -210,10 +207,6 @@ fi
 
 eval "$(zoxide init zsh --cmd j)"
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-
-# Fzf-tab
-#zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-zstyle ':fzf-tab:*' fzf-flags --height=20%
 
 # Zsh history substring search
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="none"
