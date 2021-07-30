@@ -61,7 +61,7 @@ command! TrimWhitespace call TrimWhitespace()
 
 " Keymaps {{{
 
-"<leader> key bind
+" <leader> key bind
 let mapleader = "\<space>"
 
 " Easier completion menus
@@ -78,15 +78,29 @@ nnoremap <silent> <leader>o :set invspell<cr>
 nnoremap <silent> gb :bnext<cr>
 nnoremap <silent> gB :bprev<cr>
 
-" Buffer jumping part 2: jump to last edited buffer
-nnoremap <c-k> <c-^>
-inoremap <c-k> <esc><c-^>
-
 " Replace word under cursor (',': wherever | ';': word only)
 nnoremap <leader>s :%s/<c-r><c-w>//g<left><left>
 vnoremap <leader>s "zy<esc>:%s/<c-r>z//g<left><left>
 nnoremap <leader>S :%s/\<<c-r><c-w>\>//g<left><left>
 vnoremap <leader>S "zy<esc>:%s/\<<c-r>z\>//g<left><left>
+
+" Center cursor when searching or joining lines (zz: center, zv: open folds)
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Undo break points (add or remove more, according to needs)
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" Add <number>[jk] to jumplists
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" Make Y work like D and C
+nnoremap Y y$
 
 " Easier paste from register in Insert mode
 inoremap <c-v> <c-r><c-p>0
@@ -94,6 +108,10 @@ inoremap <c-v> <c-r><c-p>0
 " Move blocks of code
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
+inoremap <c-j> <esc>mz:m .+1<cr>==`z
+inoremap <c-k> <esc>mz:m .-2<cr>==`z
+nnoremap <leader>j :m .+1<cr>==
+nnoremap <leader>k :m .-2<cr>==
 
 " Make . to work with visually selected lines
 vnoremap . :normal.<cr>
