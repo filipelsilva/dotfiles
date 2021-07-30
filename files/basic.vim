@@ -72,11 +72,11 @@ endfunction
 
 " Keymaps {{{
 
-"<leader> key bind
+" <leader> key bind
 let mapleader = "\<space>"
 
 " Easier completion menus
-inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<c-r>=TabComplete()\<cr>"
+inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 " Toggle numbers
@@ -99,12 +99,30 @@ vnoremap <leader>s "zy<esc>:%s/<c-r>z//g<left><left>
 nnoremap <leader>S :%s/\<<c-r><c-w>\>//g<left><left>
 vnoremap <leader>S "zy<esc>:%s/\<<c-r>z\>//g<left><left>
 
+" Make Y work like D and C
+nnoremap Y y$
+
+" Center cursor when searching or joining lines (zz: center, zv: open folds)
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Undo break points (add or remove more, according to needs)
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" Add <number>[jk] to jumplists
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
 " Easier paste from register in Insert mode
 inoremap <c-v> <c-r><c-p>0
 
 " Move blocks of code
-vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
+vnoremap J :m '>+1<cr>gv=gv
 
 " Make . to work with visually selected lines
 vnoremap . :normal.<cr>
