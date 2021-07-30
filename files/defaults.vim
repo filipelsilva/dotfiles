@@ -88,6 +88,9 @@ vnoremap <leader>s "zy<esc>:%s/<c-r>z//g<left><left>
 nnoremap <leader>S :%s/\<<c-r><c-w>\>//g<left><left>
 vnoremap <leader>S "zy<esc>:%s/\<<c-r>z\>//g<left><left>
 
+" Make Y work like D and C
+nnoremap Y y$
+
 " Center cursor when searching or joining lines (zz: center, zv: open folds)
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -103,17 +106,12 @@ inoremap ? ?<c-g>u
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
-" Make Y work like D and C
-nnoremap Y y$
-
 " Easier paste from register in Insert mode
 inoremap <c-v> <c-r><c-p>0
 
 " Move blocks of code
 vnoremap K :m '<-2<cr>gv=gv
 vnoremap J :m '>+1<cr>gv=gv
-nnoremap <leader>j :m .+1<cr>==
-nnoremap <leader>k :m .-2<cr>==
 
 " Make . to work with visually selected lines
 vnoremap . :normal.<cr>
