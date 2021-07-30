@@ -157,7 +157,7 @@ setopt flow_control
 setopt autocd
 #eval "$(dircolors)"
 #zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*:*:*:*:*' menu yes select search interactive
 zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion::complete:*' use-cache on
@@ -202,6 +202,7 @@ export BAT_STYLE="plain"
 # Plugins {{{
 source "${HOME}/.zgen/zgen.zsh"
 if ! zgen saved; then
+	zgen load Aloxaf/fzf-tab
 	zgen load wfxr/forgit
 	zgen load zsh-users/zsh-history-substring-search
 	zgen save
@@ -209,6 +210,9 @@ fi
 
 eval "$(zoxide init zsh --cmd j)"
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+
+# Fzf-tab
+#zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 # Zsh history substring search
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="none"
