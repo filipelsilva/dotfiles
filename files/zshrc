@@ -213,6 +213,7 @@ eval "$(zoxide init zsh --cmd j)"
 
 # Fzf-tab
 #zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+zstyle ':fzf-tab:*' fzf-flags --height=20%
 
 # Zsh history substring search
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="none"
