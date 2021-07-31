@@ -7,4 +7,4 @@ git clone https://aur.archlinux.org/yay.git $HOME/.yay
 yay -S --noconfirm tealdeer sd zoxide-git
 
 # Install manually:
-#yay -S --noconfirm ttf-iosevka ttf-iosevka-term
+#yay -S --noconfirm ttf-iosevka ttf-iosevka-term ttf-iosevka-ss12 ttf-iosevka-term-ss12
