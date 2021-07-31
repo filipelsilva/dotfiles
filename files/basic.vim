@@ -187,7 +187,6 @@ endif
 
 colorscheme default
 
-"set termguicolors
 set t_Co=256
 set background=dark
 " }}}
