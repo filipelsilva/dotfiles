@@ -28,6 +28,7 @@ set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 " Visual settings
 set ruler showcmd linebreak laststatus=0 showtabline=0
 set fillchars+=vert:│ colorcolumn=80 hlsearch
+set number relativenumber cursorline
 
 " Spell settings
 set spelllang=en,pt
@@ -79,8 +80,8 @@ let mapleader = "\<space>"
 inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
-" Toggle numbers
-nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
+" Toggle numbers and cursorline
+nnoremap <silent> <leader>n :set invnumber invrelativenumber invcursorline<cr>
 
 " Toggle spell
 nnoremap <silent> <leader>o :set invspell<cr>
@@ -180,13 +181,7 @@ nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 " }}}
 
 " Colorscheme {{{
-if !has("nvim")
-	set cursorline
-	set cursorlineopt=number
-endif
-
 colorscheme default
-
 set t_Co=256
 set background=dark
 " }}}
