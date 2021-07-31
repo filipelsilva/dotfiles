@@ -43,7 +43,7 @@ font:
 
 # Colors {{{
 colors:
-  gruvbox: &gruvbox # Gruvbox Modified (back and foreground, white colors)
+  gruvbox: &gruvbox # Modded: {back,fore}ground, white colors, bright black
     primary:
       background: '0x1d1f21'
       foreground: '0xc5c8c6'
@@ -57,7 +57,7 @@ colors:
       cyan:    '0x689d6a'
       white:   '0xc5c8c6'
     bright:
-      black:   '0x928374' # é isto!!!
+      black:   '0x858585'
       red:     '0xfb4934'
       green:   '0xb8bb26'
       yellow:  '0xfabd2f'
