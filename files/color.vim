@@ -30,7 +30,7 @@ hi Float        ctermfg=5      ctermbg=none   cterm=none
 hi Folded       ctermfg=3      ctermbg=none   cterm=none
 hi Function     ctermfg=10     ctermbg=none   cterm=none
 hi Identifier   ctermfg=4      ctermbg=none   cterm=none
-hi IncSearch    ctermfg=none   ctermbg=8      cterm=none
+hi IncSearch    ctermfg=none   ctermbg=0      cterm=underline
 hi Italic       ctermfg=none   ctermbg=none   cterm=italic
 hi Keyword      ctermfg=none   ctermbg=none   cterm=none
 hi Label        ctermfg=none   ctermbg=none   cterm=none
@@ -48,7 +48,7 @@ hi PmenuSbar    ctermfg=none   ctermbg=none   cterm=none
 hi PreProc      ctermfg=6      ctermbg=none   cterm=none
 hi Question     ctermfg=1      ctermbg=none   cterm=bold
 hi Repeat       ctermfg=1      ctermbg=none   cterm=none
-hi Search       ctermfg=none   ctermbg=none   cterm=reverse
+hi Search       ctermfg=none   ctermbg=0      cterm=underline
 hi SignColumn   ctermfg=none   ctermbg=none   cterm=none
 hi Special      ctermfg=12     ctermbg=none   cterm=none
 hi SpecialKey   ctermfg=none   ctermbg=none   cterm=none
