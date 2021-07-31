@@ -68,7 +68,6 @@ nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
 nnoremap <silent> <leader>b <cmd>Telescope buffers<cr>
 
 " Completion
-autocmd BufEnter * lua require'completion'.on_attach()
 lua << EOF
 require'compe'.setup {
 	  enabled = true;
