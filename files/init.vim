@@ -90,7 +90,6 @@ require'compe'.setup {
 			max_height = math.floor(vim.o.lines * 0.3),
 			min_height = 1,
 	  };
-
 	  source = {
 			path = true;
 			buffer = true;
