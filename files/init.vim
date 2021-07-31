@@ -65,7 +65,7 @@ require('telescope').load_extension('fzy_native')
 EOF
 nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
 nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
-nnoremap <silent> <leader>b <cmd>Telescope buffers<cr>
+nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
 
 " Completion
 lua << EOF
