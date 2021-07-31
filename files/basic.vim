@@ -115,15 +115,15 @@ inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
 " Add <number>[jk] to jumplists
-nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 
 " Easier paste from register in Insert mode
 inoremap <c-v> <c-r><c-p>0
 
 " Move blocks of code
-vnoremap K :m '<-2<cr>gv=gv
 vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
 
 " Make . to work with visually selected lines
 vnoremap . :normal.<cr>
