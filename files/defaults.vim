@@ -170,7 +170,7 @@ nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 " }}}
 
 " Colorscheme {{{
-colorscheme color
 set t_Co=256
 set background=dark
+source $HOME/dotfiles/files/color.vim
 " }}}
