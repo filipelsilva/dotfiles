@@ -57,7 +57,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+e exec thunar
 
 # Start dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -fn "Iosevka-10"
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "Iosevka SS12-10"
 
 
 # Split in horizontal orientation
