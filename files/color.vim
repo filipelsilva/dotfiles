@@ -17,7 +17,7 @@ hi Constant     ctermfg=5      ctermbg=none   cterm=none
 hi CursorColumn ctermfg=none   ctermbg=0      cterm=none
 hi Cursor       ctermfg=none   ctermbg=none   cterm=none
 hi CursorLine   ctermfg=none   ctermbg=0      cterm=none
-hi CursorLineNr ctermfg=15     ctermbg=0      cterm=bold
+hi CursorLineNr ctermfg=15     ctermbg=none   cterm=bold
 hi Define       ctermfg=none   ctermbg=none   cterm=bold
 hi DiffAdd      ctermfg=2      ctermbg=none   cterm=none
 hi DiffChange   ctermfg=4      ctermbg=none   cterm=none
