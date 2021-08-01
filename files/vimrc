@@ -11,14 +11,6 @@ function! PackInit() abort
 	" Fzf
 	call minpac#add('junegunn/fzf.vim')
 
-	" Lsp for vim and autoinstall
-	call minpac#add('prabirshrestha/vim-lsp')
-	call minpac#add('mattn/vim-lsp-settings')
-
-	" Completion
-	call minpac#add('prabirshrestha/asyncomplete.vim')
-	call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
-
 endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
