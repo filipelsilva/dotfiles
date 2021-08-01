@@ -195,7 +195,6 @@ export BAT_STYLE="plain"
 # Plugins {{{
 source "${HOME}/.zgen/zgen.zsh"
 if ! zgen saved; then
-	zgen load Aloxaf/fzf-tab
 	zgen load wfxr/forgit
 	zgen load zsh-users/zsh-history-substring-search
 	zgen save
