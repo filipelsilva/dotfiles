@@ -154,7 +154,7 @@ setopt flow_control
 setopt autocd
 #eval "$(dircolors)"
 #zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:*:*:*' menu yes select search interactive
+zstyle ':completion:*:*:*:*:*' menu yes select search
 zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion::complete:*' use-cache on
