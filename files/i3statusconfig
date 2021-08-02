@@ -48,12 +48,12 @@ battery all {
 
 wireless _first_ {
         format_up = "W %ip (%quality \"%essid\" %bitrate)"
-        format_down = "W DOWN"
+        format_down = ""
 }
 
 ethernet _first_ {
         format_up = "E %ip (%speed)"
-        format_down = "E DOWN"
+        format_down = ""
 }
 
 volume master {
