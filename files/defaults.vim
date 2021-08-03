@@ -69,6 +69,12 @@ let mapleader = "\<space>"
 inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
+" Easier navigation
+nnoremap <c-h> <c-w><c-h>
+nnoremap <c-j> <c-w><c-j>
+nnoremap <c-k> <c-w><c-k>
+nnoremap <c-l> <c-w><c-l>
+
 " Toggle numbers and cursorline
 nnoremap <silent> <leader>n :set invnumber invrelativenumber invcursorline<cr>
 
