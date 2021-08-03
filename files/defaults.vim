@@ -79,9 +79,8 @@ nnoremap <silent> <leader>o :set invspell<cr>
 nnoremap <silent> gb :bnext<cr>
 nnoremap <silent> gB :bprev<cr>
 
-" Buffer jumping part 2: jump to last edited buffer
-nnoremap <c-k> <c-^>
-inoremap <c-k> <esc><c-^>
+" Buffer jumping part 2: jump to last edited buffer in insert mode
+inoremap <c-^> <esc><c-^>
 
 " Replace word under cursor (',': wherever | ';': word only)
 nnoremap <leader>s :%s/<c-r><c-w>//g<left><left>
