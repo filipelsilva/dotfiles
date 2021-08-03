@@ -135,18 +135,19 @@ function kp() {
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '*'
-zstyle ':vcs_info:*' formats '[%s:%b%m%u%c]'
+zstyle ':vcs_info:*' formats '%s:%b%m%u%c'
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 NEWLINE=$'\n'
-PROMPT='%m%S%n%s%1~${vcs_info_msg_0_}%(?..%F{red}[%?]%f) '
-#PROMPT='%m%S%n%s%1~${vcs_info_msg_0_}[%D{%H:%M:%S}]%(?..%F{red}[%?]%f) '
-#PROMPT='[%n@%m %1~]${vcs_info_msg_0_}%(?..%F{red}[%?]%f)$ '
-#PROMPT='[%n@%m %1~]${vcs_info_msg_0_}[%D{%H:%M:%S}]%(?..%F{red}[%?]%f)$ '
-#PROMPT='┌[%~]${vcs_info_msg_0_}%(?..%F{red}[%?]%f)${NEWLINE}└[%n@%m]: '
-#PROMPT='┌[%~]${vcs_info_msg_0_}[%D{%H:%M:%S}]%(?..%F{red}[%?]%f)${NEWLINE}└[%n@%m]: '
+PROMPT='%m%S%n%s%1~[${vcs_info_msg_0_}]%(?..%F{red}[%?]%f) '
+#PROMPT='%m%S%n%s%1~[${vcs_info_msg_0_}][%D{%H:%M:%S}]%(?..%F{red}[%?]%f) '
+#PROMPT='[%n@%m %1~][${vcs_info_msg_0_}]%(?..%F{red}[%?]%f)$ '
+#PROMPT='[%n@%m %1~][${vcs_info_msg_0_}][%D{%H:%M:%S}]%(?..%F{red}[%?]%f)$ '
+#PROMPT='┌[%~][${vcs_info_msg_0_}]%(?..%F{red}[%?]%f)${NEWLINE}└[%n@%m]: '
+#PROMPT='┌[%~][${vcs_info_msg_0_}][%D{%H:%M:%S}]%(?..%F{red}[%?]%f)${NEWLINE}└[%n@%m]: '
+#PROMPT='%B%F{blue}%n%f%b at %B%F{green}%m%f%b in %B%F{yellow}[%~]%f%b %B%F{magenta}${vcs_info_msg_0_}%f%b${NEWLINE}%(?..%F{red})%B%D{%H:%M:%S}%f $%b '
 # }}}
 
 # Completion menu {{{
