@@ -10,7 +10,7 @@ if !has("nvim") | set ttymouse=xterm2 | endif
 set foldmethod=marker
 
 " Search settings
-set ignorecase smartcase nohlsearch incsearch
+set ignorecase smartcase incsearch
 
 " Splits like 'normal' editors
 set splitbelow splitright
@@ -38,8 +38,7 @@ set autoindent copyindent shiftround smarttab
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set ruler showcmd linebreak laststatus=0 showtabline=0
-set fillchars+=vert:│ colorcolumn=80 hlsearch
+set ruler showcmd linebreak laststatus=0 fillchars+=vert:│ colorcolumn=80
 set number relativenumber cursorline
 
 " Spell settings

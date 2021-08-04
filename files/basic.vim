@@ -10,7 +10,7 @@ if !has("nvim") | set ttymouse=xterm2 | endif
 set foldmethod=marker
 
 " Search settings
-set ignorecase smartcase nohlsearch incsearch
+set ignorecase smartcase incsearch
 
 " Splits like 'normal' editors
 set splitbelow splitright
@@ -21,13 +21,24 @@ set wildmenu wildmode=longest:full,full completeopt=menuone,noinsert,noselect
 " Backspace settings
 set backspace=indent,eol,start
 
+" Undo, swap/backup files settings
+set undofile undolevels=10000
+if has("nvim")
+	set undodir=$HOME/.nvim-tmp/undo//
+	set directory=$HOME/.nvim-tmp/swp//
+	set backupdir=$HOME/.nvim-tmp/backup//
+else
+	set undodir=$HOME/.vim-tmp/undo//
+	set directory=$HOME/.vim-tmp/swp//
+	set backupdir=$HOME/.vim-tmp/backup//
+endif
+
 " Indentation settings
 set autoindent copyindent shiftround smarttab
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set ruler showcmd linebreak laststatus=0 showtabline=0
-set fillchars+=vert:│ colorcolumn=80 hlsearch
+set ruler showcmd linebreak laststatus=0 fillchars+=vert:│ colorcolumn=80
 set number relativenumber cursorline
 
 " Spell settings
@@ -56,6 +67,12 @@ let mapleader = "\<space>"
 " Easier completion menus
 inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
+" Easier navigation
+nnoremap <c-h> <c-w><c-h>
+nnoremap <c-j> <c-w><c-j>
+nnoremap <c-k> <c-w><c-k>
+nnoremap <c-l> <c-w><c-l>
 
 " Toggle numbers and cursorline
 nnoremap <silent> <leader>n :set invnumber invrelativenumber invcursorline<cr>

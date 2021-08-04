@@ -57,9 +57,9 @@ hi StatusLine   ctermfg=none   ctermbg=0      cterm=none
 hi StatusLineNC ctermfg=none   ctermbg=0      cterm=italic
 hi StorageClass ctermfg=3      ctermbg=none   cterm=none
 hi String       ctermfg=2      ctermbg=none   cterm=italic
-hi TabLine      ctermfg=7      ctermbg=11     cterm=none
-hi TabLineSel   ctermfg=none   ctermbg=11     cterm=none
-hi TabLineFill  ctermfg=none   ctermbg=11     cterm=none
+hi TabLine      ctermfg=8      ctermbg=0      cterm=none
+hi TabLineSel   ctermfg=7      ctermbg=0      cterm=bold
+hi TabLineFill  ctermfg=none   ctermbg=0      cterm=none
 hi Tag          ctermfg=none   ctermbg=none   cterm=none
 hi Title        ctermfg=none   ctermbg=none   cterm=none
 hi Todo         ctermfg=none   ctermbg=none   cterm=bold
