@@ -117,3 +117,12 @@ require'lspinstall'.post_install_hook = function()
 	vim.cmd("bufdo e")
 end
 EOF
+
+" Telescope
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+	highlight = { enable = false },
+	incremental_selection = { enable = false },
+	textobjects = { enable = false },
+}
+EOF
