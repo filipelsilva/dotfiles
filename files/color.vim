@@ -33,7 +33,7 @@ hi Identifier   ctermfg=4      ctermbg=none   cterm=none
 hi IncSearch    ctermfg=none   ctermbg=0      cterm=underline
 hi Italic       ctermfg=none   ctermbg=none   cterm=italic
 hi Keyword      ctermfg=none   ctermbg=none   cterm=none
-hi Label        ctermfg=none   ctermbg=none   cterm=none
+hi Label        ctermfg=1      ctermbg=none   cterm=none
 hi LineNr       ctermfg=8      ctermbg=none   cterm=none
 hi MatchParen   ctermfg=none   ctermbg=none   cterm=underline
 hi ModeMsg      ctermfg=11     ctermbg=none   cterm=bold
