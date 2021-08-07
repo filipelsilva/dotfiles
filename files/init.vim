@@ -8,6 +8,9 @@ function! PackInit() abort
 	" Indentation detector
 	call minpac#add('timakro/vim-yadi')
 
+	" Colorscheme
+	call minpac#add('lifepillar/vim-gruvbox8')
+
 	" Telescope requirements
 	call minpac#add('nvim-lua/popup.nvim')
 	call minpac#add('nvim-lua/plenary.nvim')
@@ -35,6 +38,11 @@ command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
 
 " DetectIndent
 autocmd BufRead * DetectIndent
+
+" Colorscheme
+set background=dark
+set termguicolors
+colorscheme gruvbox8_hard
 
 " Telescope
 lua << EOF

@@ -172,9 +172,3 @@ nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 " }}}
-
-" Colorscheme {{{
-set t_Co=256
-set background=dark
-colorscheme color
-" }}}
