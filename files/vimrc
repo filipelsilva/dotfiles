@@ -14,6 +14,9 @@ function! PackInit() abort
 	" Fzf
 	call minpac#add('junegunn/fzf.vim')
 
+	" Lsp and completion
+	call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+
 endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
