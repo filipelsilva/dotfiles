@@ -108,6 +108,7 @@ require'compe'.setup {
 	};
 }
 EOF
+inoremap <silent> <expr> <cr> compe#confirm('<cr>')
 
 " LSP
 lua << EOF
@@ -127,7 +128,7 @@ require'lspinstall'.post_install_hook = function()
 end
 EOF
 
-" Telescope
+" Treesitter
 lua << EOF
 require'nvim-treesitter.configs'.setup {
 	highlight = { enable = false },
