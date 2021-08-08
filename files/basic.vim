@@ -52,6 +52,10 @@ command! TrimWhitespace call TrimWhitespace()
 " <leader> key bind
 let mapleader = "\<space>"
 
+" Easier completion menus
+inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
 " Easier navigation
 nnoremap <c-h> <c-w><c-h>
 nnoremap <c-j> <c-w><c-j>
