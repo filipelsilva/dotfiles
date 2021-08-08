@@ -71,6 +71,3 @@ EOF
 nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
 nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
 nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
-
-" Completion
-inoremap <expr> <cr>    pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
