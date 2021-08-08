@@ -52,10 +52,6 @@ command! TrimWhitespace call TrimWhitespace()
 " <leader> key bind
 let mapleader = "\<space>"
 
-" Easier completion menus
-inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-
 " Easier navigation
 nnoremap <c-h> <c-w><c-h>
 nnoremap <c-j> <c-w><c-j>
@@ -159,10 +155,4 @@ nnoremap <leader>Y gg"+yG
 nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
-" }}}
-
-" Colorscheme {{{
-set t_Co=256
-set background=dark
-colorscheme color
 " }}}
