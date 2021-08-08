@@ -43,6 +43,7 @@ autocmd BufRead * DetectIndent
 set background=dark
 set termguicolors
 colorscheme gruvbox8_hard
+hi Normal guifg=#c5c8c6
 
 " Telescope
 lua << EOF
