@@ -9,26 +9,20 @@ sudo echo "# Getting password..."
 echo "# 1. Pacman"
 ./scripts/packages.sh
 
-echo "# 2. Cargo"
-./scripts/cargo.sh
-
-echo "# 3. AUR"
+echo "# 2. AUR"
 ./scripts/aur.sh
 
-echo "# 4. Pip"
-./scripts/pip.sh
-
-echo "# 5. Miscellaneous"
+echo "# 3. Miscellaneous"
 ./scripts/other.sh
 
-echo "# 6. Installing zsh plugins..."
+echo "# 4. Installing zsh plugins..."
 ./scripts/zsh.sh
 
-echo "# 7. Installing vim plugin managers..."
+echo "# 5. Installing vim plugin managers..."
 ./scripts/vim.sh
 
-echo "# 8. Linking dotfiles..."
+echo "# 6. Linking dotfiles..."
 ./scripts/linker.sh
 
-echo "# 9. Post instalation things..."
+echo "# 7. Post instalation things..."
 ./scripts/post.sh
