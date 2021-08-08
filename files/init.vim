@@ -21,12 +21,8 @@ function! PackInit() abort
 	" Telescope
 	call minpac#add('nvim-telescope/telescope.nvim')
 
-	" Lsp for nvim and autoinstall
-	call minpac#add('neovim/nvim-lspconfig')
-	call minpac#add('kabouzeid/nvim-lspinstall')
-
-	" Completion
-	call minpac#add('hrsh7th/nvim-compe')
+	" Lsp and completion
+	call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 
 	" Treesitter
 	call minpac#add('nvim-treesitter/nvim-treesitter')
@@ -77,62 +73,4 @@ nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
 nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
 
 " Completion
-lua << EOF
-require'compe'.setup {
-	enabled = true;
-	autocomplete = true;
-	debug = false;
-	min_length = 1;
-	preselect = 'enable';
-	throttle_time = 80;
-	source_timeout = 200;
-	resolve_timeout = 800;
-	incomplete_delay = 400;
-	max_abbr_width = 100;
-	max_kind_width = 100;
-	max_menu_width = 100;
-	documentation = {
-		border = { '', '' ,'', ' ', '', '', '', ' ' },
-		winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-		max_width = 120,
-		min_width = 60,
-		max_height = math.floor(vim.o.lines * 0.3),
-		min_height = 1,
-	};
-	source = {
-		path = true;
-		buffer = true;
-		calc = true;
-		nvim_lsp = true;
-		nvim_lua = true;
-	};
-}
-EOF
-inoremap <silent> <expr> <cr> compe#confirm('<cr>')
-
-" LSP
-lua << EOF
-function setup_servers()
-	require'lspinstall'.setup()
-	local servers = require'lspinstall'.installed_servers()
-	for _, server in pairs(servers) do
-		require'lspconfig'[server].setup{}
-	end
-end
-
-setup_servers()
-
-require'lspinstall'.post_install_hook = function()
-	setup_servers()
-	vim.cmd("bufdo e")
-end
-EOF
-
-" Treesitter
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-	highlight = { enable = false },
-	incremental_selection = { enable = false },
-	textobjects = { enable = false },
-}
-EOF
+inoremap <expr> <cr>    pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
