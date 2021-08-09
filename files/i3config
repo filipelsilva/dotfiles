@@ -282,7 +282,7 @@ bar {
 }
 
 # Container colors
-client.focused          $blue $blue $black $magenta $black
+client.focused          $blue $blue $black $magenta $blue
 client.focused_inactive $black $black $yellow $magenta $black
 client.unfocused        $black $black $yellow $magenta $black
 client.urgent           $red $red $white $red $red
