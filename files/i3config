@@ -110,7 +110,7 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
 # No window names
-#for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 1
 
 # Hide borders if only one window is visible
 hide_edge_borders smart
@@ -285,7 +285,7 @@ bar {
 # Container colors
 # border|background|text|indicator|child_border
 client.focused          $blue $blue $black $magenta $blue
-client.focused_inactive $black $black $yellow $magenta $black
-client.unfocused        $black $black $yellow $magenta $black
+client.focused_inactive $black $black $white $magenta $black
+client.unfocused        $black $black $white $magenta $black
 client.urgent           $red $red $white $red $red
 # }}}
