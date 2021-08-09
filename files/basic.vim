@@ -27,7 +27,7 @@ set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
 set ruler showcmd linebreak laststatus=0 fillchars+=vert:│ colorcolumn=80
-set number relativenumber cursorline
+set number relativenumber
 
 " Spell settings
 set spelllang=en,pt
@@ -62,8 +62,8 @@ nnoremap <c-j> <c-w><c-j>
 nnoremap <c-k> <c-w><c-k>
 nnoremap <c-l> <c-w><c-l>
 
-" Toggle numbers and cursorline
-nnoremap <silent> <leader>n :set invnumber invrelativenumber invcursorline<cr>
+" Toggle numbers
+nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
 
 " Toggle spell
 nnoremap <silent> <leader>o :set invspell<cr>
