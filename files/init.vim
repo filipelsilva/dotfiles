@@ -21,8 +21,12 @@ function! PackInit() abort
 	" Telescope
 	call minpac#add('nvim-telescope/telescope.nvim')
 
-	" Lsp and completion
-	call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+	" Lsp for nvim and autoinstall
+	call minpac#add('neovim/nvim-lspconfig')
+	call minpac#add('kabouzeid/nvim-lspinstall')
+
+	" Completion
+	call minpac#add('nvim-lua/completion-nvim')
 
 	" Treesitter
 	call minpac#add('nvim-treesitter/nvim-treesitter')
@@ -70,3 +74,31 @@ EOF
 nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
 nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
 nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
+
+" LSP
+lua << EOF
+function setup_servers()
+	require'lspinstall'.setup()
+	local servers = require'lspinstall'.installed_servers()
+	for _, server in pairs(servers) do
+		require'lspconfig'[server].setup{}
+	end
+end
+
+setup_servers()
+
+require'lspinstall'.post_install_hook = function()
+	setup_servers()
+	vim.cmd("bufdo e")
+end
+EOF
+
+" Completion
+autocmd BufEnter * lua require'completion'.on_attach()
+let g:completion_auto_change_source = 1
+let g:completion_chain_complete_list = [
+	\{'complete_items': ['lsp']},
+    \{'mode': 'file'},
+    \{'mode': '<c-p>'},
+    \{'mode': '<c-n>'}
+\]
