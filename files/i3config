@@ -176,6 +176,16 @@ bindsym $mod+Shift+Right move right
 
 # Workspaces {{{
 
+# Move more quickly between workspaces
+bindsym $mod+Tab workspace next
+
+# Switch between the current and the previously focused one
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth
+
+# Move the whole workspace to the next output
+bindsym $mod+x move workspace to output right
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -212,16 +222,6 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-
-# Move more quickly between workspaces
-bindsym $mod+Tab workspace next
-
-# Switch between the current and the previously focused one
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth
-
-# Move the whole workspace to the next output
-bindsym $mod+x move workspace to output right
 # }}}
 
 # Reload the configuration file
