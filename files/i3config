@@ -6,7 +6,7 @@
 
 # System startup and other configs {{{
 
-set $wallpaper $HOME/dotfiles/wallpapers/arch.png
+set $wallpaper $HOME/dotfiles/wallpapers/arch.webp
 
 # Detect monitors and apply wallpaper
 exec_always --no-startup-id autorandr --change --skip-options crtc && feh --bg-fill $wallpaper
