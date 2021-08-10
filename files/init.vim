@@ -26,6 +26,9 @@ function! PackInit() abort
 	call minpac#add('kabouzeid/nvim-lspinstall')
 
 	" Completion
+	call minpac#add('hrsh7th/vim-vsnip')
+
+	" Completion
 	call minpac#add('hrsh7th/nvim-compe')
 
 	" Treesitter
@@ -77,11 +80,19 @@ nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
 
 " LSP
 lua << EOF
+
+-- Snippet support
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+-- Server setup
 function setup_servers()
 	require'lspinstall'.setup()
 	local servers = require'lspinstall'.installed_servers()
 	for _, server in pairs(servers) do
-		require'lspconfig'[server].setup{}
+		require'lspconfig'[server].setup{
+			capabilities = capabilities,
+		}
 	end
 end
 
@@ -125,3 +136,4 @@ require'compe'.setup {
 	};
 }
 EOF
+inoremap <silent><expr> <cr> compe#confirm('<cr>')
