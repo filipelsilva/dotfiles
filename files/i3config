@@ -64,6 +64,33 @@ set $cyan       #689d6a
 set $white      #a89984
 # }}}
 
+# Theme {{{
+bar {
+        tray_output primary
+        position bottom
+        status_command i3status
+
+        colors {
+                background $background
+                statusline $foreground
+                separator  $white
+
+                # border|background|text
+                focused_workspace  $black $black $blue
+                active_workspace   $black $black $magenta
+                inactive_workspace $black $black $white
+                urgent_workspace   $red $black $red
+        }
+}
+
+# Container colors
+# border|background|text|indicator|child_border
+client.focused          $blue $blue $black $magenta $blue
+client.focused_inactive $black $black $white $magenta $black
+client.unfocused        $black $black $white $magenta $black
+client.urgent           $red $red $white $red $red
+# }}}
+
 # Keybinds and settings {{{
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -264,31 +291,4 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-# }}}
-
-# Theme {{{
-bar {
-        tray_output primary
-        position bottom
-        status_command i3status
-
-        colors {
-                background $background
-                statusline $foreground
-                separator  $white
-                
-                # border|background|text
-                focused_workspace  $black $black $blue
-                active_workspace   $black $black $magenta
-                inactive_workspace $black $black $white
-                urgent_workspace   $red $black $red
-        }
-}
-
-# Container colors
-# border|background|text|indicator|child_border
-client.focused          $blue $blue $black $magenta $blue
-client.focused_inactive $black $black $white $magenta $black
-client.unfocused        $black $black $white $magenta $black
-client.urgent           $red $red $white $red $red
 # }}}
