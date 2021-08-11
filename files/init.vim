@@ -11,6 +11,9 @@ function! PackInit() abort
 	" Colorscheme
 	call minpac#add('lifepillar/vim-gruvbox8')
 
+	" Fzf
+	call minpac#add('junegunn/fzf.vim')
+
 	" Telescope requirements
 	call minpac#add('nvim-lua/popup.nvim')
 	call minpac#add('nvim-lua/plenary.nvim')
