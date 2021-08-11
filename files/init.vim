@@ -64,7 +64,7 @@ require('telescope').setup {
 		},
 	},
 	extensions = {
-		fzf_native = {
+		fzy_native = {
 			fuzzy = true,
 			override_generic_sorter = true,
 			override_file_sorter = true,
