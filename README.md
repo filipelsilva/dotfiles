@@ -2,15 +2,15 @@
 
 These are my dotfiles. You could use them to inspire yourself, and make your own!
 
-From flashier environments to almost greyscale ones, I've tried a lot of different styles :)
-
-The commits are more sporadic on the public version, as I started the private version way earlier, and might still be trying out new things over there. 
+The commits are more sporadic on the public version, as I started the private
+version way earlier, and might still be trying out new things over there.
 
 There are two sections:
 
 ## 1. Dotfiles (*per se*)
 
 These consist of configurations for the following:
+
 * Alacritty
 * (Neo)Vim
 * Tmux
@@ -19,10 +19,14 @@ These consist of configurations for the following:
 
 ## 2. Installers
 
-Scripts made by me, in order to link the dotfiles to their places and install all needed packages.
-Keep in mind: these are **very likely to break, use at your own risk**.
-To use them, run:
-```
+Scripts made by me, in order to link the dotfiles to their places and install
+all needed packages.
+Keep in mind: these are **very likely to break**, therefore **use them at your
+own risk**.
+
+Usage:
+
+```bash
 git clone https://github.com/filipelsilva/dotfiles-public $HOME/dotfiles
 cd $HOME/dotfiles
 ./run.sh
