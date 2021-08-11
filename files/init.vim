@@ -50,6 +50,14 @@ set background=dark
 set termguicolors
 colorscheme gruvbox8_hard
 
+" Fzf
+set runtimepath+=$HOME/.fzf
+let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
+let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
+nnoremap <silent> <expr> <leader>F (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
+nnoremap <silent> <leader>R <cmd>Rg<cr>
+nnoremap <silent> <leader>J <cmd>Buffers<cr>
+
 " Telescope
 lua << EOF
 local actions = require('telescope.actions')
