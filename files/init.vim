@@ -54,12 +54,12 @@ require('telescope').setup {
 	defaults = {
 		mappings = {
 			i = {
-				["<C-s>"] = actions.select_horizontal,
-				["<C-x>"] = false,
+				["<c-s>"] = actions.select_horizontal,
+				["<c-x>"] = false,
 			},
 			n = {
-				["<C-s>"] = actions.select_horizontal,
-				["<C-x>"] = false,
+				["<c-s>"] = actions.select_horizontal,
+				["<c-x>"] = false,
 			},
 		},
 	},
