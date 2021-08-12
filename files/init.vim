@@ -18,7 +18,7 @@ function! PackInit() abort
 	call minpac#add('nvim-lua/popup.nvim')
 	call minpac#add('nvim-lua/plenary.nvim')
 
-	" Make Telescope use fuzzy finder, like FZF
+	" Make Telescope use fuzzy finder, like Fzf
 	call minpac#add('nvim-telescope/telescope-fzy-native.nvim')
 
 	" Telescope
