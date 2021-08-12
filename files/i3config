@@ -143,12 +143,6 @@ for_window [class=".*"] border pixel 1
 
 # Hide borders if only one window is visible
 hide_edge_borders smart
-
-# Focus doesn't follow mouse
-focus_follows_mouse no
-
-# Mouse doesn't go to the center of outputs
-mouse_warping none
 # }}}
 
 # Focusing and moving windows {{{
