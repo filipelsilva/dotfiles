@@ -77,7 +77,7 @@ bar {
 
                 # border|background|text
                 focused_workspace  $black $black $blue
-                active_workspace   $black $black $white
+                active_workspace   $black $black $magenta
                 inactive_workspace $black $black $white
                 urgent_workspace   $black $black $red
         }
