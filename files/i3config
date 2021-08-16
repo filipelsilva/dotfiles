@@ -76,8 +76,8 @@ bar {
                 separator  $white
 
                 # border|background|text
-                focused_workspace  $blue $blue $black
-                active_workspace   $black $black $blue
+                focused_workspace  $black $black $blue
+                active_workspace   $black $black $magenta
                 inactive_workspace $black $black $white
                 urgent_workspace   $black $black $red
         }
@@ -85,9 +85,9 @@ bar {
 
 # Container colors
 # border|background|text|indicator|child_border
-client.focused          $blue $blue $black $blue $blue
-client.focused_inactive $black $black $white $black $black
-client.unfocused        $black $black $white $black $black
+client.focused          $blue $blue $black $magenta $blue
+client.focused_inactive $black $black $white $magenta $black
+client.unfocused        $black $black $white $magenta $black
 client.urgent           $red $red $white $red $red
 # }}}
 
@@ -107,7 +107,7 @@ bindsym $mod+e exec thunar
 
 # Start dmenu
 bindsym $mod+d exec --no-startup-id dmenu_run -fn "Iosevka SS12-10"\
-        -nf '$foreground' -nb '$background' -sf '$black' -sb '$blue'
+        -nf '$white' -nb '$background' -sf '$blue' -sb '$black'
 
 # Split in horizontal orientation
 bindsym $mod+s split h
