@@ -43,8 +43,6 @@ command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
 autocmd BufRead * DetectIndent
 
 " Colorscheme
-set cursorlineopt=number
-set cursorline
 set background=dark
 set termguicolors
 colorscheme gruvbox8_hard
