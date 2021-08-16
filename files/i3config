@@ -86,8 +86,8 @@ bar {
 # Container colors
 # border|background|text|indicator|child_border
 client.focused          $blue $blue $black $magenta $blue
-client.focused_inactive $black $black $white $magenta $black
-client.unfocused        $black $black $white $magenta $black
+client.focused_inactive $black $black $white $black $black
+client.unfocused        $black $black $white $black $black
 client.urgent           $red $red $white $red $red
 # }}}
 
