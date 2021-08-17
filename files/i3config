@@ -227,19 +227,19 @@ bindsym $mod+Shift+r reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+Mod1+r restart
 
-# MODE: Reboot, shutdown, exit i3 {{{
-mode "(l)ock, (r)eboot, (s)hutdown, (e)xit i3" {
+# MODE: Exit i3, lock, reboot, shutdown {{{
+mode "(e)xit i3, (l)ock, (r)eboot, (s)hutdown" {
+        bindsym e exec --no-startup-id i3-msg exit
         bindsym l exec --no-startup-id loginctl lock-session; mode "default"
         bindsym r exec --no-startup-id reboot
         bindsym s exec --no-startup-id shutdown -h now
-        bindsym e exec --no-startup-id i3-msg exit
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+q mode "default"
 }
 
-bindsym $mod+q mode "(l)ock, (r)eboot, (s)hutdown, (e)xit i3"
+bindsym $mod+q mode "(e)xit i3, (l)ock, (r)eboot, (s)hutdown"
 # }}}
 
 # MODE: Change keyboard layout {{{
