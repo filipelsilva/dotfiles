@@ -137,4 +137,4 @@ require'compe'.setup {
 	};
 }
 EOF
-inoremap <silent><expr> <cr> compe#confirm('<cr>')
+inoremap <silent> <expr> <cr> compe#confirm('<cr>')

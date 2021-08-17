@@ -7,7 +7,7 @@
 
 [alias]
 	tree = log --graph --pretty=oneline --abbrev-commit
-	cmp = "!f() { git add -A && git commit -m \"$*\" && git push; }; f"
+	acp = "!f() { git add -A && git commit -m \"$*\" && git push; }; f"
 
 [diff]
 	tool = vimdiff
