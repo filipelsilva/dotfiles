@@ -190,7 +190,6 @@ bindkey "\e." insert-last-word
 
 # Variables {{{
 export MANPAGER="nvim +Man!"
-export TERMINAL="alacritty"
 export EDITOR=nvim
 export VISUAL=nvim
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/opt/node/bin
