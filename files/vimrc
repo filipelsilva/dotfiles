@@ -1,5 +1,6 @@
 source $HOME/dotfiles/files/defaults.vim
 
+" Plugins {{{
 function! PackInit() abort
 	packadd minpac
 	call minpac#init()
@@ -21,6 +22,7 @@ endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
 command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
+" }}}
 
 " DetectIndent
 autocmd BufRead * DetectIndent

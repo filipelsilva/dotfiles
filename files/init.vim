@@ -1,5 +1,6 @@
 source $HOME/dotfiles/files/defaults.vim
 
+" Plugins {{{
 function! PackInit() abort
 	packadd minpac
 	call minpac#init()
@@ -38,6 +39,7 @@ endfunction
 
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
 command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
+" }}}
 
 " DetectIndent
 autocmd BufRead * DetectIndent
@@ -47,7 +49,7 @@ set background=dark
 set termguicolors
 colorscheme gruvbox8_hard
 
-" Telescope
+" Telescope {{{
 lua << EOF
 local actions = require('telescope.actions')
 require('telescope').setup {
@@ -77,8 +79,9 @@ EOF
 nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
 nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
 nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
+" }}}
 
-" LSP
+" LSP {{{
 lua << EOF
 
 -- Snippet support
@@ -103,8 +106,9 @@ require'lspinstall'.post_install_hook = function()
 	vim.cmd("bufdo e")
 end
 EOF
+" }}}
 
-" Completion
+" Completion {{{
 lua << EOF
 require'compe'.setup {
 	enabled = true;
@@ -139,3 +143,4 @@ require'compe'.setup {
 EOF
 inoremap <silent> <expr> <cr> compe#confirm('<cr>')
 inoremap <silent> <expr> <c-y> compe#confirm('<c-y>')
+" }}}
