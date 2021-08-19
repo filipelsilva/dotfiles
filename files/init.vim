@@ -138,3 +138,4 @@ require'compe'.setup {
 }
 EOF
 inoremap <silent> <expr> <cr> compe#confirm('<cr>')
+inoremap <silent> <expr> <c-y> compe#confirm('<c-y>')
