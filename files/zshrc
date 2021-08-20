@@ -211,8 +211,11 @@ if ! zgen saved; then
 	zgen save
 fi
 
+# Zoxide
 eval "$(zoxide init zsh --cmd j)"
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+
+# Fzf (load after vi mode to prevent conflicts)
+zvm_after_init_commands+=("[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh")
 
 # Zsh vi mode
 ZVM_CURSOR_STYLE_ENABLED=false
