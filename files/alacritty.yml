@@ -95,10 +95,6 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: true
 
-cursor:
-  style: Block
-  unfocused_hollow: false
-
 shell:
   program: /bin/zsh
   args:
