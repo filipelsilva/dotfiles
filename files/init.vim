@@ -83,7 +83,6 @@ nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
 
 " LSP {{{
 lua << EOF
-
 -- Snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
