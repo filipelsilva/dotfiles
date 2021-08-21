@@ -39,7 +39,6 @@ set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
 set ruler showcmd linebreak laststatus=0 fillchars+=vert:│ colorcolumn=80
-set guicursor=
 
 " Spell settings
 set spelllang=en,pt
