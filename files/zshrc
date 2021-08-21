@@ -147,13 +147,8 @@ precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 NEWLINE=$'\n'
-PROMPT='%m%S%n%s%1~${vcs_info_msg_0_}%(?..%F{red}[%?]%f) '
-#PROMPT='%m%S%n%s%1~${vcs_info_msg_0_}[%D{%H:%M:%S}]%(?..%F{red}[%?]%f) '
-#PROMPT='[%n@%m %1~]${vcs_info_msg_0_}%(?..%F{red}[%?]%f)$ '
-#PROMPT='[%n@%m %1~]${vcs_info_msg_0_}[%D{%H:%M:%S}]%(?..%F{red}[%?]%f)$ '
-#PROMPT='┌[%~]${vcs_info_msg_0_}%(?..%F{red}[%?]%f)${NEWLINE}└[%n@%m]: '
-#PROMPT='┌[%~]${vcs_info_msg_0_}[%D{%H:%M:%S}]%(?..%F{red}[%?]%f)${NEWLINE}└[%n@%m]: '
-#PROMPT='%B%F{blue}%n%f%b at %B%F{green}%m%f%b in %B%F{yellow}[%~]%f%b on %B%F{magenta}${vcs_info_msg_0_}%f%b${NEWLINE}%(?..%F{red})%B%D{%H:%M:%S}%f $%b '
+COLOR='' # For use with zsh vi mode
+PROMPT='${COLOR}%m%S%n%s%1~${vcs_info_msg_0_}%(?..%F{red}[%?])%f '
 # }}}
 
 # Completion menu {{{
@@ -219,6 +214,28 @@ zvm_after_init_commands+=("[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh")
 
 # Zsh vi mode
 ZVM_CURSOR_STYLE_ENABLED=false
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+
+# Changing color of prompt to indicate normal mode
+function zvm_after_select_vi_mode() {
+	case $ZVM_MODE in
+		$ZVM_MODE_NORMAL)
+			COLOR="%F{yellow}"
+			;;
+		$ZVM_MODE_INSERT)
+			COLOR=""
+			;;
+		$ZVM_MODE_VISUAL)
+			COLOR=""
+			;;
+		$ZVM_MODE_VISUAL_LINE)
+			COLOR=""
+			;;
+		$ZVM_MODE_REPLACE)
+			COLOR=""
+			;;
+	esac
+}
 
 # Zsh history substring search
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="none"
