@@ -9,6 +9,12 @@ function! PackInit() abort
 	" Indentation detector
 	call minpac#add('timakro/vim-yadi')
 
+	" Comment stuff
+	call minpac#add('tpope/vim-commentary')
+
+	" Surround stuff
+	call minpac#add('tpope/vim-surround')
+
 	" Colorscheme
 	call minpac#add('lifepillar/vim-gruvbox8')
 
