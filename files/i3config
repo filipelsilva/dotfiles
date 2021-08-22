@@ -11,6 +11,9 @@ set $wallpaper $HOME/dotfiles/wallpapers/arch.webp
 # Detect monitors and apply wallpaper
 exec_always --no-startup-id autorandr --change --skip-options crtc && feh --bg-fill $wallpaper
 
+# Get maximum brightness (as I change between one and two monitor setups, this is annoying to deal with)
+exec --no-startup-id brightnessctl set 100%
+
 # Optimus-manager
 exec_always --no-startup-id optimus-manager-qt
 
