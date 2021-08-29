@@ -32,7 +32,7 @@ function! PackInit() abort
 	call minpac#add('neovim/nvim-lspconfig')
 	call minpac#add('kabouzeid/nvim-lspinstall')
 
-	" Completion
+	" Snippets
 	call minpac#add('hrsh7th/vim-vsnip')
 
 	" Completion
