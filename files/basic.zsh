@@ -68,15 +68,38 @@ setopt auto_menu
 setopt complete_in_word
 setopt flow_control
 setopt autocd
-#eval "$(dircolors)"
-#zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:*:*:*' menu yes select
-zstyle ':completion:*' special-dirs true
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path "$HOME/.zsh_compcache"
+
 autoload -U compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
+_comp_options+=(globdots)
+
+#eval "$(dircolors)"
+#zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' completer _extensions _complete _approximate
+
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path "$HOME/.zsh_compcache"
+
+zstyle ':completion:*:*:*:*:*' menu yes select
+
+zstyle ':completion:*:*:*:*:corrections' format '%F{magenta}-- %d (errors: %e) --%f'
+zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %d --%f'
+zstyle ':completion:*:*:*:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:*:*:*:warnings' format ' %F{red}-- no matches found --%f'
+
+zstyle ':completion:*' group-name ''
+
+zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands
+
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# Vi mode for selecting completion
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
 # }}}
 
 # Command history {{{
