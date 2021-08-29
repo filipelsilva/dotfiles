@@ -107,7 +107,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+e exec thunar
 
 # Start dmenu
-bindsym $mod+space exec --no-startup-id dmenu_run -fn "Iosevka SS12-10"\
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "Iosevka SS12-10"\
         -nf '$white' -nb '$background' -sf '$blue' -sb '$black'
 
 # Split in horizontal orientation
@@ -124,7 +124,7 @@ bindsym $mod+Shift+s layout toggle
 bindsym $mod+Shift+Mod1+s layout toggle split
 
 # Toggle tiling / floating
-bindsym $mod+d floating toggle
+bindsym $mod+space floating toggle
 
 # Size of floating windows
 floating_minimum_size 75 x 50
@@ -140,7 +140,7 @@ hide_edge_borders smart
 # Focusing and moving windows {{{
 
 # Change focus between tiling / floating windows
-bindsym $mod+Shift+d focus mode_toggle
+bindsym $mod+Shift+space focus mode_toggle
 
 # Focus the parent container
 bindsym $mod+a focus parent
