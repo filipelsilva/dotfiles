@@ -88,7 +88,6 @@ zstyle ':completion:*:*:*:*:messages' format ' %F{purple} -- %d --%f'
 zstyle ':completion:*:*:*:*:warnings' format ' %F{red}-- no matches found --%f'
 
 zstyle ':completion:*' group-name ''
-
 zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands
 
 zstyle ':completion:*' special-dirs true
