@@ -99,7 +99,7 @@ cursor:
   style: Block
   #style: Underline
   #style: Beam
-  unfocused_hollow: false
+  unfocused_hollow: true
 
 shell:
   program: /bin/zsh
