@@ -148,9 +148,6 @@ bindsym $mod+a focus parent
 # Focus the child container
 bindsym $mod+Shift+a focus child
 
-# Focus doesn't follow mouse
-#focus_follows_mouse no
-
 # Change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
