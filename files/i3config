@@ -69,6 +69,7 @@ bar {
         tray_output primary
         position bottom
         status_command i3status
+        # config for status: $HOME/dotfiles/files/i3statusconfig
 
         colors {
                 background $background
