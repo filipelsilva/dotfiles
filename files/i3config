@@ -5,7 +5,6 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # System startup and other configs {{{
-
 set $wallpaper $HOME/dotfiles/wallpapers/arch.webp
 
 # Detect monitors and apply wallpaper
@@ -229,7 +228,9 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Shift+Mod1+r restart
 
 # MODE: Exit i3, lock, reboot, shutdown {{{
-mode "(e)xit i3, (l)ock, (r)eboot, (s)hutdown" {
+set $mode_loginopts "(e)xit i3, (l)ock, (r)eboot, (s)hutdown" 
+
+mode $mode_loginopts {
         bindsym e exec --no-startup-id i3-msg exit
         bindsym l exec --no-startup-id loginctl lock-session; mode "default"
         bindsym r exec --no-startup-id reboot
@@ -240,11 +241,13 @@ mode "(e)xit i3, (l)ock, (r)eboot, (s)hutdown" {
         bindsym $mod+q mode "default"
 }
 
-bindsym $mod+q mode "(e)xit i3, (l)ock, (r)eboot, (s)hutdown"
+bindsym $mod+q mode $mode_loginopts 
 # }}}
 
 # MODE: Change keyboard layout {{{
-mode "[(P)T] [(U)S] (i)ntl, (a)ltgr-intl" {
+set $mode_layout "[layout] (p)t, (u)s, us-(i)ntl, us-(a)ltgr-intl" 
+
+mode $mode_layout {
         bindsym p exec setxkbmap -layout pt; mode "default"
         bindsym u exec setxkbmap -layout us; mode "default"
         bindsym i exec setxkbmap -layout us -variant intl; mode "default"
@@ -255,11 +258,13 @@ mode "[(P)T] [(U)S] (i)ntl, (a)ltgr-intl" {
         bindsym $mod+p mode "default"
 }
 
-bindsym $mod+p mode "[(P)T] [(U)S] (i)ntl, (a)ltgr-intl"
+bindsym $mod+p mode $mode_layout 
 # }}}
 
 # MODE: Printscreen {{{
-mode "[Printscreen] (s)election, (a)ctive window, (w)hole screen" {
+set $mode_printscreen "[printscreen] (s)election, (a)ctive window, (w)hole screen" 
+
+mode $mode_printscreen {
         bindsym s exec --no-startup-id maim --select "$HOME/Pictures/$(date).png"; mode "default"
         bindsym a exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/$(date).png"; mode "default"
         bindsym w exec --no-startup-id maim "$HOME/Pictures/$(date).png"; mode "default"
@@ -269,11 +274,13 @@ mode "[Printscreen] (s)election, (a)ctive window, (w)hole screen" {
         bindsym Print mode "default"
 }
 
-bindsym Print mode "[Printscreen] (s)election, (a)ctive window, (w)hole screen"
+bindsym Print mode $mode_printscreen 
 # }}}
 
 # MODE: Resize window {{{
-mode "resize" {
+set $mode_resize "resize"
+
+mode $mode_resize {
         bindsym h resize shrink width 5 px or 5 ppt
         bindsym j resize grow height 5 px or 5 ppt
         bindsym k resize shrink height 5 px or 5 ppt
@@ -288,5 +295,5 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode $mode_resize
 # }}}
