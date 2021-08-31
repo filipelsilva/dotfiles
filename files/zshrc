@@ -91,11 +91,6 @@ function x() {
 	fi
 }
 
-# [Take]: mkdir directory and cd to it
-function take() {
-	mkdir -p $@ && cd ${@:$#}
-}
-
 # [Up]grade
 function up() {
 	yay -Syu --devel --timeupdate
@@ -106,8 +101,15 @@ function up() {
 	if [ $LOCAL != $REMOTE ]; then git pull && ./install; fi
 	cd -
 
+	for folder in $HOME/.gdb_plugins/**; (echo $folder && cd $folder && git pull)
+
 	zgen selfupdate && zgen update
 	tldr --update
+}
+
+# [Take]: mkdir directory and cd to it
+function take() {
+	mkdir -p $@ && cd ${@:$#}
 }
 
 # [Linkdump]
@@ -137,15 +139,17 @@ function kp() {
 # }}}
 
 # Prompt {{{
+setopt prompt_subst
+
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' formats '[%s:%b%m%u%c]'
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
-NEWLINE=$'\n'
+
 PROMPT='%m%S%n%s%1~${vcs_info_msg_0_}%(?..%F{red}[%?])%f '
 # }}}
 
@@ -154,8 +158,8 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushd_silent
 
-alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd +${index}"; unset index
+alias d="dirs -v"
+for index ({1..9}); alias "$index"="cd +${index}"; unset index
 
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs

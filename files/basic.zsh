@@ -31,23 +31,27 @@ alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 
 # }}}
 
+# Functions {{{
+
+# [Take]: mkdir directory and cd to it
+function take() {
+	mkdir -p $@ && cd ${@:$#}
+}
+# }}}
+
 # Prompt {{{
+setopt prompt_subst
+
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' formats '[%s:%b%m%u%c]'
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
-NEWLINE=$'\n'
-PROMPT='%m%S%n%s%1~${vcs_info_msg_0_}%(?..%F{red}[%?]%f) '
-#PROMPT='%m%S%n%s%1~${vcs_info_msg_0_}[%D{%H:%M:%S}]%(?..%F{red}[%?]%f) '
-#PROMPT='[%n@%m %1~]${vcs_info_msg_0_}%(?..%F{red}[%?]%f)$ '
-#PROMPT='[%n@%m %1~]${vcs_info_msg_0_}[%D{%H:%M:%S}]%(?..%F{red}[%?]%f)$ '
-#PROMPT='┌[%~]${vcs_info_msg_0_}%(?..%F{red}[%?]%f)${NEWLINE}└[%n@%m]: '
-#PROMPT='┌[%~]${vcs_info_msg_0_}[%D{%H:%M:%S}]%(?..%F{red}[%?]%f)${NEWLINE}└[%n@%m]: '
-#PROMPT='%B%F{blue}%n%f%b at %B%F{green}%m%f%b in %B%F{yellow}[%~]%f%b on %B%F{magenta}${vcs_info_msg_0_}%f%b${NEWLINE}%(?..%F{red})%B%D{%H:%M:%S}%f $%b '
+
+PROMPT='%m%S%n%s%1~${vcs_info_msg_0_}%(?..%F{red}[%?])%f '
 # }}}
 
 # Directory stack {{{
@@ -55,8 +59,8 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushd_silent
 
-alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd +${index}"; unset index
+alias d="dirs -v"
+for index ({1..9}); alias "$index"="cd +${index}"; unset index
 
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
