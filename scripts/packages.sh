@@ -6,7 +6,7 @@ sudo pacman -S --noconfirm zsh git curl wget glances htop neovim python-pip\
     ripgrep fd the_silver_searcher neofetch screenfetch xclip pkg-config go\
     make entr rlwrap ctags hexyl bat cmake shellcheck hyperfine onefetch\
     progress npm atool pacman-contrib zsh-completions ascii playerctl nodejs\
-    xss-lock
+    xss-lock zoxide
 
 # For manual installation:
 #sudo pacman -S --noconfirm alacritty i3 i3status i3lock dmenu feh arandr\
