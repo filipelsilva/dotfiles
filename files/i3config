@@ -87,7 +87,7 @@ bar {
 # border|background|text|indicator|child_border
 client.focused          $blue $blue $black $magenta $blue
 client.focused_inactive $magenta $magenta $black $black $black
-client.unfocused        $black $black $white $black $black
+client.unfocused        $white $white $black $black $black
 client.urgent           $red $red $white $red $red
 # }}}
 
