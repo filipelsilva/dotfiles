@@ -95,16 +95,21 @@ function x() {
 function up() {
 	yay -Syu --devel --timeupdate
 
-	cd $HOME/.fzf && git fetch
+	(
+	cd $HOME/.fzf && echo $PWD && git fetch
 	LOCAL=$(git rev-parse @)
 	REMOTE=$(git rev-parse @{u})
-	if [ $LOCAL != $REMOTE ]; then git pull && ./install; fi
-	cd -
+	if [ $LOCAL != $REMOTE ]; then
+		git pull && ./install
+	else
+		echo "Already up to date."
+	fi
+	)
 
-	for folder in $HOME/.gdb_plugins/**; (echo $folder && cd $folder && git pull)
+	for folder in $HOME/.gdb_plugins/**; (cd $folder && echo $PWD && git pull)
 
-	zgen selfupdate && zgen update
-	tldr --update
+	echo "$HOME/.zgen" && zgen selfupdate && zgen update
+	echo "update tldr cache" && tldr --update
 }
 
 # [Take]: mkdir directory and cd to it
