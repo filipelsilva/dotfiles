@@ -43,6 +43,9 @@ set guicursor=
 
 " Spell settings
 set spelllang=en,pt
+
+" Make gf (follow file) work with file_name=/path/to/file
+set isfname-==
 " }}}
 
 " Functions {{{

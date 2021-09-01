@@ -30,6 +30,9 @@ set ruler showcmd linebreak laststatus=0 fillchars+=vert:│ colorcolumn=80
 
 " Spell settings
 set spelllang=en,pt
+
+" Make gf (follow file) work with file_name=/path/to/file
+set isfname-==
 " }}}
 
 " Functions {{{
