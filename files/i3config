@@ -78,7 +78,7 @@ bar {
                 # border|background|text
                 focused_workspace  $blue $blue $black
                 active_workspace   $magenta $magenta $black
-                inactive_workspace $white $white $black
+                inactive_workspace $black $black $white
                 urgent_workspace   $red $red $black
         }
 }
@@ -87,8 +87,8 @@ bar {
 # border|background|text|indicator|child_border
 client.focused          $blue $blue $black $magenta $blue
 client.focused_inactive $magenta $magenta $black $black $black
-client.unfocused        $white $white $black $black $black
-client.urgent           $red $red $white $red $red
+client.unfocused        $black $black $white $black $black
+client.urgent           $red $red $black $red $red
 # }}}
 
 # Keybinds and settings {{{
