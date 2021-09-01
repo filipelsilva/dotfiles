@@ -126,6 +126,7 @@ bindkey "\e." insert-last-word
 # }}}
 
 # Variables {{{
+export MANPAGER="vim -M +MANPAGER -"
 export EDITOR=vim
 export VISUAL=vim
 # }}}
