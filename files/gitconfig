@@ -11,15 +11,14 @@
 
 [diff]
 	tool = vimdiff
-
-[difftool "vimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-
 [difftool]
 	prompt = false
+[difftool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE
 
 [merge]
 	tool = vimdiff
-
+[mergetool]
+	prompt = true
 [mergetool "vimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
