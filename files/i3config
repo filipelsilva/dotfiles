@@ -126,7 +126,6 @@ bindsym $mod+space floating toggle
 
 # Size of floating windows
 floating_minimum_size 75 x 50
-floating_maximum_size 800 x 600
 
 # No window names
 for_window [class=".*"] border pixel 1
