@@ -106,7 +106,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+e exec thunar
 
 # Start dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -fn "Iosevka SS12-10"\
+bindsym $mod+d exec --no-startup-id dmenu_run -i -fn "Iosevka SS12-10"\
         -nf '$white' -nb '$background' -sf '$black' -sb '$blue'
 
 # Splits
