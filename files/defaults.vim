@@ -7,13 +7,14 @@ set mouse=a scrolloff=5 updatetime=100 ttimeoutlen=0 shortmess=filmnrwxaoOtT
 if !has("nvim")
 	" Set mouse mode
 	set ttymouse=xterm2
-	" Enable matchit (% on if/else)
-	runtime macros/matchit.vim
+	" Enable matchit (extends the use of %)
+	packadd! matchit
 	" Enable :Man <search>
 	runtime ftplugin/man.vim
-	" K under cursor uses :Man
-	set keywordprg=:Man
 endif
+
+" K under cursor uses :Man
+set keywordprg=:Man
 
 " Folds (marker = 3*'{')
 set foldmethod=marker
@@ -47,8 +48,8 @@ set autoindent copyindent shiftround smarttab
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set ruler showcmd linebreak laststatus=0 fillchars+=vert:│ colorcolumn=80
-set guicursor=
+set ruler showcmd linebreak laststatus=0 colorcolumn=80
+set fillchars+=vert:│,fold:·,sep:│ guicursor=
 
 " Spell settings
 set spelllang=en,pt
