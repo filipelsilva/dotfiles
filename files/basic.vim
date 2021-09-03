@@ -36,8 +36,8 @@ set autoindent copyindent shiftround smarttab
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set ruler showcmd linebreak laststatus=0 colorcolumn=80
-set fillchars+="vert:│,fold:·,sep:│" guicursor=
+set ruler showcmd linebreak laststatus=0 fillchars+="vert:│,fold:·,sep:│"
+set colorcolumn=80 guicursor=
 
 " Spell settings
 set spelllang=en,pt
