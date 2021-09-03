@@ -4,7 +4,16 @@ filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 set nomodeline hidden nocompatible encoding=utf-8 fileformats=unix,dos,mac
 set mouse=a scrolloff=5 updatetime=100 ttimeoutlen=0 shortmess=filmnrwxaoOtT
-if !has("nvim") | set ttymouse=xterm2 | runtime ftplugin/man.vim | endif
+if !has("nvim")
+	" Set mouse mode
+	set ttymouse=xterm2
+	" Enable matchit (% on if/else)
+	runtime macros/matchit.vim
+	" Enable :Man <search>
+	runtime ftplugin/man.vim
+	" K under cursor uses :Man
+	set keywordprg=:Man
+endif
 
 " Folds (marker = 3*'{')
 set foldmethod=marker
@@ -27,6 +36,7 @@ set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
 set ruler showcmd linebreak laststatus=0 fillchars+=vert:│ colorcolumn=80
+set guicursor=
 
 " Spell settings
 set spelllang=en,pt
