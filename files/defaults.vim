@@ -124,9 +124,6 @@ inoremap ? ?<c-g>u
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 
-" Easier paste from register in Insert mode
-inoremap <c-v> <c-r><c-p>0
-
 " Move blocks of code
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
