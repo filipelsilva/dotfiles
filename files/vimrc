@@ -6,8 +6,8 @@ function! PackInit() abort
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-	" Indentation detector
-	call minpac#add('timakro/vim-yadi')
+	" Identation detector
+	call minpac#add('tpope/vim-sleuth')
 
 	" Comment stuff
 	call minpac#add('tpope/vim-commentary')
@@ -29,9 +29,6 @@ endfunction
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
 command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
 " }}}
-
-" DetectIndent
-autocmd BufRead * DetectIndent
 
 " Colorscheme
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
