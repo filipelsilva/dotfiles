@@ -149,6 +149,10 @@ else
 	noremap <silent> <leader>T :terminal<cr>
 endif
 
+" Escape terminal mode with <esc> and send esc to terminal with <c-v><esc>
+tnoremap <esc> <c-\><c-n>
+tnoremap <c-v><esc> <esc>
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>e :e $MYVIMRC<cr>
 nmap <silent> <leader>E :so $MYVIMRC<cr>
