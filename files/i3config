@@ -65,10 +65,11 @@ set $cyan       #689d6a
 set $white      #a89984
 
 bar {
-        tray_output all
+        tray_output primary
+        tray_padding 0
         position bottom
-        status_command i3status
-        # config for status: $HOME/dotfiles/files/i3statusconfig
+
+        status_command i3status # config at $HOME/dotfiles/files/i3statusconfig
 
         colors {
                 background $background
