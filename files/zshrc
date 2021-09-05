@@ -156,6 +156,10 @@ zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' formats '[%s:%b%m%u%c]'
 
 PROMPT='%m%S%n%s%1~${vcs_info_msg_0_}%(?..%F{red}[%?])%f '
+
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+    PROMPT="[NVIM]$PROMPT"
+fi
 # }}}
 
 # Directory stack {{{
