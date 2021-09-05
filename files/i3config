@@ -87,9 +87,9 @@ bar {
 # Container colors
 # border|background|text|indicator|child_border
 client.focused          $blue $blue $black $black $blue
-client.focused_inactive $magenta $magenta $black $black $black
+client.focused_inactive $magenta $magenta $black $black $magenta
 client.unfocused        $black $black $white $black $black
-client.urgent           $red $red $black $red $red
+client.urgent           $red $red $black $black $red
 # }}}
 
 # Keybinds and settings {{{
@@ -129,7 +129,7 @@ bindsym $mod+space floating toggle
 floating_minimum_size 75 x 50
 
 # No window names
-default_border pixel 1
+default_border pixel 2
 
 # Hide borders if only one window is visible
 hide_edge_borders smart
