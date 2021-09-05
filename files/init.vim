@@ -18,6 +18,9 @@ function! PackInit() abort
 	" Colorscheme
 	call minpac#add('lifepillar/vim-gruvbox8')
 
+	" Fzf
+	call minpac#add('junegunn/fzf.vim')
+
 	" Telescope requirements
 	call minpac#add('nvim-lua/popup.nvim')
 	call minpac#add('nvim-lua/plenary.nvim')
@@ -28,7 +31,7 @@ function! PackInit() abort
 	" Telescope
 	call minpac#add('nvim-telescope/telescope.nvim')
 
-	" Lsp for nvim and autoinstall
+	" Lsp and autoinstall
 	call minpac#add('neovim/nvim-lspconfig')
 	call minpac#add('kabouzeid/nvim-lspinstall')
 
@@ -52,37 +55,46 @@ set background=dark
 set termguicolors
 colorscheme gruvbox8_hard
 
+" Fzf
+set runtimepath+=$HOME/.fzf
+let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
+let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
+nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
+nnoremap <silent> <leader>r <cmd>Rg<cr>
+nnoremap <silent> <leader>j <cmd>Buffers<cr>
+tnoremap <expr> <esc> (&filetype == "fzf") ? "<esc>" : "<c-\><c-n>"
+
 " Telescope {{{
-lua << EOF
-local actions = require('telescope.actions')
-require('telescope').setup {
-	defaults = {
-		mappings = {
-			i = {
-				["<c-s>"] = actions.select_horizontal,
-				["<c-x>"] = false,
-			},
-			n = {
-				["<c-s>"] = actions.select_horizontal,
-				["<c-x>"] = false,
-			},
-		},
-	},
-	extensions = {
-		fzy_native = {
-			fuzzy = true,
-			override_generic_sorter = true,
-			override_file_sorter = true,
-			case_mode = "smart_case",
-		},
-	},
-}
-require('telescope').load_extension('fzy_native')
-EOF
-nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
-nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
-nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
-" }}}
+" lua << EOF
+" local actions = require('telescope.actions')
+" require('telescope').setup {
+" 	defaults = {
+" 		mappings = {
+" 			i = {
+" 				["<c-s>"] = actions.select_horizontal,
+" 				["<c-x>"] = false,
+" 			},
+" 			n = {
+" 				["<c-s>"] = actions.select_horizontal,
+" 				["<c-x>"] = false,
+" 			},
+" 		},
+" 	},
+" 	extensions = {
+" 		fzy_native = {
+" 			fuzzy = true,
+" 			override_generic_sorter = true,
+" 			override_file_sorter = true,
+" 			case_mode = "smart_case",
+" 		},
+" 	},
+" }
+" require('telescope').load_extension('fzy_native')
+" EOF
+" nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
+" nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
+" nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
+" " }}}
 
 " LSP {{{
 lua << EOF
