@@ -20,7 +20,7 @@ set keywordprg=:Man
 set foldmethod=marker
 
 " Search settings
-set ignorecase smartcase incsearch
+set ignorecase smartcase incsearch hlsearch
 
 " Splits like 'normal' editors
 set splitbelow splitright
