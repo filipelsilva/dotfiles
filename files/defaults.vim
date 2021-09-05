@@ -178,15 +178,19 @@ vnoremap <leader><leader>X "_X
 " Copy/Paste to other programs
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
+nnoremap <leader>Y "+y$
+vnoremap <leader>Y "+y$
 nnoremap <leader>d "+d
 vnoremap <leader>d "+d
+nnoremap <leader>D "+D
+vnoremap <leader>D "+D
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>P "+P
 
-" Copy the whole working file
-nnoremap <leader>Y gg"+yG
+" Copy the whole working file to the clipboard
+nnoremap <leader><leader>y <cmd>%y+<cr>
 
 " Output the current syntax group
 nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
