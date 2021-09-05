@@ -44,6 +44,9 @@ set spelllang=en,pt
 
 " Make gf (follow file) work with file_name=/path/to/file
 set isfname-==
+
+" Don't use octal for <c-x> and <c-a>
+set nrformats=bin,hex
 " }}}
 
 " Functions {{{
