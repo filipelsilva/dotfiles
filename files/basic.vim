@@ -8,7 +8,7 @@ if !has("nvim")
 	" Set mouse mode
 	set ttymouse=xterm2
 	" Enable matchit (extends the use of %)
-	packadd! matchit
+	runtime macros/matchit.vim
 	" Enable :Man <search>
 	runtime ftplugin/man.vim
 endif
