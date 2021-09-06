@@ -63,6 +63,8 @@ nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':
 nnoremap <silent> <leader>r <cmd>Rg<cr>
 nnoremap <silent> <leader>j <cmd>Buffers<cr>
 tnoremap <expr> <esc> (&filetype == "fzf") ? "<esc>" : "<c-\><c-n>"
+tnoremap <expr> <c-j> (&filetype == "fzf") ? "<c-n>" : "<c-j>"
+tnoremap <expr> <c-k> (&filetype == "fzf") ? "<c-p>" : "<c-k>"
 
 " Telescope {{{
 " lua << EOF
