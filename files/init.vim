@@ -67,35 +67,35 @@ tnoremap <expr> <c-j> (&filetype == "fzf") ? "<c-n>" : "<c-j>"
 tnoremap <expr> <c-k> (&filetype == "fzf") ? "<c-p>" : "<c-k>"
 
 " Telescope {{{
-" lua << EOF
-" local actions = require('telescope.actions')
-" require('telescope').setup {
-" 	defaults = {
-" 		mappings = {
-" 			i = {
-" 				["<c-s>"] = actions.select_horizontal,
-" 				["<c-x>"] = false,
-" 			},
-" 			n = {
-" 				["<c-s>"] = actions.select_horizontal,
-" 				["<c-x>"] = false,
-" 			},
-" 		},
-" 	},
-" 	extensions = {
-" 		fzy_native = {
-" 			fuzzy = true,
-" 			override_generic_sorter = true,
-" 			override_file_sorter = true,
-" 			case_mode = "smart_case",
-" 		},
-" 	},
-" }
-" require('telescope').load_extension('fzy_native')
-" EOF
-" nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
-" nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
-" nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
+lua << EOF
+local actions = require('telescope.actions')
+require('telescope').setup {
+	defaults = {
+		mappings = {
+			i = {
+				["<c-s>"] = actions.select_horizontal,
+				["<c-x>"] = false,
+			},
+			n = {
+				["<c-s>"] = actions.select_horizontal,
+				["<c-x>"] = false,
+			},
+		},
+	},
+	extensions = {
+		fzy_native = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "smart_case",
+		},
+	},
+}
+require('telescope').load_extension('fzy_native')
+EOF
+nnoremap <silent> <expr> <leader>F (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
+nnoremap <silent> <leader>R <cmd>Telescope live_grep<cr>
+nnoremap <silent> <leader>J <cmd>Telescope buffers<cr>
 " " }}}
 
 " LSP {{{
