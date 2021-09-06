@@ -175,7 +175,6 @@ add-zsh-hook chpwd chpwd_recent_dirs
 # }}}
 
 # Completion menu {{{
-
 zmodload zsh/complist
 
 # Vi mode for selecting completion
@@ -227,8 +226,8 @@ setopt hist_ignore_space
 # }}}
 
 # Vi-mode {{{
-#bindkey -v
-#KEYTIMEOUT=1
+bindkey -v
+KEYTIMEOUT=1
 bindkey "^[[Z" reverse-menu-complete
 bindkey "^[[3~" delete-char
 bindkey "^?" backward-delete-char
@@ -247,21 +246,16 @@ export BAT_STYLE="plain"
 # Plugins {{{
 source "${HOME}/.zgen/zgen.zsh"
 if ! zgen saved; then
-	zgen load wfxr/forgit
-	zgen load jeffreytse/zsh-vi-mode
-	zgen load zsh-users/zsh-history-substring-search
-	zgen save
+    zgen load wfxr/forgit
+    zgen load zsh-users/zsh-history-substring-search
+    zgen save
 fi
 
 # Zoxide
 eval "$(zoxide init zsh --cmd j)"
 
-# Fzf (load after vi mode to prevent conflicts)
-zvm_after_init_commands+=("[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh")
-
-# Zsh vi mode
-ZVM_CURSOR_STYLE_ENABLED=false
-ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+# Fzf
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 # Zsh history substring search
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="none"
