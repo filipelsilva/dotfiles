@@ -41,55 +41,30 @@ font:
     y: 0
 #}}}
 
-# Colors {{{
+# Colors: Gruvbox8_hard {{{
 colors:
-  gruvbox: &gruvbox # Modded: {back,fore}ground, white colors, bright black
-    primary:
-      background: '#1d1f21'
-      foreground: '#c5c8c6'
-    normal:
-      black:   '#282828'
-      red:     '#cc241d'
-      green:   '#98971a'
-      yellow:  '#d79921'
-      blue:    '#458588'
-      magenta: '#b16286'
-      cyan:    '#689d6a'
-      white:   '#c5c8c6'
-    bright:
-      black:   '#858585'
-      red:     '#fb4934'
-      green:   '#b8bb26'
-      yellow:  '#fabd2f'
-      blue:    '#83a598'
-      magenta: '#d3869b'
-      cyan:    '#8ec07c'
-      white:   '#eaeaea'
-  gruvbox8_hard: &gruvbox8_hard
-    primary:
-      background: '#1d2021'
-      foreground: '#ebdbb2'
-    normal:
-      black:   '#1d2021'
-      red:     '#cc241d'
-      green:   '#98971a'
-      yellow:  '#d79921'
-      blue:    '#458588'
-      magenta: '#b16286'
-      cyan:    '#689d6a'
-      white:   '#a89984'
-    bright:
-      black:   '#928374'
-      red:     '#fb4934'
-      green:   '#b8bb26'
-      yellow:  '#fabd2f'
-      blue:    '#83a598'
-      magenta: '#d3869b'
-      cyan:    '#8ec07c'
-      white:   '#ebdbb2'
+  primary:
+    background: '#1d2021'
+    foreground: '#ebdbb2'
+  normal:
+    black:   '#1d2021'
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#689d6a'
+    white:   '#a89984'
+  bright:
+    black:   '#928374'
+    red:     '#fb4934'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#83a598'
+    magenta: '#d3869b'
+    cyan:    '#8ec07c'
+    white:   '#ebdbb2'
 # }}}
-
-colors: *gruvbox8_hard
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
