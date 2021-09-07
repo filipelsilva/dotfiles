@@ -18,9 +18,6 @@ function! PackInit() abort
 	" Colorscheme
 	call minpac#add('lifepillar/vim-gruvbox8')
 
-	" Fzf
-	call minpac#add('junegunn/fzf.vim')
-
 	" Telescope requirements
 	call minpac#add('nvim-lua/popup.nvim')
 	call minpac#add('nvim-lua/plenary.nvim')
@@ -61,17 +58,6 @@ colorscheme gruvbox8_hard
 " DetectIndent
 autocmd BufRead * DetectIndent
 
-" Fzf
-set runtimepath+=$HOME/.fzf
-let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
-let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
-nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
-nnoremap <silent> <leader>r <cmd>Rg<cr>
-nnoremap <silent> <leader>j <cmd>Buffers<cr>
-tnoremap <expr> <esc> (&filetype == "fzf") ? "<esc>" : "<c-\><c-n>"
-tnoremap <expr> <c-j> (&filetype == "fzf") ? "<c-n>" : "<c-j>"
-tnoremap <expr> <c-k> (&filetype == "fzf") ? "<c-p>" : "<c-k>"
-
 " Telescope {{{
 lua << EOF
 local actions = require('telescope.actions')
@@ -99,9 +85,9 @@ require('telescope').setup {
 }
 require('telescope').load_extension('fzy_native')
 EOF
-nnoremap <silent> <expr> <leader>F (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
-nnoremap <silent> <leader>R <cmd>Telescope live_grep<cr>
-nnoremap <silent> <leader>J <cmd>Telescope buffers<cr>
+nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
+nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
+nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
 " " }}}
 
 " LSP {{{
