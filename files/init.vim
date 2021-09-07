@@ -108,8 +108,8 @@ nnoremap <silent> <leader>J <cmd>Telescope buffers<cr>
 lua << EOF
 -- Snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Server setup
 function setup_servers()
