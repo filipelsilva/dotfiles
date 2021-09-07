@@ -7,7 +7,7 @@ function! PackInit() abort
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 	" Identation detector
-	call minpac#add('tpope/vim-sleuth')
+	call minpac#add('timakro/vim-yadi')
 
 	" Comment stuff
 	call minpac#add('tpope/vim-commentary')
@@ -35,11 +35,14 @@ function! PackInit() abort
 	call minpac#add('neovim/nvim-lspconfig')
 	call minpac#add('kabouzeid/nvim-lspinstall')
 
-	" Snippets
+	" Completion sources
 	call minpac#add('hrsh7th/vim-vsnip')
+	call minpac#add('hrsh7th/cmp-buffer')
+	call minpac#add('hrsh7th/cmp-path')
+	call minpac#add('hrsh7th/cmp-nvim-lsp')
 
 	" Completion
-	call minpac#add('hrsh7th/nvim-compe')
+	call minpac#add('hrsh7th/nvim-cmp')
 
 	" Treesitter
 	call minpac#add('nvim-treesitter/nvim-treesitter')
@@ -54,6 +57,9 @@ command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
 set background=dark
 set termguicolors
 colorscheme gruvbox8_hard
+
+" DetectIndent
+autocmd BufRead * DetectIndent
 
 " Fzf
 set runtimepath+=$HOME/.fzf
@@ -70,7 +76,7 @@ tnoremap <expr> <c-k> (&filetype == "fzf") ? "<c-p>" : "<c-k>"
 lua << EOF
 local actions = require('telescope.actions')
 require('telescope').setup {
-	defaults = {
+    defaults = {
 		mappings = {
 			i = {
 				["<c-s>"] = actions.select_horizontal,
@@ -81,15 +87,15 @@ require('telescope').setup {
 				["<c-x>"] = false,
 			},
 		},
-	},
-	extensions = {
+    },
+    extensions = {
 		fzy_native = {
 			fuzzy = true,
 			override_generic_sorter = true,
 			override_file_sorter = true,
 			case_mode = "smart_case",
 		},
-	},
+    },
 }
 require('telescope').load_extension('fzy_native')
 EOF
@@ -102,61 +108,51 @@ nnoremap <silent> <leader>J <cmd>Telescope buffers<cr>
 lua << EOF
 -- Snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Server setup
 function setup_servers()
-	require'lspinstall'.setup()
-	local servers = require'lspinstall'.installed_servers()
-	for _, server in pairs(servers) do
+    require'lspinstall'.setup()
+    local servers = require'lspinstall'.installed_servers()
+    for _, server in pairs(servers) do
 		require'lspconfig'[server].setup{
 			capabilities = capabilities,
 		}
-	end
+    end
 end
 
 setup_servers()
 
 require'lspinstall'.post_install_hook = function()
-	setup_servers()
-	vim.cmd("bufdo e")
+    setup_servers()
+    vim.cmd("bufdo e")
 end
 EOF
 " }}}
 
 " Completion {{{
+
 lua << EOF
-require'compe'.setup {
-	enabled = true;
-	autocomplete = true;
-	debug = false;
-	min_length = 1;
-	preselect = 'enable';
-	throttle_time = 80;
-	source_timeout = 200;
-	resolve_timeout = 800;
-	incomplete_delay = 400;
-	max_abbr_width = 100;
-	max_kind_width = 100;
-	max_menu_width = 100;
-	documentation = {
-		border = { '', '' ,'', ' ', '', '', '', ' ' },
-		winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-		max_width = 120,
-		min_width = 60,
-		max_height = math.floor(vim.o.lines * 0.3),
-		min_height = 1,
-	};
-	source = {
-		path = true;
-		buffer = true;
-		calc = true;
-		nvim_lsp = true;
-		nvim_lua = true;
-		vsnip = true;
-	};
-}
+local cmp = require'cmp'
+cmp.setup({
+    snippet = {
+		expand = function(args)
+			vim.fn["vsnip#anonymous"](args.body)
+		end,
+    },
+    mapping = {
+		['<c-p>'] = cmp.mapping.select_prev_item(),
+		['<c-n>'] = cmp.mapping.select_next_item(),
+		['<c-y>'] = cmp.mapping.confirm({ select = true }),
+		['<cr>'] = cmp.mapping.confirm({ select = true }),
+    },
+    sources = {
+		{ name = 'nvim_lsp' },
+		{ name = 'buffer' },
+		{ name = 'path' },
+    },
+})
 EOF
-inoremap <silent> <expr> <cr> compe#confirm('<cr>')
-inoremap <silent> <expr> <c-y> compe#confirm('<c-y>')
+
 " }}}
