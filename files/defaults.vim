@@ -22,9 +22,6 @@ set foldmethod=marker
 " Search settings
 set ignorecase smartcase incsearch hlsearch
 
-" Splits like 'normal' editors
-set splitbelow splitright
-
 " Completion menu settings
 set wildmenu wildmode=longest:full,full completeopt=menuone,noinsert,noselect
 

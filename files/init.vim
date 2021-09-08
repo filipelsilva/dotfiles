@@ -43,6 +43,7 @@ function! PackInit() abort
 
 	" Treesitter
 	call minpac#add('nvim-treesitter/nvim-treesitter')
+	call minpac#add('nvim-treesitter/playground')
 
 endfunction
 
