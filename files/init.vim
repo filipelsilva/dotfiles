@@ -22,6 +22,9 @@ function! PackInit() abort
 	call minpac#add('nvim-lua/popup.nvim')
 	call minpac#add('nvim-lua/plenary.nvim')
 
+	" Make Telescope use fzf
+	call minpac#add('nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'})
+
 	" Telescope
 	call minpac#add('nvim-telescope/telescope.nvim')
 
@@ -58,7 +61,7 @@ autocmd BufRead * DetectIndent
 " Telescope {{{
 lua << EOF
 local actions = require('telescope.actions')
-require('telescope').setup {
+require('telescope').setup{
     defaults = {
 		mappings = {
 			i = {
@@ -71,7 +74,16 @@ require('telescope').setup {
 			},
 		},
     },
+	extensions = {
+		fzf = {
+			fuzzy = true,
+			override_generic_sorter = false,
+			override_file_sorter = true,
+			case_mode = "smart_case",
+		}
+	}
 }
+require('telescope').load_extension('fzf')
 EOF
 nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
 nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
