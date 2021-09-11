@@ -54,6 +54,9 @@ set spelllang=en,pt
 " Wrapped lines on same indentation level as the original line
 set breakindent
 
+" Diff options
+set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+
 " Make gf (follow file) work with file_name=/path/to/file
 set isfname-==
 
