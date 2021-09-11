@@ -51,6 +51,9 @@ set guicursor=
 " Spell settings
 set spelllang=en,pt
 
+" Wrapped lines on same indentation level as the original line
+set breakindent
+
 " Make gf (follow file) work with file_name=/path/to/file
 set isfname-==
 
