@@ -6,7 +6,7 @@
 	editor = nvim
 
 [alias]
-	tree = log --graph --pretty=oneline --abbrev-commit
+	tree = log --graph --oneline --decorate
 	acp = "!f() { git add -A && git commit -m \"$*\" && git push; }; f"
 
 [diff]
