@@ -1,9 +1,13 @@
 " Settings {{{
-syntax on
+syntax enable
 filetype plugin indent on
+
 set omnifunc=syntaxcomplete#Complete
-set nomodeline hidden nocompatible encoding=utf-8 fileformats=unix,dos,mac
-set mouse=a scrolloff=5 updatetime=100 ttimeoutlen=0 shortmess=filmnrwxaoOtT
+set nomodeline nocompatible hidden confirm
+set encoding=utf-8 fileformats=unix,dos,mac
+set updatetime=100 ttimeoutlen=0
+set mouse=a
+
 if !has("nvim")
 	" Set mouse mode
 	set ttymouse=xterm2
@@ -41,18 +45,15 @@ else
 endif
 
 " Indentation settings
-set autoindent copyindent shiftround smarttab
+set autoindent copyindent shiftround smarttab breakindent
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set ruler showcmd linebreak laststatus=0 fillchars+=vert:│ colorcolumn=80
-set guicursor=
+set ruler showcmd linebreak laststatus=0 scrolloff=5 colorcolumn=80
+set shortmess=filmnrwxaoOtT fillchars+=vert:│ guicursor=
 
 " Spell settings
 set spelllang=en,pt
-
-" Wrapped lines on same indentation level as the original line
-set breakindent
 
 " Diff options
 set diffopt=filler,internal,algorithm:histogram,indent-heuristic
