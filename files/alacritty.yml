@@ -15,19 +15,19 @@ scrolling:
 # Font configuration {{{
 font:
   normal:
-    family: Iosevka Term SS12
+    family: Iosevka Term
     style: Regular
 
   bold:
-    family: Iosevka Term SS12
+    family: Iosevka Term
     style: Bold
 
   italic:
-    family: Iosevka Term SS12
+    family: Iosevka Term
     style: Italic
 
   bold_italic:
-    family: Iosevka Term SS12
+    family: Iosevka Term
     style: Bold Italic
 
   size: 14.0
