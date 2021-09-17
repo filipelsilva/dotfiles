@@ -8,7 +8,7 @@ export FZF_DEFAULT_OPTS=" \
 --color='fg+:#ebdbb2'
 --layout=reverse-list \
 --info=inline \
---height=10% \
+--height=70% \
 --multi \
 --bind '?:toggle-preview' \
 "
