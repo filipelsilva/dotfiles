@@ -26,8 +26,8 @@ function! PackInit() abort
 	call minpac#add('kabouzeid/nvim-lspinstall')
 
 	" Completion sources
-	call minpac#add('hrsh7th/cmp-vsnip')
 	call minpac#add('hrsh7th/vim-vsnip')
+	call minpac#add('hrsh7th/cmp-vsnip')
 	call minpac#add('hrsh7th/cmp-buffer')
 	call minpac#add('hrsh7th/cmp-path')
 	call minpac#add('hrsh7th/cmp-nvim-lsp')
@@ -103,8 +103,8 @@ cmp.setup({
 	mapping = {
 		['<c-p>'] = cmp.mapping.select_prev_item(),
 		['<c-n>'] = cmp.mapping.select_next_item(),
-		['<c-y>'] = cmp.mapping.confirm({select = true}),
-		['<cr>'] = cmp.mapping.confirm({select = true}),
+		['<c-y>'] = cmp.mapping.confirm({ select = true }),
+		['<cr>'] = cmp.mapping.confirm({ select = true }),
 	},
 	sources = {
 		{ name = 'nvim_lsp' },
