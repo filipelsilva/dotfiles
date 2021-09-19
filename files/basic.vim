@@ -70,7 +70,7 @@ command! TrimWhitespace call TrimWhitespace()
 " Keymaps {{{
 
 " <leader> key bind
-let mapleader = "\<space>"
+let mapleader = "\<Space>"
 
 " Easier completion menus
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -182,7 +182,7 @@ nnoremap <leader>P "+P
 vnoremap <leader>P "+P
 
 " Copy the whole working file to the clipboard
-nnoremap <leader><leader>y <cmd>%yank+<CR>
+nnoremap <leader><leader>y <Cmd>%yank+<CR>
 
 " Output the current syntax group
 nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'

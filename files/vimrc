@@ -47,8 +47,8 @@ set runtimepath+=$HOME/.fzf
 let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
 let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
 nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<CR>"
-nnoremap <silent> <leader>r <cmd>Rg<CR>
-nnoremap <silent> <leader>j <cmd>Buffers<CR>
+nnoremap <silent> <leader>r <Cmd>Rg<CR>
+nnoremap <silent> <leader>j <Cmd>Buffers<CR>
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<C-\><C-n>"
 tnoremap <expr> <C-j> (&filetype == "fzf") ? "<C-n>" : "<C-j>"
 tnoremap <expr> <C-k> (&filetype == "fzf") ? "<C-p>" : "<C-k>"
