@@ -15,6 +15,7 @@ These consist of configurations for the following:
 * (Neo)Vim
 * Tmux
 * Zsh
+* i3
 * Git
 
 ## 2. Installers
