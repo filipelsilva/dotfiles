@@ -69,7 +69,7 @@ command! TrimWhitespace call TrimWhitespace()
 
 " Keymaps {{{
 
-" <leader> key bind
+" <Leader> key bind
 let mapleader = "\<Space>"
 
 " Easier completion menus
@@ -87,10 +87,10 @@ tnoremap <C-k> <C-\><C-n><C-w><C-k>
 tnoremap <C-l> <C-\><C-n><C-w><C-l>
 
 " Toggle numbers
-nnoremap <silent> <leader>n :set invnumber invrelativenumber<CR>
+nnoremap <silent> <Leader>n :set invnumber invrelativenumber<CR>
 
 " Toggle spell
-nnoremap <silent> <leader>o :set invspell<CR>
+nnoremap <silent> <Leader>o :set invspell<CR>
 
 " Buffer jumping
 nnoremap <silent> gb :bnext<CR>
@@ -100,10 +100,10 @@ nnoremap <silent> gB :bprev<CR>
 inoremap <C-^> <Esc><C-^>
 
 " Replace word under cursor (',': wherever | ';': word only)
-nnoremap <leader>s :%s/<C-r><C-w>//g<Left><Left>
-vnoremap <leader>s "zy<Esc>:%s/<C-r>z//g<Left><Left>
-nnoremap <leader>S :%s/\<<C-r><C-w>\>//g<Left><Left>
-vnoremap <leader>S "zy<Esc>:%s/\<<C-r>z\>//g<Left><Left>
+nnoremap <Leader>s :%s/<C-r><C-w>//g<Left><Left>
+vnoremap <Leader>s "zy<Esc>:%s/<C-r>z//g<Left><Left>
+nnoremap <Leader>S :%s/\<<C-r><C-w>\>//g<Left><Left>
+vnoremap <Leader>S "zy<Esc>:%s/\<<C-r>z\>//g<Left><Left>
 
 " Make Y work like D and C
 nnoremap Y y$
@@ -134,15 +134,15 @@ vnoremap . :normal.<CR>
 noremap Q !!$SHELL<CR>
 
 " Disable highlighting
-nnoremap <silent> <leader>, :nohlsearch<CR>
+nnoremap <silent> <Leader>, :nohlsearch<CR>
 
 " Open $SHELL in splits
 if has("nvim")
-	noremap <silent> <leader>t :vsplit term://$SHELL<CR>i
-	noremap <silent> <leader>T :split term://$SHELL<CR>i
+	noremap <silent> <Leader>t :vsplit term://$SHELL<CR>i
+	noremap <silent> <Leader>T :split term://$SHELL<CR>i
 else
-	noremap <silent> <leader>t :vertical terminal<CR>
-	noremap <silent> <leader>T :terminal<CR>
+	noremap <silent> <Leader>t :vertical terminal<CR>
+	noremap <silent> <Leader>T :terminal<CR>
 endif
 
 " Escape terminal mode with <Esc> and send Esc to terminal with <C-v><Esc>
@@ -150,39 +150,39 @@ tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>e :e $MYVIMRC<CR>
-nmap <silent> <leader>E :so $MYVIMRC<CR>
+nmap <silent> <Leader>e :e $MYVIMRC<CR>
+nmap <silent> <Leader>E :so $MYVIMRC<CR>
 
 " Shortcuts to use blackhole register
-nnoremap <leader><leader>d "_d
-vnoremap <leader><leader>d "_d
-nnoremap <leader><leader>D "_D
-vnoremap <leader><leader>D "_D
-nnoremap <leader><leader>c "_c
-vnoremap <leader><leader>c "_c
-nnoremap <leader><leader>C "_C
-vnoremap <leader><leader>C "_C
-nnoremap <leader><leader>x "_x
-vnoremap <leader><leader>x "_x
-nnoremap <leader><leader>X "_X
-vnoremap <leader><leader>X "_X
+nnoremap <Leader><Leader>d "_d
+vnoremap <Leader><Leader>d "_d
+nnoremap <Leader><Leader>D "_D
+vnoremap <Leader><Leader>D "_D
+nnoremap <Leader><Leader>c "_c
+vnoremap <Leader><Leader>c "_c
+nnoremap <Leader><Leader>C "_C
+vnoremap <Leader><Leader>C "_C
+nnoremap <Leader><Leader>x "_x
+vnoremap <Leader><Leader>x "_x
+nnoremap <Leader><Leader>X "_X
+vnoremap <Leader><Leader>X "_X
 
 " Copy/Paste to/from the clipboard
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
-nnoremap <leader>Y "+y$
-vnoremap <leader>Y "+y$
-nnoremap <leader>d "+d
-vnoremap <leader>d "+d
-nnoremap <leader>D "+D
-vnoremap <leader>D "+D
-nnoremap <leader>p "+p
-vnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>P "+P
+nnoremap <Leader>y "+y
+vnoremap <Leader>y "+y
+nnoremap <Leader>Y "+y$
+vnoremap <Leader>Y "+y$
+nnoremap <Leader>d "+d
+vnoremap <Leader>d "+d
+nnoremap <Leader>D "+D
+vnoremap <Leader>D "+D
+nnoremap <Leader>p "+p
+vnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
+vnoremap <Leader>P "+P
 
 " Copy the whole working file to the clipboard
-nnoremap <leader><leader>y <Cmd>%yank+<CR>
+nnoremap <Leader><Leader>y <Cmd>%yank+<CR>
 
 " Output the current syntax group
 nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
