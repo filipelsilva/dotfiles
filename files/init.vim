@@ -26,6 +26,7 @@ function! PackInit() abort
 	call minpac#add('kabouzeid/nvim-lspinstall')
 
 	" Completion sources
+	call minpac#add('hrsh7th/cmp-vsnip')
 	call minpac#add('hrsh7th/vim-vsnip')
 	call minpac#add('hrsh7th/cmp-buffer')
 	call minpac#add('hrsh7th/cmp-path')
@@ -107,6 +108,7 @@ cmp.setup({
     },
     sources = {
 		{ name = 'nvim_lsp' },
+		{ name = 'vsnip' },
 		{ name = 'buffer' },
 		{ name = 'path' },
     },
