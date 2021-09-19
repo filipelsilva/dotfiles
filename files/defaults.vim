@@ -61,7 +61,7 @@ set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 " Make gf (follow file) work with file_name=/path/to/file
 set isfname-==
 
-" Don't use octal for <c-x> and <c-a>
+" Don't use octal for <C-x> and <C-a>
 set nrformats=bin,hex
 " }}}
 
@@ -85,37 +85,37 @@ command! TrimWhitespace call TrimWhitespace()
 let mapleader = "\<space>"
 
 " Easier completion menus
-inoremap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Easier navigation
-nnoremap <c-h> <c-w><c-h>
-nnoremap <c-j> <c-w><c-j>
-nnoremap <c-k> <c-w><c-k>
-nnoremap <c-l> <c-w><c-l>
-tnoremap <c-h> <c-\><c-n><c-w><c-h>
-tnoremap <c-j> <c-\><c-n><c-w><c-j>
-tnoremap <c-k> <c-\><c-n><c-w><c-k>
-tnoremap <c-l> <c-\><c-n><c-w><c-l>
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+tnoremap <C-h> <C-\><C-n><C-w><C-h>
+tnoremap <C-j> <C-\><C-n><C-w><C-j>
+tnoremap <C-k> <C-\><C-n><C-w><C-k>
+tnoremap <C-l> <C-\><C-n><C-w><C-l>
 
 " Toggle numbers
-nnoremap <silent> <leader>n :set invnumber invrelativenumber<cr>
+nnoremap <silent> <leader>n :set invnumber invrelativenumber<CR>
 
 " Toggle spell
-nnoremap <silent> <leader>o :set invspell<cr>
+nnoremap <silent> <leader>o :set invspell<CR>
 
 " Buffer jumping
-nnoremap <silent> gb :bnext<cr>
-nnoremap <silent> gB :bprev<cr>
+nnoremap <silent> gb :bnext<CR>
+nnoremap <silent> gB :bprev<CR>
 
 " Buffer jumping part 2: jump to last edited buffer in insert mode
-inoremap <c-^> <esc><c-^>
+inoremap <C-^> <Esc><C-^>
 
 " Replace word under cursor (',': wherever | ';': word only)
-nnoremap <leader>s :%s/<c-r><c-w>//g<left><left>
-vnoremap <leader>s "zy<esc>:%s/<c-r>z//g<left><left>
-nnoremap <leader>S :%s/\<<c-r><c-w>\>//g<left><left>
-vnoremap <leader>S "zy<esc>:%s/\<<c-r>z\>//g<left><left>
+nnoremap <leader>s :%s/<C-r><C-w>//g<Left><Left>
+vnoremap <leader>s "zy<Esc>:%s/<C-r>z//g<Left><Left>
+nnoremap <leader>S :%s/\<<C-r><C-w>\>//g<Left><Left>
+vnoremap <leader>S "zy<Esc>:%s/\<<C-r>z\>//g<Left><Left>
 
 " Make Y work like D and C
 nnoremap Y y$
@@ -126,44 +126,44 @@ nnoremap N Nzzzv
 nnoremap J mzJ`z
 
 " Undo break points (add or remove more, according to needs)
-inoremap , ,<c-g>u
-inoremap . .<c-g>u
-inoremap ! !<c-g>u
-inoremap ? ?<c-g>u
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
 
 " Add <number>[jk] to jumplists
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 
 " Move blocks of code
-vnoremap J :m '>+1<cr>gv=gv
-vnoremap K :m '<-2<cr>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Make . to work with visually selected lines
-vnoremap . :normal.<cr>
+vnoremap . :normal.<CR>
 
 " Run line as command, output here
-noremap Q !!$SHELL<cr>
+noremap Q !!$SHELL<CR>
 
 " Disable highlighting
-nnoremap <silent> <leader>, :nohlsearch<cr>
+nnoremap <silent> <leader>, :nohlsearch<CR>
 
 " Open $SHELL in splits
 if has("nvim")
-	noremap <silent> <leader>t :vsplit term://$SHELL<cr>i
-	noremap <silent> <leader>T :split term://$SHELL<cr>i
+	noremap <silent> <leader>t :vsplit term://$SHELL<CR>i
+	noremap <silent> <leader>T :split term://$SHELL<CR>i
 else
-	noremap <silent> <leader>t :vertical terminal<cr>
-	noremap <silent> <leader>T :terminal<cr>
+	noremap <silent> <leader>t :vertical terminal<CR>
+	noremap <silent> <leader>T :terminal<CR>
 endif
 
-" Escape terminal mode with <esc> and send esc to terminal with <c-v><esc>
-tnoremap <esc> <c-\><c-n>
-tnoremap <c-v><esc> <esc>
+" Escape terminal mode with <Esc> and send Esc to terminal with <C-v><Esc>
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-v><Esc> <Esc>
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>e :e $MYVIMRC<cr>
-nmap <silent> <leader>E :so $MYVIMRC<cr>
+nmap <silent> <leader>e :e $MYVIMRC<CR>
+nmap <silent> <leader>E :so $MYVIMRC<CR>
 
 " Shortcuts to use blackhole register
 nnoremap <leader><leader>d "_d
@@ -194,10 +194,10 @@ nnoremap <leader>P "+P
 vnoremap <leader>P "+P
 
 " Copy the whole working file to the clipboard
-nnoremap <leader><leader>y <cmd>%yank+<cr>
+nnoremap <leader><leader>y <cmd>%yank+<CR>
 
 " Output the current syntax group
-nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 " }}}

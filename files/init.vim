@@ -57,12 +57,12 @@ autocmd BufRead * DetectIndent
 set runtimepath+=$HOME/.fzf
 let g:fzf_action = {'ctrl-t':'tab split', 'ctrl-s':'split', 'ctrl-v':'vsplit'}
 let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
-nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
-nnoremap <silent> <leader>r <cmd>Rg<cr>
-nnoremap <silent> <leader>j <cmd>Buffers<cr>
-tnoremap <expr> <esc> (&filetype == "fzf") ? "<esc>" : "<c-\><c-n>"
-tnoremap <expr> <c-j> (&filetype == "fzf") ? "<c-n>" : "<c-j>"
-tnoremap <expr> <c-k> (&filetype == "fzf") ? "<c-p>" : "<c-k>"
+nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<CR>"
+nnoremap <silent> <leader>r <cmd>Rg<CR>
+nnoremap <silent> <leader>j <cmd>Buffers<CR>
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<C-\><C-n>"
+tnoremap <expr> <C-j> (&filetype == "fzf") ? "<C-n>" : "<C-j>"
+tnoremap <expr> <C-k> (&filetype == "fzf") ? "<C-p>" : "<C-k>"
 
 " LSP {{{
 lua << EOF
@@ -101,10 +101,10 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		['<c-p>'] = cmp.mapping.select_prev_item(),
-		['<c-n>'] = cmp.mapping.select_next_item(),
-		['<c-y>'] = cmp.mapping.confirm({ select = true }),
-		['<cr>'] = cmp.mapping.confirm({ select = true }),
+		['<C-p>'] = cmp.mapping.select_prev_item(),
+		['<C-n>'] = cmp.mapping.select_next_item(),
+		['<C-y>'] = cmp.mapping.confirm({ select = true }),
+		['<CR>'] = cmp.mapping.confirm({ select = true }),
 	},
 	sources = {
 		{ name = 'nvim_lsp' },
