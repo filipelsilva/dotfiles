@@ -68,25 +68,25 @@ tnoremap <expr> <c-k> (&filetype == "fzf") ? "<c-p>" : "<c-k>"
 lua << EOF
 -- Snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+--capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Server setup
 function setup_servers()
-    require'lspinstall'.setup()
-    local servers = require'lspinstall'.installed_servers()
-    for _, server in pairs(servers) do
+	require'lspinstall'.setup()
+	local servers = require'lspinstall'.installed_servers()
+	for _, server in pairs(servers) do
 		require'lspconfig'[server].setup{
 			capabilities = capabilities,
 		}
-    end
+	end
 end
 
 setup_servers()
 
 require'lspinstall'.post_install_hook = function()
-    setup_servers()
-    vim.cmd("bufdo e")
+	setup_servers()
+	vim.cmd("bufdo e")
 end
 EOF
 " }}}
@@ -95,23 +95,23 @@ EOF
 lua << EOF
 local cmp = require'cmp'
 cmp.setup({
-    snippet = {
+	snippet = {
 		expand = function(args)
 			vim.fn["vsnip#anonymous"](args.body)
 		end,
-    },
-    mapping = {
+	},
+	mapping = {
 		['<c-p>'] = cmp.mapping.select_prev_item(),
 		['<c-n>'] = cmp.mapping.select_next_item(),
-		['<c-y>'] = cmp.mapping.confirm({ select = true }),
-		['<cr>'] = cmp.mapping.confirm({ select = true }),
-    },
-    sources = {
+		['<c-y>'] = cmp.mapping.confirm({select = true}),
+		['<cr>'] = cmp.mapping.confirm({select = true}),
+	},
+	sources = {
 		{ name = 'nvim_lsp' },
 		{ name = 'vsnip' },
 		{ name = 'buffer' },
 		{ name = 'path' },
-    },
+	},
 })
 EOF
 " }}}
