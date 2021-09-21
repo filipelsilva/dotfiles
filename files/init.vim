@@ -104,7 +104,7 @@ EOF
 nnoremap <silent> <expr> <leader>F (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
 nnoremap <silent> <leader>R <cmd>Telescope live_grep<cr>
 nnoremap <silent> <leader>J <cmd>Telescope buffers<cr>
-" " }}}
+" }}}
 
 " LSP {{{
 lua << EOF
