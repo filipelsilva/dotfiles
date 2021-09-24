@@ -4,8 +4,47 @@
 # i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-# System startup and other configs {{{
+# Variables {{{
+
+# Modifier key
+set $mod Mod4
+
+# Others
 set $wallpaper $HOME/dotfiles/wallpapers/arch.webp
+
+# Modes
+set $mode_loginopts "(e)xit i3, (l)ock, (r)eboot, (s)hutdown" 
+set $mode_layout "[layout] (p)t, (u)s, us-(i)ntl, us-(a)ltgr-intl" 
+set $mode_printscreen "[printscreen] (s)election, (a)ctive window, (w)hole screen" 
+set $mode_resize "resize"
+
+# Workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Colors
+set $background #1d2021
+set $foreground #ebdbb2
+set $black      #282828
+set $red        #cc241d
+set $green      #98971a
+set $yellow     #d79921
+set $blue       #458588
+set $magenta    #b16286
+set $cyan       #689d6a
+set $white      #a89984
+
+# }}}
+
+# System startup and other configs {{{
 
 # Detect monitors and apply wallpaper
 exec_always --no-startup-id autorandr --change --skip-options crtc && feh --bg-fill $wallpaper
@@ -21,7 +60,7 @@ exec_always --no-startup-id xset s off && xset -b -dpms
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color=1d2021
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color=$background
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -48,25 +87,11 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 # }}}
 
-# Modifier key
-set $mod Mod4
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Iosevka 12
 
 # Theme {{{
-set $background #1d2021
-set $foreground #ebdbb2
-set $black      #282828
-set $red        #cc241d
-set $green      #98971a
-set $yellow     #d79921
-set $blue       #458588
-set $magenta    #b16286
-set $cyan       #689d6a
-set $white      #a89984
-
 bar {
         tray_output primary
         tray_padding 0
@@ -186,19 +211,6 @@ bindsym $mod+Shift+b move container to workspace back_and_forth
 # Move the whole workspace to the next output
 bindsym $mod+x move workspace to output right
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-
 # Switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -231,8 +243,6 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Shift+Mod1+r restart
 
 # MODE: Exit i3, lock, reboot, shutdown {{{
-set $mode_loginopts "(e)xit i3, (l)ock, (r)eboot, (s)hutdown" 
-
 mode $mode_loginopts {
         bindsym e exec --no-startup-id i3-msg exit
         bindsym l exec --no-startup-id loginctl lock-session; mode "default"
@@ -248,8 +258,6 @@ bindsym $mod+q mode $mode_loginopts
 # }}}
 
 # MODE: Change keyboard layout {{{
-set $mode_layout "[layout] (p)t, (u)s, us-(i)ntl, us-(a)ltgr-intl" 
-
 mode $mode_layout {
         bindsym p exec setxkbmap -layout pt; mode "default"
         bindsym u exec setxkbmap -layout us; mode "default"
@@ -265,8 +273,6 @@ bindsym $mod+p mode $mode_layout
 # }}}
 
 # MODE: Printscreen {{{
-set $mode_printscreen "[printscreen] (s)election, (a)ctive window, (w)hole screen" 
-
 mode $mode_printscreen {
         bindsym s exec --no-startup-id maim --select "$HOME/Pictures/$(date).png"; mode "default"
         bindsym a exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/$(date).png"; mode "default"
@@ -281,8 +287,6 @@ bindsym Print mode $mode_printscreen
 # }}}
 
 # MODE: Resize window {{{
-set $mode_resize "resize"
-
 mode $mode_resize {
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
