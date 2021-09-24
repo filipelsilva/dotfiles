@@ -40,7 +40,10 @@ set termguicolors
 colorscheme gruvbox8_hard
 
 " DetectIndent
-autocmd BufRead * DetectIndent
+augroup DetectIndent
+	autocmd!
+	autocmd BufRead * DetectIndent
+augroup END
 
 " Fzf
 set runtimepath+=$HOME/.fzf

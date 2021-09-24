@@ -67,6 +67,14 @@ command! TrimWhitespace call TrimWhitespace()
 
 " }}}
 
+" Autocommands {{{
+augroup vimrc
+	autocmd!
+	" Go to last edited position on open file
+	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup END
+" }}}
+
 " Keymaps {{{
 
 " <Leader> key bind
@@ -90,7 +98,7 @@ tnoremap <C-l> <C-\><C-n><C-w><C-l>
 nnoremap <silent> <Leader>n :set invnumber invrelativenumber<CR>
 
 " Toggle spell
-nnoremap <silent> <Leader>o :set invspell<CR>
+nnoremap <silent> <Leader>o :setlocal invspell<CR>
 
 " Buffer jumping
 nnoremap <silent> gb :bnext<CR>
