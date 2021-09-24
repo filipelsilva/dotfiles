@@ -31,8 +31,8 @@ command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
 " }}}
 
 " Colorscheme
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
 set cursorlineopt=number
 set cursorline
 set background=dark
