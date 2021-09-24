@@ -13,9 +13,9 @@ set $mod Mod4
 set $wallpaper $HOME/dotfiles/wallpapers/arch.webp
 
 # Modes
-set $mode_loginopts "(e)xit i3, (l)ock, (r)eboot, (s)hutdown" 
-set $mode_layout "[layout] (p)t, (u)s, us-(i)ntl, us-(a)ltgr-intl" 
-set $mode_printscreen "[printscreen] (s)election, (a)ctive window, (w)hole screen" 
+set $mode_loginopts "(e)xit i3, (l)ock, (r)eboot, (s)hutdown"
+set $mode_layout "[layout] (p)t, (u)s, us-(i)ntl, us-(a)ltgr-intl"
+set $mode_printscreen "[printscreen] (s)election, (a)ctive window, (w)hole screen"
 set $mode_resize "resize"
 
 # Colors
@@ -254,7 +254,7 @@ mode $mode_loginopts {
         bindsym $mod+q mode "default"
 }
 
-bindsym $mod+q mode $mode_loginopts 
+bindsym $mod+q mode $mode_loginopts
 # }}}
 
 # MODE: Change keyboard layout {{{
@@ -269,7 +269,7 @@ mode $mode_layout {
         bindsym $mod+p mode "default"
 }
 
-bindsym $mod+p mode $mode_layout 
+bindsym $mod+p mode $mode_layout
 # }}}
 
 # MODE: Printscreen {{{
@@ -283,7 +283,7 @@ mode $mode_printscreen {
         bindsym Print mode "default"
 }
 
-bindsym Print mode $mode_printscreen 
+bindsym Print mode $mode_printscreen
 # }}}
 
 # MODE: Resize window {{{
