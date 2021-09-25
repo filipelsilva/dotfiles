@@ -87,35 +87,6 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 # }}}
 
-# Theme {{{
-bar {
-        tray_output primary
-        tray_padding 0
-        position bottom
-
-        status_command i3status # config at $HOME/dotfiles/files/i3statusconfig
-
-        colors {
-                background $background
-                statusline $foreground
-                separator  $white
-
-                # border|background|text
-                focused_workspace  $blue $blue $black
-                active_workspace   $magenta $magenta $black
-                inactive_workspace $black $black $white
-                urgent_workspace   $red $red $black
-        }
-}
-
-# Container colors
-# border|background|text|indicator|child_border
-client.focused          $blue $blue $black $black $blue
-client.focused_inactive $magenta $magenta $black $black $magenta
-client.unfocused        $black $black $white $black $black
-client.urgent           $red $red $black $black $red
-# }}}
-
 # Keybinds and settings {{{
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -240,6 +211,35 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+# }}}
+
+# Theme {{{
+bar {
+        tray_output primary
+        tray_padding 0
+        position bottom
+
+        status_command i3status # config at $HOME/dotfiles/files/i3statusconfig
+
+        colors {
+                background $background
+                statusline $foreground
+                separator  $white
+
+                # border|background|text
+                focused_workspace  $blue $blue $black
+                active_workspace   $magenta $magenta $black
+                inactive_workspace $black $black $white
+                urgent_workspace   $red $red $black
+        }
+}
+
+# Container colors
+# border|background|text|indicator|child_border
+client.focused          $blue $blue $black $black $blue
+client.focused_inactive $magenta $magenta $black $black $magenta
+client.unfocused        $black $black $white $black $black
+client.urgent           $red $red $black $black $red
 # }}}
 
 # MODE: Exit i3, lock, reboot, shutdown {{{
