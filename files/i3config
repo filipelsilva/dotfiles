@@ -175,7 +175,13 @@ bindsym $mod+Shift+Right move right
 
 # Workspaces {{{
 
-# Move more quickly between workspaces
+# Move focused window to scratchpad
+bindsym $mod+equal move scratchpad
+
+# Toggle/Cycle through scratchpad windows
+bindsym $mod+minus scratchpad show
+
+# Move between workspaces
 bindsym $mod+Tab workspace next
 
 # Use $mod+<current workspace number> to switch back to previous workspace
