@@ -10,7 +10,7 @@
 set $mod Mod4
 
 # Others
-set $wallpaper $HOME/dotfiles/wallpapers/arch.webp
+set $wallpaper $HOME/dotfiles/wallpapers/arch-gruvbox.svg
 
 # Modes
 set $mode_loginopts "(e)xit i3, (l)ock, (r)eboot, (s)hutdown"
@@ -47,7 +47,7 @@ set $ws10 "10"
 # System startup and other configs {{{
 
 # Detect monitors and apply wallpaper
-exec_always --no-startup-id autorandr --change --skip-options crtc && feh --bg-fill $wallpaper
+exec_always --no-startup-id autorandr --change --skip-options crtc && feh --conversion-timeout 1 --bg-fill $wallpaper
 
 # Get maximum brightness (as I change between one and two monitor setups, this is annoying to deal with)
 exec --no-startup-id brightnessctl set 100%
