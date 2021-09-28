@@ -62,7 +62,7 @@ alias v=nvim
 alias bv="nvim -u $HOME/dotfiles/files/basic.vim"
 
 # Ls aliases
-alias lt="tree -L 2"
+alias lt="tree -L 2" # -C"
 alias ls="ls -CFN" # --color=auto"
 alias lsa="ls -A"
 alias l="ls -lh"
