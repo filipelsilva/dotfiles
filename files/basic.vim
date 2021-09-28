@@ -29,6 +29,9 @@ set ignorecase smartcase incsearch hlsearch
 " Completion menu settings
 set wildmenu wildmode=longest:full,full completeopt=menuone,noinsert,noselect
 
+" Splits to the right and bottom
+set splitright splitbelow
+
 " Backspace settings
 set backspace=indent,eol,start
 
