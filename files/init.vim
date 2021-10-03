@@ -72,6 +72,7 @@ let g:fzf_action = {'ctrl-t': 'tab split', 'ctrl-s': 'split', 'ctrl-v': 'vsplit'
 let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
 nnoremap <silent> <expr> <Leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<CR>"
 nnoremap <silent> <Leader>r <Cmd>Rg<CR>
+nnoremap <silent> <Leader>h <Cmd>History<CR>
 nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<C-\><C-n>"
 tnoremap <expr> <C-j> (&filetype == "fzf") ? "<C-n>" : "<C-j>"
