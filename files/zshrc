@@ -13,16 +13,16 @@ export FZF_DEFAULT_OPTS=" \
 --bind '?:toggle-preview' \
 "
 
-export FZF_DEFAULT_COMMAND="fd --hidden"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
 _fzf_compgen_path() {
-    fd . "$1"
+	fd --hidden --exclude ".git" . "$1"
 }
 
 _fzf_compgen_dir() {
-    fd --type d . "$1"
+	fd --type d --hidden --exclude ".git" . "$1"
 }
 
 # }}}
