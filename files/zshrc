@@ -29,9 +29,6 @@ _fzf_compgen_dir() {
 
 # Aliases {{{
 
-# Open folders/files as if you were in the file manager
-alias open="xdg-open"
-
 # Zsh configuration and reload
 alias zshsource="source $HOME/.zshrc && echo 'sourced zshrc'"
 alias zshconfig="nvim $HOME/.zshrc && zshsource"
@@ -103,6 +100,16 @@ function up() {
 
 	echo "$HOME/.zgen" && zgen selfupdate && zgen update
 	echo "update tldr cache" && tldr --update
+}
+
+# [Open] files
+function open() {
+	if [ "$#" -eq 1 ]; then
+		xdg-open $1 &
+	else
+		local file="$(fzf --no-multi)"
+		[ -n $file ] && xdg-open $file &
+	fi
 }
 
 # [Take]: mkdir directory and cd to it
