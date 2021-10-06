@@ -57,6 +57,6 @@ tnoremap <expr> <C-j> (&filetype == "fzf") ? "<C-n>" : "<C-j>"
 tnoremap <expr> <C-k> (&filetype == "fzf") ? "<C-p>" : "<C-k>"
 
 " Completion
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 let g:coc_snippet_next = "<Tab>"
 let g:coc_snippet_prev = "<S-Tab>"
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
