@@ -21,16 +21,6 @@ function! PackInit() abort
 	" Fzf
 	call minpac#add('junegunn/fzf.vim')
 
-	" Telescope requirements
-	call minpac#add('nvim-lua/popup.nvim')
-	call minpac#add('nvim-lua/plenary.nvim')
-
-	" Make Telescope use fuzzy finder, like Fzf
-	call minpac#add('nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'})
-
-	" Telescope
-	call minpac#add('nvim-telescope/telescope.nvim')
-
 	" Lsp and autoinstall
 	call minpac#add('neovim/nvim-lspconfig')
 	call minpac#add('kabouzeid/nvim-lspinstall')
@@ -44,10 +34,6 @@ function! PackInit() abort
 
 	" Completion
 	call minpac#add('hrsh7th/nvim-cmp')
-
-	" Treesitter
-	call minpac#add('nvim-treesitter/nvim-treesitter')
-	call minpac#add('nvim-treesitter/playground')
 
 endfunction
 
@@ -76,38 +62,6 @@ nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<C-\><C-n>"
 tnoremap <expr> <C-j> (&filetype == "fzf") ? "<C-n>" : "<C-j>"
 tnoremap <expr> <C-k> (&filetype == "fzf") ? "<C-p>" : "<C-k>"
-
-" Telescope {{{
-lua << EOF
-local actions = require('telescope.actions')
-require('telescope').setup {
-	defaults = {
-		mappings = {
-			i = {
-				["<c-s>"] = actions.select_horizontal,
-				["<c-x>"] = false,
-			},
-			n = {
-				["<c-s>"] = actions.select_horizontal,
-				["<c-x>"] = false,
-			},
-		},
-	},
-	extensions = {
-		fzf = {
-			fuzzy = true,
-			override_generic_sorter = true,
-			override_file_sorter = true,
-			case_mode = "smart_case",
-		},
-	},
-}
-require('telescope').load_extension('fzf')
-EOF
-nnoremap <silent> <expr> <leader>F (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
-nnoremap <silent> <leader>R <cmd>Telescope live_grep<cr>
-nnoremap <silent> <leader>J <cmd>Telescope buffers<cr>
-" }}}
 
 " LSP {{{
 lua << EOF
@@ -162,22 +116,4 @@ imap <expr> <Tab>   pumvisible() ? "<C-n>" : vsnip#jumpable(1)  ? "<Plug>(vsnip-
 imap <expr> <S-Tab> pumvisible() ? "<C-p>" : vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"
 smap <expr> <Tab>   vsnip#jumpable(1)  ? "<Plug>(vsnip-jump-next)" : "<Tab>"
 smap <expr> <S-Tab> vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"
-" }}}
-
-" Treesitter {{{
-lua << EOF
-require'nvim-treesitter.configs'.setup{
-	-- ensure_installed = "maintained",
-	highlight = {
-		enable = false,
-		additional_vim_regex_highlighting = false,
-	},
-	incremental_selection = {
-		enable = false,
-	},
-	indent = {
-		enable = false,
-	},
-}
-EOF
 " }}}
