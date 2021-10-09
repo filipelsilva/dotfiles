@@ -28,14 +28,6 @@ _fzf_compgen_dir() {
 
 # Aliases {{{
 
-# Zsh configuration and reload
-alias zshsource="source $HOME/.zshrc && echo 'sourced zshrc'"
-alias zshconfig="nvim $HOME/.zshrc && zshsource"
-
-# i3 configuration and reload
-alias i3source="i3-msg restart"
-alias i3config="nvim $HOME/.config/i3/config && i3source"
-
 # Basic commands
 alias ..="cd .."
 alias -- -="cd -"
@@ -67,6 +59,13 @@ alias ssh="TERM=xterm-256color ssh"
 alias psfzf="ps aux | fzf ${FZF_DEFAULT_OPTS} --header='[name:process]'"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 
+# Zsh configuration and reload
+alias zshsource="source $HOME/.zshrc && echo 'sourced zshrc'"
+alias zshconfig="nvim $HOME/.zshrc && zshsource"
+
+# i3 configuration and reload
+alias i3source="i3-msg restart"
+alias i3config="nvim $HOME/.config/i3/config && i3source"
 # }}}
 
 # Functions {{{
