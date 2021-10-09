@@ -103,10 +103,10 @@ function up() {
 # [Open] files
 function open() {
 	if [ "$#" -eq 1 ]; then
-		xdg-open $1 &
+		(xdg-open $1 &)
 	else
 		local file="$(fzf --no-multi)"
-		[ -n $file ] && xdg-open $file &
+		[ -n $file ] && (xdg-open $file &)
 	fi
 }
 
