@@ -39,7 +39,6 @@ alias diff="diff --color=auto"
 alias grep="grep --color=auto"
 alias t=tmux
 alias v=nvim
-alias bv="nvim -u $HOME/dotfiles/files/basic.vim"
 
 # Ls aliases
 alias lt="tree -L 2" # -C"
