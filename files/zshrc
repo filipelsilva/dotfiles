@@ -10,7 +10,7 @@ export FZF_DEFAULT_OPTS=" \
 --info=inline \
 --height=70% \
 --multi \
---bind '?:toggle-preview' \
+--bind '?:toggle-preview,ctrl-a:toggle-all' \
 "
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'

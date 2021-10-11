@@ -52,17 +52,30 @@ augroup DetectIndent
 	autocmd BufRead * DetectIndent
 augroup END
 
-" Fzf
+" Fzf {{{
 set runtimepath+=$HOME/.fzf
-let g:fzf_action = {'ctrl-t': 'tab split', 'ctrl-s': 'split', 'ctrl-v': 'vsplit'}
-let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.7}}
+
+function! s:build_quickfix_list(lines)
+	call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+	copen
+	cc
+endfunction
+
+let g:fzf_action = {
+	\ 'ctrl-q': function('s:build_quickfix_list'),
+	\ 'ctrl-t': 'tab split',
+	\ 'ctrl-x': 'split',
+	\ 'ctrl-v': 'vsplit' }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
 let g:fzf_buffers_jump = 1
+
 nnoremap <silent> <expr> <Leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<CR>"
 nnoremap <silent> <Leader>r <Cmd>Rg<CR>
 nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<C-\><C-n>"
 tnoremap <expr> <C-j> (&filetype == "fzf") ? "<C-n>" : "<C-j>"
 tnoremap <expr> <C-k> (&filetype == "fzf") ? "<C-p>" : "<C-k>"
+" }}}
 
 " LSP {{{
 lua << EOF
