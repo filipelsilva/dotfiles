@@ -113,8 +113,6 @@ bindsym $mod+e exec thunar
 
 # Start dmenu
 bindsym $mod+d exec --no-startup-id rofi -theme gruvbox-dark-hard -font "Iosevka 12" -show run
-# bindsym $mod+d exec --no-startup-id dmenu_run -i -fn "Iosevka-12"\
-#         -nf '$white' -nb '$background' -sf '$black' -sb '$blue'
 
 # Splits
 bindsym $mod+v split h
