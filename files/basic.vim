@@ -118,7 +118,7 @@ nnoremap <silent> gB :bprev<CR>
 " Buffer jumping part 2: jump to last edited buffer in insert mode
 inoremap <C-^> <Esc><C-^>
 
-" Replace word under cursor (',': wherever | ';': word only)
+" Replace word under cursor ('s': wherever | 'S': word only)
 nnoremap <Leader>s :%s/<C-r><C-w>//g<Left><Left>
 vnoremap <Leader>s "zy<Esc>:%s/<C-r>z//g<Left><Left>
 nnoremap <Leader>S :%s/\<<C-r><C-w>\>//g<Left><Left>
