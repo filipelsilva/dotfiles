@@ -112,11 +112,21 @@ nnoremap <silent> <Leader>n :set invnumber invrelativenumber<CR>
 nnoremap <silent> <Leader>o :setlocal invspell<CR>
 
 " Buffer jumping
-nnoremap <silent> gb :bnext<CR>
-nnoremap <silent> gB :bprev<CR>
-
-" Buffer jumping part 2: jump to last edited buffer in insert mode
+nnoremap [b :bnext<CR>
+nnoremap ]b :bprev<CR>
+nnoremap gb :bnext<CR>
+nnoremap gB :bprev<CR>
 inoremap <C-^> <Esc><C-^>
+
+" Alternative tab jumping
+nnoremap [t :tabnext<CR>
+nnoremap ]t :tabprev<CR>
+
+" Quickfix list jumping
+nnoremap ]q :cnext<CR>zz
+nnoremap [q :cprev<CR>zz
+nnoremap ]l :lnext<CR>zz
+nnoremap [l :lprev<CR>zz
 
 " Replace word under cursor ('s': wherever | 'S': word only)
 nnoremap <Leader>s :%s/<C-r><C-w>//g<Left><Left>
