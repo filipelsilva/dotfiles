@@ -45,6 +45,7 @@ command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
 set background=dark
 set termguicolors
 colorscheme gruvbox8_hard
+highlight! link EndOfBuffer Normal
 
 " DetectIndent
 augroup DetectIndent
