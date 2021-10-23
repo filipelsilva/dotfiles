@@ -266,4 +266,5 @@ fi
 
 eval "$(zoxide init zsh --cmd j)"
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+bindkey "^R" history-incremental-search-backward
 # }}}
