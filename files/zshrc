@@ -227,10 +227,16 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
+
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
+bindkey "^P" up-line-or-beginning-search
+bindkey "^N" down-line-or-beginning-search
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
+
+bindkey "^R" history-incremental-search-backward
+bindkey -M vicmd "/" history-incremental-search-backward
 # }}}
 
 # Vi-mode {{{
@@ -258,9 +264,6 @@ if ! zgen saved; then
     zgen save
 fi
 
-# Zoxide
 eval "$(zoxide init zsh --cmd j)"
-
-# Fzf
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 # }}}
