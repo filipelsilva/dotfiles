@@ -222,6 +222,17 @@ setopt hist_expire_dups_first
 setopt hist_ignore_space
 # }}}
 
+# History search {{{
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
+# }}}
+
 # Vi-mode {{{
 bindkey -v
 KEYTIMEOUT=1
@@ -244,7 +255,6 @@ export BAT_STYLE="plain"
 source "${HOME}/.zgen/zgen.zsh"
 if ! zgen saved; then
     zgen load wfxr/forgit
-    zgen load zsh-users/zsh-history-substring-search
     zgen save
 fi
 
@@ -253,11 +263,4 @@ eval "$(zoxide init zsh --cmd j)"
 
 # Fzf
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-
-# Zsh history substring search
-export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="none"
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
 # }}}
