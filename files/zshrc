@@ -87,7 +87,7 @@ function up() {
 	LOCAL=$(git rev-parse @)
 	REMOTE=$(git rev-parse @{u})
 	if [ $LOCAL != $REMOTE ]; then
-		git pull && ./install
+		git pull && ./install --all --no-update-rc 
 	else
 		echo "Already up to date."
 	fi
