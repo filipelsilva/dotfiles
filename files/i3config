@@ -50,7 +50,7 @@ set $ws10 "10"
 exec_always --no-startup-id autorandr --change --skip-options crtc && feh --conversion-timeout 1 --bg-fill $wallpaper
 
 # Redshift (f.lux alike)
-exec_always --no-startup-id redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | awk 'OFS=":" {print $3,$5}' | tr -d ',}')
+exec_always --no-startup-id redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq '.location.lat, .location.lng' | tr '\n' ':' | sed 's/:$//')
 
 # Optimus-manager
 exec_always --no-startup-id optimus-manager-qt
