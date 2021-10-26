@@ -46,11 +46,14 @@ set $ws10 "10"
 
 # System startup and other configs {{{
 
-# Detect monitors and apply wallpaper
-exec_always --no-startup-id autorandr --change --skip-options crtc && feh --conversion-timeout 1 --bg-fill $wallpaper
+# Detect monitors
+exec_always --no-startup-id autorandr --change --skip-options crtc
+
+# Apply wallpaper
+exec_always --no-startup-id feh --conversion-timeout 1 --bg-fill $wallpaper
 
 # Redshift (f.lux alike)
-exec --no-startup-id redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq '.location.lat, .location.lng' | tr '\n' ':' | sed 's/:$//')
+exec --no-startup-id pkill -9 redshift; redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq '.location.lat, .location.lng' | tr '\n' ':' | sed 's/:$//')
 
 # Optimus-manager
 exec --no-startup-id optimus-manager-qt
