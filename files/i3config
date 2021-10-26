@@ -50,13 +50,13 @@ set $ws10 "10"
 exec_always --no-startup-id autorandr --change --skip-options crtc && feh --conversion-timeout 1 --bg-fill $wallpaper
 
 # Redshift (f.lux alike)
-exec_always --no-startup-id redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq '.location.lat, .location.lng' | tr '\n' ':' | sed 's/:$//')
+exec --no-startup-id redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq '.location.lat, .location.lng' | tr '\n' ':' | sed 's/:$//')
 
 # Optimus-manager
-exec_always --no-startup-id optimus-manager-qt
+exec --no-startup-id optimus-manager-qt
 
 # Disable suspension
-exec_always --no-startup-id xset s off && xset -b -dpms
+exec --no-startup-id xset s off && xset -b -dpms
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
