@@ -142,6 +142,10 @@ nnoremap [q :cprev<CR>zz
 nnoremap ]l :lnext<CR>zz
 nnoremap [l :lprev<CR>zz
 
+" Like o and O but stays on cursor
+nnoremap <silent> ]<Space> :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
+nnoremap <silent> [<Space> :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
+
 " Replace word under cursor ('s': wherever | 'S': word only)
 nnoremap <Leader>s :%s/<C-r><C-w>//g<Left><Left>
 vnoremap <Leader>s "zy<Esc>:%s/<C-r>z//g<Left><Left>
