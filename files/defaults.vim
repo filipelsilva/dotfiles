@@ -184,6 +184,9 @@ vnoremap <Leader>w "zy<Esc>:grep! -R -I --exclude-dir={.git,.svn} "<C-r>z" .<CR>
 " Make Y work like D and C
 nnoremap Y y$
 
+" Reselect pasted text
+nnoremap gp `[v`]
+
 " Center cursor when searching or joining lines (zz: center, zv: open folds)
 nnoremap n nzzzv
 nnoremap N Nzzzv
