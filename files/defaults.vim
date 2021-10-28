@@ -71,13 +71,27 @@ set nrformats=bin,hex
 " Functions {{{
 
 " TrimWhitespace {{{
-function! TrimWhitespace()
+function! TrimWhitespace() abort
 	let l:save = winsaveview()
 	keeppatterns %s/\s\+$//e
 	call winrestview(l:save)
 endfunction
 
 command! TrimWhitespace call TrimWhitespace()
+" }}}
+
+" FocusRelativeNumbers {{{
+function! FocusRelativeNumbers(...) abort
+	if a:1 == "True"
+		if &number && mode() != "i"
+			set relativenumber
+		endif
+	else
+		if &number
+			set norelativenumber
+		endif
+	endif
+endfunction
 " }}}
 
 " }}}
@@ -94,6 +108,17 @@ augroup vimrc
 
 	" If vim window is resized, resize the splits within
 	autocmd VimResized * wincmd =
+
+augroup END
+
+augroup numbertoggle
+	autocmd!
+
+	" If buffer is in focus, enable relative numbers
+	autocmd BufEnter,FocusGained,InsertLeave,WinEnter * call FocusRelativeNumbers("True")
+
+	" If buffer gets out of focus, disable relative numbers
+	autocmd BufLeave,FocusLost,InsertEnter,WinLeave * call FocusRelativeNumbers("False")
 
 augroup END
 " }}}
