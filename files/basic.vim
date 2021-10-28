@@ -166,8 +166,8 @@ nnoremap <Leader>S :%s/\<<cword>\>//g<Left><Left>
 vnoremap <Leader>S "zy<Esc>:%s/\<<C-r>z\>//g<Left><Left>
 
 " Search word and open quickfix list
-nnoremap <leader>w :grep! -R -I --exclude-dir={.git,.svn} <cword> .<CR> <Bar> :copen<CR>
-vnoremap <leader>w "zy<Esc>:grep! -R -I --exclude-dir={.git,.svn} "<C-r>z" .<CR> <Bar> :copen<CR>
+nnoremap <Leader>w :grep! -R -I --exclude-dir={.git,.svn} <cword> .<CR> <Bar> :copen<CR>
+vnoremap <Leader>w "zy<Esc>:grep! -R -I --exclude-dir={.git,.svn} "<C-r>z" .<CR> <Bar> :copen<CR>
 
 " Make Y work like D and C
 nnoremap Y y$
@@ -188,8 +188,10 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 
 " Move blocks of code
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Make . to work with visually selected lines
 vnoremap . :normal.<CR>
