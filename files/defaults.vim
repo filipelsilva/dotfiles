@@ -66,6 +66,12 @@ set isfname-==
 
 " Don't use octal for <C-x> and <C-a>
 set nrformats=bin,hex
+
+" If rg exists, use it
+if executable("rg")
+	set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+	set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
 " }}}
 
 " Functions {{{
@@ -178,8 +184,13 @@ nnoremap <Leader>S :%s/\<<cword>\>//g<Left><Left>
 vnoremap <Leader>S "zy<Esc>:%s/\<<C-r>z\>//g<Left><Left>
 
 " Search word and open quickfix list
-nnoremap <Leader>w :grep! -R -I --exclude-dir={.git,.svn} <cword> .<CR> <Bar> :copen<CR>
-vnoremap <Leader>w "zy<Esc>:grep! -R -I --exclude-dir={.git,.svn} "<C-r>z" .<CR> <Bar> :copen<CR>
+if executable("rg")
+	nnoremap <Leader>w :grep! "<cword>" .<CR> <Bar> :copen<CR>
+	vnoremap <Leader>w "zy<Esc>:grep! "<C-r>z" .<CR> <Bar> :copen<CR>
+else
+	nnoremap <Leader>w :grep! -R -I --exclude-dir={.git,.svn} "<cword>" .<CR> <Bar> :copen<CR>
+	vnoremap <Leader>w "zy<Esc>:grep! -R -I --exclude-dir={.git,.svn} "<C-r>z" .<CR> <Bar> :copen<CR>
+endif
 
 " Make Y work like D and C
 nnoremap Y y$
