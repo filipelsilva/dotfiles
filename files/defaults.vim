@@ -230,11 +230,11 @@ nnoremap <silent> <Leader>, :nohlsearch<CR>
 
 " Open $SHELL in splits
 if has("nvim")
-	noremap <silent> <Leader>t :split term://$SHELL<CR>i
-	noremap <silent> <Leader>T :vsplit term://$SHELL<CR>i
+	noremap <silent> <Leader>t :vsplit term://$SHELL<CR>i
+	noremap <silent> <Leader>T :split term://$SHELL<CR>i
 else
-	noremap <silent> <Leader>t :terminal<CR>
-	noremap <silent> <Leader>T :vertical terminal<CR>
+	noremap <silent> <Leader>t :vertical terminal<CR>
+	noremap <silent> <Leader>T :terminal<CR>
 endif
 
 " Escape terminal mode with <Esc> and send Esc to terminal with <C-v><Esc>
