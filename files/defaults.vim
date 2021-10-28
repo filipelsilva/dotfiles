@@ -172,10 +172,14 @@ nnoremap <silent> ]<Space> :<C-u>call append(line("."),   repeat([""], v:count1)
 nnoremap <silent> [<Space> :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
 " Replace word under cursor ('s': wherever | 'S': word only)
-nnoremap <Leader>s :%s/<C-r><C-w>//g<Left><Left>
+nnoremap <Leader>s :%s/<cword>//g<Left><Left>
 vnoremap <Leader>s "zy<Esc>:%s/<C-r>z//g<Left><Left>
-nnoremap <Leader>S :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <Leader>S :%s/\<<cword>\>//g<Left><Left>
 vnoremap <Leader>S "zy<Esc>:%s/\<<C-r>z\>//g<Left><Left>
+
+" Search word and open quickfix list
+nnoremap <leader>w :grep! -R -I --exclude-dir={.git,.svn} <cword> .<CR> <Bar> :copen<CR>
+vnoremap <leader>w "zy<Esc>:grep! -R -I --exclude-dir={.git,.svn} "<C-r>z" .<CR> <Bar> :copen<CR>
 
 " Make Y work like D and C
 nnoremap Y y$
