@@ -127,8 +127,6 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Easier navigation (<C-g> shows in command bar which file it is)
-nnoremap <Tab> <C-w>w<C-g>
-nnoremap <S-Tab> <C-w>W<C-g>
 nnoremap <C-h> <C-w><C-h><C-g>
 nnoremap <C-j> <C-w><C-j><C-g>
 nnoremap <C-k> <C-w><C-k><C-g>
