@@ -55,6 +55,10 @@ exec_always --no-startup-id feh --bg-fill $wallpaper
 # Redshift (f.lux alike)
 exec_always --no-startup-id pkill -9 redshift; redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq '.location.lat, .location.lng' | tr '\n' ':' | sed 's/:$//')
 
+# Keyboard layout
+exec --no-startup-id setxkbmap -layout us -variant altgr-intl -option ctrl:swapcaps
+exec --no-startup-id xcape -e 'Control_L=Escape'
+
 # Optimus-manager
 exec --no-startup-id optimus-manager-qt
 
@@ -263,10 +267,10 @@ bindsym $mod+q mode $mode_loginopts
 
 # MODE: Change keyboard layout {{{
 mode $mode_layout {
-        bindsym p exec setxkbmap -layout pt -option ctrl:swapescape; mode "default"
-        bindsym u exec setxkbmap -layout us -option ctrl:swapescape; mode "default"
-        bindsym i exec setxkbmap -layout us -variant intl -option ctrl:swapescape; mode "default"
-        bindsym a exec setxkbmap -layout us -variant altgr-intl -option ctrl:swapescape; mode "default"
+        bindsym p exec setxkbmap -layout pt -option ctrl:swapcaps; mode "default"
+        bindsym u exec setxkbmap -layout us -option ctrl:swapcaps; mode "default"
+        bindsym i exec setxkbmap -layout us -variant intl -option ctrl:swapcaps; mode "default"
+        bindsym a exec setxkbmap -layout us -variant altgr-intl -option ctrl:swapcaps; mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
