@@ -263,10 +263,10 @@ bindsym $mod+q mode $mode_loginopts
 
 # MODE: Change keyboard layout {{{
 mode $mode_layout {
-        bindsym p exec setxkbmap -layout pt -option caps:swapescape; mode "default"
-        bindsym u exec setxkbmap -layout us -option caps:swapescape; mode "default"
-        bindsym i exec setxkbmap -layout us -variant intl -option caps:swapescape; mode "default"
-        bindsym a exec setxkbmap -layout us -variant altgr-intl -option caps:swapescape; mode "default"
+        bindsym p exec setxkbmap -layout pt; mode "default"
+        bindsym u exec setxkbmap -layout us; mode "default"
+        bindsym i exec setxkbmap -layout us -variant intl; mode "default"
+        bindsym a exec setxkbmap -layout us -variant altgr-intl; mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
