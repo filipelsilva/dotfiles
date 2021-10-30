@@ -10,9 +10,6 @@ echo "set editing-mode vi" >> $HOME/.inputrc
 # Advice for plugins in (Neo)Vim
 echo "Do not forget to run ':PackUpdate' in Vim/Neovim!"
 
-# For my keyboard, US international mode (altgr variant)
-# echo "setxkbmap -layout us -variant altgr-intl" >> $HOME/.profile
-
 # For usage with optimus-manager
 # echo "#!/bin/sh" >> $HOME/.xinitrc
 # echo "/usr/bin/prime-offload" >> $HOME/.xinitrc

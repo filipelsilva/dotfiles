@@ -6,7 +6,7 @@ sudo pacman -S --noconfirm zsh git tk curl wget glances htop neovim python-pip\
     ripgrep fd the_silver_searcher neofetch screenfetch xclip pkg-config go\
     make entr rlwrap ctags hexyl bat cmake shellcheck hyperfine onefetch\
     progress npm atool pacman-contrib zsh-completions ascii nodejs playerctl\
-    brightnessctl zoxide jq redshift
+    brightnessctl zoxide jq redshift xcape
 
 # For desktop installation:
 
