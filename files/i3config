@@ -236,7 +236,7 @@ bar {
 
                 # border|background|text
                 focused_workspace  $blue $blue $black
-                active_workspace   $magenta $magenta $black
+                active_workspace   $white $white $black
                 inactive_workspace $black $black $white
                 urgent_workspace   $red $red $black
         }
@@ -245,7 +245,7 @@ bar {
 # Container colors
 # border|background|text|indicator|child_border
 client.focused          $blue $blue $black $black $blue
-client.focused_inactive $magenta $magenta $black $black $magenta
+client.focused_inactive $white $white $black $black $white
 client.unfocused        $black $black $white $black $black
 client.urgent           $red $red $black $black $red
 # }}}
