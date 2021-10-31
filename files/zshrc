@@ -6,9 +6,8 @@ export FZF_COMPLETION_TRIGGER='++'
 # Default options
 export FZF_DEFAULT_OPTS=" \
 --color='fg+:#ebdbb2'
---layout=reverse-list \
+--layout=reverse \
 --info=inline \
---height=70% \
 --multi \
 --bind '?:toggle-preview,ctrl-a:toggle-all' \
 "
