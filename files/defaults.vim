@@ -48,7 +48,7 @@ else
 endif
 
 " Indentation settings
-set autoindent copyindent shiftround smarttab breakindent
+set autoindent copyindent shiftround smarttab breakindent textwidth=80
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
@@ -98,6 +98,32 @@ function! FocusRelativeNumbers(...) abort
 		endif
 	endif
 endfunction
+" }}}
+
+" CreateUndoBreakPoint {{{
+function! CreateUndoBreakPoint(char) abort
+	" This funcion will create maps with break points to facilitate undo
+	execute "inoremap " . a:char . " " . a:char . "<C-g>u"
+	execute "inoremap " . a:char . " " . a:char . "<C-g>u"
+	execute "inoremap " . a:char . " " . a:char . "<C-g>u"
+	execute "inoremap " . a:char . " " . a:char . "<C-g>u"
+endfunction
+
+command! -nargs=1 CreateUndoBreakPoint call CreateUndoBreakPoint(<f-args>)
+" }}}
+
+" CreateTextObject {{{
+function! CreateTextObject(char) abort
+	" This funcion will create mappings to search from the cursor position
+	" after the char, until the next occurence of the char itself (a) or the
+	" position before the next occurence (i). Useful for function arguments in C
+	execute "onoremap <silent> i" . a:char . " :<c-u>normal! T" . a:char . "vt" . a:char . "<cr>"
+	execute "xnoremap <silent> i" . a:char . " :<c-u>normal! T" . a:char . "vt" . a:char . "<cr>"
+	execute "onoremap <silent> a" . a:char . " :<c-u>normal! T" . a:char . "vf" . a:char . "<cr>"
+	execute "xnoremap <silent> a" . a:char . " :<c-u>normal! T" . a:char . "vf" . a:char . "<cr>"
+endfunction
+
+command! -nargs=1 CreateTextObject call CreateTextObject(<f-args>)
 " }}}
 
 " }}}
@@ -207,10 +233,14 @@ nnoremap N Nzzzv
 nnoremap J mzJ`z
 
 " Undo break points (add or remove more, according to needs)
-inoremap , ,<C-g>u
-inoremap . .<C-g>u
-inoremap ! !<C-g>u
-inoremap ? ?<C-g>u
+for char in [".", ",", "!", "?"]
+	call CreateUndoBreakPoint(char)
+endfor
+
+" Text objects (add or remove more, according to needs)
+for char in [".", ",", ";", "/", "\\"]
+	call CreateTextObject(char)
+endfor
 
 " Add <number>[jk] to jumplists
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
