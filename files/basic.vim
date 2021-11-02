@@ -127,10 +127,12 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Easier navigation (<C-g> shows in command bar which file it is)
+nnoremap <C-w><C-w> <C-w><C-w><C-g>
 nnoremap <C-h> <C-w><C-h><C-g>
 nnoremap <C-j> <C-w><C-j><C-g>
 nnoremap <C-k> <C-w><C-k><C-g>
 nnoremap <C-l> <C-w><C-l><C-g>
+tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w><C-g>
 tnoremap <C-h> <C-\><C-n><C-w><C-h><C-g>
 tnoremap <C-j> <C-\><C-n><C-w><C-j><C-g>
 tnoremap <C-k> <C-\><C-n><C-w><C-k><C-g>
@@ -203,8 +205,6 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 
 " Move blocks of code
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
