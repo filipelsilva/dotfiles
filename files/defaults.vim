@@ -190,6 +190,9 @@ else
 	vnoremap <Leader>w "zy<Esc>:grep! -R -I --exclude-dir={.git,.svn} "<C-r>z" .<CR> <Bar> :copen<CR>
 endif
 
+" Allow gf to open non-existent files
+map gf :edit <cfile><cr>
+
 " Make Y work like D and C
 nnoremap Y y$
 
