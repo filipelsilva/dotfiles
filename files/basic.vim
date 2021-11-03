@@ -90,10 +90,7 @@ endfunction
 
 " CreateUndoBreakPoint {{{
 function! CreateUndoBreakPoint(char) abort
-	" This funcion will create maps with break points to facilitate undo
-	execute "inoremap " . a:char . " " . a:char . "<C-g>u"
-	execute "inoremap " . a:char . " " . a:char . "<C-g>u"
-	execute "inoremap " . a:char . " " . a:char . "<C-g>u"
+	" This funcion creates a insert mode map with undo break points
 	execute "inoremap " . a:char . " " . a:char . "<C-g>u"
 endfunction
 
@@ -102,9 +99,10 @@ command! -nargs=1 CreateUndoBreakPoint call CreateUndoBreakPoint(<f-args>)
 
 " CreateTextObject {{{
 function! CreateTextObject(char) abort
-	" This funcion will create mappings to search from the cursor position
-	" after the char, until the next occurence of the char itself (a) or the
-	" position before the next occurence (i). Useful for function arguments in C
+	" This funcion creates a new text object from the cursor position after the
+	" last occurence of the char, until (a)the next occurence of the char itself
+	" or the cursor position before the next occurence (i). Useful for function
+	" arguments in C-like languages
 	execute "onoremap <silent> i" . a:char . " :<c-u>normal! T" . a:char . "vt" . a:char . "<cr>"
 	execute "xnoremap <silent> i" . a:char . " :<c-u>normal! T" . a:char . "vt" . a:char . "<cr>"
 	execute "onoremap <silent> a" . a:char . " :<c-u>normal! T" . a:char . "vf" . a:char . "<cr>"
