@@ -111,7 +111,7 @@ command! -nargs=1 CreateUndoBreakPoint call CreateUndoBreakPoint(<f-args>)
 
 " CreateTextObject {{{
 function! CreateTextObject(char) abort
-	" This funcion creates mappings to search from the cursor position after the
+	" This funcion creates a new text object from the cursor position after the
 	" last occurence of the char, until (a)the next occurence of the char itself
 	" or the cursor position before the next occurence (i). Useful for function
 	" arguments in C-like languages
