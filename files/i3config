@@ -141,6 +141,8 @@ default_border pixel 2
 
 # Hide borders if only one window is visible
 hide_edge_borders smart
+
+for_window [all] title_window_icon on
 # }}}
 
 # Focusing and moving windows {{{
