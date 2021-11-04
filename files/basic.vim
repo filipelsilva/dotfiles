@@ -66,7 +66,7 @@ endif
 
 " HighlightToggle {{{
 function! StartHL() abort
-	let s:pos = match(getline('.'), @/, col('.') - 1) + 1
+	let s:pos = match(getline('.'), @/, col('.') - 1)
 	if s:pos != col('.')
 		call StopHL()
 	endif
@@ -76,7 +76,7 @@ function! StopHL() abort
 	if !v:hlsearch || mode() isnot 'n'
 		return
 	else
-		sil call feedkeys("\<Plug>(StopHL)", 'm')
+		silent call feedkeys("\<Plug>(StopHL)", 'm')
 	endif
 endfunction
 " }}}
