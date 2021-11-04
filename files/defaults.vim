@@ -141,7 +141,7 @@ augroup vimrc
 	autocmd BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC
 
 	" Go to last edited position on open file
-	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g'\"" | endif
 
 	" If vim window is resized, resize the splits within
 	autocmd VimResized * wincmd =
