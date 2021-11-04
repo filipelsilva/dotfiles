@@ -64,14 +64,29 @@ endif
 
 " Functions {{{
 
+" HighlightToggle {{{
+function! StartHL() abort
+	let s:pos = match(getline('.'), @/, col('.') - 1) + 1
+	if s:pos != col('.')
+		call StopHL()
+	endif
+endfunction
+
+function! StopHL() abort
+	if !v:hlsearch || mode() isnot 'n'
+		return
+	else
+		sil call feedkeys("\<Plug>(StopHL)", 'm')
+	endif
+endfunction
+" }}}
+
 " TrimWhitespace {{{
 function! TrimWhitespace() abort
 	let l:save = winsaveview()
 	keeppatterns %s/\s\+$//e
 	call winrestview(l:save)
 endfunction
-
-command! TrimWhitespace call TrimWhitespace()
 " }}}
 
 " FocusRelativeNumbers {{{
@@ -93,8 +108,6 @@ function! CreateUndoBreakPoint(char) abort
 	" This funcion creates a insert mode map with undo break points
 	execute "inoremap " . a:char . " " . a:char . "<C-g>u"
 endfunction
-
-command! -nargs=1 CreateUndoBreakPoint call CreateUndoBreakPoint(<f-args>)
 " }}}
 
 " CreateTextObject {{{
@@ -108,8 +121,6 @@ function! CreateTextObject(char) abort
 	execute "onoremap <silent> a" . a:char . " :<c-u>normal! T" . a:char . "vf" . a:char . "<cr>"
 	execute "xnoremap <silent> a" . a:char . " :<c-u>normal! T" . a:char . "vf" . a:char . "<cr>"
 endfunction
-
-command! -nargs=1 CreateTextObject call CreateTextObject(<f-args>)
 " }}}
 
 " }}}
@@ -118,6 +129,15 @@ command! -nargs=1 CreateTextObject call CreateTextObject(<f-args>)
 
 " Cd to where the current file is edited (changes only for the current window)
 command CDC lcd %:p:h
+
+" TrimWhitespace
+command! TrimWhitespace call TrimWhitespace()
+
+" CreateUndoBreakPoint
+command! -nargs=1 CreateUndoBreakPoint call CreateUndoBreakPoint(<f-args>)
+
+" CreateTextObject
+command! -nargs=1 CreateTextObject call CreateTextObject(<f-args>)
 
 " }}}
 
@@ -145,6 +165,12 @@ augroup numbertoggle
 	" If buffer gets out of focus, disable relative numbers
 	autocmd BufLeave,FocusLost,InsertEnter,WinLeave * call FocusRelativeNumbers("False")
 
+augroup END
+
+augroup HighlightToggle
+	autocmd!
+	autocmd CursorMoved * call StartHL()
+	autocmd InsertEnter * call StopHL()
 augroup END
 " }}}
 
@@ -294,6 +320,10 @@ vnoremap <Leader>P "+P
 
 " Copy the whole working file to the clipboard
 nnoremap <Leader><Leader>y <Cmd>%yank+<CR>
+
+" Disable hlsearch right after moving
+noremap <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
+noremap! <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
 
 " Output the current syntax group
 nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
