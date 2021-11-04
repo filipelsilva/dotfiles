@@ -78,7 +78,7 @@ endif
 
 " HighlightToggle {{{
 function! StartHL() abort
-	let s:pos = match(getline('.'), @/, col('.') - 1)
+	let s:pos = match(getline('.'), @/, col('.') - 1) + 1
 	if s:pos != col('.')
 		call StopHL()
 	endif
