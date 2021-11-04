@@ -126,6 +126,13 @@ command! -nargs=1 CreateTextObject call CreateTextObject(<f-args>)
 
 " }}}
 
+" Commands {{{
+
+" Cd to where the current file is edited (changes only for the current window)
+command CDC lcd %:p:h
+
+" }}}
+
 " Autocommands {{{
 augroup vimrc
 	autocmd!
@@ -200,29 +207,29 @@ nnoremap [l :lprev<CR>zz
 nnoremap <silent> ]<Space> :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> [<Space> :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
-" Replace word under cursor ('s': wherever | 'S': word only)
+" Substitute word under cursor ('s': wherever | 'S': word only)
 nnoremap <Leader>s :%s/<C-r><C-w>//g<Left><Left>
 vnoremap <Leader>s "zy<Esc>:%s/<C-r>z//g<Left><Left>
 nnoremap <Leader>S :%s/\<<C-r><C-w>\>//g<Left><Left>
 vnoremap <Leader>S "zy<Esc>:%s/\<<C-r>z\>//g<Left><Left>
 
-" Search word and open quickfix list
+" Create quickfix list with searched word
 if executable("rg")
-	nnoremap <Leader>w :grep! "<cword>" .<CR> <Bar> :copen<CR>
-	vnoremap <Leader>w "zy<Esc>:grep! "<C-r>z" .<CR> <Bar> :copen<CR>
+	nnoremap <Leader>q :grep! "<cword>" .<CR> <Bar> :copen<CR>
+	vnoremap <Leader>q "zy<Esc>:grep! "<C-r>z" .<CR> <Bar> :copen<CR>
 else
-	nnoremap <Leader>w :grep! -R -I --exclude-dir={.git,.svn} "<cword>" .<CR> <Bar> :copen<CR>
-	vnoremap <Leader>w "zy<Esc>:grep! -R -I --exclude-dir={.git,.svn} "<C-r>z" .<CR> <Bar> :copen<CR>
+	nnoremap <Leader>q :grep! -R -I --exclude-dir={.git,.svn} "<cword>" .<CR> <Bar> :copen<CR>
+	vnoremap <Leader>q "zy<Esc>:grep! -R -I --exclude-dir={.git,.svn} "<C-r>z" .<CR> <Bar> :copen<CR>
 endif
+
+" Open a nearby file
+nnoremap <Leader>f :edit <C-R>=expand("%:.:h") . "/"<CR>
 
 " Allow gf to open non-existent files
 map gf :edit <cfile><cr>
 
 " Make Y work like D and C
 nnoremap Y y$
-
-" Reselect pasted text
-nnoremap gp `[v`]
 
 " Center cursor when searching or joining lines (zz: center, zv: open folds)
 nnoremap n nzzzv
@@ -250,11 +257,11 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " Make . to work with visually selected lines
 vnoremap . :normal.<CR>
 
-" Run line as command, output here
-noremap Q !!$SHELL<CR>
-
 " Disable highlighting
 nnoremap <silent> <Leader>, :nohlsearch<CR>
+
+" Run line as command, output here
+noremap Q !!$SHELL<CR>
 
 " Open $SHELL in splits
 if has("nvim")
@@ -270,32 +277,28 @@ tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <Leader>e :e $MYVIMRC<CR>
-nmap <silent> <Leader>E :so $MYVIMRC<CR>
+nmap <silent> <Leader>e :edit $MYVIMRC<CR>
+nmap <silent> <Leader>E :source $MYVIMRC<CR>
 
 " Shortcuts to use blackhole register
-nnoremap <Leader><Leader>d "_d
-vnoremap <Leader><Leader>d "_d
-nnoremap <Leader><Leader>D "_D
-vnoremap <Leader><Leader>D "_D
-nnoremap <Leader><Leader>c "_c
-vnoremap <Leader><Leader>c "_c
-nnoremap <Leader><Leader>C "_C
-vnoremap <Leader><Leader>C "_C
-nnoremap <Leader><Leader>x "_x
-vnoremap <Leader><Leader>x "_x
-nnoremap <Leader><Leader>X "_X
-vnoremap <Leader><Leader>X "_X
+nnoremap <Leader>d "_d
+vnoremap <Leader>d "_d
+nnoremap <Leader>D "_D
+vnoremap <Leader>D "_D
+nnoremap <Leader>c "_c
+vnoremap <Leader>c "_c
+nnoremap <Leader>C "_C
+vnoremap <Leader>C "_C
+nnoremap <Leader>x "_x
+vnoremap <Leader>x "_x
+nnoremap <Leader>X "_X
+vnoremap <Leader>X "_X
 
 " Copy/Paste to/from the clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
 nnoremap <Leader>Y "+y$
 vnoremap <Leader>Y "+y$
-nnoremap <Leader>d "+d
-vnoremap <Leader>d "+d
-nnoremap <Leader>D "+D
-vnoremap <Leader>D "+D
 nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
