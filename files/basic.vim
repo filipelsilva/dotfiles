@@ -114,12 +114,11 @@ endfunction
 function! CreateTextObject(char) abort
 	" This funcion creates a new text object from the cursor position after the
 	" last occurence of the char, until (a)the next occurence of the char itself
-	" or the cursor position before the next occurence (i). Useful for function
-	" arguments in C-like languages
+	" or the cursor position before the next occurence (i).
 	execute "onoremap <silent> i" . a:char . " :<c-u>normal! T" . a:char . "vt" . a:char . "<cr>"
 	execute "xnoremap <silent> i" . a:char . " :<c-u>normal! T" . a:char . "vt" . a:char . "<cr>"
-	execute "onoremap <silent> a" . a:char . " :<c-u>normal! T" . a:char . "vf" . a:char . "<cr>"
-	execute "xnoremap <silent> a" . a:char . " :<c-u>normal! T" . a:char . "vf" . a:char . "<cr>"
+	execute "onoremap <silent> a" . a:char . " :<c-u>normal! F" . a:char . "vf" . a:char . "<cr>"
+	execute "xnoremap <silent> a" . a:char . " :<c-u>normal! F" . a:char . "vf" . a:char . "<cr>"
 endfunction
 " }}}
 
