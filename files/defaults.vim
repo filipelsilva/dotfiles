@@ -48,7 +48,7 @@ else
 endif
 
 " Indentation settings
-set autoindent copyindent shiftround smarttab breakindent textwidth=80
+set autoindent copyindent shiftround smarttab breakindent
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
