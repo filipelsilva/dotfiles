@@ -64,7 +64,7 @@ endfunction
 let g:fzf_action = {
 	\ 'ctrl-q': function('s:build_quickfix_list'),
 	\ 'ctrl-t': 'tab split',
-	\ 'ctrl-x': 'split',
+	\ 'ctrl-s': 'split',
 	\ 'ctrl-v': 'vsplit' }
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
 let g:fzf_buffers_jump = 1
