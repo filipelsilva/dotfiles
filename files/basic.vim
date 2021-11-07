@@ -127,7 +127,7 @@ endfunction
 " Commands {{{
 
 " Cd to where the current file is edited (changes only for the current window)
-command CDC lcd %:p:h
+command! CDC lcd %:p:h
 
 " TrimWhitespace
 command! TrimWhitespace call TrimWhitespace()
