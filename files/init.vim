@@ -37,8 +37,8 @@ function! PackInit() abort
 
 endfunction
 
-command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
-command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
+command! PackUpdate call PackInit() | call minpac#update()
+command! PackClean  call PackInit() | call minpac#clean()
 " }}}
 
 " Colorscheme
