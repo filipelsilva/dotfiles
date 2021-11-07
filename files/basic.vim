@@ -141,21 +141,21 @@ command! -nargs=1 CreateTextObject call CreateTextObject(<f-args>)
 " }}}
 
 " Autocommands {{{
-augroup vimrc
+augroup Vimrc
 	autocmd!
 
 	" Load vimrc after saving it
-	autocmd BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC
+	autocmd BufWritePost $MYVIMRC source % | echomsg "Reloaded " . $MYVIMRC
 
 	" Go to last edited position on open file
-	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g'\"" | endif
+	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && &filetype !~# 'commit' | execute "normal! g'\"" | endif
 
 	" If vim window is resized, resize the splits within
 	autocmd VimResized * wincmd =
 
 augroup END
 
-augroup numbertoggle
+augroup NumberToggle
 	autocmd!
 
 	" If buffer is in focus, enable relative numbers
