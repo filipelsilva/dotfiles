@@ -61,7 +61,7 @@ set shortmess=filmnrwxaoOtT fillchars+=vert:│ guicursor=
 set spelllang=en,pt
 
 " Diff options
-set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+set diffopt=internal,filler,closeoff,indent-heuristic,algorithm:histogram
 
 " Make gf (follow file) work with file_name=/path/to/file
 set isfname-==
