@@ -17,6 +17,8 @@ if !has("nvim")
 	runtime ftplugin/man.vim
 endif
 
+colorscheme pablo
+
 " K under cursor uses :Man
 set keywordprg=:Man
 
