@@ -141,6 +141,9 @@ endfunction
 " Cd to where the current file is edited (changes only for the current window)
 command! CDC lcd %:p:h
 
+" Diff between the current buffer and the file it was loaded from
+command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
+
 " TrimWhitespace
 command! TrimWhitespace call TrimWhitespace()
 
