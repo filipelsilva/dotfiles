@@ -42,9 +42,9 @@ command! PackClean  call PackInit() | call minpac#clean()
 " }}}
 
 " Colorscheme
-" set background=dark
-" set termguicolors
-" colorscheme gruvbox8_hard
+set background=dark
+set termguicolors
+colorscheme gruvbox8_hard
 
 " DetectIndent
 augroup DetectIndent
