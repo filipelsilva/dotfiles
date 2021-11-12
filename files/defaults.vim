@@ -52,7 +52,7 @@ set autoindent copyindent shiftround smarttab breakindent
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set ruler showcmd linebreak laststatus=1 scrolloff=5 colorcolumn=80
+set ruler showcmd linebreak laststatus=2 scrolloff=5 colorcolumn=80
 set shortmess=filmnrwxaoOtT fillchars+=vert:│ guicursor=
 
 " Spell settings
