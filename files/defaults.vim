@@ -254,7 +254,7 @@ endif
 nnoremap <Leader>f :edit <C-R>=expand("%:.:h") . "/"<CR>
 
 " Allow gf to open non-existent files
-map gf :edit <cfile><cr>
+map <silent> gf :edit <cfile><cr>
 
 " Make Y work like D and C
 nnoremap Y y$
