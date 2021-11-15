@@ -139,9 +139,10 @@ bindsym $mod+space floating toggle
 # No window names
 default_border pixel 2
 
-# Hide borders if only one window is visible
-hide_edge_borders smart
+# # Hide borders if only one window is visible
+# hide_edge_borders smart
 
+# Put icons in tabbed mode
 for_window [all] title_window_icon on
 # }}}
 
