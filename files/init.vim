@@ -23,11 +23,13 @@ function! PackInit() abort
 
 	" Lsp and autoinstall
 	call minpac#add('neovim/nvim-lspconfig')
-	call minpac#add('kabouzeid/nvim-lspinstall')
+	call minpac#add('williamboman/nvim-lsp-installer')
+
+	" Snippets
+	call minpac#add('L3MON4D3/LuaSnip')
 
 	" Completion sources
-	call minpac#add('hrsh7th/vim-vsnip')
-	call minpac#add('hrsh7th/cmp-vsnip')
+	call minpac#add('saadparwaiz1/cmp_luasnip')
 	call minpac#add('hrsh7th/cmp-buffer')
 	call minpac#add('hrsh7th/cmp-path')
 	call minpac#add('hrsh7th/cmp-nvim-lsp')
@@ -84,53 +86,88 @@ lua << EOF
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
--- Server setup
-function setup_servers()
-	require'lspinstall'.setup()
-	local servers = require'lspinstall'.installed_servers()
-	for _, server in pairs(servers) do
-		require'lspconfig'[server].setup{
-			capabilities = capabilities,
-		}
-	end
-end
+local lsp_installer = require('nvim-lsp-installer')
 
-setup_servers()
-
-require'lspinstall'.post_install_hook = function()
-	setup_servers()
-	vim.cmd("bufdo e")
-end
+lsp_installer.settings({
+    ui = {
+        icons = {
+            server_installed = '->',
+            server_pending = '??',
+            server_uninstalled = '!!',
+        },
+	},
+})
+lsp_installer.on_server_ready(function(server)
+	local opts = {
+		capabilities = capabilities,
+	}
+	server:setup(opts)
+end)
 EOF
 " }}}
 
 " Completion {{{
 lua << EOF
-local cmp = require'cmp'
+local luasnip = require('luasnip')
+local cmp = require('cmp')
+
+-- Helper functions {{{
+local has_words_before = function()
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+-- Next completion or move in snippet
+local luasnip_next = function(fallback)
+	if cmp.visible() then
+		cmp.select_next_item()
+	elseif luasnip.expand_or_jumpable() then
+		luasnip.expand_or_jump()
+	elseif has_words_before() then
+		cmp.complete()
+	else
+		fallback()
+	end
+end
+
+-- Previous completion or move in snippet
+local luasnip_prev = function(fallback)
+	if cmp.visible() then
+		cmp.select_prev_item()
+	elseif luasnip.jumpable(-1) then
+		luasnip.jump(-1)
+	else
+		fallback()
+	end
+end
+-- }}}
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
+			require('luasnip').lsp_expand(args.body)
 		end,
 	},
 	mapping = {
-		['<C-p>'] = cmp.mapping.select_prev_item(),
-		['<C-n>'] = cmp.mapping.select_next_item(),
-		['<Tab>'] = cmp.mapping.select_next_item(),
-		['<S-Tab>'] = cmp.mapping.select_prev_item(),
-		['<C-y>'] = cmp.mapping.confirm({ select = true }),
-		['<CR>'] = cmp.mapping.confirm({ select = true }),
+		['<C-y>'] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		}),
+		['<CR>'] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		}),
+		['<C-n>'] = cmp.mapping(luasnip_next, { 'i', 's' }),
+		['<C-p>'] = cmp.mapping(luasnip_prev, { 'i', 's' }),
+		['<Tab>'] = cmp.mapping(luasnip_next, { 'i', 's' }),
+		['<S-Tab>'] = cmp.mapping(luasnip_prev, { 'i', 's' }),
 	},
 	sources = {
 		{ name = 'nvim_lsp' },
-		{ name = 'vsnip' },
+		{ name = 'luasnip' },
 		{ name = 'buffer' },
 		{ name = 'path' },
 	},
 })
 EOF
-imap <expr> <Tab>   pumvisible() ? "<C-n>" : vsnip#jumpable(1)  ? "<Plug>(vsnip-jump-next)" : "<Tab>"
-imap <expr> <S-Tab> pumvisible() ? "<C-p>" : vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"
-smap <expr> <Tab>   vsnip#jumpable(1)  ? "<Plug>(vsnip-jump-next)" : "<Tab>"
-smap <expr> <S-Tab> vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"
 " }}}
