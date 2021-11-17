@@ -121,7 +121,7 @@ local has_words_before = function()
 end
 
 -- Next completion or move in snippet
-local luasnip_next = function(fallback)
+local complete_or_snippet_next = function(fallback)
 	if cmp.visible() then
 		cmp.select_next_item()
 	elseif luasnip.expand_or_jumpable() then
@@ -134,7 +134,7 @@ local luasnip_next = function(fallback)
 end
 
 -- Previous completion or move in snippet
-local luasnip_prev = function(fallback)
+local complete_or_snippet_prev = function(fallback)
 	if cmp.visible() then
 		cmp.select_prev_item()
 	elseif luasnip.jumpable(-1) then
@@ -160,10 +160,10 @@ cmp.setup({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
 		}),
-		['<C-n>'] = cmp.mapping(luasnip_next, { 'i', 's' }),
-		['<C-p>'] = cmp.mapping(luasnip_prev, { 'i', 's' }),
-		['<Tab>'] = cmp.mapping(luasnip_next, { 'i', 's' }),
-		['<S-Tab>'] = cmp.mapping(luasnip_prev, { 'i', 's' }),
+		['<C-n>'] = cmp.mapping(complete_or_snippet_next, { 'i', 's' }),
+		['<C-p>'] = cmp.mapping(complete_or_snippet_prev, { 'i', 's' }),
+		['<Tab>'] = cmp.mapping(complete_or_snippet_next, { 'i', 's' }),
+		['<S-Tab>'] = cmp.mapping(complete_or_snippet_prev, { 'i', 's' }),
 	},
 	sources = {
 		{ name = 'nvim_lsp' },
