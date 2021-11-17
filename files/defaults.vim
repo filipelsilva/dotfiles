@@ -174,10 +174,10 @@ augroup NumberToggle
 	autocmd!
 
 	" If buffer is in focus, enable relative numbers
-	autocmd BufEnter,FocusGained,WinEnter * call FocusRelativeNumbers("True")
+	autocmd BufEnter,FocusGained,InsertLeave,WinEnter * call FocusRelativeNumbers("True")
 
 	" If buffer gets out of focus, disable relative numbers
-	autocmd BufLeave,FocusLost,WinLeave * call FocusRelativeNumbers("False")
+	autocmd BufLeave,FocusLost,InsertEnter,WinLeave * call FocusRelativeNumbers("False")
 
 augroup END
 
