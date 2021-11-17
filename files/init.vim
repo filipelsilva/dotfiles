@@ -81,6 +81,8 @@ tnoremap <expr> <C-k> (&filetype == "fzf") ? "<C-p>" : "<C-k>"
 " }}}
 
 " LSP {{{
+set omnifunc=v:lua.vim.lsp.omnifunc
+
 lua << EOF
 -- Snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
