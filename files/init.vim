@@ -47,6 +47,7 @@ command! PackClean  call PackInit() | call minpac#clean()
 set background=dark
 set termguicolors
 colorscheme gruvbox8_hard
+highlight! link CursorLineNr LineNr
 
 " DetectIndent
 augroup DetectIndent
