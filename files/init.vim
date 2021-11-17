@@ -85,12 +85,10 @@ tnoremap <expr> <C-k> (&filetype == "fzf") ? "<C-p>" : "<C-k>"
 set omnifunc=v:lua.vim.lsp.omnifunc
 
 lua << EOF
--- Snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local lsp_installer = require('nvim-lsp-installer')
-
 lsp_installer.settings({
     ui = {
         icons = {
@@ -100,7 +98,6 @@ lsp_installer.settings({
         },
 	},
 })
-
 lsp_installer.on_server_ready(function(server)
 	local opts = {
 		capabilities = capabilities,
