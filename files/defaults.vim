@@ -127,10 +127,10 @@ function! CreateTextObject(char) abort
 	" This funcion creates a new text object from the cursor position after the
 	" last occurence of the char, until (a)the next occurence of the char itself
 	" or the cursor position before the next occurence (i).
-	execute "onoremap <silent> i" . a:char . " :<c-u>normal! T" . a:char . "vt" . a:char . "<cr>"
-	execute "xnoremap <silent> i" . a:char . " :<c-u>normal! T" . a:char . "vt" . a:char . "<cr>"
-	execute "onoremap <silent> a" . a:char . " :<c-u>normal! F" . a:char . "vf" . a:char . "<cr>"
-	execute "xnoremap <silent> a" . a:char . " :<c-u>normal! F" . a:char . "vf" . a:char . "<cr>"
+	execute "onoremap <silent> i" . a:char . " :<C-u>normal! T" . a:char . "vt" . a:char . "<CR>"
+	execute "xnoremap <silent> i" . a:char . " :<C-u>normal! T" . a:char . "vt" . a:char . "<CR>"
+	execute "onoremap <silent> a" . a:char . " :<C-u>normal! F" . a:char . "vf" . a:char . "<CR>"
+	execute "xnoremap <silent> a" . a:char . " :<C-u>normal! F" . a:char . "vf" . a:char . "<CR>"
 endfunction
 " }}}
 
@@ -254,7 +254,7 @@ endif
 nnoremap <Leader>f :edit <C-R>=expand("%:.:h") . "/"<CR>
 
 " Allow gf to open non-existent files
-map <silent> gf :edit <cfile><cr>
+map <silent> gf :edit <cfile><CR>
 
 " Make Y work like D and C
 nnoremap Y y$
@@ -333,7 +333,7 @@ nnoremap <Leader>P "+P
 vnoremap <Leader>P "+P
 
 " Copy the whole working file to the clipboard
-nnoremap <Leader><Leader>y <Cmd>%yank+<CR>
+nnoremap <Leader><Leader>y :%yank+<CR>
 
 " Disable hlsearch right after moving
 noremap <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
