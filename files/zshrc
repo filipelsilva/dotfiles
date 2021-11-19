@@ -96,6 +96,8 @@ function up() {
 
 	echo "$HOME/.zgen" && zgen selfupdate && zgen update
 	echo "update tldr cache" && tldr --update
+
+	zshsource
 }
 
 # [Open] files

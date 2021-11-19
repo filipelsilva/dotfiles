@@ -39,6 +39,7 @@ set background=dark
 set termguicolors
 colorscheme gruvbox8_hard
 highlight! link CursorLineNr LineNr
+highlight! link EndOfBuffer LineNr
 
 " DetectIndent
 augroup DetectIndent
