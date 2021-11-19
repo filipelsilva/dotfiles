@@ -241,7 +241,8 @@ else
 endif
 
 " Open a nearby file
-nnoremap <Leader>f :edit <C-R>=expand("%:p:h") . "/"<CR>
+nnoremap <Leader>f :edit <C-r>=expand("%:p:h") . "/"<CR>
+nnoremap <Leader>F :edit $HOME/
 
 " Allow gf to open non-existent files
 map <silent> gf :edit <cfile><CR>
