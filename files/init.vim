@@ -74,8 +74,8 @@ let g:fzf_action = {
 let g:fzf_layout = { 'down': '30%' }
 let g:fzf_buffers_jump = 1
 
-nnoremap <silent> <expr> <Leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<CR>"
-nnoremap <silent> <Leader>F <Cmd>Files $HOME<CR>
+nnoremap <silent> <expr> <Leader>f (len(system("git rev-parse")) ? ":Files" : ":GFiles") . "\<CR>"
+nnoremap <silent> <Leader><Leader>f <Cmd>Files $HOME<CR>
 nnoremap <silent> <Leader>r <Cmd>Rg<CR>
 nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<C-\><C-n>"
