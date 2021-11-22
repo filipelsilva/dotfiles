@@ -19,6 +19,10 @@ endif
 
 colorscheme pablo
 
+" Show trailing whitespace
+highlight! TrailingWhitespace ctermbg=red guibg=red
+call matchadd("TrailingWhitespace", '\v\s+$')
+
 " K under cursor uses :Man
 set keywordprg=:Man
 

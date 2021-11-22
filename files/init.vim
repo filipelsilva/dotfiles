@@ -49,6 +49,7 @@ set termguicolors
 colorscheme gruvbox8_hard
 highlight! link CursorLineNr LineNr
 highlight! link EndOfBuffer LineNr
+highlight! TrailingWhitespace ctermbg=red guibg=red
 
 " DetectIndent
 augroup DetectIndent
