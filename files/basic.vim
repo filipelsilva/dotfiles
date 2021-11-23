@@ -245,7 +245,7 @@ else
 endif
 
 " Open edit command in current shell directory
-nnoremap <Leader>f :edit<Space>
+nnoremap <Leader>f :edit $PWD/
 
 " Open edit command in $HOME
 nnoremap <Leader><Leader>f :edit $HOME/
