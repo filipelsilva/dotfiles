@@ -36,7 +36,6 @@ alias wget="wget -c"
 alias ip="ip --color=auto"
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"
-alias t=tmux
 alias v=nvim
 
 # Ls aliases
