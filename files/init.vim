@@ -44,12 +44,12 @@ command! PackClean  call PackInit() | call minpac#clean()
 " }}}
 
 " Colorscheme
-set background=dark
-set termguicolors
-colorscheme gruvbox8_hard
-highlight! link CursorLineNr LineNr
-highlight! link EndOfBuffer LineNr
-highlight! TrailingWhitespace ctermbg=red guibg=red
+" set background=dark
+" set termguicolors
+" colorscheme gruvbox8_hard
+" highlight! link CursorLineNr LineNr
+" highlight! link EndOfBuffer LineNr
+" highlight! TrailingWhitespace ctermbg=red guibg=red
 
 " DetectIndent
 augroup DetectIndent
@@ -71,8 +71,7 @@ let g:fzf_action = {
 	\ 'ctrl-t': 'tab split',
 	\ 'ctrl-s': 'split',
 	\ 'ctrl-v': 'vsplit' }
-" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
-let g:fzf_layout = { 'down': '30%' }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
 let g:fzf_buffers_jump = 1
 
 nnoremap <silent> <expr> <Leader>f (len(system("git rev-parse")) ? ":Files" : ":GFiles") . "\<CR>"
