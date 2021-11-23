@@ -17,11 +17,7 @@ if !has("nvim")
 	runtime ftplugin/man.vim
 endif
 
-colorscheme pablo
-
-" Show trailing whitespace
-highlight! TrailingWhitespace ctermbg=red guibg=red
-call matchadd("TrailingWhitespace", '\v\s+$')
+colorscheme default
 
 " K under cursor uses :Man
 set keywordprg=:Man
@@ -187,10 +183,25 @@ augroup NumberToggle
 
 augroup END
 
+augroup TrailingWhitespace
+	autocmd!
+
+	" Colors for the whitespace, if using custom colorscheme put it before this
+	highlight! TrailingWhitespace ctermbg=red guibg=red
+
+	" Do not show whitespace in Insert mode, as it is distracting
+	autocmd InsertLeave * let whitespace = matchadd("TrailingWhitespace", '\v\s+$')
+	autocmd InsertEnter * if exists("whitespace") | call matchdelete(whitespace) | endif
+
+augroup END
+
 augroup HighlightToggle
 	autocmd!
+
+	" After some cursor movement, remove highlighting from text
 	autocmd CursorMoved * call StartHL()
 	autocmd InsertEnter * call StopHL()
+
 augroup END
 " }}}
 
