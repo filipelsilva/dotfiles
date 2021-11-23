@@ -17,11 +17,7 @@ if !has("nvim")
 	runtime ftplugin/man.vim
 endif
 
-colorscheme pablo
-
-" Show trailing whitespace
-highlight! TrailingWhitespace ctermbg=red guibg=red
-call matchadd("TrailingWhitespace", '\v\s+$')
+colorscheme default
 
 " K under cursor uses :Man
 set keywordprg=:Man
@@ -83,6 +79,18 @@ function! StopHL() abort
 		return
 	else
 		silent call feedkeys("\<Plug>(StopHL)", 'm')
+	endif
+endfunction
+" }}}
+
+" ShowWhitespace {{{
+function! ShowWhitespace() abort
+	if exists("s:whitespace")
+		call matchdelete(s:whitespace)
+		unlet s:whitespace
+	else
+		highlight! Whitespace ctermbg=red guibg=red
+		let s:whitespace = matchadd("Whitespace", '\v\s+$')
 	endif
 endfunction
 " }}}
@@ -177,8 +185,11 @@ augroup END
 
 augroup HighlightToggle
 	autocmd!
+
+	" After some cursor movement, remove highlighting from text
 	autocmd CursorMoved * call StartHL()
 	autocmd InsertEnter * call StopHL()
+
 augroup END
 " }}}
 
@@ -206,7 +217,7 @@ tnoremap <C-l> <C-\><C-n><C-w><C-l>
 nnoremap <silent> <Leader>n :set invnumber invrelativenumber<CR>
 
 " Toggle spell
-nnoremap <silent> <Leader>o :setlocal invspell<CR>
+nnoremap <silent> <Leader>o :setlocal invspell<Bar>call ShowWhitespace()<CR>
 
 " Buffer jumping
 nnoremap [b :bnext<CR>

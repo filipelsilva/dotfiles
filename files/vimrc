@@ -95,6 +95,18 @@ function! StopHL() abort
 endfunction
 " }}}
 
+" ShowWhitespace {{{
+function! ShowWhitespace() abort
+	if exists("s:whitespace")
+		call matchdelete(s:whitespace)
+		unlet s:whitespace
+	else
+		highlight! Whitespace ctermbg=red guibg=red
+		let s:whitespace = matchadd("Whitespace", '\v\s+$')
+	endif
+endfunction
+" }}}
+
 " TrimWhitespace {{{
 function! TrimWhitespace() abort
 	let l:save = winsaveview()
@@ -183,18 +195,6 @@ augroup NumberToggle
 
 augroup END
 
-augroup TrailingWhitespace
-	autocmd!
-
-	" Colors for the whitespace, if using custom colorscheme put it before this
-	highlight! TrailingWhitespace ctermbg=red guibg=red
-
-	" Do not show whitespace in Insert mode, as it is distracting
-	autocmd InsertLeave,WinEnter,BufEnter * let whitespace = matchadd("TrailingWhitespace", '\v\s+$')
-	autocmd InsertEnter * if exists("whitespace") | call matchdelete(whitespace) | endif
-
-augroup END
-
 augroup HighlightToggle
 	autocmd!
 
@@ -229,7 +229,7 @@ tnoremap <C-l> <C-\><C-n><C-w><C-l>
 nnoremap <silent> <Leader>n :set invnumber invrelativenumber<CR>
 
 " Toggle spell
-nnoremap <silent> <Leader>o :setlocal invspell<CR>
+nnoremap <silent> <Leader>o :setlocal invspell<Bar>call ShowWhitespace()<CR>
 
 " Buffer jumping
 nnoremap [b :bnext<CR>
