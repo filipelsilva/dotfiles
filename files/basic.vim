@@ -17,7 +17,9 @@ if !has("nvim")
 	runtime! ftplugin/man.vim
 endif
 
+" Vim defaults background to light, nvim does not
 colorscheme default
+set background=light
 
 " K under cursor uses :Man
 set keywordprg=:Man
@@ -255,14 +257,23 @@ else
 	vnoremap <Leader>q "zy<Esc>:grep! -R -I --exclude-dir={.git,.svn} "<C-r>z" .<CR> <Bar> :copen<CR>
 endif
 
-" Open edit command in current shell directory
-nnoremap <Leader>f :edit $PWD/
+" Open files quickly {{{
+if executable("fzf")
+	" Add fzf to runtimepath, adds :FZF
+	let s:fzf_runtimepath_command = "set runtimepath+=" . fnamemodify(system("command -v fzf"), ":h:h")
+	execute s:fzf_runtimepath_command
 
-" Open edit command in $HOME
-nnoremap <Leader><Leader>f :edit $HOME/
-
-" Open edit command in directory of current file
-nnoremap <Leader>F :edit <C-r>=expand("%:p:h") . "/"<CR>
+	" Open files
+	nnoremap <silent> <Leader>f <Cmd>FZF<CR>
+	nnoremap <silent> <Leader><Leader>f <Cmd>FZF $HOME<CR>
+	nnoremap <silent> <Leader>F :FZF <C-r>=substitute(expand("%:p:h"), " ", "\\\\ ", "g")<CR><CR>
+else
+	" Open files the old way
+	nnoremap <Leader>f :edit $PWD/
+	nnoremap <Leader><Leader>f :edit $HOME/
+	nnoremap <Leader>F :edit <C-r>=expand("%:p:h") . "/"<CR>
+endif
+" }}}
 
 " Allow gf to open non-existent files
 map <silent> gf :edit <cfile><CR>
@@ -310,10 +321,6 @@ else
 	noremap <silent> <Leader>t :vertical terminal<CR>
 	noremap <silent> <Leader>T :terminal<CR>
 endif
-
-" Escape terminal mode with <Esc> and send Esc to terminal with <C-v><Esc>
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-v><Esc> <Esc>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <Leader>e :edit $MYVIMRC<CR>

@@ -44,11 +44,11 @@ command! PackClean  call PackInit() | call minpac#clean()
 " }}}
 
 " Colorscheme
-set background=dark
-set termguicolors
-colorscheme gruvbox8_hard
-highlight! link CursorLineNr LineNr
-highlight! link EndOfBuffer LineNr
+" set background=dark
+" set termguicolors
+" colorscheme gruvbox8_hard
+" highlight! link CursorLineNr LineNr
+" highlight! link EndOfBuffer LineNr
 
 " DetectIndent
 augroup DetectIndent
@@ -57,8 +57,6 @@ augroup DetectIndent
 augroup END
 
 " Fzf {{{
-set runtimepath+=$HOME/.fzf
-
 function! s:build_quickfix_list(lines)
 	call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
 	copen
@@ -77,9 +75,6 @@ nnoremap <silent> <expr> <Leader>f (len(system("git rev-parse")) ? ":Files" : ":
 nnoremap <silent> <Leader><Leader>f <Cmd>Files $HOME<CR>
 nnoremap <silent> <Leader>r <Cmd>Rg<CR>
 nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
-tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<C-\><C-n>"
-tnoremap <expr> <C-j> (&filetype == "fzf") ? "<C-n>" : "<C-j>"
-tnoremap <expr> <C-k> (&filetype == "fzf") ? "<C-p>" : "<C-k>"
 " }}}
 
 " LSP {{{
