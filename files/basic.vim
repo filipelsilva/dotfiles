@@ -258,20 +258,9 @@ else
 endif
 
 " Open files quickly
-if executable("fzf")
-	" Add fzf to runtimepath, adds :FZF command
-	let s:fzf_runtimepath_command = "set runtimepath+=" . fnamemodify(system("command -v fzf"), ":h:h")
-	execute s:fzf_runtimepath_command
-
-	" Open files
-	nnoremap <silent> <Leader>f <Cmd>FZF<CR>
-	nnoremap <silent> <Leader><Leader>f <Cmd>FZF $HOME<CR>
-	nnoremap <silent> <Leader>F :FZF <C-r>=substitute(expand("%:p:h"), " ", "\\\\ ", "g")<CR><CR>
-else
-	nnoremap <Leader>f :edit $PWD/
-	nnoremap <Leader><Leader>f :edit $HOME/
-	nnoremap <Leader>F :edit <C-r>=expand("%:p:h") . "/"<CR>
-endif
+nnoremap <Leader>f :edit $PWD/
+nnoremap <Leader><Leader>f :edit $HOME/
+nnoremap <Leader>F :edit <C-r>=expand("%:p:h") . "/"<CR>
 
 " Allow gf to open non-existent files
 map <silent> gf :edit <cfile><CR>
@@ -359,4 +348,31 @@ noremap! <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
 nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" }}}
+
+" Fzf {{{
+if executable("fzf")
+	" Add fzf to runtimepath, adds :FZF command
+	let s:fzf_runtimepath_command = "set runtimepath+=" . fnamemodify(system("command -v fzf"), ":h:h")
+	execute s:fzf_runtimepath_command
+
+	function! s:build_quickfix_list(lines)
+		call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+		copen
+		cc
+	endfunction
+
+	let g:fzf_action = {
+				\ 'ctrl-q': function('s:build_quickfix_list'),
+				\ 'ctrl-t': 'tab split',
+				\ 'ctrl-s': 'split',
+				\ 'ctrl-v': 'vsplit' }
+	let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
+	let g:fzf_buffers_jump = 1
+
+	" Open files (overrides defaults binds in Keymaps section)
+	nnoremap <silent> <Leader>f <Cmd>FZF<CR>
+	nnoremap <silent> <Leader><Leader>f <Cmd>FZF $HOME<CR>
+	nnoremap <silent> <Leader>F :FZF <C-r>=substitute(expand("%:p:h"), " ", "\\\\ ", "g")<CR><CR>
+endif
 " }}}
