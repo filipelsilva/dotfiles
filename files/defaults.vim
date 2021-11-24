@@ -17,7 +17,9 @@ if !has("nvim")
 	runtime! ftplugin/man.vim
 endif
 
+" Vim defaults background to light, nvim does not
 colorscheme default
+set background=light
 
 " K under cursor uses :Man
 set keywordprg=:Man
