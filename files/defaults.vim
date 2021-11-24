@@ -269,9 +269,9 @@ else
 	vnoremap <Leader>q "zy<Esc>:grep! -R -I --exclude-dir={.git,.svn} "<C-r>z" .<CR> <Bar> :copen<CR>
 endif
 
-" Open files quickly {{{
+" Open files quickly
 if executable("fzf")
-	" Add fzf to runtimepath, adds :FZF
+	" Add fzf to runtimepath, adds :FZF command
 	let s:fzf_runtimepath_command = "set runtimepath+=" . fnamemodify(system("command -v fzf"), ":h:h")
 	execute s:fzf_runtimepath_command
 
@@ -280,12 +280,10 @@ if executable("fzf")
 	nnoremap <silent> <Leader><Leader>f <Cmd>FZF $HOME<CR>
 	nnoremap <silent> <Leader>F :FZF <C-r>=substitute(expand("%:p:h"), " ", "\\\\ ", "g")<CR><CR>
 else
-	" Open files the old way
 	nnoremap <Leader>f :edit $PWD/
 	nnoremap <Leader><Leader>f :edit $HOME/
 	nnoremap <Leader>F :edit <C-r>=expand("%:p:h") . "/"<CR>
 endif
-" }}}
 
 " Allow gf to open non-existent files
 map <silent> gf :edit <cfile><CR>
