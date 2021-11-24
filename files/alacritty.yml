@@ -81,7 +81,7 @@ shell:
   args:
     - -l
     - -c
-    - "tmux attach || tmux"
+    - "tmux -2 attach || tmux -2"
 
 key_bindings:
   - { key: F11, action: ToggleFullscreen }

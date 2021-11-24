@@ -12,9 +12,9 @@ if !has("nvim")
 	" Set mouse mode
 	set ttymouse=xterm2
 	" Enable matchit (extends the use of %)
-	runtime macros/matchit.vim
+	runtime! macros/matchit.vim
 	" Enable :Man <search>
-	runtime ftplugin/man.vim
+	runtime! ftplugin/man.vim
 endif
 
 colorscheme default
