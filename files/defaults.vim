@@ -17,9 +17,12 @@ if !has("nvim")
 	runtime! ftplugin/man.vim
 endif
 
-" Vim defaults background to light, nvim does not
 colorscheme default
 set background=light
+
+" Highlight 80th character (cleaner alternative to colorcolumn)
+highlight! link Character80 ColorColumn
+call matchadd("Character80", '\%80v.')
 
 " K under cursor uses :Man
 set keywordprg=:Man
@@ -42,10 +45,22 @@ set backspace=indent,eol,start
 " Undo, swap/backup files settings
 set undofile undolevels=10000
 if has("nvim")
+	let s:nvim_directories_exist = !empty(glob("$HOME/.nvim-tmp"))
+	if !s:nvim_directories_exist
+		for subfolder in ["undo", "swp", "backup"]
+			call mkdir("$HOME/.nvim-tmp/" . subfolder . "//", "p")
+		endfor
+	endif
 	set undodir=$HOME/.nvim-tmp/undo//
 	set directory=$HOME/.nvim-tmp/swp//
 	set backupdir=$HOME/.nvim-tmp/backup//
 else
+	let s:vim_directories_exist = !empty(glob("$HOME/.vim-tmp"))
+	if !s:vim_directories_exist
+		for subfolder in ["undo", "swp", "backup"]
+			call mkdir("$HOME/.vim-tmp/" . subfolder . "//", "p")
+		endfor
+	endif
 	set undodir=$HOME/.vim-tmp/undo//
 	set directory=$HOME/.vim-tmp/swp//
 	set backupdir=$HOME/.vim-tmp/backup//
@@ -53,10 +68,10 @@ endif
 
 " Indentation settings
 set autoindent copyindent shiftround smarttab breakindent
-set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
+set noexpandtab textwidth=0 tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set ruler showcmd linebreak laststatus=1 scrolloff=5 colorcolumn=80
+set ruler showcmd linebreak laststatus=1 scrolloff=5
 set shortmess=filmnrwxaoOtT fillchars+=vert:│ guicursor=
 
 " Spell settings
@@ -270,9 +285,15 @@ else
 endif
 
 " Open files quickly
-nnoremap <Leader>f :edit $PWD/
-nnoremap <Leader><Leader>f :edit $HOME/
-nnoremap <Leader>F :edit <C-r>=expand("%:p:h") . "/"<CR>
+if executable("fzf")
+	nnoremap <silent> <Leader>f <Cmd>FZF<CR>
+	nnoremap <silent> <Leader><Leader>f <Cmd>FZF $HOME<CR>
+	nnoremap <silent> <Leader>F :FZF <C-r>=substitute(expand("%:p:h"), " ", "\\\\ ", "g")<CR><CR>
+else
+	nnoremap <Leader>f :edit $PWD/
+	nnoremap <Leader><Leader>f :edit $HOME/
+	nnoremap <Leader>F :edit <C-r>=expand("%:p:h") . "/"<CR>
+endif
 
 " Allow gf to open non-existent files
 map <silent> gf :edit <cfile><CR>
@@ -368,23 +389,19 @@ if executable("fzf")
 	let s:fzf_runtimepath_command = "set runtimepath+=" . fnamemodify(system("command -v fzf"), ":h:h")
 	execute s:fzf_runtimepath_command
 
+	" Create quickfix list out of selected files
 	function! s:build_quickfix_list(lines)
 		call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
 		copen
 		cc
 	endfunction
 
+	" Settings
 	let g:fzf_action = {
 				\ 'ctrl-q': function('s:build_quickfix_list'),
 				\ 'ctrl-t': 'tab split',
 				\ 'ctrl-s': 'split',
 				\ 'ctrl-v': 'vsplit' }
-	let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
 	let g:fzf_buffers_jump = 1
-
-	" Open files (overrides defaults binds in Keymaps section)
-	nnoremap <silent> <Leader>f <Cmd>FZF<CR>
-	nnoremap <silent> <Leader><Leader>f <Cmd>FZF $HOME<CR>
-	nnoremap <silent> <Leader>F :FZF <C-r>=substitute(expand("%:p:h"), " ", "\\\\ ", "g")<CR><CR>
 endif
 " }}}
