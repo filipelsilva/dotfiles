@@ -5,7 +5,7 @@ export FZF_COMPLETION_TRIGGER='++'
 
 # Default options
 export FZF_DEFAULT_OPTS=" \
---color='fg+:#ebdbb2'
+--color='fg+:#ebdbb2' \
 --layout=reverse \
 --info=inline \
 --multi \
