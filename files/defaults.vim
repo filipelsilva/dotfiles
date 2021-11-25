@@ -396,10 +396,10 @@ if executable("fzf")
 
 	" Settings
 	let g:fzf_action = {
-				\ 'ctrl-q': function('s:build_quickfix_list'),
-				\ 'ctrl-t': 'tab split',
-				\ 'ctrl-s': 'split',
-				\ 'ctrl-v': 'vsplit' }
+		\ 'ctrl-q': function('s:build_quickfix_list'),
+		\ 'ctrl-t': 'tab split',
+		\ 'ctrl-s': 'split',
+		\ 'ctrl-v': 'vsplit' }
 	let g:fzf_buffers_jump = 1
 endif
 " }}}
