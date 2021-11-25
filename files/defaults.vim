@@ -42,28 +42,6 @@ set splitright splitbelow
 " Backspace settings
 set backspace=indent,eol,start
 
-" Undo, swap/backup files settings
-set undofile undolevels=10000
-if has("nvim")
-	if empty(glob($HOME . "/.nvim-tmp"))
-		for subfolder in ["undo", "swp", "backup"]
-			call mkdir($HOME . "/.nvim-tmp/" . subfolder, "p")
-		endfor
-	endif
-	set undodir=$HOME/.nvim-tmp/undo//
-	set directory=$HOME/.nvim-tmp/swp//
-	set backupdir=$HOME/.nvim-tmp/backup//
-else
-	if empty(glob($HOME . "/.vim-tmp"))
-		for subfolder in ["undo", "swp", "backup"]
-			call mkdir($HOME . "/.vim-tmp/" . subfolder, "p")
-		endfor
-	endif
-	set undodir=$HOME/.vim-tmp/undo//
-	set directory=$HOME/.vim-tmp/swp//
-	set backupdir=$HOME/.vim-tmp/backup//
-endif
-
 " Indentation settings
 set autoindent copyindent shiftround smarttab breakindent
 set noexpandtab textwidth=0 tabstop=4 softtabstop=4 shiftwidth=4
@@ -88,6 +66,28 @@ set nrformats=bin,hex
 if executable("rg")
 	set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 	set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+
+" Undo, swap/backup files settings
+set undofile undolevels=10000
+if has("nvim")
+	if empty(glob($HOME . "/.nvim-tmp"))
+		for subfolder in ["undo", "swp", "backup"]
+			call mkdir($HOME . "/.nvim-tmp/" . subfolder, "p")
+		endfor
+	endif
+	set undodir=$HOME/.nvim-tmp/undo//
+	set directory=$HOME/.nvim-tmp/swp//
+	set backupdir=$HOME/.nvim-tmp/backup//
+else
+	if empty(glob($HOME . "/.vim-tmp"))
+		for subfolder in ["undo", "swp", "backup"]
+			call mkdir($HOME . "/.vim-tmp/" . subfolder, "p")
+		endfor
+	endif
+	set undodir=$HOME/.vim-tmp/undo//
+	set directory=$HOME/.vim-tmp/swp//
+	set backupdir=$HOME/.vim-tmp/backup//
 endif
 " }}}
 
