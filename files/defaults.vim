@@ -45,20 +45,18 @@ set backspace=indent,eol,start
 " Undo, swap/backup files settings
 set undofile undolevels=10000
 if has("nvim")
-	let s:nvim_directories_exist = !empty(glob("$HOME/.nvim-tmp"))
-	if !s:nvim_directories_exist
+	if empty(glob($HOME . "/.nvim-tmp"))
 		for subfolder in ["undo", "swp", "backup"]
-			call mkdir("$HOME/.nvim-tmp/" . subfolder . "//", "p")
+			call mkdir($HOME . "/.nvim-tmp/" . subfolder, "p")
 		endfor
 	endif
 	set undodir=$HOME/.nvim-tmp/undo//
 	set directory=$HOME/.nvim-tmp/swp//
 	set backupdir=$HOME/.nvim-tmp/backup//
 else
-	let s:vim_directories_exist = !empty(glob("$HOME/.vim-tmp"))
-	if !s:vim_directories_exist
+	if empty(glob($HOME . "/.vim-tmp"))
 		for subfolder in ["undo", "swp", "backup"]
-			call mkdir("$HOME/.vim-tmp/" . subfolder . "//", "p")
+			call mkdir($HOME . "/.vim-tmp/" . subfolder, "p")
 		endfor
 	endif
 	set undodir=$HOME/.vim-tmp/undo//
