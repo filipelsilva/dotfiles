@@ -18,7 +18,7 @@ if !has("nvim")
 endif
 
 colorscheme default
-set background=light
+set background=dark
 
 " Highlight 80th character (cleaner alternative to colorcolumn)
 highlight! link Character80 ColorColumn
