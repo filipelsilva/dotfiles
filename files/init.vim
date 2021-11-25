@@ -59,7 +59,6 @@ augroup END
 
 " Fzf (overrides defaults.vim keybinds on f key, due to fzf.vim being used here)
 nnoremap <silent> <expr> <Leader>f (len(system("git rev-parse")) ? ":Files" : ":GFiles") . "\<CR>"
-nnoremap <silent> <Leader><Leader>f <Cmd>Files $HOME<CR>
 nnoremap <silent> <Leader>r <Cmd>Rg<CR>
 nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
 
