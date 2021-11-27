@@ -51,7 +51,7 @@ set $ws10 "10"
 exec_always --no-startup-id autorandr --change --skip-options crtc
 
 # Apply wallpaper
-exec_always --no-startup-id feh --bg-fill $wallpaper
+exec_always --no-startup-id feh --bg-fill --no-fehbg $wallpaper
 
 # Redshift (f.lux alike)
 exec_always --no-startup-id pkill -9 redshift; redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq '.location.lat, .location.lng' | tr '\n' ':' | sed 's/:$//')
