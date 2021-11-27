@@ -27,6 +27,7 @@ function! PackInit() abort
 
 	" Snippets
 	call minpac#add('L3MON4D3/LuaSnip')
+	call minpac#add('rafamadriz/friendly-snippets')
 
 	" Completion sources
 	call minpac#add('saadparwaiz1/cmp_luasnip')
@@ -92,21 +93,9 @@ end)
 EOF
 " }}}
 
-" Snippets {{{
-lua << EOF
-local luasnip = require('luasnip')
-local snip = luasnip.snippet
-local node = luasnip.snippet_node
-local text = luasnip.text_node
-local insert = luasnip.insert_node
-local func = luasnip.function_node
-local choice = luasnip.choice_node
-local dynamic = luasnip.dynamic_node
-EOF
-" }}}
-
 " Completion {{{
 lua << EOF
+local luasnip = require('luasnip')
 local cmp = require('cmp')
 
 -- Helper functions {{{
@@ -140,6 +129,20 @@ local complete_or_snippet_prev = function(fallback)
 end
 -- }}}
 
+-- Snippets {{{
+local snip = luasnip.snippet
+local node = luasnip.snippet_node
+local text = luasnip.text_node
+local insert = luasnip.insert_node
+local func = luasnip.function_node
+local choice = luasnip.choice_node
+local dynamic = luasnip.dynamic_node
+
+luasnip.snippets = {}
+require('luasnip/loaders/from_vscode').lazy_load()
+-- }}}
+
+-- Completion engine {{{
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -167,6 +170,7 @@ cmp.setup({
 		{ name = 'path' },
 	},
 })
+-- }}}
 EOF
 " }}}
 
