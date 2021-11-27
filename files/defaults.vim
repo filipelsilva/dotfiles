@@ -343,6 +343,9 @@ else
 	noremap <silent> <Leader>T :terminal<CR>
 endif
 
+" Escape terminal mode
+tnoremap <Esc><Esc> <C-\><C-n>
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <Leader>e :edit $MYVIMRC<CR>
 nmap <silent> <Leader>E :source $MYVIMRC<CR>
