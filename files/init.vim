@@ -92,9 +92,21 @@ end)
 EOF
 " }}}
 
-" Completion {{{
+" Snippets {{{
 lua << EOF
 local luasnip = require('luasnip')
+local snip = luasnip.snippet
+local node = luasnip.snippet_node
+local text = luasnip.text_node
+local insert = luasnip.insert_node
+local func = luasnip.function_node
+local choice = luasnip.choice_node
+local dynamic = luasnip.dynamic_node
+EOF
+" }}}
+
+" Completion {{{
+lua << EOF
 local cmp = require('cmp')
 
 -- Helper functions {{{
@@ -131,7 +143,7 @@ end
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			require('luasnip').lsp_expand(args.body)
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	mapping = {
@@ -160,9 +172,9 @@ EOF
 
 " Treesitter {{{
 lua << EOF
-local treesitter = require("nvim-treesitter.configs")
+local treesitter = require('nvim-treesitter.configs')
 treesitter.setup({
-	ensure_installed = "maintained",
+	ensure_installed = 'maintained',
 	sync_install = false,
 	highlight = {
 		enable = false,
