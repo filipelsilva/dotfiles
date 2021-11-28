@@ -48,12 +48,12 @@ command! PackClean  call PackInit() | call minpac#clean()
 " }}}
 
 " Colorscheme
-" set background=dark
-" set termguicolors
-" colorscheme gruvbox8_hard
-" highlight! link CursorLineNr LineNr
-" highlight! link EndOfBuffer LineNr
-" highlight! link Character80 CursorColumn
+set background=dark
+set termguicolors
+colorscheme gruvbox8_hard
+highlight! link CursorLineNr LineNr
+highlight! link EndOfBuffer LineNr
+highlight! link Character80 CursorColumn
 
 " DetectIndent
 augroup DetectIndent
