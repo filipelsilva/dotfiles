@@ -21,7 +21,7 @@ colorscheme default
 set background=light
 
 " Highlight 80th character (cleaner alternative to colorcolumn)
-highlight! Character80 cterm=reverse gui=reverse
+highlight! link Character80 CursorColumn
 call matchadd("Character80", '\%80v.')
 
 " Embed language syntax support

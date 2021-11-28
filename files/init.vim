@@ -53,7 +53,7 @@ set termguicolors
 colorscheme gruvbox8_hard
 highlight! link CursorLineNr LineNr
 highlight! link EndOfBuffer LineNr
-highlight! Character80 cterm=reverse gui=reverse
+highlight! link Character80 CursorColumn
 
 " DetectIndent
 augroup DetectIndent
