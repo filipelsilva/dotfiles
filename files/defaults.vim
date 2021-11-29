@@ -17,8 +17,8 @@ if !has("nvim")
 	runtime! ftplugin/man.vim
 endif
 
-colorscheme pablo
-set background=dark
+colorscheme default
+set background=light
 
 " Highlight 80th character (cleaner alternative to colorcolumn)
 highlight! link Character80 ColorColumn
