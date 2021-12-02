@@ -17,7 +17,8 @@ if !has("nvim")
 	runtime! ftplugin/man.vim
 endif
 
-colorscheme elflord
+colorscheme default
+set background=light
 
 " Highlight 80th character (cleaner alternative to colorcolumn)
 highlight! link Character80 ColorColumn
