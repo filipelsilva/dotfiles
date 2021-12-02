@@ -162,7 +162,7 @@ function kp() {
 
 # Simple prompts
 export PROMPT='%n@%m:%~%# '
-# export PROMPT='[%n@%m %~] '
+# export PROMPT='[%n@%m %~]%# '
 # }}}
 
 # Directory stack {{{
