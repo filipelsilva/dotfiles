@@ -142,7 +142,30 @@ function kp() {
 
 # }}}
 
+# Prompt {{{
+
+# Simple prompts
 export PROMPT='%n@%m:%~%# '
+# export PROMPT='[%n@%m %~]%# '
+
+# Prompts with vcs integration
+# setopt prompt_subst
+
+# autoload -Uz vcs_info
+# precmd_vcs_info() { vcs_info }
+# precmd_functions+=( precmd_vcs_info )
+
+# zstyle ':vcs_info:*' check-for-changes true
+# zstyle ':vcs_info:*' stagedstr '+'
+# zstyle ':vcs_info:*' unstagedstr '*'
+
+# zstyle ':vcs_info:*' formats '[%s:%b%m%u%c]'
+# export PROMPT='%m%S%n%s%1~${vcs_info_msg_0_}%(?..%F{red}[%?])%f '
+# export PROMPT='[%n@%m %1~]${vcs_info_msg_0_}%(?..%F{red}[%?])%f$ '
+
+# zstyle ':vcs_info:*' formats ':(%s)%b%m%u%c'
+# export PROMPT='%n@%m:%1~${vcs_info_msg_0_}%(?..%F{red}:%?)%f$ '
+# }}}
 
 # Directory stack {{{
 setopt auto_pushd
