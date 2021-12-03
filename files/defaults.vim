@@ -50,7 +50,7 @@ set autoindent copyindent shiftround smarttab breakindent
 set noexpandtab textwidth=0 tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set ruler showcmd linebreak laststatus=1 scrolloff=5
+set ruler showcmd linebreak laststatus=1 "scrolloff=5
 set shortmess=filmnrwxaoOtT fillchars+=vert:│ guicursor=
 
 " Spell settings
@@ -281,9 +281,6 @@ else
 	nnoremap <Leader><Leader>f :edit $HOME/
 	nnoremap <Leader>F :edit <C-r>=expand("%:p:h") . "/"<CR>
 endif
-
-" Allow gf to open non-existent files
-map <silent> gf :edit <cfile><CR>
 
 " Make Y work like D and C
 nnoremap Y y$
