@@ -80,6 +80,7 @@ function x() {
 function up() {
 	yay -Syu --devel --timeupdate
 	nvim --headless +PackUpdate +quitall
+	echo '\n'
 	$HOME/dotfiles/scripts/./pip.sh
 
 	(
@@ -147,6 +148,7 @@ function kp() {
 
 # Simple prompts
 export PROMPT='%n@%m:%~%# '
+# export PROMPT='%n@%m %~ %# '
 # export PROMPT='[%n@%m %~]%# '
 
 # Prompts with vcs integration
