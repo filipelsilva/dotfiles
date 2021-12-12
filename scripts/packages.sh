@@ -8,8 +8,10 @@ sudo pacman -S --noconfirm zsh git tk curl wget glances htop neovim python-pip\
     pacman-contrib zsh-completions zoxide jq xcape
 
 # For desktop installation:
+if [[ $1 = "full" ]]; then
+    sudo pacman -S --noconfirm alacritty i3 i3status i3lock maim rofi feh arandr\
+        nomacs pavucontrol xdotool arc-gtk-theme lxappearance thunar autorandr\
+        thunar-archive-plugin file-roller okular xss-lock\
+        ttc-iosevka ttc-iosevka-ss12 redshift playerctl brightnessctl
+fi
 
-# sudo pacman -S --noconfirm alacritty i3 i3status i3lock maim rofi feh arandr\
-#     nomacs pavucontrol xdotool arc-gtk-theme lxappearance thunar autorandr\
-#     thunar-archive-plugin file-roller okular xss-lock\
-#     ttc-iosevka ttc-iosevka-ss12 redshift playerctl brightnessctl
