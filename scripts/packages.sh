@@ -5,7 +5,7 @@ sudo pacman -S --noconfirm zsh git tk curl wget glances htop neovim python-pip\
     python python-setuptools pypy gcc valgrind gdb unzip zip tmux lynx tree\
     ripgrep fd the_silver_searcher neofetch xclip pkg-config go make entr ctags\
     rlwrap hexyl bat cmake shellcheck hyperfine onefetch npm atool ascii nodejs\
-    pacman-contrib zsh-completions brightnessctl zoxide jq xcape
+    pacman-contrib zsh-completions zoxide jq xcape
 
 # For desktop installation:
 
