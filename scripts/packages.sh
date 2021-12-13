@@ -10,9 +10,7 @@ sudo pacman -S --noconfirm \
     glances \
     htop \
     neovim \
-    python-pip \
     python \
-    python-setuptools \
     pypy \
     gcc \
     valgrind \
