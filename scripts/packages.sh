@@ -45,7 +45,8 @@ sudo pacman -S --noconfirm \
     zsh-completions \
     zoxide \
     jq \
-    xcape
+    xcape \
+    dnsutils
 
 # For desktop installation:
 
