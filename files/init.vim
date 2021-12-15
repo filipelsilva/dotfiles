@@ -45,11 +45,11 @@ endfunction
 " }}}
 
 " Colorscheme
-set termguicolors
-colorscheme gruvbox8_hard
-highlight! link CursorLineNr LineNr
-highlight! link EndOfBuffer LineNr
-highlight! link Character80 ColorColumn
+" set termguicolors
+" colorscheme gruvbox8_hard
+" highlight! link CursorLineNr LineNr
+" highlight! link EndOfBuffer LineNr
+" highlight! link Character80 ColorColumn
 
 " DetectIndent
 augroup DetectIndent
