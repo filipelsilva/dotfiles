@@ -9,5 +9,4 @@ yay -S --noconfirm \
 	downgrade \
 	vimv-git \
 	linux-wifi-hotspot \
-	rr \
-	ripgrep-all
+	rr

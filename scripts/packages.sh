@@ -46,7 +46,8 @@ sudo pacman -S --noconfirm \
     zoxide \
     jq \
     xcape \
-    dnsutils
+    dnsutils \
+    ripgrep-all
 
 # For desktop installation:
 
