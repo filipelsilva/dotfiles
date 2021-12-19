@@ -231,13 +231,13 @@ nnoremap <silent> <Leader>n :set invnumber invrelativenumber<CR>
 nnoremap <silent> <Leader>o :setlocal invspell<Bar>call ShowWhitespace()<CR>
 
 " Buffer jumping
-nnoremap [b :bnext<CR>
-nnoremap ]b :bprev<CR>
+nnoremap ]b :bnext<CR>
+nnoremap [b :bprev<CR>
 inoremap <C-^> <Esc><C-^>
 
 " Alternative tab jumping
-nnoremap [t :tabnext<CR>
-nnoremap ]t :tabprev<CR>
+nnoremap ]t :tabnext<CR>
+nnoremap [t :tabprev<CR>
 
 " Quickfix list jumping
 nnoremap ]q :cnext<CR>zz
