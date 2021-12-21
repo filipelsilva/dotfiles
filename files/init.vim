@@ -65,7 +65,8 @@ nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
 
 " Comment.nvim {{{
 lua << EOF
-require('Comment').setup({
+local comment = require('Comment')
+comment.setup({
     padding = true,
     sticky = true,
     ignore = nil,
