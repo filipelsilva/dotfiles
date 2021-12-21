@@ -28,7 +28,7 @@ _fzf_compgen_dir() {
 # Aliases {{{
 
 # Basic commands
-alias ..="cd .."
+alias ..=".."
 alias -- -="cd -"
 alias cp="cp -r"
 alias mkdir="mkdir -p"
