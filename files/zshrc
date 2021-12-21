@@ -204,7 +204,7 @@ setopt autocd
 
 #eval "$(dircolors)"
 #zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' completer _extensions _complete _approximate
+zstyle ':completion:*' completer _complete _ignored _expand_alias _extensions _approximate
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $HOME/.zcompcache
