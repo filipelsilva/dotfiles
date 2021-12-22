@@ -79,7 +79,6 @@ function x() {
 # [Up]grade
 function up() {
 	yay -Syu --devel --timeupdate
-	$HOME/dotfiles/scripts/./pip.sh
 
 	(
 	cd $HOME/.fzf && echo $PWD && git fetch
