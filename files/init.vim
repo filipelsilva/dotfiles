@@ -16,7 +16,7 @@ function! PackInit() abort
 	call minpac#add('tpope/vim-surround')
 
 	" Colorscheme
-	call minpac#add('gruvbox-community/gruvboxw')
+	call minpac#add('gruvbox-community/gruvbox')
 
 	" Fzf
 	call minpac#add('junegunn/fzf.vim')
