@@ -269,10 +269,10 @@ bindsym $mod+q mode $mode_loginopts
 
 # MODE: Change keyboard layout {{{
 mode $mode_layout {
-        bindsym p exec --no-startup-id setxkbmap -layout pt -option ctrl:nocaps; mode "default"
-        bindsym u exec --no-startup-id setxkbmap -layout us -option ctrl:nocaps; mode "default"
-        bindsym i exec --no-startup-id setxkbmap -layout us -variant intl -option ctrl:nocaps; mode "default"
-        bindsym a exec --no-startup-id setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps; mode "default"
+        bindsym p exec --no-startup-id setxkbmap -layout pt -option ctrl:swapcaps; mode "default"
+        bindsym u exec --no-startup-id setxkbmap -layout us -option ctrl:swapcaps; mode "default"
+        bindsym i exec --no-startup-id setxkbmap -layout us -variant intl -option ctrl:swapcaps; mode "default"
+        bindsym a exec --no-startup-id setxkbmap -layout us -variant altgr-intl -option ctrl:swapcaps; mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
