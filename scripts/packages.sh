@@ -67,21 +67,22 @@ if [[ $1 = "full" ]]; then
         i3 \
         i3status \
         i3lock \
-        maim \
+        xss-lock \
         rofi \
-        feh \
         arandr \
+        autorandr \
+        feh \
         nomacs \
+        maim \
         pavucontrol \
         xdotool \
         arc-gtk-theme \
         lxappearance \
+        xdg-user-dirs \
         thunar \
-        autorandr \
         thunar-archive-plugin \
         file-roller \
         okular \
-        xss-lock \
         redshift \
         playerctl \
         brightnessctl \
