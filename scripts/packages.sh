@@ -88,4 +88,3 @@ if [[ $1 = "full" ]]; then
         ttc-iosevka \
         ttc-iosevka-ss12
 fi
-
