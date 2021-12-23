@@ -54,7 +54,7 @@ exec --no-startup-id optimus-manager-qt
 exec --no-startup-id xset s off && xset -b -dpms
 
 # Lock screen
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color=$background
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color=$brightblack
 
 # NetworkManager
 exec --no-startup-id nm-applet
@@ -214,16 +214,16 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # Theme {{{
 
 # Colors
-set $background #1d2021
-set $foreground #ebdbb2
-set $black      #282828
-set $red        #cc241d
-set $green      #98971a
-set $yellow     #d79921
-set $blue       #458588
-set $magenta    #b16286
-set $cyan       #689d6a
-set $white      #a89984
+set $brightblack #1d2021
+set $brightwhite #ebdbb2
+set $black       #282828
+set $red         #cc241d
+set $green       #98971a
+set $yellow      #d79921
+set $blue        #458588
+set $magenta     #b16286
+set $cyan        #689d6a
+set $white       #a89984
 
 bar {
         tray_output primary
@@ -233,8 +233,8 @@ bar {
         status_command i3status # config at $HOME/dotfiles/files/i3statusconfig
 
         colors {
-                background $black
-                statusline $foreground
+                background $brightblack
+                statusline $brightwhite
                 separator  $white
 
                 # border|background|text
