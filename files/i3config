@@ -105,7 +105,9 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+e exec thunar
 
 # Start dmenu
-bindsym $mod+d exec --no-startup-id rofi -theme gruvbox-dark-hard -font "Iosevka 12" -show run
+# bindsym $mod+d exec --no-startup-id rofi -theme gruvbox-dark-hard -font "Iosevka 14" -show run
+bindsym $mod+d exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf --no-multi | xargs -r i3-msg -t command exec'
+for_window [instance="^launcher$"] floating enable, resize set width 30 ppt height 27 ppt, move position center
 
 # Splits
 bindsym $mod+v split h
