@@ -64,6 +64,8 @@ sudo pacman -S --noconfirm \
 if [[ $1 = "full" ]]; then
     sudo pacman -S --noconfirm \
         alacritty \
+        firefox \
+        torbrowser-launcher \
         i3 \
         i3status \
         i3lock \
