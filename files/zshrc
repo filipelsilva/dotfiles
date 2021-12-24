@@ -235,11 +235,18 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 HISTFILE=$HOME/.zhistory
 HISTSIZE=100000
 SAVEHIST=100000
+
 setopt extended_history
-setopt share_history
-setopt hist_find_no_dups
 setopt hist_expire_dups_first
+setopt hist_find_no_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
 setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt hist_verify
+setopt inc_append_history
+setopt share_history
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
