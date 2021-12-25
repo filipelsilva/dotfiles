@@ -202,9 +202,9 @@ setopt auto_menu
 setopt complete_aliases
 setopt complete_in_word
 setopt extended_glob
-setopt flow_control
 setopt glob_complete
 setopt list_types
+unsetopt flow_control
 
 #eval "$(dircolors)"
 #zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
