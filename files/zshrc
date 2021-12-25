@@ -302,5 +302,6 @@ zit-install "https://github.com/thiagokokada/zit" "zit"
 zit-install-load "https://github.com/wfxr/forgit" "forgit" "forgit.plugin.zsh"
 
 eval "$(zoxide init zsh --cmd j)"
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 # }}}
