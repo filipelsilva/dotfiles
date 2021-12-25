@@ -373,9 +373,6 @@ nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 
 " Fzf {{{
 if executable("fzf")
-	" Add fzf to runtimepath, adds :FZF command
-	execute "set runtimepath+=" . fnamemodify(systemlist("readlink -f $(command -v fzf)")[0], ":h:h")
-
 	" Create quickfix list out of selected files
 	function! s:build_quickfix_list(lines)
 		call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
