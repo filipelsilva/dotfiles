@@ -2,6 +2,10 @@
 
 sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm \
+    linux \
+    linux-firmware \
+    base \
+    base-devel \
     zsh \
     zsh-completions \
     bash \
