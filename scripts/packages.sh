@@ -37,6 +37,7 @@ sudo pacman -S --noconfirm \
     gcc \
     gdb \
     valgrind \
+    fzy \
     fd \
     the_silver_searcher \
     ripgrep \
