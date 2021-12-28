@@ -41,7 +41,6 @@ sudo pacman -S --noconfirm \
     ripgrep \
     ripgrep-all \
     neofetch \
-    xsel \
     xclip \
     pkg-config \
     shellcheck \
