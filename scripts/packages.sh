@@ -26,9 +26,9 @@ packages=(
 	python
 	python-pip
 	python-pynvim
-	bpython
 	python-internetarchive
 	pypy
+	bpython
 	gcc
 	gdb
 	pwndbg
