@@ -9,7 +9,7 @@ packages=(
     zsh-completions
     bash
     bash-completion
-    vim
+    gvim
     neovim
     tmux
     tmuxp
