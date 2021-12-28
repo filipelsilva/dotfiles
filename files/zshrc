@@ -84,9 +84,8 @@ function x() {
 # [Up]grade
 function up() {
 	yay -Syu --devel --timeupdate
-	echo "Updating zsh plugins\n" && zit-upgrade
-	echo "Updating tldr cache" && tldr --update
-	zshsource
+	zit-upgrade
+	tldr --update
 }
 
 # [Open] files
