@@ -27,15 +27,12 @@ sudo pacman -S --noconfirm \
     python \
     python-pip \
     python-pynvim \
-    python-setuptools \
-    python-pyelftools \
-    python-pycparser \
-    capstone \
     bpython \
     python-internetarchive \
     pypy \
     gcc \
     gdb \
+    pwndbg \
     valgrind \
     fzy \
     fzf \
