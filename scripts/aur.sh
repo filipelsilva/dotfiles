@@ -17,7 +17,7 @@ if [[ $1 = "full" ]]; then
 	packages+=(${desktop_packages[@]})
 fi
 
-sudo pacman -S --needed git base-devel
+sudo pacman -S --noconfirm --needed git base-devel
 git clone https://aur.archlinux.org/yay.git $HOME/.yay
 (cd $HOME/.yay && makepkg -si)
 
