@@ -135,6 +135,10 @@ function kp() {
 export PROMPT='%n@%m:%~%# '
 # export PROMPT='%n@%m %~ %# '
 # export PROMPT='[%n@%m %~]%# '
+# export PROMPT='%m%S%n%s%~%# '
+
+# export PROMPT='%B%F{green}%n@%m%f%b:%B%F{blue}%~%f%b%# '
+# export PROMPT='%B%F{green}%n@%m %B%F{blue}%~ %f%b%# '
 
 # Prompts with vcs integration
 # setopt prompt_subst
