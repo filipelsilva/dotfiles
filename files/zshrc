@@ -41,6 +41,7 @@ alias v=nvim
 
 # Ls aliases
 alias lt="tree -F -L 2" # -C"
+alias lta="tree -aF -L 2" # -C"
 alias ls="ls -CNF" # --color=auto"
 alias lsa="ls -A"
 alias l="ls -lh"
