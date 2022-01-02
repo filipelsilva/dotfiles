@@ -62,6 +62,8 @@ packages=(
 	npm
 	jq
 	pacman-contrib
+	sysstat
+	iftop
 	lynx
 	dnsutils
 	tk
