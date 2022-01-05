@@ -140,6 +140,7 @@ export PROMPT='%n@%m:%~%# '
 
 # export PROMPT='%B%F{green}%n@%m%f%b:%B%F{blue}%~%f%b%# '
 # export PROMPT='%B%F{green}%n@%m %B%F{blue}%~ %f%b%# '
+# export PROMPT='%F{red}[%F{yellow}%n%F{green}@%F{blue}%m %F{magenta}%~]%f%# '
 
 # Prompts with vcs integration
 
