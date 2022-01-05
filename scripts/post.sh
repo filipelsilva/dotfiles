@@ -8,7 +8,7 @@ zsh -c "source $HOME/.zshrc"
 echo "set editing-mode vi" >> $HOME/.inputrc
 
 # Tty font
-echo "FONT=ter-v24b" | sudo tee -a /etc/vconsole.conf
+echo "FONT=ter-v20b" | sudo tee -a /etc/vconsole.conf
 
 # Desktop stuff
 if [[ $1 = "full" ]]; then
