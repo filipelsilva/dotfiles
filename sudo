@@ -1,0 +1,3 @@
+FONT=ter-v24b /etc/vconsole.conf
+FONT=ter-v24b tee /etc/vconsole.conf
+FONT=ter-v24b tee -a /etc/vconsole.conf

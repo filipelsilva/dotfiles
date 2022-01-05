@@ -44,6 +44,7 @@ packages=(
 	ripgrep-all
 	neofetch
 	onefetch
+	terminus-font
 	xclip
 	pkg-config
 	shellcheck
