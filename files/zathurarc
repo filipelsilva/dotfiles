@@ -1,3 +1,5 @@
+set font "Iosevka 12"
+
 set notification-error-bg       "#1d2021" # bg
 set notification-error-fg       "#fb4934" # bright:red
 set notification-warning-bg     "#1d2021" # bg
@@ -36,5 +38,5 @@ set render-loading-fg           "#ebdbb2" # fg
 # Recolor book content's color
 set recolor-lightcolor          "#1d2021" # bg
 set recolor-darkcolor           "#ebdbb2" # fg
-set recolor                     "true"
-set recolor-keephue             true      # keep original color
+#set recolor                     "true"
+#set recolor-keephue             true      # keep original color
