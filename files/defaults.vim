@@ -227,7 +227,7 @@ tnoremap <C-w> <C-\><C-n><C-w>
 nnoremap <silent> <Leader>n :set invnumber invrelativenumber<CR>
 
 " Toggle spell
-nnoremap <silent> <Leader>o :setlocal invspell<Bar>call ShowWhitespace()<CR>
+nnoremap <silent> <Leader>o :set invspell<Bar>call ShowWhitespace()<CR>
 
 " Buffer jumping
 nnoremap ]b :bnext<CR>
