@@ -133,7 +133,7 @@ function kp() {
 
 # Prompt {{{
 
-# Simple prompts
+# Simple prompts (replace %# with %(!.#.$) for bash-like prompt)
 export PROMPT='%n@%m:%~%# '
 # export PROMPT='%n@%m %~ %# '
 # export PROMPT='[%n@%m %~]%# '
