@@ -114,6 +114,7 @@ desktop_packages=(
 	tesseract-data-eng
 	ttc-iosevka
 	ttc-iosevka-ss12
+	ttf-hack
 )
 
 if [[ $1 = "full" ]]; then
