@@ -71,6 +71,7 @@ packages=(
 	lynx
 	dnsutils
 	tk
+	time
 )
 
 desktop_packages=(
