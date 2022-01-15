@@ -207,6 +207,7 @@ cmp.setup({
 })
 EOF
 " }}}
+" }}}
 
 " Treesitter {{{
 lua << EOF
