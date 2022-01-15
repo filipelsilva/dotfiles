@@ -205,8 +205,8 @@ cmp.setup({
 		{ name = 'path' },
 	}),
 })
+-- }}}
 EOF
-" }}}
 " }}}
 
 " Treesitter {{{
