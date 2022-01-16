@@ -215,7 +215,7 @@ zstyle ':completion:*' insert-unambiguous false
 zstyle ':completion:*' list-suffixes true
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**' 'l:|=* r:|=*'
 zstyle ':completion:*' match-original both
-zstyle ':completion:*' max-errors 3 numeric
+zstyle ':completion:*' max-errors 5 numeric
 zstyle ':completion:*' menu yes select
 zstyle ':completion:*' old-menu false
 zstyle ':completion:*' original true
