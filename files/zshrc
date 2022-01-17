@@ -1,31 +1,3 @@
-# Fzf {{{
-
-# Make fzf not collide with zsh
-export FZF_COMPLETION_TRIGGER='++'
-
-# Default options
-export FZF_DEFAULT_OPTS=" \
---color='fg+:#ebdbb2' \
---height=30% \
---layout=reverse \
---info=inline \
---multi \
---bind '?:toggle-preview,ctrl-a:toggle-all' \
-"
-
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
-
-_fzf_compgen_path() {
-	fd --hidden --exclude ".git" . "$1"
-}
-
-_fzf_compgen_dir() {
-	fd --type d --hidden --exclude ".git" . "$1"
-}
-# }}}
-
 # Variables {{{
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
@@ -85,65 +57,6 @@ alias i3config="$EDITOR $HOME/.config/i3/config && i3source"
 # GDB aliases
 alias pwndbg="gdb -quiet -ex init-pwndbg"
 alias gef="gdb -quiet -ex init-gef"
-# }}}
-
-# Functions {{{
-
-# Start[x]: to use with optimus-manager, instead of default startx
-function x() {
-	if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]];
-	then
-		sudo /usr/bin/prime-switch
-		exec startx
-	fi
-}
-
-# [Up]grade
-function up() {
-	yay -Syu --devel --timeupdate
-	zit-upgrade
-	tldr --update
-}
-
-# [Open] files
-function open() {
-	if [ "$#" -eq 1 ]; then
-		(xdg-open $1 > /dev/null 2>&1 &)
-	else
-		local file="$(fzf --no-multi)"
-		[ -n $file ] && (xdg-open $file > /dev/null 2>&1 &)
-	fi
-}
-
-# [Take]: mkdir directory and cd to it
-function take() {
-	mkdir -p $@ && cd ${@:$#}
-}
-
-# [Linkdump]
-function linkdump() {
-	lynx -dump -listonly -nonumbers $1 | grep .pdf > dump.txt
-	wget -i dump.txt
-	rm dump.txt
-}
-
-# [F]ind-[I]n-[F]ile
-function fif() {
-	if [ ! "$#" -gt 0 ]; then
-		echo "Need a string to search for!";
-		return 1;
-	fi
-	rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --header='[find in file]' --preview "rg --pretty --context 10 '$1' {}"
-}
-
-# [K]ill [P]rocess
-function kp() {
-	local pid=$(ps -ef | sed 1d | eval "fzf -m --header='[kill:process]'" | awk '{print $2}')
-	if [ "x$pid" != "x" ]; then
-		echo $pid | xargs kill -${1:-9}
-		kp
-	fi
-}
 # }}}
 
 # Prompt (replace %# with %(!.#.$) for bash-like prompt)
@@ -224,6 +137,20 @@ zstyle ':completion:*:*:*:*:warnings' format '-- no matches found --'
 zstyle :compinstall filename "$HOME/.zshrc"
 # }}}
 
+# Vi-mode and keybinds {{{
+autoload -z edit-command-line
+zle -N edit-command-line
+
+KEYTIMEOUT=1
+
+bindkey -v
+bindkey "^[[Z" reverse-menu-complete
+bindkey "^[[3~" delete-char
+bindkey "^?" backward-delete-char
+bindkey "\e." insert-last-word
+bindkey "^E" edit-command-line
+# }}}
+
 # Command history {{{
 HISTFILE=$HOME/.zhistory
 HISTSIZE=100000
@@ -257,18 +184,91 @@ bindkey "^R" history-incremental-search-backward
 bindkey -M vicmd "/" history-incremental-search-backward
 # }}}
 
-# Vi-mode and keybinds {{{
-autoload -z edit-command-line
-zle -N edit-command-line
+# Functions {{{
 
-KEYTIMEOUT=1
+# Start[x]: to use with optimus-manager, instead of default startx
+function x() {
+	if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]];
+	then
+		sudo /usr/bin/prime-switch
+		exec startx
+	fi
+}
 
-bindkey -v
-bindkey "^[[Z" reverse-menu-complete
-bindkey "^[[3~" delete-char
-bindkey "^?" backward-delete-char
-bindkey "\e." insert-last-word
-bindkey "^E" edit-command-line
+# [Up]grade
+function up() {
+	yay -Syu --devel --timeupdate
+	zit-upgrade
+	tldr --update
+}
+
+# [Open] files
+function open() {
+	if [ "$#" -eq 1 ]; then
+		(xdg-open $1 > /dev/null 2>&1 &)
+	else
+		local file="$(fzf --no-multi)"
+		[ -n $file ] && (xdg-open $file > /dev/null 2>&1 &)
+	fi
+}
+
+# [Take]: mkdir directory and cd to it
+function take() {
+	mkdir -p $@ && cd ${@:$#}
+}
+
+# [Linkdump]
+function linkdump() {
+	lynx -dump -listonly -nonumbers $1 | grep .pdf > dump.txt
+	wget -i dump.txt
+	rm dump.txt
+}
+
+# [F]ind-[I]n-[F]ile
+function fif() {
+	if [ ! "$#" -gt 0 ]; then
+		echo "Need a string to search for!";
+		return 1;
+	fi
+	rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --header='[find in file]' --preview "rg --pretty --context 10 '$1' {}"
+}
+
+# [K]ill [P]rocess
+function kp() {
+	local pid=$(ps -ef | sed 1d | eval "fzf -m --header='[kill:process]'" | awk '{print $2}')
+	if [ "x$pid" != "x" ]; then
+		echo $pid | xargs kill -${1:-9}
+		kp
+	fi
+}
+# }}}
+
+# Fzf {{{
+
+# Make fzf not collide with zsh
+export FZF_COMPLETION_TRIGGER='++'
+
+# Default options
+export FZF_DEFAULT_OPTS=" \
+--color='fg+:#ebdbb2' \
+--height=30% \
+--layout=reverse \
+--info=inline \
+--multi \
+--bind '?:toggle-preview,ctrl-a:toggle-all' \
+"
+
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+
+_fzf_compgen_path() {
+	fd --hidden --exclude ".git" . "$1"
+}
+
+_fzf_compgen_dir() {
+	fd --type d --hidden --exclude ".git" . "$1"
+}
 # }}}
 
 # Plugins {{{
