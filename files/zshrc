@@ -206,7 +206,7 @@ unsetopt flow_control
 
 zstyle ':completion:*' add-space true
 zstyle ':completion:*' cache-path $HOME/.zcompcache
-zstyle ':completion:*' completer _list _oldlist _expand _complete _ignored _expand_alias _extensions _match _correct _approximate _prefix
+zstyle ':completion:*' completer _expand _complete _ignored _expand_alias _extensions _match _correct _approximate _prefix
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' format '-- %d --'
 zstyle ':completion:*' group-name ''
@@ -217,8 +217,7 @@ zstyle ':completion:*' list-suffixes true
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**' 'l:|=* r:|=*'
 zstyle ':completion:*' match-original both
 zstyle ':completion:*' max-errors 5 numeric
-zstyle ':completion:*' menu yes select
-zstyle ':completion:*' old-menu false
+zstyle ':completion:*' menu select
 zstyle ':completion:*' original true
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
 zstyle ':completion:*' select-prompt "%SScrolling active: current selection at %p%s"
