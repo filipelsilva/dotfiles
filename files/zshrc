@@ -26,6 +26,22 @@ _fzf_compgen_dir() {
 }
 # }}}
 
+# Variables {{{
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
+
+if [ "$EDITOR" = "nvim" ]; then
+	export MANPAGER="nvim +Man!"
+else
+	export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
+fi
+
+export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin
+
+export BAT_THEME="ansi"
+export BAT_STYLE="auto"
+# }}}
+
 # Aliases {{{
 
 # Basic commands
@@ -253,22 +269,6 @@ bindkey "^[[3~" delete-char
 bindkey "^?" backward-delete-char
 bindkey "\e." insert-last-word
 bindkey "^E" edit-command-line
-# }}}
-
-# Variables {{{
-export EDITOR="nvim"
-export VISUAL="$EDITOR"
-
-if [ "$EDITOR" = "nvim" ]; then
-	export MANPAGER="nvim +Man!"
-else
-	export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
-fi
-
-export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin
-
-export BAT_THEME="ansi"
-export BAT_STYLE="auto"
 # }}}
 
 # Plugins {{{
