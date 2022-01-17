@@ -186,13 +186,9 @@ bindkey -M vicmd "/" history-incremental-search-backward
 
 # Functions {{{
 
-# Start[x]: to use with optimus-manager, instead of default startx
-function x() {
-	if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]];
-	then
-		sudo /usr/bin/prime-switch
-		exec startx
-	fi
+# [Take]: mkdir directory and cd to it
+function take() {
+	mkdir -p $@ && cd ${@:$#}
 }
 
 # [Up]grade
@@ -210,11 +206,6 @@ function open() {
 		local file="$(fzf --no-multi)"
 		[ -n $file ] && (xdg-open $file > /dev/null 2>&1 &)
 	fi
-}
-
-# [Take]: mkdir directory and cd to it
-function take() {
-	mkdir -p $@ && cd ${@:$#}
 }
 
 # [Linkdump]
@@ -239,6 +230,15 @@ function kp() {
 	if [ "x$pid" != "x" ]; then
 		echo $pid | xargs kill -${1:-9}
 		kp
+	fi
+}
+
+# Start[x]: to use with optimus-manager, instead of default startx
+function x() {
+	if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]];
+	then
+		sudo /usr/bin/prime-switch
+		exec startx
 	fi
 }
 # }}}
