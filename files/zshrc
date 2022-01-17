@@ -37,7 +37,7 @@ alias wget="wget -c"
 alias ip="ip --color=auto"
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"
-alias v="nvim"
+alias v="$EDITOR"
 
 # Ls aliases
 alias lt="tree -F -L 2" # -C"
@@ -60,11 +60,11 @@ alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 
 # Zsh configuration and reload
 alias zshsource="source $HOME/.zshrc && echo 'sourced zshrc'"
-alias zshconfig="nvim $HOME/.zshrc && zshsource"
+alias zshconfig="$EDITOR $HOME/.zshrc && zshsource"
 
 # i3 configuration and reload
 alias i3source="i3-msg restart"
-alias i3config="nvim $HOME/.config/i3/config && i3source"
+alias i3config="$EDITOR $HOME/.config/i3/config && i3source"
 
 # GDB aliases
 alias pwndbg="gdb -quiet -ex init-pwndbg"
@@ -256,9 +256,15 @@ bindkey "^E" edit-command-line
 # }}}
 
 # Variables {{{
-export MANPAGER="nvim +Man!"
-export EDITOR=nvim
-export VISUAL=nvim
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
+
+if [ "$EDITOR" = "nvim" ]; then
+	export MANPAGER="nvim +Man!"
+else
+	export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
+fi
+
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin
 
 export BAT_THEME="ansi"
