@@ -32,9 +32,9 @@ alias grep="grep --color=auto"
 alias v="$EDITOR"
 
 # Ls aliases
-alias lt="tree -F -L 2" # -C"
+alias lt="tree -F -L 2"
 alias lta="lt -a"
-alias ls="ls -CNF" # --color=auto"
+alias ls="ls -CNF"
 alias lsa="ls -A"
 alias l="ls -lh"
 alias la="ls -lhA"
