@@ -205,6 +205,15 @@ augroup HighlightToggle
 	autocmd InsertEnter * call StopHL()
 
 augroup END
+
+" DetectIndent
+augroup DetectIndent
+	autocmd!
+
+	" Change indentation settings automatically
+	autocmd BufRead * DetectIndent
+
+augroup END
 " }}}
 
 " Keymaps {{{
@@ -404,12 +413,6 @@ endfunction
 command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean  call PackInit() | call minpac#clean()
 command! PackStatus call PackInit() | call minpac#status()
-
-" DetectIndent
-augroup DetectIndent
-	autocmd!
-	autocmd BufRead * DetectIndent
-augroup END
 
 " Autoinstall package manager
 if empty(glob(substitute(&packpath, ",.*", "", "") . "/pack/minpac/opt/minpac"))
