@@ -111,7 +111,7 @@ copies text. And then I added Gruvbox colors, because why not?
 ### zshrc
 
 The objective of this config was to make it portable (at the very least, the
-basic functions), therefore it has multiple guards that only define some
+basic functionality), therefore it has multiple guards that only define some
 aliases and options if the package exists, e.g. `fzf` (even though you should
 have it installed, it is **really** awesome).
 
