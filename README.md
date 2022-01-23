@@ -48,7 +48,7 @@ are other settings, but nothing of great importance.
 ### gdbinit
 
 If the packages for pwndbg and gef are installed, the aliases in zsh will
-source the files defined in here. This way, you can run default `gdb`,
+source the files defined in there. This way, you can run default `gdb`,
 `pwndbg`, and `gef`, all separated. Before, I had a git repo dedicated to this,
 but this solution is way cleaner.
 
