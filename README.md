@@ -52,7 +52,7 @@ but this solution is way cleaner.
 
 ### gitconfig
 
-Aliases and some settings to do diffs and merges using nvim are defined in
+Aliases and some settings to do diffs and merges using `nvim` are defined in
 here. I recommend putting your name and email in here, to ease the commit/push
 process.
 
@@ -82,23 +82,23 @@ recent version of Vim). All keybinds and functions are documented fairly well,
 and some plugins were added on order to improve the experience (mostly surround
 words with characters, comment stuff quickly, and change indentation settings
 according to the file that is being edited). If ripgrep (`rg`) is installed, it
-will be used as the grep program, and if `fzf` is installed, it will be used for
-the functions to edit files (mapped to \<Leader\>[f,ff,F]). Otherwise, normal Vim
-methods will be used.
+will be used as the grep program, and if `fzf` is installed, it will be used
+for the functions to edit files (mapped to \<Leader\>[f,ff,F]). Otherwise,
+normal Vim methods will be used.
 
-It automatically installs a simple plugin manager (minpac) that uses
-Vim's runtimepath, if the system has `git` (well, if it hadn't, the probability
-you were reading this was quite low anyway). This is used to install the
-plugins described in the paragraph above).
+It automatically installs a simple plugin manager (minpac) that uses Vim's
+runtimepath, if the system has `git` (well, if it hadn't, the probability you
+were reading this was quite low anyway). This is used to install the plugins
+described in the paragraph above).
 
 ### init.vim
 
 This is the part of the config that I don't consider very portable. It
 piggybacks on the vimrc described above, and adds many plugins, in order to
 leverage Neovim's LSP capabilities. I include a colorscheme as well (Gruvbox
-really is the best), and `fzf` is joined by another plugin, `fzf`.vim, that adds
-integration with ripgrep and some other packages, to provide some quite useful
-functions.
+really is the best), and `fzf` is joined by another plugin, `fzf`.vim, that
+adds integration with ripgrep and some other packages, to provide some quite
+useful functions.
 
 The plugin declarations are in the function PackInit (that already existed in
 the vimrc file but is overwritten here).
