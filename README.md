@@ -48,14 +48,15 @@ are other settings, but nothing of great importance.
 ### gdbinit
 
 If the packages for pwndbg and gef are installed, the aliases in zsh will
-source the files defined in here. This way, you can run default gdb, pwndbg,
-and gef, all separated. Before, I had a git repo dedicated to this, but this
-solution is way cleaner.
+source the files defined in here. This way, you can run default `gdb`,
+`pwndbg`, and `gef`, all separated. Before, I had a git repo dedicated to this,
+but this solution is way cleaner.
 
 ### gitconfig
 
 Aliases and some settings to do diffs and merges using nvim are defined in
-here. Recommend putting name in email in here, to ease the commit/push process.
+here. I recommend putting your name and email in here, to ease the commit/push
+process.
 
 ### i3config and i3statusconfig
 
@@ -68,7 +69,7 @@ changing what you don't.
 
 ### tmux.conf
 
-This config uses xclip to manage the clipboard, to make it seamless between
+This config uses `xclip` to manage the clipboard, to make it seamless between
 other programs and tmux (vim does not use it by default, but there are keybinds
 to use it when needed, as I feel it's better to separate those clipboards).
 
@@ -83,12 +84,12 @@ recent version of Vim). All keybinds and functions are documented fairly well,
 and some plugins were added on order to improve the experience (mostly surround
 words with characters, comment stuff quickly, and change indentation settings
 according to the file that is being edited). If ripgrep (`rg`) is installed, it
-will be used as the grep program, and if fzf is installed, it will be used for
-the functions to edit files (mapped to <Leader>[f,ff,F]). Otherwise, normal Vim
+will be used as the grep program, and if `fzf` is installed, it will be used for
+the functions to edit files (mapped to \<Leader\>[f,ff,F]). Otherwise, normal Vim
 methods will be used.
 
 It automatically installs a simple plugin manager (minpac) that uses
-Vim's runtimepath, if the system has git (well, if it hadn't, the probability
+Vim's runtimepath, if the system has `git` (well, if it hadn't, the probability
 you were reading this was quite low anyway). This is used to install the
 plugins described in the paragraph above).
 
@@ -97,7 +98,7 @@ plugins described in the paragraph above).
 This is the part of the config that I don't consider very portable. It
 piggybacks on the vimrc described above, and adds many plugins, in order to
 leverage Neovim's LSP capabilities. I include a colorscheme as well (Gruvbox
-really is the best), and fzf is joined by another plugin, fzf.vim, that adds
+really is the best), and `fzf` is joined by another plugin, `fzf`.vim, that adds
 integration with ripgrep and some other packages, to provide some quite useful
 functions.
 
@@ -113,10 +114,10 @@ copies text. And then I added Gruvbox colors, because why not?
 
 The objective of this config was to make it portable (at the very least, the
 basic functions), therefore it has multiple guards that only define some
-aliases and options if the package exists, e.g. fzf (even though you should
+aliases and options if the package exists, e.g. `fzf` (even though you should
 have it installed, it is **really** awesome).
 
-As I only use one plugin, and that is forgit (depends on fzf as well, but
+As I only use one plugin, and that is forgit (depends on `fzf` as well, but
 really useful for Git repos), I have decided to manage it from the Pacman/AUR
 repos, instead of using a plugin manager.
 
