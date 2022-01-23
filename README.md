@@ -112,8 +112,9 @@ copies text. And then I added Gruvbox colors, because why not?
 
 The objective of this config was to make it portable (at the very least, the
 basic functionality), therefore it has multiple guards that only define some
-aliases and options if the package exists, e.g. `fzf` (even though you should
-have it installed, it is **really** awesome).
+aliases and options if the package exists, e.g. `fzf` (in the off chance you
+haven't read the last 2000 mentions to this package in this readme, it is
+**really** awesome and you should have it installed).
 
 As I only use one plugin, and that is forgit (depends on `fzf` as well, but
 really useful for Git repos), I have decided to manage it from the Pacman/AUR
