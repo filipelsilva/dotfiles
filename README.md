@@ -33,7 +33,7 @@ Usage:
 git clone https://github.com/filipelsilva/dotfiles-public $HOME/dotfiles
 cd $HOME/dotfiles
 ./run.sh        # If terminal is all you need
-./run.sh full   # If wanting to install i3 and desktop packages
+./run.sh full   # If you want to install i3 and desktop packages
 ```
 
 ## 3. Rationale behind the config files
