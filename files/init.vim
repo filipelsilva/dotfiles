@@ -64,29 +64,29 @@ nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
 lua << EOF
 local comment = require('Comment')
 comment.setup({
-    padding = true,
-    sticky = true,
-    ignore = nil,
-    toggler = {
-        line = 'gcc',
-        block = 'gbb',
-    },
-    opleader = {
-        line = 'gc',
-        block = 'gb',
-    },
-    extra = {
-        above = 'gcO',
-        below = 'gco',
-        eol = 'gcA',
-    },
-    mappings = {
-        basic = true,
-        extra = true,
-        extended = true,
-    },
-    pre_hook = nil,
-    post_hook = nil,
+	padding = true,
+	sticky = true,
+	ignore = nil,
+	toggler = {
+		line = 'gcc',
+		block = 'gbb',
+	},
+	opleader = {
+		line = 'gc',
+		block = 'gb',
+	},
+	extra = {
+		above = 'gcO',
+		below = 'gco',
+		eol = 'gcA',
+	},
+	mappings = {
+		basic = true,
+		extra = true,
+		extended = true,
+	},
+	pre_hook = nil,
+	post_hook = nil,
 })
 EOF
 " }}}
@@ -94,16 +94,16 @@ EOF
 " LSP {{{
 lua << EOF
 local custom_on_attach = function(client, bufnr)
-    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+	buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    local opts = { noremap = true, silent = true }
-    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', '<Leader>k', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+	local opts = { noremap = true, silent = true }
+	buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+	buf_set_keymap('n', '<Leader>k', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+	buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+	buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 end
 
 local new_capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -111,20 +111,20 @@ new_capabilities = require('cmp_nvim_lsp').update_capabilities(new_capabilities)
 
 local lsp_installer = require('nvim-lsp-installer')
 lsp_installer.settings({
-    ui = {
+	ui = {
 		icons = {
 			server_installed = '->',
 			server_pending = '??',
 			server_uninstalled = '!!',
 		},
-    },
+	},
 })
 lsp_installer.on_server_ready(function(server)
-    local opts = {
+	local opts = {
 		on_attach = custom_on_attach,
 		capabilities = new_capabilities,
-    }
-    server:setup(opts)
+	}
+	server:setup(opts)
 end)
 EOF
 " }}}
@@ -136,32 +136,32 @@ local cmp = require('cmp')
 
 -- Helper functions {{{
 local has_words_before = function()
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
 -- Next completion or move in snippet
 local complete_or_snippet_next = function(fallback)
-    if cmp.visible() then
+	if cmp.visible() then
 		cmp.select_next_item()
-    elseif luasnip.expand_or_jumpable() then
+	elseif luasnip.expand_or_jumpable() then
 		luasnip.expand_or_jump()
-    elseif has_words_before() then
+	elseif has_words_before() then
 		cmp.complete()
-    else
+	else
 		fallback()
-    end
+	end
 end
 
 -- Previous completion or move in snippet
 local complete_or_snippet_prev = function(fallback)
-    if cmp.visible() then
+	if cmp.visible() then
 		cmp.select_prev_item()
-    elseif luasnip.jumpable(-1) then
+	elseif luasnip.jumpable(-1) then
 		luasnip.jump(-1)
-    else
+	else
 		fallback()
-    end
+	end
 end
 -- }}}
 
@@ -179,12 +179,12 @@ luasnip.snippets = {}
 
 -- Completion engine {{{
 cmp.setup({
-    snippet = {
+	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
 		end,
-    },
-    mapping = {
+	},
+	mapping = {
 		['<C-y>'] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
@@ -197,13 +197,13 @@ cmp.setup({
 		['<C-p>'] = cmp.mapping(complete_or_snippet_prev, { 'i', 's' }),
 		['<Tab>'] = cmp.mapping(complete_or_snippet_next, { 'i', 's' }),
 		['<S-Tab>'] = cmp.mapping(complete_or_snippet_prev, { 'i', 's' }),
-    },
-    sources = cmp.config.sources({
+	},
+	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
 		{ name = 'buffer' },
 		{ name = 'path' },
-    }),
+	}),
 })
 -- }}}
 EOF
@@ -213,21 +213,21 @@ EOF
 lua << EOF
 local treesitter = require('nvim-treesitter.configs')
 treesitter.setup({
-    ensure_installed = {},
-    sync_install = false,
-    highlight = {
+	ensure_installed = {},
+	sync_install = false,
+	highlight = {
 		enable = false,
 		additional_vim_regex_highlighting = true,
-    },
-    incremental_selection = {
+	},
+	incremental_selection = {
 		enable = true,
-    },
-    indent = {
+	},
+	indent = {
 		enable = false,
-    },
-    playground = {
+	},
+	playground = {
 		enable = true,
-    },
+	},
 })
 EOF
 " }}}
