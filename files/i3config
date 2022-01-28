@@ -108,7 +108,7 @@ bindsym $mod+e exec thunar
 bindsym $mod+d exec --no-startup-id rofi -theme gruvbox-dark-hard -font "Iosevka 14" -show run
 
 # Open files
-bindsym $mod+o exec --no-startup-id fd --type f -e pdf . $HOME | rofi -theme gruvbox-dark-hard -font "Iosevka 14" -keep-right -dmenu -i -p FILES -multi-select | xargs -I {} xdg-open {}
+bindsym $mod+o exec --no-startup-id fd --type f -e pdf . $HOME | rofi -theme gruvbox-dark-hard -font "Iosevka 14" -keep-right -dmenu -i -p Files -multi-select | xargs -I {} xdg-open {}
 
 # Splits
 bindsym $mod+v split h
