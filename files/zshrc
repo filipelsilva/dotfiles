@@ -200,7 +200,11 @@ function take() {
 
 # [Open] files
 function open() {
-	(cd $1 && fzf --multi | xargs -I {} sh -c "xdg-open '{}' > /dev/null 2>&1 &")
+	if [ "$#" -eq 1 ]; then
+		(xdg-open $1 > /dev/null 2>&1 &)
+	else
+		(cd $1 && fzf --multi | xargs -I {} sh -c "xdg-open '{}' > /dev/null 2>&1 &")
+	fi
 }
 
 # [Linkdump]
