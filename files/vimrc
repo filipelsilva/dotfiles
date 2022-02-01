@@ -22,9 +22,8 @@ endif
 colorscheme default
 set background=dark
 
-" Highlight 80th character (cleaner alternative to colorcolumn)
-highlight! link Character80 ColorColumn
-call matchadd("Character80", '\%80v.')
+“ Highlight 80th character (cleaner alternative to colorcolumn)
+call matchadd(“Character80”, ‘\%80v.’)
 
 " Embed language syntax support
 let g:vimsyn_embed="lmpPrt"
@@ -196,6 +195,14 @@ augroup NumberToggle
 	" If buffer gets out of focus, disable relative numbers
 	autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &number | set norelativenumber | endif
 
+augroup END
+
+augroup ColorschemeOverrides
+	autocmd!
+	
+	“ Colorscheme changes
+	autocmd Colorscheme * highlight! link Character80 ColorColumn
+	
 augroup END
 
 augroup HighlightToggle

@@ -200,8 +200,10 @@ function take() {
 
 # [Open] files
 function open() {
-	if [ "$#" -eq 1 ]; then
-		(xdg-open $1 > /dev/null 2>&1 &)
+	if [ "$#" -ne 0 ]; then
+		for arg in $@; do
+			(xdg-open $arg > /dev/null 2>&1 &)
+		done
 	else
 		(cd $1 && fzf --multi | xargs -I {} sh -c "xdg-open '{}' > /dev/null 2>&1 &")
 	fi
