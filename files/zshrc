@@ -201,7 +201,7 @@ function take() {
 # [Open] files
 function open() {
 	if [ "$#" -ne 0 ]; then
-		for arg in $@; do
+		for arg in "$@"; do
 			(xdg-open $arg > /dev/null 2>&1 &)
 		done
 	else

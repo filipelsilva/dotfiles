@@ -22,7 +22,7 @@ endif
 colorscheme default
 set background=dark
 
-“ Highlight 80th character (cleaner alternative to colorcolumn)
+" Highlight 80th character (cleaner alternative to colorcolumn)
 call matchadd(“Character80”, ‘\%80v.’)
 
 " Embed language syntax support
@@ -200,7 +200,7 @@ augroup END
 augroup ColorschemeOverrides
 	autocmd!
 	
-	“ Colorscheme changes
+	" Colorscheme changes
 	autocmd Colorscheme * highlight! link Character80 ColorColumn
 	
 augroup END
