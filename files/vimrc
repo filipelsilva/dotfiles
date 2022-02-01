@@ -193,10 +193,10 @@ augroup END
 
 augroup ColorschemeOverrides
 	autocmd!
-	
+
 	" Colorscheme changes
 	autocmd Colorscheme * highlight! link Character80 ColorColumn
-	
+
 augroup END
 
 augroup HighlightToggle
