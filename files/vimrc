@@ -23,7 +23,7 @@ colorscheme default
 set background=dark
 
 " Highlight 80th character (cleaner alternative to colorcolumn)
-call matchadd(“Character80”, ‘\%80v.’)
+call matchadd("Character80", '\%80v.')
 
 " Embed language syntax support
 let g:vimsyn_embed="lmpPrt"
