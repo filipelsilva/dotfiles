@@ -7,6 +7,9 @@ zsh -c "source $HOME/.zshrc"
 # Vi mode in other programs
 echo "set editing-mode vi" >> $HOME/.inputrc
 
+# Make completion case-insensitive
+echo "set completion-ignore-case On" >> $HOME/.inputrc
+
 # Tty font
 echo "FONT=ter-v20b" | sudo tee -a /etc/vconsole.conf
 
