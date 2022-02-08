@@ -143,17 +143,10 @@ local types = require("luasnip.util.types")
 local fmt = require("luasnip.extras.fmt").fmt
 local rep = require("luasnip.extras").rep
 
-ls.config.set_config({
+ls.config.setup({
 	history = true,
-	updateevents = "TextChanged,TextChangedI",
 	enable_autosnippets = true,
-	ext_opts = {
-		[types.choiceNode] = {
-			active = {
-				virt_text = { { "<-" , "Error" } },
-			},
-		},
-	},
+	updateevents = "TextChanged,TextChangedI",
 })
 
 -- Templates {{{
@@ -184,8 +177,6 @@ int main(int argc, char *argv[]) {
 
 ls.snippets = {
 	all = {
-		-- s("req", fmt("local {} = require('{}')", { i(1, "default"), rep(1) })),
-		-- ls.parser.parse_snippet("expand", "-- this is what was expanded!"),
 	},
 	c = {
 		ls.parser.parse_snippet("init", c_template),
@@ -229,7 +220,7 @@ local complete_or_snippet_prev = function(fallback)
 	end
 end
 
-local select_luasnip_option = function()
+local luasnip_option_forward = function()
 	if ls.choice_active() then
 		ls.change_choice(1)
 	end
@@ -251,7 +242,7 @@ cmp.setup({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = false,
 		}),
-		["<C-l>"] = cmp.mapping(select_luasnip_option, { "i" }),
+		["<C-l>"] = cmp.mapping(luasnip_option_forward, { "i" }),
 		["<C-n>"] = cmp.mapping(complete_or_snippet_next, { "i", "s" }),
 		["<C-p>"] = cmp.mapping(complete_or_snippet_prev, { "i", "s" }),
 		["<Tab>"] = cmp.mapping(complete_or_snippet_next, { "i", "s" }),
