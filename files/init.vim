@@ -212,7 +212,13 @@ EOF
 lua << EOF
 local treesitter = require('nvim-treesitter.configs')
 treesitter.setup({
-	ensure_installed = {},
+	ensure_installed = {
+		"c",
+		"cpp",
+		"lua",
+		"python",
+		"vim",
+	},
 	sync_install = false,
 	highlight = {
 		enable = false,
