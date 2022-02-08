@@ -38,10 +38,6 @@ function! PackInit() abort
 	" Completion
 	call minpac#add('hrsh7th/nvim-cmp')
 
-	" Treesitter
-	call minpac#add('nvim-treesitter/nvim-treesitter')
-	call minpac#add('nvim-treesitter/playground')
-
 endfunction
 " }}}
 
@@ -205,28 +201,5 @@ cmp.setup({
 	}),
 })
 -- }}}
-EOF
-" }}}
-
-" Treesitter {{{
-lua << EOF
-local treesitter = require('nvim-treesitter.configs')
-treesitter.setup({
-	ensure_installed = {},
-	sync_install = false,
-	highlight = {
-		enable = false,
-		additional_vim_regex_highlighting = true,
-	},
-	incremental_selection = {
-		enable = true,
-	},
-	indent = {
-		enable = false,
-	},
-	playground = {
-		enable = true,
-	},
-})
 EOF
 " }}}
