@@ -127,10 +127,14 @@ end)
 -- }}}
 
 -- LuaSnip {{{
-local luasnip = require("luasnip")
+local ls = require("luasnip")
 local types = require("luasnip.util.types")
+local fmt = require("luasnip.extras.fmt").fmt
+local rep = require("luasnip.extras").rep
+local s = ls.snippet
+local i = ls.insert_node
 
-luasnip.config.set_config({
+ls.config.set_config({
 	history = true,
 	updateevents = "TextChanged,TextChangedI",
 	enable_autosnippets = true,
@@ -143,25 +147,44 @@ luasnip.config.set_config({
 	},
 })
 
-local snip = luasnip.snippet
-local insert = luasnip.insert_node
-local fmt = require("luasnip.extras.fmt").fmt
-local rep = require("luasnip.extras").rep
+-- Templates {{{
+c_template = [[
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
--- local node = luasnip.snippet_node
--- local text = luasnip.text_node
--- local func = luasnip.function_node
--- local choice = luasnip.choice_node
--- local dynamic = luasnip.dynamic_node
+int main(int argc, char *argv[]) {
+	$0
+}
+]]
 
-luasnip.snippets = {
+cpp_template = [[
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(int argc, char *argv[]) {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0); cout.tie(0);
+
+	$0
+}
+]]
+-- }}}
+
+ls.snippets = {
 	all = {
-		-- snip("req", fmt("local {} = require('{}')", { insert(1, "default"), rep(1) })),
-		-- luasnip.parser.parse_snippet("expand", "-- this is what was expanded!"),
+		-- s("req", fmt("local {} = require('{}')", { i(1, "default"), rep(1) })),
+		-- ls.parser.parse_snippet("expand", "-- this is what was expanded!"),
 	},
-	
-	lua = {
-		-- luasnip.parser.parse_snippet("lf", "local $1 = function($2)\n\t$0\nend"),
+
+	c = {
+		ls.parser.parse_snippet("init", c_template),
+	},
+
+	cpp = {
+		ls.parser.parse_snippet("init", cpp_template),
 	},
 }
 -- }}}
@@ -179,8 +202,8 @@ end
 local complete_or_snippet_next = function(fallback)
 	if cmp.visible() then
 		cmp.select_next_item()
-	elseif luasnip.expand_or_jumpable() then
-		luasnip.expand_or_jump()
+	elseif ls.expand_or_jumpable() then
+		ls.expand_or_jump()
 	elseif has_words_before() then
 		cmp.complete()
 	else
@@ -192,8 +215,8 @@ end
 local complete_or_snippet_prev = function(fallback)
 	if cmp.visible() then
 		cmp.select_prev_item()
-	elseif luasnip.jumpable(-1) then
-		luasnip.jump(-1)
+	elseif ls.jumpable(-1) then
+		ls.jump(-1)
 	else
 		fallback()
 	end
@@ -203,7 +226,7 @@ end
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			luasnip.lsp_expand(args.body)
+			ls.lsp_expand(args.body)
 		end,
 	},
 	mapping = {
