@@ -178,11 +178,9 @@ ls.snippets = {
 		-- s("req", fmt("local {} = require('{}')", { i(1, "default"), rep(1) })),
 		-- ls.parser.parse_snippet("expand", "-- this is what was expanded!"),
 	},
-
 	c = {
 		ls.parser.parse_snippet("init", c_template),
 	},
-
 	cpp = {
 		ls.parser.parse_snippet("init", cpp_template),
 	},
@@ -221,6 +219,12 @@ local complete_or_snippet_prev = function(fallback)
 		fallback()
 	end
 end
+
+local select_luasnip_option = function()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end
 -- }}}
 
 cmp.setup({
@@ -238,6 +242,7 @@ cmp.setup({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = false,
 		}),
+		["<C-l>"] = cmp.mapping(select_luasnip_option, { "i" }),
 		["<C-n>"] = cmp.mapping(complete_or_snippet_next, { "i", "s" }),
 		["<C-p>"] = cmp.mapping(complete_or_snippet_prev, { "i", "s" }),
 		["<Tab>"] = cmp.mapping(complete_or_snippet_next, { "i", "s" }),
