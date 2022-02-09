@@ -18,6 +18,7 @@ packages=(
 	zoxide
 	zip
 	unzip
+	p7zip
 	atool
 	curl
 	wget
@@ -27,7 +28,6 @@ packages=(
 	python
 	python-pip
 	python-pynvim
-	python-internetarchive
 	python-keystone
 	ropper
 	pypy
@@ -39,7 +39,6 @@ packages=(
 	valgrind
 	cloc
 	tokei
-	fzy
 	fzf
 	fd
 	the_silver_searcher
@@ -52,7 +51,6 @@ packages=(
 	neofetch
 	onefetch
 	terminus-font
-	xclip
 	pkg-config
 	shellcheck
 	make
@@ -103,6 +101,7 @@ desktop_packages=(
 	maim
 	pavucontrol
 	xdotool
+	xclip
 	arc-gtk-theme
 	lxappearance
 	xdg-user-dirs

@@ -6,7 +6,6 @@ packages=(
 	cht.sh-git
 	downgrade
 	vimv-git
-	scc-bin
 	rr-bin
 	sysz
 )
