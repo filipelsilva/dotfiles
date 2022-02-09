@@ -128,6 +128,7 @@ end)
 
 -- LuaSnip {{{
 local ls = require("luasnip")
+-- Requirements {{{
 local s = ls.snippet
 local sn = ls.snippet_node
 local isn = ls.indent_snippet_node
@@ -142,6 +143,7 @@ local ai = require("luasnip.nodes.absolute_indexer")
 local types = require("luasnip.util.types")
 local fmt = require("luasnip.extras.fmt").fmt
 local rep = require("luasnip.extras").rep
+-- }}}
 
 ls.config.setup({
 	history = true,
