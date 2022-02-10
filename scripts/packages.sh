@@ -18,8 +18,6 @@ packages=(
 	zoxide
 	zip
 	unzip
-	p7zip
-	atool
 	curl
 	wget
 	htop

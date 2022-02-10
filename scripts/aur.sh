@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 packages=(
+	7-zip-full
+	atool
 	forgit-git
 	gef-git
 	cht.sh-git
