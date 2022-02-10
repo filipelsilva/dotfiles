@@ -21,6 +21,12 @@ function! PackInit() abort
 	" Fzf
 	call minpac#add('junegunn/fzf.vim')
 
+	" Telescope requirement
+	call minpac#add('nvim-lua/plenary.nvim')
+
+	" Telescope
+	call minpac#add('nvim-telescope/telescope.nvim')
+
 	" Lsp and autoinstall
 	call minpac#add('neovim/nvim-lspconfig')
 	call minpac#add('williamboman/nvim-lsp-installer')
@@ -54,12 +60,34 @@ let g:gruvbox_invert_signs = 1
 let g:gruvbox_contrast_dark = "hard"
 colorscheme gruvbox
 
-" Fzf (overrides defaults.vim keybinds on f key, due to fzf.vim being used here)
-nnoremap <silent> <expr> <Leader>f (len(system("git rev-parse")) ? ":Files" : ":GFiles") . "\<CR>"
-nnoremap <silent> <Leader>r <Cmd>Rg<CR>
-nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
+" Telescope keybinds
+nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
+nnoremap <silent> <Leader><Leader>f <Cmd>lua require('telescope.builtin').find_files({ cwd = "$HOME", hidden = true })<CR>
+nnoremap <silent> <Leader>F <Cmd>lua require('telescope.builtin').find_files({ cwd = require("telescope.utils").buffer_dir(), hidden = true })<CR>
+nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
+nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
 
 lua << EOF
+
+-- Telescope {{{
+local actions = require('telescope.actions')
+require('telescope').setup {
+	defaults = {
+		mappings = {
+			i = {
+				["<c-s>"] = actions.select_horizontal,
+				["<c-x>"] = false,
+				["<c-a>"] = actions.select_all,
+			},
+			n = {
+				["<c-s>"] = actions.select_horizontal,
+				["<c-x>"] = false,
+				["<c-a>"] = actions.select_all,
+			},
+		},
+	},
+}
+-- }}}
 
 -- Comment.nvim {{{
 local comment = require("Comment")
