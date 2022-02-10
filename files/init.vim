@@ -39,7 +39,7 @@ function! PackInit() abort
 	call minpac#add('hrsh7th/nvim-cmp')
 
 	" Treesitter
-	call minpac#add('nvim-treesitter/nvim-treesitter')
+	call minpac#add('nvim-treesitter/nvim-treesitter', { 'do': 'TSUpdate' })
 	call minpac#add('nvim-treesitter/playground')
 
 endfunction
@@ -262,23 +262,17 @@ cmp.setup({
 -- Treesitter {{{
 local treesitter = require("nvim-treesitter.configs")
 treesitter.setup({
-	ensure_installed = {
-		"c",
-		"cpp",
-		"lua",
-		"python",
-		"vim",
-	},
+	ensure_installed = "maintained",
 	sync_install = false,
 	highlight = {
-		enable = false,
-		additional_vim_regex_highlighting = true,
+		enable = true,
+		additional_vim_regex_highlighting = false,
 	},
 	incremental_selection = {
 		enable = true,
 	},
 	indent = {
-		enable = false,
+		enable = true,
 	},
 	playground = {
 		enable = true,
