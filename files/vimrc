@@ -414,10 +414,10 @@ if executable("fzf")
 
 	" Settings
 	let g:fzf_action = {
-		\ 'alt-q': function('s:build_quickfix_list'),
-		\ 'ctrl-t': 'tab split',
-		\ 'ctrl-s': 'split',
-		\ 'ctrl-v': 'vsplit' }
+		\ "alt-q": function("s:build_quickfix_list"),
+		\ "ctrl-t": "tab split",
+		\ "ctrl-s": "split",
+		\ "ctrl-v": "vsplit" }
 	let g:fzf_buffers_jump = 1
 endif
 " }}}
@@ -426,16 +426,16 @@ endif
 function! PackInit() abort
 	packadd minpac
 	call minpac#init()
-	call minpac#add('k-takata/minpac', {'type': 'opt'})
+	call minpac#add("k-takata/minpac", {"type": "opt"})
 
 	" Identation detector
-	call minpac#add('tpope/vim-sleuth')
+	call minpac#add("tpope/vim-sleuth")
 
 	" Surround stuff
-	call minpac#add('tpope/vim-surround')
+	call minpac#add("tpope/vim-surround")
 
 	" Comment stuff
-	call minpac#add('tpope/vim-commentary')
+	call minpac#add("tpope/vim-commentary")
 
 endfunction
 
