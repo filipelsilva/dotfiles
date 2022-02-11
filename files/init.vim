@@ -62,11 +62,11 @@ let g:gruvbox_contrast_dark = "hard"
 colorscheme gruvbox
 
 " Telescope keybinds
-nnoremap <silent> <expr> <leader>f (len(system("git rev-parse")) ? ":Telescope find_files hidden=true" : ":Telescope git_files hidden=true")."\<cr>"
+nnoremap <silent> <expr> <Leader>f (len(system("git rev-parse")) ? ":Telescope find_files hidden=true" : ":Telescope git_files hidden=true")."\<cr>"
 nnoremap <silent> <Leader><Leader>f <Cmd>lua require("telescope.builtin").find_files({ cwd = "$HOME", hidden = true })<CR>
 nnoremap <silent> <Leader>F <Cmd>lua require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir(), hidden = true })<CR>
-nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
-nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
+nnoremap <silent> <Leader>r <Cmd>Telescope live_grep<cr>
+nnoremap <silent> <Leader>j <Cmd>Telescope buffers<cr>
 
 lua << EOF
 
