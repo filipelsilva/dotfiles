@@ -4,49 +4,50 @@ source $HOME/dotfiles/files/vimrc
 function! PackInit() abort
 	packadd minpac
 	call minpac#init()
-	call minpac#add('k-takata/minpac', {'type': 'opt'})
+	call minpac#add("k-takata/minpac", {"type": "opt"})
 
 	" Identation detector
-	call minpac#add('tpope/vim-sleuth')
+	call minpac#add("tpope/vim-sleuth")
 
 	" Surround stuff
-	call minpac#add('tpope/vim-surround')
+	call minpac#add("tpope/vim-surround")
 
 	" Comment stuff
-	call minpac#add('numToStr/Comment.nvim')
+	call minpac#add("numToStr/Comment.nvim")
 
 	" Colorscheme
-	call minpac#add('gruvbox-community/gruvbox')
+	call minpac#add("gruvbox-community/gruvbox")
 
 	" Fzf
-	call minpac#add('junegunn/fzf.vim')
+	call minpac#add("junegunn/fzf.vim")
 
 	" Telescope requirement
-	call minpac#add('nvim-lua/plenary.nvim')
+	call minpac#add("nvim-lua/plenary.nvim")
 
 	" Telescope
-	call minpac#add('nvim-telescope/telescope.nvim')
+	call minpac#add("nvim-telescope/telescope.nvim")
+	call minpac#add("nvim-telescope/telescope-fzf-native.nvim", { "do": "make" })
 
 	" Lsp and autoinstall
-	call minpac#add('neovim/nvim-lspconfig')
-	call minpac#add('williamboman/nvim-lsp-installer')
+	call minpac#add("neovim/nvim-lspconfig")
+	call minpac#add("williamboman/nvim-lsp-installer")
 
 	" Snippets
-	call minpac#add('L3MON4D3/LuaSnip')
+	call minpac#add("L3MON4D3/LuaSnip")
 
 	" Completion sources
-	call minpac#add('hrsh7th/cmp-nvim-lsp')
-	call minpac#add('saadparwaiz1/cmp_luasnip')
-	call minpac#add('hrsh7th/cmp-buffer')
-	call minpac#add('hrsh7th/cmp-path')
-	call minpac#add('hrsh7th/cmp-cmdline')
+	call minpac#add("hrsh7th/cmp-nvim-lsp")
+	call minpac#add("saadparwaiz1/cmp_luasnip")
+	call minpac#add("hrsh7th/cmp-buffer")
+	call minpac#add("hrsh7th/cmp-path")
+	call minpac#add("hrsh7th/cmp-cmdline")
 
 	" Completion
-	call minpac#add('hrsh7th/nvim-cmp')
+	call minpac#add("hrsh7th/nvim-cmp")
 
 	" Treesitter
-	call minpac#add('nvim-treesitter/nvim-treesitter', { 'do': 'TSUpdate' })
-	call minpac#add('nvim-treesitter/playground')
+	call minpac#add("nvim-treesitter/nvim-treesitter", { "do": "TSUpdate" })
+	call minpac#add("nvim-treesitter/playground")
 
 endfunction
 " }}}
@@ -61,17 +62,18 @@ let g:gruvbox_contrast_dark = "hard"
 colorscheme gruvbox
 
 " Telescope keybinds
-nnoremap <silent> <expr> <leader>f (len(system('git rev-parse')) ? ':Telescope find_files hidden=true' : ':Telescope git_files hidden=true')."\<cr>"
-nnoremap <silent> <Leader><Leader>f <Cmd>lua require('telescope.builtin').find_files({ cwd = "$HOME", hidden = true })<CR>
-nnoremap <silent> <Leader>F <Cmd>lua require('telescope.builtin').find_files({ cwd = require("telescope.utils").buffer_dir(), hidden = true })<CR>
+nnoremap <silent> <expr> <leader>f (len(system("git rev-parse")) ? ":Telescope find_files hidden=true" : ":Telescope git_files hidden=true")."\<cr>"
+nnoremap <silent> <Leader><Leader>f <Cmd>lua require("telescope.builtin").find_files({ cwd = "$HOME", hidden = true })<CR>
+nnoremap <silent> <Leader>F <Cmd>lua require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir(), hidden = true })<CR>
 nnoremap <silent> <leader>r <cmd>Telescope live_grep<cr>
 nnoremap <silent> <leader>j <cmd>Telescope buffers<cr>
 
 lua << EOF
 
 -- Telescope {{{
-local actions = require('telescope.actions')
-require('telescope').setup {
+local telescope = require("telescope")
+local actions = require("telescope.actions")
+telescope.setup({
 	defaults = {
 		mappings = {
 			i = {
@@ -86,7 +88,16 @@ require('telescope').setup {
 			},
 		},
 	},
-}
+	extensions = {
+		fzf = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "smart_case",
+		}
+	},
+})
+telescope.load_extension("fzf")
 -- }}}
 
 -- Comment.nvim {{{
