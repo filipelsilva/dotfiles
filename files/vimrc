@@ -114,7 +114,7 @@ function! ShowWhitespace() abort
 		call matchdelete(s:whitespace)
 		unlet s:whitespace
 	else
-		highlight! Whitespace ctermbg=red guibg=red
+		highlight! link Whitespace Error
 		let s:whitespace = matchadd("Whitespace", '\v\s+$')
 	endif
 endfunction
