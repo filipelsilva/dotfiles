@@ -92,31 +92,19 @@ endif
 
 " Functions {{{
 
-" HighlightToggle {{{
-function! StartHL() abort
+" ToggleSearchHighlight {{{
+function! StartSearchHighlight() abort
 	let s:pos = match(getline('.'), @/, col('.') - 1) + 1
 	if s:pos != col('.')
-		call StopHL()
+		call StopSearchHighlight()
 	endif
 endfunction
 
-function! StopHL() abort
+function! StopSearchHighlight() abort
 	if !v:hlsearch || mode() isnot 'n'
 		return
 	else
-		silent call feedkeys("\<Plug>(StopHL)", 'm')
-	endif
-endfunction
-" }}}
-
-" ShowWhitespace {{{
-function! ShowWhitespace() abort
-	if exists("s:whitespace")
-		call matchdelete(s:whitespace)
-		unlet s:whitespace
-	else
-		highlight! link Whitespace Error
-		let s:whitespace = matchadd("Whitespace", '\v\s+$')
+		silent call feedkeys("\<Plug>(StopSearchHighlight)", 'm')
 	endif
 endfunction
 " }}}
@@ -200,12 +188,12 @@ augroup ColorschemeOverrides
 
 augroup END
 
-augroup HighlightToggle
+augroup ToggleSearchHighlight
 	autocmd!
 
 	" After some cursor movement, remove highlighting from text
-	autocmd CursorMoved * call StartHL()
-	autocmd InsertEnter * call StopHL()
+	autocmd CursorMoved * call StartSearchHighlight()
+	autocmd InsertEnter * call StopSearchHighlight()
 
 augroup END
 " }}}
@@ -239,7 +227,7 @@ tnoremap <C-v><Esc> <Esc>
 nnoremap <silent> <Leader>n :set invnumber invrelativenumber<CR>
 
 " Toggle spell
-nnoremap <silent> <Leader>o :set invspell<Bar>call ShowWhitespace()<CR>
+nnoremap <silent> <Leader>o :setlocal invspell invlist<CR>
 
 " File jumping
 nnoremap [a :previous<CR>
@@ -372,8 +360,8 @@ vnoremap <Leader>P "+P
 nnoremap <Leader><Leader>y :%yank+<CR>
 
 " Disable hlsearch right after moving
-noremap <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
-noremap! <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
+noremap <expr> <Plug>(StopSearchHighlight) execute('nohlsearch')[-1]
+noremap! <expr> <Plug>(StopSearchHighlight) execute('nohlsearch')[-1]
 
 " Output the current syntax group
 nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
