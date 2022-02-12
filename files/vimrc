@@ -162,7 +162,7 @@ augroup Vimrc
 	autocmd BufWritePost $MYVIMRC source % | echomsg "Reloaded " . $MYVIMRC
 
 	" Go to last edited position on open file
-	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && &filetype !~# 'commit' | execute "normal! g'\"" | endif
+	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && &filetype !~# "commit" | execute "normal! g'\"" | endif
 
 	" If vim window is resized, resize the splits within
 	autocmd VimResized * wincmd =
@@ -273,8 +273,8 @@ if executable("rg")
 	nnoremap <Leader>q :grep! "<cword>" .<CR><Bar>:copen<CR>
 	vnoremap <Leader>q "zy<Esc>:grep! "<C-r>z" .<CR><Bar>:copen<CR>
 else
-	nnoremap <Leader>q :grep! -R -I --exclude-dir={.git,.svn} "<cword>" .<CR><Bar>:copen<CR>
-	vnoremap <Leader>q "zy<Esc>:grep! -R -I --exclude-dir={.git,.svn} "<C-r>z" .<CR><Bar>:copen<CR>
+	nnoremap <Leader>q :grep! -R -I --exclude-dir={.git} "<cword>" .<CR><Bar>:copen<CR>
+	vnoremap <Leader>q "zy<Esc>:grep! -R -I --exclude-dir={.git} "<C-r>z" .<CR><Bar>:copen<CR>
 endif
 
 " Open files quickly
@@ -303,8 +303,8 @@ for char in [".", ",", ";", ":", "/", "\\", "-", "_"]
 endfor
 
 " Add <number>[jk] to jumplists
-nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
-nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . "j"
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . "k"
 
 " Move blocks of code
 vnoremap <C-j> :m '>+1<CR>gv=gv
@@ -360,13 +360,8 @@ vnoremap <Leader>P "+P
 nnoremap <Leader><Leader>y :%yank+<CR>
 
 " Disable hlsearch right after moving
-noremap <expr> <Plug>(StopSearchHighlight) execute('nohlsearch')[-1]
-noremap! <expr> <Plug>(StopSearchHighlight) execute('nohlsearch')[-1]
-
-" Output the current syntax group
-nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+noremap <expr> <Plug>(StopSearchHighlight) execute("nohlsearch")[-1]
+noremap! <expr> <Plug>(StopSearchHighlight) execute("nohlsearch")[-1]
 
 " }}}
 
