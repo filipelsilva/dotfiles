@@ -227,7 +227,7 @@ tnoremap <C-v><Esc> <Esc>
 nnoremap <silent> <Leader>n :set invnumber invrelativenumber<CR>
 
 " Toggle spell
-nnoremap <silent> <Leader>o :setlocal invspell invlist<CR>
+nnoremap <silent> <Leader>l :set invspell invlist<CR>
 
 " File jumping
 nnoremap [a :previous<CR>
