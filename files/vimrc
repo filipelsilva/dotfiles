@@ -367,7 +367,12 @@ noremap! <expr> <Plug>(StopSearchHighlight) execute("nohlsearch")[-1]
 
 " Colorscheme {{{
 
-colorscheme elflord
+colorscheme default
+
+" Vim does not set the background correctly
+if !has("nvim") && !has("gui_running")
+	set background=dark
+endif
 
 " Highlight 80th character (cleaner alternative to colorcolumn)
 call matchadd("Character80", '\%80v.')
