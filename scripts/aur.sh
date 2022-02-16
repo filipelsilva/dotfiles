@@ -15,7 +15,6 @@ desktop_packages=(
 	onedrive-abraunegg-git
 	discord_arch_electron
 	zoom
-	linux-wifi-hotspot
 	optimus-manager
 	optimus-manager-qt
 	noisetorch
