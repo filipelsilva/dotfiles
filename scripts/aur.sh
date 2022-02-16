@@ -9,7 +9,6 @@ packages=(
 	downgrade
 	vimv-git
 	rr-bin
-	sysz
 )
 
 desktop_packages=(
@@ -19,9 +18,8 @@ desktop_packages=(
 	linux-wifi-hotspot
 	optimus-manager
 	optimus-manager-qt
-	python-gdbgui
-	mermaid-cli
 	noisetorch
+	ventoy-bin
 )
 
 if [[ $1 = "full" ]]; then
