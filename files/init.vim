@@ -75,6 +75,10 @@ local telescope = require("telescope")
 local actions = require("telescope.actions")
 telescope.setup({
 	defaults = {
+		layout_strategy = "flex",
+		layout_config = {
+			prompt_position = "top"
+		},
 		mappings = {
 			i = {
 				["<c-s>"] = actions.select_horizontal,
