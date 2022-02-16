@@ -11,12 +11,16 @@ set encoding=utf-8 fileformats=unix,dos,mac
 set updatetime=100 ttimeoutlen=0 mouse=a
 
 if !has("nvim")
+
 	" Set mouse mode
 	set ttymouse=xterm2
+
 	" Enable matchit (extends the use of %)
 	runtime! macros/matchit.vim
+
 	" Enable :Man <search>
 	runtime! ftplugin/man.vim
+
 endif
 
 " Embed language syntax support
