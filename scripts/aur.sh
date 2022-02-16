@@ -15,10 +15,10 @@ desktop_packages=(
 	onedrive-abraunegg-git
 	discord_arch_electron
 	zoom
-	optimus-manager
-	optimus-manager-qt
 	noisetorch
 	ventoy-bin
+	optimus-manager
+	optimus-manager-qt
 )
 
 if [[ $1 = "full" ]]; then
