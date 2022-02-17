@@ -75,21 +75,21 @@ endif
 set undofile undolevels=10000 history=10000
 
 if has("nvim")
-    let s:tmp_folder = $HOME . "/.nvim-tmp"
+	let s:tmp_folder = $HOME . "/.nvim-tmp"
 else
-    let s:tmp_folder = $HOME . "/.vim-tmp"
+	let s:tmp_folder = $HOME . "/.vim-tmp"
 endif
 
 let s:tmp_subfolders = [["undodir", "undo"], ["directory", "swp"], ["backupdir", "backup"]]
 
 if empty(glob(s:tmp_folder))
-    for subfolder in s:tmp_subfolders
-        call mkdir(s:tmp_folder . "/" . subfolder[1], "p")
-    endfor
+	for subfolder in s:tmp_subfolders
+		call mkdir(s:tmp_folder . "/" . subfolder[1], "p")
+	endfor
 endif
 
 for subfolder in s:tmp_subfolders
-    execute "set " . subfolder[0] . "=" . s:tmp_folder . "/" . subfolder[1] . "//"
+	execute "set " . subfolder[0] . "=" . s:tmp_folder . "/" . subfolder[1] . "//"
 endfor
 " }}}
 
