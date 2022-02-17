@@ -379,6 +379,7 @@ endif
 
 " Highlight 80th character (cleaner alternative to colorcolumn)
 call matchadd("Character80", '\%80v.')
+highlight! link Character80 ColorColumn
 
 " }}}
 
