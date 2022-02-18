@@ -3,6 +3,7 @@
 packages=(
 	linux
 	linux-firmware
+	util-linux
 	base
 	base-devel
 	zsh
