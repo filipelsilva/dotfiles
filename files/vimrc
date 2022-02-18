@@ -74,12 +74,7 @@ endif
 " Undo, command history, swap/backup files settings
 set undofile undolevels=10000 history=10000
 
-if has("nvim")
-	let s:tmp_folder = $HOME . "/.nvim-tmp"
-else
-	let s:tmp_folder = $HOME . "/.vim-tmp"
-endif
-
+let s:tmp_folder = $HOME . "/." . (has("nvim") ? "n" : "") . "vim-tmp"
 let s:tmp_subfolders = [["undodir", "undo"], ["directory", "swp"], ["backupdir", "backup"]]
 
 if empty(glob(s:tmp_folder))
