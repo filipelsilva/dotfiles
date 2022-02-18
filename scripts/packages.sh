@@ -97,6 +97,7 @@ desktop_packages=(
 	autorandr
 	feh
 	nomacs
+	perl-image-exiftool
 	maim
 	pavucontrol
 	xdotool
