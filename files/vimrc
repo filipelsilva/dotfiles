@@ -33,7 +33,7 @@ set keywordprg=:Man
 set foldmethod=marker
 
 " Search settings
-set ignorecase smartcase incsearch hlsearch nowrapscan
+set ignorecase smartcase incsearch hlsearch
 
 " Completion menu settings
 set wildmenu wildmode=longest:full,full completeopt=menuone,noinsert,noselect
