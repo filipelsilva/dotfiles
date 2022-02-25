@@ -58,7 +58,7 @@ set nostartofline
 " Format options
 set formatoptions=cqrtj
 
-" Spell settings
+" Spell languages
 set spelllang=en,pt
 
 " Diff options
@@ -86,23 +86,23 @@ else
 	set viminfo=%,'50,<1000,s1000,\"100,:100,n$HOME/.vim-tmp/viminfo
 endif
 
-" Undo/swap/backup files settings
+" Undo/swap/backup files
 set undofile undolevels=10000 history=10000
 
-let s:tmp_folder = $HOME . "/." . (has("nvim") ? "n" : "") . "vim-tmp"
+let s:folder = $HOME . "/." . (has("nvim") ? "n" : "") . "vim-tmp"
 
-let s:tmp_subfolders = [["undodir", "undo"]]
-let s:tmp_subfolders += [["directory", "swp"]]
-let s:tmp_subfolders += [["backupdir", "backup"]]
+let s:subfolders = [["undodir", "undo"]]
+let s:subfolders += [["directory", "swp"]]
+let s:subfolders += [["backupdir", "backup"]]
 
-if empty(glob(s:tmp_folder))
-	for subfolder in s:tmp_subfolders
-		call mkdir(s:tmp_folder . "/" . subfolder[1], "p")
+if empty(glob(s:folder))
+	for subfolder in s:subfolders
+		call mkdir(s:folder . "/" . subfolder[1], "p")
 	endfor
 endif
 
-for subfolder in s:tmp_subfolders
-	execute "set " . subfolder[0] . "=" . s:tmp_folder . "/" . subfolder[1] . "//"
+for subfolder in s:subfolders
+	execute "set " . subfolder[0] . "=" . s:folder . "/" . subfolder[1] . "//"
 endfor
 " }}}
 
