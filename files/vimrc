@@ -50,7 +50,7 @@ set ruler showcmd linebreak laststatus=1 signcolumn=number display=truncate
 set shortmess=a fillchars+=vert:│ guicursor=
 set listchars=tab:<->,trail:-,nbsp:+,eol:$
 
-" Motions keep on same column
+" Motions keep cursor on the same column
 set nostartofline
 
 " Format options
