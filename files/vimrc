@@ -441,10 +441,11 @@ endif
 " }}}
 
 " Plugins {{{
-if empty(glob(substitute(&packpath, ",.*", "", "") . "/pack/minpac/opt/minpac"))
+let s:plugin_folder = substitute(&packpath, ",.*", "", "") . "/pack/minpac/opt/minpac"
+if empty(glob(s:plugin_folder))
 
 	" If there is no plugin manager, install it
-	call system("git clone https://github.com/k-takata/minpac " . substitute(&packpath, ",.*", "", "") . "/pack/minpac/opt/minpac")
+	call system("git clone https://github.com/k-takata/minpac " . s:plugin_folder)
 
 	" Source the file again and install plugins
 	autocmd VimEnter * silent! source $MYVIMRC | PackUpdate
