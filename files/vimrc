@@ -248,9 +248,6 @@ tnoremap <C-l> <C-\><C-n><C-w><C-l>
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
 
-" Open command-line window and search in it
-nnoremap ; q:?
-
 " Toggle numbers
 nnoremap <silent> <Leader>n :set invnumber invrelativenumber<CR>
 
