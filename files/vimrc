@@ -55,9 +55,6 @@ set listchars=tab:<->,trail:-,nbsp:+,eol:$
 " Motions keep cursor on the same column
 set nostartofline
 
-" Format options
-set formatoptions=cqrtj
-
 " Spell languages
 set spelllang=en,pt
 
@@ -172,14 +169,6 @@ command! -nargs=1 CreateTextObject call CreateTextObject(<f-args>)
 
 " Autocommands {{{
 
-augroup PlainTextWidth
-	autocmd!
-
-	" On plain text files, set textwidth to something other than 0
-	autocmd FileType text,markdown,rst,tex,latex,context,plaintex setlocal textwidth=80
-
-augroup END
-
 augroup Vimrc
 	autocmd!
 
@@ -191,6 +180,17 @@ augroup Vimrc
 
 	" If vim window is resized, resize the splits within
 	autocmd VimResized * wincmd =
+
+	" Change formatoptions everywhere
+	autocmd FileType * setlocal formatoptions=tcqj
+
+augroup END
+
+augroup PlainTextWidth
+	autocmd!
+
+	" On plain text files, set textwidth to something other than 0
+	autocmd FileType text,markdown,rst,tex,latex,context,plaintex setlocal textwidth=80
 
 augroup END
 
@@ -342,7 +342,7 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Make . to work with visually selected lines
-vnoremap . :normal.<CR>
+vnoremap . :normal .<CR>
 
 " Run line as command, output here
 noremap Q yyp!!$SHELL<CR>
