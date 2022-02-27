@@ -438,7 +438,9 @@ endif
 " }}}
 
 " Plugins {{{
-let s:plugin_folder = substitute(&packpath, ",.*", "", "") . "/pack/minpac/opt/minpac"
+let s:plugin_folder = substitute(&packpath, ",.*", "", "")
+let s:plugin_folder .= "/pack/minpac/opt/minpac"
+
 if empty(glob(s:plugin_folder))
 
 	" If there is no plugin manager, install it
