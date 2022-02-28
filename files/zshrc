@@ -283,23 +283,32 @@ function x() {
 
 # Fzf {{{
 if (( $+commands[fzf] )); then
-	FZF_KEYBINDS=/usr/share/fzf/key-bindings.zsh
-	FZF_COMPLETION=/usr/share/fzf/completion.zsh
+	local FZF_KEYBINDS=/usr/share/fzf/key-bindings.zsh
+	local FZF_COMPLETION=/usr/share/fzf/completion.zsh
 	source $FZF_KEYBINDS
 	source $FZF_COMPLETION
 
-	# Make fzf completion trigger not collide with zsh glob operator
-	export FZF_COMPLETION_TRIGGER='++'
+	# Stop fzf completion trigger from colliding with zsh glob operator
+	export FZF_COMPLETION_TRIGGER="++"
 
-	# Default options
-	fzf_options=(
-		--color='fg+:#ebdbb2'
+	# Fzf options
+	local fzf_options=(
 		--height=30%
 		--layout=reverse
 		--info=inline
 		--multi
-		--bind '?:toggle-preview,ctrl-a:toggle-all'
+		--bind "?:toggle-preview,ctrl-a:toggle-all"
 	)
+
+	# Colorscheme overrides
+	local colors=(
+		--color="fg+:#ebdbb2"
+	)
+
+	local FZF_COLORS_LOAD=true
+	[ $FZF_COLORS_LOAD = true ] && fzf_options+=(${colors[@]})
+
+	# Variables and functions for fzf operation
 	export FZF_DEFAULT_OPTS=${fzf_options[@]}
 
 	if (( $+commands[fd] )); then
@@ -319,7 +328,7 @@ fi
 # }}}
 
 # Plugins {{{
-FORGIT_PLUGIN=/usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh
+local FORGIT_PLUGIN=/usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh
 [ -f $FORGIT_PLUGIN ] && source $FORGIT_PLUGIN
 
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh --cmd j)"
