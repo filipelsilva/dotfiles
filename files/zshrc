@@ -305,8 +305,7 @@ if (( $+commands[fzf] )); then
 		--color="fg+:#ebdbb2"
 	)
 
-	local FZF_COLORS_LOAD=true
-	[ $FZF_COLORS_LOAD = true ] && fzf_options+=(${colors[@]})
+	fzf_options+=(${colors[@]})
 
 	# Variables and functions for fzf operation
 	export FZF_DEFAULT_OPTS=${fzf_options[@]}
