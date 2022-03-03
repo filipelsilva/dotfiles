@@ -106,46 +106,14 @@ endfor
 " Functions {{{
 
 " SearchWords {{{
-function! SearchWords() abort
-
-	" Get search term
-	call inputsave()
-	let l:search = input("Grep> ")
-	call inputrestore()
-
-	" If there is no search term, abort
-	if len(l:search) == 0
-		return 1
-	endif
-
-	" Do the searching
+function! SearchWords(search) abort
 	if executable("rg")
-		execute "grep! " . shellescape(l:search) . " ."
+		execute "grep! " . shellescape(a:search) . " ."
 	else
-		execute "grep! -R -I --exclude-dir={.git} " . shellescape(l:search) . " ."
+		execute "grep! -R -I --exclude-dir={.git} " . shellescape(a:search) . " ."
 	endif
-
-	" Present results, if any
 	if len(getqflist()) != 0
 		copen
-	endif
-
-endfunction
-" }}}
-
-" ToggleSearchHighlight {{{
-function! StartSearchHighlight() abort
-	let s:pos = match(getline('.'), @/, col('.') - 1) + 1
-	if s:pos != col('.')
-		call StopSearchHighlight()
-	endif
-endfunction
-
-function! StopSearchHighlight() abort
-	if !v:hlsearch || mode() isnot 'n'
-		return
-	else
-		silent call feedkeys("\<Plug>(StopSearchHighlight)", 'm')
 	endif
 endfunction
 " }}}
@@ -174,6 +142,23 @@ function! CreateTextObject(char) abort
 endfunction
 " }}}
 
+" ToggleSearchHighlight {{{
+function! StartSearchHighlight() abort
+	let s:pos = match(getline('.'), @/, col('.') - 1) + 1
+	if s:pos != col('.')
+		call StopSearchHighlight()
+	endif
+endfunction
+
+function! StopSearchHighlight() abort
+	if !v:hlsearch || mode() isnot 'n'
+		return
+	else
+		silent call feedkeys("\<Plug>(StopSearchHighlight)", 'm')
+	endif
+endfunction
+" }}}
+
 " }}}
 
 " Commands {{{
@@ -185,7 +170,7 @@ command! CDC lcd %:p:h
 command! DiffOrig vertical new | set buftype=nofile | read ++edit # | 0d_ | diffthis | wincmd p | diffthis
 
 " SearchWords
-command! SearchWords call SearchWords()
+command! -nargs=1 SearchWords call SearchWords(<f-args>)
 
 " TrimWhitespace
 command! TrimWhitespace call TrimWhitespace()
@@ -328,13 +313,8 @@ nnoremap <Leader>S :%s/\<<C-r><C-w>\>//g<Left><Left>
 vnoremap <Leader>S "zy<Esc>:%s/\<<C-r>z\>//g<Left><Left>
 
 " Create quickfix list with searched word
-if executable("rg")
-	nnoremap <Leader>q :grep! "<cword>" .<CR><Bar>:copen<CR>
-	vnoremap <Leader>q "zy<Esc>:grep! "<C-r>z" .<CR><Bar>:copen<CR>
-else
-	nnoremap <Leader>q :grep! -R -I --exclude-dir={.git} "<cword>" .<CR><Bar>:copen<CR>
-	vnoremap <Leader>q "zy<Esc>:grep! -R -I --exclude-dir={.git} "<C-r>z" .<CR><Bar>:copen<CR>
-endif
+nnoremap <Leader>q :SearchWords <cword><CR>
+vnoremap <Leader>q "zy<Esc>:SearchWords <C-r>z<CR>
 
 " Open files quickly
 if executable("fzf")
@@ -476,15 +456,12 @@ let s:plugin_folder = substitute(&packpath, ",.*", "", "")
 let s:plugin_folder .= "/pack/minpac/opt/minpac"
 
 if empty(glob(s:plugin_folder))
-
 	" If there is no plugin manager, install it
 	call system("git clone https://github.com/k-takata/minpac " . s:plugin_folder)
 
 	" Source the file again and install plugins
 	autocmd VimEnter * silent! source $MYVIMRC | PackUpdate
-
 else
-
 	" Plugin declaration
 	function! PackInit() abort
 		packadd minpac
@@ -507,6 +484,5 @@ else
 	command! PackUpdate call PackInit() | call minpac#update()
 	command! PackClean  call PackInit() | call minpac#clean()
 	command! PackStatus call PackInit() | call minpac#status()
-
 endif
 " }}}
