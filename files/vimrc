@@ -110,7 +110,7 @@ function! SearchWords(search) abort
 	if executable("rg")
 		execute "grep! " . shellescape(a:search) . " ."
 	else
-		execute "grep! -R -I --exclude-dir={.git} " . shellescape(a:search) . " ."
+		execute "grep! -R -I --exclude-dir=\".git\" " . shellescape(a:search) . " ."
 	endif
 	if len(getqflist()) != 0
 		copen
