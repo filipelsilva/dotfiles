@@ -105,6 +105,34 @@ endfor
 
 " Functions {{{
 
+" SearchWords {{{
+function! SearchWords() abort
+
+	" Get search term
+	call inputsave()
+	let l:search = input("Grep> ")
+	call inputrestore()
+
+	" If there is no search term, abort
+	if len(l:search) == 0
+		return 1
+	endif
+
+	" Do the searching
+	if executable("rg")
+		execute "grep! " . shellescape(l:search) . " ."
+	else
+		execute "grep! -R -I --exclude-dir={.git} " . shellescape(l:search) . " ."
+	endif
+
+	" Present results, if any
+	if len(getqflist()) != 0
+		copen
+	endif
+
+endfunction
+" }}}
+
 " ToggleSearchHighlight {{{
 function! StartSearchHighlight() abort
 	let s:pos = match(getline('.'), @/, col('.') - 1) + 1
@@ -155,6 +183,9 @@ command! CDC lcd %:p:h
 
 " Diff between the current buffer and the file it was loaded from
 command! DiffOrig vertical new | set buftype=nofile | read ++edit # | 0d_ | diffthis | wincmd p | diffthis
+
+" SearchWords
+command! SearchWords call SearchWords()
 
 " TrimWhitespace
 command! TrimWhitespace call TrimWhitespace()
