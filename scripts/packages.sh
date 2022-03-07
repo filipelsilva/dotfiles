@@ -37,6 +37,7 @@ packages=(
 	indent
 	gcc
 	gdb
+	jdk-openjdk
 	pwndbg
 	valgrind
 	cloc
