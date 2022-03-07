@@ -68,7 +68,6 @@ packages=(
 	ascii
 	go
 	rustup
-	nodejs
 	npm
 	jq
 	nmap

@@ -3,6 +3,7 @@
 packages=(
 	7-zip-full
 	atool
+	nvm
 	forgit-git
 	gef-git
 	cht.sh-git
