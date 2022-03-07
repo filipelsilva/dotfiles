@@ -68,7 +68,6 @@ packages=(
 	ascii
 	go
 	rustup
-	npm
 	jq
 	nmap
 	sysstat
