@@ -223,8 +223,8 @@ bindkey -M vicmd "/" history-incremental-search-backward
 
 # Options {{{
 
-setopt hash_list_all
-setopt long_list_jobs
+setopt hashlistall
+setopt longlistjobs
 setopt nobeep
 setopt noglobdots
 setopt nohup
