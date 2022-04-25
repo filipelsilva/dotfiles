@@ -263,6 +263,10 @@ tnoremap <C-j> <C-\><C-n><C-w><C-j>
 tnoremap <C-k> <C-\><C-n><C-w><C-k>
 tnoremap <C-l> <C-\><C-n><C-w><C-l>
 
+" Zoom and unzoom pane
+noremap <Leader>z <C-w>_<Bar><C-w>\|
+noremap <Leader>Z <C-w>=
+
 " Change binds for Esc inside terminal
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
