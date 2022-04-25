@@ -68,7 +68,7 @@ set diffopt=internal,filler,closeoff,indent-heuristic,algorithm:histogram
 set isfname-==
 
 " Don't use octal for <C-x> and <C-a>
-set nrformats=alpha,hex,bin
+set nrformats=bin,hex
 
 " Language may disable some keybinds, stop that
 set nolangremap
