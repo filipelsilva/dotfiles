@@ -277,6 +277,9 @@ nnoremap <silent> <Leader>n :set invnumber invrelativenumber<CR>
 " Toggle spell
 nnoremap <silent> <Leader>l :set invspell invlist<CR>
 
+" Disable highlighting
+nnoremap <Leader>, <Cmd>nohlsearch<CR>
+
 " File jumping
 nnoremap [a :previous<CR>
 nnoremap ]a :next<CR>
