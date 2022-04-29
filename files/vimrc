@@ -138,10 +138,10 @@ endfunction
 
 " CreateTextObject {{{
 function! CreateTextObject(char) abort
-	execute "onoremap <silent> i" . a:char . " :<C-u>normal! T" . a:char . "vt" . a:char . "<CR>"
-	execute "xnoremap <silent> i" . a:char . " :<C-u>normal! T" . a:char . "vt" . a:char . "<CR>"
-	execute "onoremap <silent> a" . a:char . " :<C-u>normal! F" . a:char . "vf" . a:char . "<CR>"
-	execute "xnoremap <silent> a" . a:char . " :<C-u>normal! F" . a:char . "vf" . a:char . "<CR>"
+	for mode in ['xnoremap', 'onoremap']
+		execute mode . " <silent> i" . a:char . " :<C-u>normal! T" . a:char . "vt" . a:char . "<CR>"
+		execute mode . " <silent> a" . a:char . " :<C-u>normal! F" . a:char . "vf" . a:char . "<CR>"
+	endfor
 endfunction
 " }}}
 
