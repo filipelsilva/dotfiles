@@ -7,14 +7,15 @@
 	autocrlf = input
 
 [alias]
-	acp = "!f() { git add -A && git commit -m \"$*\" && git push; }; f"
 	ac = "!f() { git add -A && git commit -m \"$*\"; }; f"
-	cm = "commit"
+	acp = "!f() { git add -A && git commit -m \"$*\" && git push; }; f"
 	cma = "commit -a"
+	cm = "commit"
 	cob = "checkout -b"
 	co = "checkout"
-	tree = "log --graph --oneline --decorate"
+	difft = "!f() { GIT_EXTERNAL_DIFF=difft git diff; }; f"
 	st = "status"
+	tree = "log --graph --oneline --decorate"
 
 [diff]
 	tool = vimdiff
