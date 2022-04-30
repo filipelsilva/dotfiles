@@ -13,7 +13,7 @@
 	cm = "commit"
 	cob = "checkout -b"
 	co = "checkout"
-	difft = "!f() { GIT_EXTERNAL_DIFF=difft git diff; }; f"
+	difft = "difftool --tool=difft"
 	st = "status"
 	tree = "log --graph --oneline --decorate"
 
@@ -23,6 +23,8 @@
 	prompt = false
 [difftool "vimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE
+[difftool "difft"]
+	cmd = difft $LOCAL $REMOTE
 
 [merge]
 	tool = vimdiff
