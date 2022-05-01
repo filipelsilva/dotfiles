@@ -62,8 +62,8 @@ process.
 	name = <your name here>
 ```
 
-Also, using `difftastic`, there are diffs using syntax parsing with the
-alias `git difft`.
+Also, using `difftastic`, there are diffs using syntax trees with the alias `git
+difft`.
 
 ### i3config and i3statusconfig
 
