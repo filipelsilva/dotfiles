@@ -22,11 +22,11 @@
 [difftool]
 	prompt = false
 [difftool "vimdiff"]
-	cmd = nvim -d "$LOCAL" "$REMOTE"
+	cmd = vim -d "$LOCAL" "$REMOTE"
 
 [merge]
 	tool = vimdiff
 [mergetool]
 	prompt = true
 [mergetool "vimdiff"]
-	cmd = nvim -d "$LOCAL" "$REMOTE" "$MERGED" -c '$wincmd w' -c 'wincmd J'
+	cmd = vim -d "$LOCAL" "$REMOTE" "$MERGED" -c '$wincmd w' -c 'wincmd J'
