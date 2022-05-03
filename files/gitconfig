@@ -3,7 +3,6 @@
 	name = Filipe Ligeiro Silva
 
 [core]
-	editor = nvim
 	autocrlf = input
 
 [alias]
