@@ -8,11 +8,13 @@
 
 [alias]
 	ac = "!f() { git add -A && git commit -m \"$*\"; }; f"
+	acm = "!f() { git add -A && git commit; }; f"
 	acp = "!f() { git add -A && git commit -m \"$*\" && git push; }; f"
-	cma = "commit -a"
+	acmp = "!f() { git add -A && git commit && git push; }; f"
 	cm = "commit"
-	cob = "checkout -b"
+	cma = "commit -a"
 	co = "checkout"
+	cob = "checkout -b"
 	st = "status"
 	tree = "log --graph --oneline --decorate"
 
