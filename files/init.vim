@@ -244,16 +244,16 @@ cmp.setup({
 local treesitter = require("nvim-treesitter.configs")
 treesitter.setup({
 	ensure_installed = "all",
-	sync_install = false,
+	sync_install = true,
 	highlight = {
-		enable = false,
+		enable = true,
 		additional_vim_regex_highlighting = true,
 	},
 	incremental_selection = {
 		enable = true,
 	},
 	indent = {
-		enable = false,
+		enable = true,
 	},
 	playground = {
 		enable = true,
