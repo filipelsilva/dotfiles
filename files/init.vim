@@ -26,7 +26,6 @@ function! PackInit() abort
 
 	" Telescope
 	call minpac#add("nvim-telescope/telescope.nvim")
-	call minpac#add("nvim-telescope/telescope-fzf-native.nvim", { "do": "make" })
 
 	" Lsp and autoinstall
 	call minpac#add("neovim/nvim-lspconfig")
@@ -98,16 +97,7 @@ telescope.setup({
 			},
 		},
 	},
-	extensions = {
-		fzf = {
-			fuzzy = true,
-			override_generic_sorter = true,
-			override_file_sorter = true,
-			case_mode = "smart_case",
-		}
-	},
 })
-telescope.load_extension("fzf")
 -- }}}
 
 -- Comment.nvim {{{
