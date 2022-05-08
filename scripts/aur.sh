@@ -15,6 +15,7 @@ desktop_packages=(
 	onedrive-abraunegg-git
 	discord_arch_electron
 	zoom
+	pdfsandwich
 	noisetorch
 	ventoy-bin
 	optimus-manager
