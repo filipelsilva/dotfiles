@@ -69,7 +69,7 @@ alias lr="ls -lR"
 alias lrs="ls -R"
 alias lra="ls -lAR"
 
-# Ssh with xterm, for targets without alacritty
+# Ssh with xterm, for compatibility
 alias ssh="TERM=xterm-256color ssh"
 
 # Search for processes
