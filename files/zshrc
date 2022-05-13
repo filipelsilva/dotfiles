@@ -38,6 +38,8 @@ if (( $+commands[bat] )); then
 	export BAT_THEME="ansi"
 	export BAT_STYLE="auto"
 fi
+
+(( $+commands[alacritty] )) && export TERMINAL="alacritty"
 # }}}
 
 # Aliases {{{
