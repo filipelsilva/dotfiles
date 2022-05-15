@@ -301,15 +301,6 @@ function linkdump() {
 	rm dump.txt
 }
 
-# [F]ind-[I]n-[F]ile
-function fif() {
-	if [ ! "$#" -gt 0 ]; then
-		echo "Need a string to search for!";
-		return 1;
-	fi
-	rg --files-with-matches --no-messages "$1" | fzf --header="[find in file]" --preview "rg --pretty --context 10 '$1' {}"
-}
-
 # [K]ill [P]rocess
 function kp() {
 	local pid=$(ps -ef | sed 1d | eval "fzf --header='[kill:process]'" | awk '{print $2}')
