@@ -54,6 +54,7 @@ alias wget="wget --continue"
 alias ip="ip --color"
 alias diff="diff --color"
 alias grep="grep --color"
+alias info="info --vi-keys"
 alias v="$EDITOR"
 if (( $+commands[nvim] )); then
 	alias vimdiff="nvim -d"
