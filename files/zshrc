@@ -114,8 +114,8 @@ local PROMPT_ERROR_HANDLING="%(?..%F{red}%?%f)"
 local PROMPT_INFO="%n@%M:%1~%#"
 local PROMPT_GIT_INFO='${vcs_info_msg_0_}'
 
-export PROMPT="${PROMPT_INFO} "
-export RPROMPT="${PROMPT_GIT_INFO}${PROMPT_ERROR_HANDLING}"
+export PROMPT="${PROMPT_ERROR_HANDLING}${PROMPT_INFO} "
+export RPROMPT="${PROMPT_GIT_INFO}"
 # }}}
 
 # Directory stack {{{
