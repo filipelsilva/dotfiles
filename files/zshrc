@@ -160,6 +160,8 @@ setopt glob_complete
 setopt list_types
 unsetopt flow_control
 
+# eval "$(dircolors)"
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' add-space true
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' cache-path $HOME/.zcompcache
