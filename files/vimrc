@@ -147,9 +147,15 @@ endfunction
 
 " HeaderToDefinition (c/cpp only) {{{
 function! HeaderToDefinition() abort
-	let l:extension = expand("%:e")
-	let l:filename = expand("%:p:r")
 	let l:new_extensions = []
+	let l:extension = expand("%:e")
+	let l:filename = ""
+
+	if $PWD ==# expand("%:p:h")
+		let l:filename = expand("%:t:r")
+	else
+		let l:filename = expand("%:p:r")
+	endif
 
 	if l:extension ==# "c" || l:extension ==# "cpp"
 		call add(l:new_extensions, ".h")
