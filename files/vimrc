@@ -145,30 +145,16 @@ function! CreateTextObject(char) abort
 endfunction
 " }}}
 
-" FileNameWithoutExtension {{{
-function! FileNameWithoutExtension() abort
-	let l:filename = ""
-
-	if $PWD ==# expand("%:p:h")
-		let l:filename = expand("%:t:r")
-	else
-		let l:filename = expand("%:p:r")
-	endif
-
-	return l:filename
-endfunction
-" }}}
-
 " ChangeFileByExtension {{{
 function! ChangeFileByExtension() abort
-	let l:filename = FileNameWithoutExtension()
+	let l:filename = fnameescape(expand("%:.:r"))
 	call feedkeys(":edit " . l:filename . ".")
 endfunction
 " }}}
 
 " HeaderToDefinition (c/cpp only) {{{
 function! HeaderToDefinition() abort
-	let l:filename = FileNameWithoutExtension()
+	let l:filename = fnameescape(expand("%:.:r"))
 	let l:new_extensions = []
 	let l:extension = expand("%:e")
 
