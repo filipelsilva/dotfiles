@@ -145,10 +145,8 @@ function! CreateTextObject(char) abort
 endfunction
 " }}}
 
-" HeaderToDefinition (c/cpp only) {{{
-function! HeaderToDefinition() abort
-	let l:new_extensions = []
-	let l:extension = expand("%:e")
+" FileNameWithoutExtension {{{
+function! FileNameWithoutExtension() abort
 	let l:filename = ""
 
 	if $PWD ==# expand("%:p:h")
@@ -156,6 +154,23 @@ function! HeaderToDefinition() abort
 	else
 		let l:filename = expand("%:p:r")
 	endif
+
+	return l:filename
+endfunction
+" }}}
+
+" ChangeFileByExtension {{{
+function! ChangeFileByExtension() abort
+	let l:filename = FileNameWithoutExtension()
+	call feedkeys(":edit " . l:filename . ".")
+endfunction
+" }}}
+
+" HeaderToDefinition (c/cpp only) {{{
+function! HeaderToDefinition() abort
+	let l:filename = FileNameWithoutExtension()
+	let l:new_extensions = []
+	let l:extension = expand("%:e")
 
 	if l:extension ==# "c" || l:extension ==# "cpp"
 		call add(l:new_extensions, ".h")
@@ -195,6 +210,9 @@ command! -nargs=1 CreateUndoBreakPoint call CreateUndoBreakPoint(<f-args>)
 
 " CreateTextObject
 command! -nargs=1 CreateTextObject call CreateTextObject(<f-args>)
+
+" ChangeFileByExtension
+command! ChangeFileByExtension call ChangeFileByExtension()
 
 " HeaderToDefinition
 command! HeaderToDefinition call HeaderToDefinition()
@@ -285,8 +303,11 @@ nnoremap <silent> <Leader>l :set invspell invlist<CR>
 " Disable highlighting
 nnoremap <Leader>, <Cmd>nohlsearch<CR>
 
+" Jump to file with same name but another extension
+nnoremap <Leader>h :ChangeFileByExtension<CR>
+
 " Jump to header file and back (only works in c/cpp files)
-nnoremap <silent> <Leader>h :HeaderToDefinition<CR>
+nnoremap <silent> <Leader><Leader>h :HeaderToDefinition<CR>
 
 " File jumping
 nnoremap [a :previous<CR>
