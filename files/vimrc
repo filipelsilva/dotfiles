@@ -163,8 +163,6 @@ function! HeaderToDefinition() abort
 	elseif l:extension ==# "h" || l:extension ==# "hpp"
 		call add(l:new_extensions, ".c")
 		call add(l:new_extensions, ".cpp")
-	else
-		echoerr "ERROR: Not a c/cpp file!"
 	endif
 
 	for new_extension in l:new_extensions
@@ -288,7 +286,7 @@ nnoremap <silent> <Leader>l :set invspell invlist<CR>
 nnoremap <Leader>, <Cmd>nohlsearch<CR>
 
 " Jump to header file and back (only works in c/cpp files)
-nnoremap <Leader>h :HeaderToDefinition<CR>
+nnoremap <silent> <Leader>h :HeaderToDefinition<CR>
 
 " File jumping
 nnoremap [a :previous<CR>
