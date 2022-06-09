@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 packages=(
-	7-zip-full
 	rar
 	atool
 	forgit-git

@@ -22,6 +22,7 @@ packages=(
 	zoxide
 	zip
 	unzip
+	p7zip
 	curl
 	wget
 	netcat
