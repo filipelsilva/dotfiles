@@ -37,6 +37,7 @@ packages=(
 	python-keystone
 	ropper
 	pypy
+	pypy3
 	bpython
 	indent
 	gcc
