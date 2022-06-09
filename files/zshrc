@@ -16,6 +16,9 @@ export GIT_CONFIG_VALUE_0="$DIFFPROG \$LOCAL \$REMOTE"
 export GIT_CONFIG_KEY_1="mergetool.vimdiff.cmd"
 export GIT_CONFIG_VALUE_1="$DIFFPROG \$LOCAL \$REMOTE \$MERGED -c '\$wincmd w' -c 'wincmd J'"
 
+# Distro name
+export DISTRONAME=$(cat /etc/os-release | grep "NAME" | head -n 1 | cut -d'=' -f2 | tr -d '"')
+
 # Adding folders to PATH {{{
 local PATH=$HOME/.local/bin:$PATH
 
@@ -320,10 +323,13 @@ function x() {
 
 # Fzf {{{
 if (( $+commands[fzf] )); then
-	local FZF_KEYBINDS=/usr/share/fzf/key-bindings.zsh
-	local FZF_COMPLETION=/usr/share/fzf/completion.zsh
-	source $FZF_KEYBINDS
-	source $FZF_COMPLETION
+	if [ $DISTRONAME = "NixOS" ]; then
+		source $(fzf-share)/key-bindings.zsh
+		source $(fzf-share)/completion.zsh
+	elif [ $DISTRONAME = "Arch Linux" ]; then
+		source /usr/share/fzf/key-bindings.zsh
+		source /usr/share/fzf/completion.zsh
+	fi
 
 	# Stop fzf completion trigger from colliding with zsh glob operator
 	export FZF_COMPLETION_TRIGGER="++"
