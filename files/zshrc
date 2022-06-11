@@ -114,9 +114,9 @@ zstyle ':vcs_info:*' formats '%c%u%b'
 zstyle ':vcs_info:*' actionformats '%c%u%b(%a)'
 
 # Replace %# with %(!.#.$) for bash-like prompt
-local PROMPT_ERROR_HANDLING="%(?..%F{red}%?%f )"
-local PROMPT_INFO="%n@%M:%1~%#"
-# local PROMPT_INFO="%F{green}%n@%M%f:%F{blue}%1~%f%#"
+local PROMPT_ERROR_HANDLING="%(?..%F{9}%?%f )"
+# local PROMPT_INFO="%n@%M:%1~%#"
+local PROMPT_INFO="%F{10}%n@%M%f:%F{12}%1~%f%#"
 local PROMPT_GIT_INFO='${vcs_info_msg_0_}'
 
 export PROMPT="${PROMPT_ERROR_HANDLING}${PROMPT_INFO} "
@@ -282,6 +282,14 @@ setopt notify
 # [Take]: mkdir directory and cd to it
 function take() {
 	mkdir -p $@ && cd ${@:$#}
+}
+
+# [Colors]: print colors and corresponding codes
+function colors() {
+	for c in {0..7}; do 
+		b=$((c+8))
+		print -P - "%F{$c}$c%f -> %F{$b}$b%f"
+	done
 }
 
 # [Open] files
