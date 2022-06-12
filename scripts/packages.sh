@@ -4,6 +4,8 @@ packages=(
 	linux
 	linux-firmware
 	util-linux
+	binutils
+	coreutils
 	pacman-contrib
 	pkgfile
 	base
