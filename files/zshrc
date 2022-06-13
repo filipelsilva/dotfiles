@@ -114,10 +114,11 @@ zstyle ':vcs_info:*' formats '%c%u%b'
 zstyle ':vcs_info:*' actionformats '%c%u%b(%a)'
 
 # Replace %# with %(!.#.$) for bash-like prompt
+local NEWLINE=$'\n'
+local PROMPT_GIT_INFO='${vcs_info_msg_0_}'
 local PROMPT_ERROR_HANDLING="%(?..%F{9}%?%f )"
 local PROMPT_INFO="%n@%M:%1~%#"
-# local PROMPT_INFO="%B%F{green}%n@%M%f%b:%B%F{blue}%1~%f%b%#"
-local PROMPT_GIT_INFO='${vcs_info_msg_0_}'
+# local PROMPT_INFO="%B%F{green}%n@%M%f%b:%B%F{blue}%~%f%b%#"
 
 export PROMPT="${PROMPT_ERROR_HANDLING}${PROMPT_INFO} "
 export RPROMPT="${PROMPT_GIT_INFO}"
