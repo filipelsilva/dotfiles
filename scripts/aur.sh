@@ -14,6 +14,8 @@ packages=(
 desktop_packages=(
 	onedrive-abraunegg-git
 	discord_arch_electron
+	spotify
+	slack
 	zoom
 	ventoy-bin
 	optimus-manager

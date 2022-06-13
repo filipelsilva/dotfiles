@@ -137,6 +137,8 @@ desktop_packages=(
 	ttc-iosevka
 	ttc-iosevka-ss12
 	ttf-hack
+	steam
+	lutris
 )
 
 if [[ $1 = "full" ]]; then
