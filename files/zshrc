@@ -220,6 +220,7 @@ bindkey "^[[Z" reverse-menu-complete
 # Delete characters with Delete and Backspace, respectively
 bindkey "^[[3~" delete-char
 bindkey "^?" backward-delete-char
+bindkey "^H" backward-kill-word
 
 # Alt + . to insert last word, as in Emacs mode
 bindkey "\e." insert-last-word
