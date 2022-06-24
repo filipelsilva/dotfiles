@@ -496,10 +496,9 @@ noremap! <expr> <Plug>(StopSearchHighlight) execute("nohlsearch")[-1]
 " }}}
 
 " Plugins {{{
-let s:plugin_folder = substitute(&packpath, ",.*", "", "")
-let s:plugin_folder .= "/pack/minpac/opt/minpac"
-
 if !exists("g:no_vim_plugins")
+	let s:plugin_folder = substitute(&packpath, ",.*", "", "")
+	let s:plugin_folder .= "/pack/minpac/opt/minpac"
 	if empty(glob(s:plugin_folder))
 		call system("git clone https://github.com/k-takata/minpac " . s:plugin_folder)
 		autocmd VimEnter * silent! source $MYVIMRC | PackUpdate
