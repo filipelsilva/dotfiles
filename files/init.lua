@@ -314,10 +314,10 @@ treesitter.setup({
 		additional_vim_regex_highlighting = false,
 	},
 	incremental_selection = {
-		enable = false,
+		enable = true,
 	},
 	indent = {
-		enable = false,
+		enable = true,
 	},
 	playground = {
 		enable = true,
