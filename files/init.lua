@@ -27,42 +27,42 @@ packer.init({
 -- }}}
 
 packer.startup(function(use)
-	use "wbthomason/packer.nvim"
+	use("wbthomason/packer.nvim")
 
 	-- Indentation detector
-	use "tpope/vim-sleuth"
+	use("tpope/vim-sleuth")
 
 	-- Surround stuff
-	use "tpope/vim-surround"
+	use("tpope/vim-surround")
 
 	-- Comment stuff
-	use "numToStr/Comment.nvim"
+	use("numToStr/Comment.nvim")
 
 	-- Colorscheme
-	use "gruvbox-community/gruvbox"
+	use("gruvbox-community/gruvbox")
 
 	-- Fzf
-	use "junegunn/fzf.vim"
+	use("junegunn/fzf.vim")
 
 	-- Telescope
-	use {
+	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
 			"nvim-lua/plenary.nvim"
 		}
-	}
+	})
 
 	-- Lsp
-	use {
+	use({
 		"neovim/nvim-lspconfig",
 		requires = {
 			-- Auto installer
 			"williamboman/nvim-lsp-installer"
 		}
-	}
+	})
 
 	-- Completion
-	use {
+	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
 			-- Snippets
@@ -74,16 +74,16 @@ packer.startup(function(use)
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline"
 		}
-	}
+	})
 
 	-- Treesitter
-	use {
+	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		requires = {
 			"nvim-treesitter/playground"
 		}
-	}
+	})
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
