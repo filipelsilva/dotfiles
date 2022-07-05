@@ -177,6 +177,17 @@ comment.setup({
 -- }}}
 
 -- LSP {{{
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.setup({
+	ui = {
+		icons = {
+			server_installed = "[INSTALLED]",
+			server_pending = "[PENDING]",
+			server_uninstalled = "[UNINSTALLED]",
+		},
+	},
+})
+
 local custom_on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -191,17 +202,6 @@ end
 
 local new_capabilities = vim.lsp.protocol.make_client_capabilities()
 new_capabilities = require("cmp_nvim_lsp").update_capabilities(new_capabilities)
-
-local lsp_installer = require("nvim-lsp-installer")
-lsp_installer.setup({
-	ui = {
-		icons = {
-			server_installed = "[INSTALLED]",
-			server_pending = "[PENDING]",
-			server_uninstalled = "[UNINSTALLED]",
-		},
-	},
-})
 
 local lspconfig = require("lspconfig")
 local servers = require("nvim-lsp-installer.servers").get_installed_servers()
