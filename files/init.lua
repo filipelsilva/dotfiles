@@ -8,7 +8,6 @@ vim.cmd("source $HOME/.vimrc")
 local install_path = vim.fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	PACKER_BOOTSTRAP = vim.fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
-	-- vim.api.nvim_create_autocmd("VimEnter", { command = "silent! source $MYVIMRC | PackerComplete" })
 	vim.cmd([[packadd packer.nvim]])
 end
 
@@ -73,10 +72,10 @@ packer.startup(function(use)
 			"L3MON4D3/LuaSnip",
 			-- Completion sources
 			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lua",
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline"
+			"hrsh7th/cmp-path"
 		}
 	})
 
@@ -279,6 +278,7 @@ cmp.setup({
 	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
