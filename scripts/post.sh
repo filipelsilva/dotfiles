@@ -21,5 +21,3 @@ if [[ $1 = "full" ]]; then
 		echo "exec i3" >> $HOME/.xinitrc
 	fi
 fi
-
-echo "Run stow headless/desktop (depending on use)"

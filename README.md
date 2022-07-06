@@ -32,8 +32,12 @@ Usage:
 ```bash
 git clone https://github.com/filipelsilva/dotfiles-public $HOME/dotfiles
 cd $HOME/dotfiles
-./run.sh        # If terminal is all you need
-./run.sh full   # If you want to install i3 and desktop packages
+stow headless
+# If terminal is all you need
+./run.sh
+# If you want to install i3 and desktop packages
+stow desktop
+./run.sh full
 ```
 
 ## 3. Rationale behind the config files
