@@ -10,6 +10,7 @@ packages=(
 	pkgfile
 	base
 	base-devel
+	stow
 	zsh
 	zsh-completions
 	bash
