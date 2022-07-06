@@ -4,6 +4,7 @@ vim.g.no_vim_plugins = 1
 -- Default vim config
 vim.cmd("source $HOME/.vimrc")
 
+-- Modules
 require("user.plugins")
 require("user.colorscheme")
 require("user.telescope")
