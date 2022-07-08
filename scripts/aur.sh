@@ -18,9 +18,10 @@ desktop_packages=(
 	slack
 	zoom
 	ventoy-bin
+	cpufreqctl
+	gdb-frontend-bin
 	optimus-manager
 	optimus-manager-qt
-	cpufreqctl
 )
 
 if [[ $1 = "full" ]]; then
