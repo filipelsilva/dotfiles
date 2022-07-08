@@ -45,6 +45,6 @@ for _, server in pairs(servers) do
 	lspconfig[server.name].setup({
 		on_attach = custom_on_attach,
 		capabilities = new_capabilities,
-		settings = (server.name == "sumneko_lua" and { Lua = { diagnostics = { globals = { "vim" } } } }),
+		settings = (server.name == "sumneko_lua" and { Lua = { diagnostics = { globals = { "vim" } } } } or nil),
 	})
 end
