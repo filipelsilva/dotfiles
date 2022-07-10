@@ -89,6 +89,7 @@ packages=(
 	words
 	asciiquarium
 	datamash
+	sox
 )
 
 desktop_packages=(
