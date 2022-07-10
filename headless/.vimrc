@@ -234,14 +234,6 @@ augroup PlainTextWidth
 
 augroup END
 
-augroup GitCommit
-	autocmd!
-
-	" On git commits, run git diff in split
-	autocmd FileType gitcommit new | set filetype=diff | read !git diff --staged
-
-augroup END
-
 augroup NumberToggle
 	autocmd!
 
