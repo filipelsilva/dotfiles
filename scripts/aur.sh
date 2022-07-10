@@ -5,6 +5,7 @@ packages=(
 	atool
 	forgit-git
 	gef-git
+	reple
 	cht.sh-git
 	downgrade
 	vimv-git
