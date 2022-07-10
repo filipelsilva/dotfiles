@@ -88,6 +88,7 @@ packages=(
 	time
 	words
 	asciiquarium
+	datamash
 )
 
 desktop_packages=(
