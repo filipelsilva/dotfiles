@@ -53,7 +53,7 @@ set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 " Visual settings
 set ruler showcmd linebreak wrap
 set laststatus=1 signcolumn=number display=truncate
-set shortmess=tTO fillchars+=vert:│ guicursor=
+set shortmess=OtTF fillchars+=vert:│ guicursor=
 set listchars=tab:<->,trail:-,nbsp:+,eol:$
 
 " Motions keep cursor on the same column
@@ -231,6 +231,14 @@ augroup PlainTextWidth
 
 	" On plain text files, set textwidth to something other than 0
 	autocmd FileType text,markdown,rst,tex,latex,context,plaintex,gitcommit setlocal textwidth=80 spell
+
+augroup END
+
+augroup GitCommit
+	autocmd!
+
+	" On git commits, run git diff in split
+	autocmd FileType gitcommit new | set filetype=diff | read !git diff --staged
 
 augroup END
 
