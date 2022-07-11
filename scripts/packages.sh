@@ -100,6 +100,7 @@ desktop_packages=(
 	handbrake
 	vlc
 	mpv
+	streamlink
 	transmission-cli
 	transmission-gtk
 	torbrowser-launcher
