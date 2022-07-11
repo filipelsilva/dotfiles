@@ -1,6 +1,7 @@
 #!/bin/bash
 
 packages=(
+	yank
 	rar
 	atool
 	forgit-git
