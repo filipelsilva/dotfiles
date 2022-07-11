@@ -21,6 +21,7 @@ desktop_packages=(
 	ventoy-bin
 	cpufreqctl
 	gdb-frontend-bin
+	ocrmypdf
 	optimus-manager
 	optimus-manager-qt
 )
