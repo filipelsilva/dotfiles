@@ -1,6 +1,7 @@
 #!/bin/bash
 
 packages=(
+	mprocs-bin
 	yank
 	rar
 	atool
