@@ -10,7 +10,7 @@ There are two sections:
 
 ## 1. Dotfiles (*per se*)
 
-These consist of configurations for the following programs:
+These consist of configurations for some programs, split into two folders:
 
 * headless
 	* GDB
