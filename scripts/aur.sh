@@ -22,6 +22,7 @@ desktop_packages=(
 	zoom
 	ventoy-bin
 	cpufreqctl
+	dragon-drop
 	gdb-frontend-bin
 	ocrmypdf
 	optimus-manager
