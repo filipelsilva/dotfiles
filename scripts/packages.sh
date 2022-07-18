@@ -79,6 +79,7 @@ packages=(
 	go
 	rustup
 	jq
+	jc
 	nmap
 	sysstat
 	iftop
