@@ -20,7 +20,6 @@ packages=(
 	neovim
 	tmux
 	tmuxp
-	pueue
 	diffutils
 	git
 	zoxide
