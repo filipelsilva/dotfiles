@@ -20,6 +20,7 @@ packages=(
 	neovim
 	tmux
 	tmuxp
+	pueue
 	diffutils
 	git
 	zoxide
@@ -90,7 +91,7 @@ packages=(
 	words
 	asciiquarium
 	datamash
-	sox
+	lnav
 )
 
 desktop_packages=(
@@ -136,6 +137,9 @@ desktop_packages=(
 	tesseract
 	tesseract-data-por
 	tesseract-data-eng
+	sox
+	pandoc
+	imagemagick
 	noto-fonts
 	noto-fonts-emoji
 	noto-fonts-cjk
