@@ -10,16 +10,18 @@ There are two sections:
 
 ## 1. Dotfiles (*per se*)
 
-These consist of configurations for the following:
+These consist of configurations for the following programs:
 
-* Alacritty
-* GDB
-* Git
-* i3
-* (Neo)Vim
-* Tmux
-* Zathura
-* Zsh
+* headless
+	* GDB
+	* Git
+	* (Neo)Vim
+	* Tmux
+	* Zsh
+* desktop
+	* Alacritty
+	* i3
+	* Zathura
 
 ## 2. Installers
 
