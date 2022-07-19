@@ -37,14 +37,14 @@ telescope.setup({
 		},
 		mappings = {
 			i = {
-				["<c-s>"] = actions.select_horizontal,
-				["<c-x>"] = false,
-				["<c-a>"] = actions.select_all,
+				["<C-s>"] = actions.select_horizontal,
+				["<C-x>"] = false,
+				["<C-a>"] = actions.select_all,
 			},
 			n = {
-				["<c-s>"] = actions.select_horizontal,
-				["<c-x>"] = false,
-				["<c-a>"] = actions.select_all,
+				["<C-s>"] = actions.select_horizontal,
+				["<C-x>"] = false,
+				["<C-a>"] = actions.select_all,
 			},
 		},
 	},
