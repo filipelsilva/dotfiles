@@ -5,11 +5,7 @@ end
 
 signature.setup({
 	bind = true,
-	hint_enable = true,
-	hint_prefix = "-> ",
-	handler_opts = {
-		border = "none"
-	},
-	hint_scheme = "String",
+	handler_opts = { border = "none" },
+	hint_enable = false,
 	padding = " ",
 })
