@@ -19,10 +19,12 @@ lsp_installer.setup({
 	},
 })
 
+-- Custom server settings {{{
+local sumneko_lua_settings = { Lua = { diagnostics = { globals = { "vim" } } } }
+-- }}}
+
 -- Configure every server
 local servers = require("nvim-lsp-installer.servers").get_installed_servers()
-
-local sumneko_lua_settings = { Lua = { diagnostics = { globals = { "vim" } } } }
 
 for _, server in pairs(servers) do
 	lspconfig[server.name].setup({

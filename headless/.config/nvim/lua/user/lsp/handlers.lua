@@ -14,13 +14,13 @@ M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 M.on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	vim.keymap.set("n", "gd", [[<Cmd>lua vim.lsp.buf.definition()<CR>]], bufopts)
-	vim.keymap.set("n", "<Leader><Leader>a", [[<Cmd>lua vim.lsp.buf.code_action()<CR>]], bufopts)
-	vim.keymap.set("n", "<Leader>k", [[<Cmd>lua vim.lsp.buf.hover()<CR>]], bufopts)
-	vim.keymap.set("n", "<Leader>s", [[<Cmd>lua vim.lsp.buf.rename()<CR>]], bufopts)
-	vim.keymap.set("n", "[e", [[<Cmd>lua vim.diagnostic.goto_prev()<CR>]], bufopts)
-	vim.keymap.set("n", "]e", [[<Cmd>lua vim.diagnostic.goto_next()<CR>]], bufopts)
+	local opts = { noremap = true, silent = true, buffer = bufnr }
+	vim.keymap.set("n", "gd", [[<Cmd>lua vim.lsp.buf.definition()<CR>]], opts)
+	vim.keymap.set("n", "<Leader><Leader>a", [[<Cmd>lua vim.lsp.buf.code_action()<CR>]], opts)
+	vim.keymap.set("n", "<Leader>k", [[<Cmd>lua vim.lsp.buf.hover()<CR>]], opts)
+	vim.keymap.set("n", "<Leader>s", [[<Cmd>lua vim.lsp.buf.rename()<CR>]], opts)
+	vim.keymap.set("n", "[e", [[<Cmd>lua vim.diagnostic.goto_prev()<CR>]], opts)
+	vim.keymap.set("n", "]e", [[<Cmd>lua vim.diagnostic.goto_next()<CR>]], opts)
 end
 
 return M
