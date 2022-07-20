@@ -8,7 +8,7 @@ if not lspconfig_status_ok then
 	return
 end
 
--- Settings
+-- Settings {{{
 lsp_installer.setup({
 	ui = {
 		icons = {
@@ -18,6 +18,7 @@ lsp_installer.setup({
 		},
 	},
 })
+-- }}}
 
 -- Custom server settings {{{
 local sumneko_lua_settings = { Lua = { diagnostics = { globals = { "vim" } } } }
