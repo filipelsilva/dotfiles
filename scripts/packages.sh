@@ -6,6 +6,9 @@ packages=(
 	util-linux
 	binutils
 	coreutils
+	diffutils
+	findutils
+	mlocate
 	pacman-contrib
 	pkgfile
 	base
@@ -20,7 +23,6 @@ packages=(
 	neovim
 	tmux
 	tmuxp
-	diffutils
 	git
 	zoxide
 	zip
