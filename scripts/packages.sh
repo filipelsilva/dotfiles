@@ -25,6 +25,7 @@ packages=(
 	tmuxp
 	git
 	zoxide
+	gzip
 	zip
 	unzip
 	p7zip
