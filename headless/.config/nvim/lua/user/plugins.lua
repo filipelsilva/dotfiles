@@ -60,12 +60,17 @@ return packer.startup(function(use)
 		}
 	})
 
-	-- Lsp
+	-- LSP
 	use({
 		"neovim/nvim-lspconfig",
 		requires = {
 			-- Auto installer
-			"williamboman/nvim-lsp-installer",
+			{
+				"williamboman/mason.nvim",
+				requires = {
+					"williamboman/mason-lspconfig.nvim",
+				}
+			},
 			-- Signatures
 			"ray-x/lsp_signature.nvim"
 		}
