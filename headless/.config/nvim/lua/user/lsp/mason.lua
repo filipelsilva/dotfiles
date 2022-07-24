@@ -25,7 +25,7 @@ mason.setup({
 })
 -- }}}
 
--- Lspconfig {{{
+-- Lspconfig
 local custom_on_attach = require("user.lsp.handlers").on_attach
 local custom_capabilities = require("user.lsp.handlers").capabilities
 
@@ -45,4 +45,3 @@ mason_lspconfig.setup_handlers({
 		})
 	end,
 })
--- }}}
