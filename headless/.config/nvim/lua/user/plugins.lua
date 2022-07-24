@@ -14,10 +14,7 @@ end
 -- }}}
 
 -- Protected call so that first use does not result in error
-local packer_status_ok, packer = pcall(require, "packer")
-if not packer_status_ok then
-	return
-end
+local packer = REQUIRE("packer")
 
 -- Settings {{{
 packer.init({
@@ -101,6 +98,6 @@ return packer.startup(function(use)
 	})
 
 	if PACKER_BOOTSTRAP then
-		require("packer").sync()
+		packer.sync()
 	end
 end)

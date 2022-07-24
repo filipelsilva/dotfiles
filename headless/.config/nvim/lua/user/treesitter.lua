@@ -1,7 +1,4 @@
-local treesitter_status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
-if not treesitter_status_ok then
-	return
-end
+local treesitter = REQUIRE("nvim-treesitter.configs")
 
 treesitter.setup({
 	-- Enabled languages {{{

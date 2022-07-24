@@ -1,9 +1,4 @@
-local telescope_status_ok, telescope = pcall(require, "telescope")
-if not telescope_status_ok then
-	return
-end
-
-local actions = require("telescope.actions")
+local telescope, actions = REQUIRE("telescope", "telescope.actions")
 
 -- Keymaps {{{
 _G.TELESCOPE_FUZZY_FILE = function()

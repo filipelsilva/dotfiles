@@ -1,7 +1,4 @@
-local signature_status_ok, signature = pcall(require, "lsp_signature")
-if not signature_status_ok then
-	return
-end
+local signature = REQUIRE("lsp_signature")
 
 signature.setup({
 	bind = true,
