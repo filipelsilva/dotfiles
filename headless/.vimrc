@@ -77,6 +77,8 @@ set nolangremap
 if executable("rg")
 	set grepprg=rg\ --hidden\ --vimgrep\ --no-heading\ --smart-case
 	set grepformat=%f:%l:%c:%m,%f:%l:%m
+else
+	set grepprg=grep\ --recursive\ --line-number\ --ignore-case
 endif
 
 " Save vim variables between sessions
