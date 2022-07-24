@@ -1,7 +1,7 @@
 M = {}
 
-local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_cmp_ok then
+local cmp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_status_ok then
 	return
 end
 

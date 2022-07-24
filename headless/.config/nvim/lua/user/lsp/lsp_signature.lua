@@ -1,5 +1,5 @@
-local status_ok, signature = pcall(require, "lsp_signature")
-if not status_ok then
+local signature_status_ok, signature = pcall(require, "lsp_signature")
+if not signature_status_ok then
 	return
 end
 

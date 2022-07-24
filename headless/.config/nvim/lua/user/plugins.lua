@@ -14,8 +14,8 @@ end
 -- }}}
 
 -- Protected call so that first use does not result in error
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
+local packer_status_ok, packer = pcall(require, "packer")
+if not packer_status_ok then
 	return
 end
 

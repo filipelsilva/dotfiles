@@ -1,9 +1,9 @@
-local status_ok, treesitter_configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
+local treesitter_status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
+if not treesitter_status_ok then
 	return
 end
 
-treesitter_configs.setup({
+treesitter.setup({
 	-- Enabled languages {{{
 	ensure_installed = {
 		"bash",
