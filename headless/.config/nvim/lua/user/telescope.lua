@@ -44,5 +44,12 @@ telescope.setup({
 				["<C-a>"] = actions.select_all,
 			},
 		},
+		vimgrep_arguments = {
+			"rg",
+			"--hidden",
+			"--vimgrep",
+			"--no-heading",
+			"--smart-case",
+		},
 	},
 })
