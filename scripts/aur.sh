@@ -13,6 +13,7 @@ packages=(
 	downgrade
 	vimv-git
 	rr-bin
+	lurk
 )
 
 desktop_packages=(
