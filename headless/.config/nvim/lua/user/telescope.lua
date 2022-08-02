@@ -29,7 +29,7 @@ end, telescope_keybind_options)
 
 vim.keymap.set("n", "<Leader><Leader>e", function()
 	builtin.find_files({
-		cwd = "$HOME/.config/nvim/lua/user",
+		cwd = "$HOME/.config/nvim",
 		hidden = true,
 		follow = true
 	})
@@ -58,11 +58,15 @@ telescope.setup({
 		},
 		mappings = {
 			i = {
+				["<C-j>"] = actions.move_selection_next,
+				["<C-k>"] = actions.move_selection_previous,
 				["<C-s>"] = actions.select_horizontal,
 				["<C-x>"] = false,
 				["<C-a>"] = actions.select_all,
 			},
 			n = {
+				["<C-j>"] = actions.move_selection_next,
+				["<C-k>"] = actions.move_selection_previous,
 				["<C-s>"] = actions.select_horizontal,
 				["<C-x>"] = false,
 				["<C-a>"] = actions.select_all,
