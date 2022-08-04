@@ -29,7 +29,7 @@ Scripts made by me, in order to link the dotfiles to their places and install
 all needed packages. Keep in mind: these are **very likely to break**, therefore
 **use them at your own risk**.
 Note: this repo is now using `stow` for linking dotfiles, but a script (aptly
-named "stow" is in this folder to symlink manually, if `stow` is not present in
+named "stow") is in this folder to symlink manually, if `stow` is not present in
 your system (e.g., servers). Given the number of subfolders involved, it might
 be useful.
 
