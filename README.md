@@ -28,10 +28,6 @@ These consist of configurations for some programs, split into two folders:
 Scripts made by me, in order to link the dotfiles to their places and install
 all needed packages. Keep in mind: these are **very likely to break**, therefore
 **use them at your own risk**.
-Note: this repo is now using `stow` for linking dotfiles, but a script (aptly
-named "stow") is in this folder to symlink manually, if `stow` is not present in
-your system (e.g., servers). Given the number of subfolders involved, it might
-be useful.
 
 Usage:
 
@@ -40,6 +36,18 @@ git clone https://github.com/filipelsilva/dotfiles-public $HOME/dotfiles
 cd $HOME/dotfiles
 ./run.sh		# If terminal is all you need
 ./run.sh full		# If you want to install i3 and desktop packages
+```
+
+Note: this repo is now using `stow` for linking dotfiles, but a script (aptly
+named "stow") is in this folder to symlink manually, if `stow` is not present in
+your system (e.g., servers). Given the number of subfolders involved, it might
+be useful.
+
+Usage:
+
+```bash
+./scripts/stow		# Symlinks by file
+./scripts/stow -d	# Symlinks by folder
 ```
 
 ## 3. Rationale behind the config files
