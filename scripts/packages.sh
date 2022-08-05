@@ -18,6 +18,7 @@ packages=(
 	zsh-completions
 	bash
 	bash-completion
+	ed
 	vi
 	gvim
 	neovim
