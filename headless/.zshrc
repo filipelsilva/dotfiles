@@ -36,7 +36,7 @@ alias zshsource="source $HOME/.zshrc && echo 'sourced zshrc'"
 alias zshconfig="$EDITOR $HOME/.zshrc && zshsource"
 
 # Git configuration
-alias gitconfig="$EDITOR $HOME/.gitconfig"
+alias gitconfig="$EDITOR $HOME/.config/git/config"
 
 # i3 configuration and reload
 if (( $+commands[i3] )); then
