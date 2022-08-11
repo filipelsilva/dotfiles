@@ -45,7 +45,7 @@ if (( $+commands[i3] )); then
 fi
 
 # GDB aliases
-if [[ -f "$HOME/.gdbinit" ]]; then
+if [[ -f "$HOME/.config/gdb/gdbinit" ]]; then
 	alias pwndbg="gdb -quiet -ex init-pwndbg"
 	alias gef="gdb -quiet -ex init-gef"
 fi
