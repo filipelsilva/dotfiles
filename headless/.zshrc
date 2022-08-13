@@ -36,7 +36,7 @@ alias zshsource="source $HOME/.zshrc && echo 'sourced zshrc'"
 alias zshconfig="$EDITOR $HOME/.zshrc && zshsource"
 
 # Git configuration
-alias gitconfig="$EDITOR $HOME/.config/git/config"
+alias gitconfig="$EDITOR $HOME/.gitconfig"
 
 # i3 configuration and reload
 if (( $+commands[i3] )); then
@@ -45,7 +45,7 @@ if (( $+commands[i3] )); then
 fi
 
 # GDB aliases
-if [[ -f "$HOME/.config/gdb/gdbinit" ]]; then
+if [[ -f "$HOME/.gdbinit" ]]; then
 	alias pwndbg="gdb -quiet -ex init-pwndbg"
 	alias gef="gdb -quiet -ex init-gef"
 fi
