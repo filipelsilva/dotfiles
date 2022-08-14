@@ -68,7 +68,7 @@ set diffopt=internal,filler,closeoff,indent-heuristic,algorithm:histogram
 set isfname-==
 
 " Make gf (follow file) work with hidden suffixes
-set suffixesadd=.py,.lua,.java
+set suffixesadd=.py,.java
 
 " Don't use octal for <C-x> and <C-a>
 set nrformats=bin,hex
