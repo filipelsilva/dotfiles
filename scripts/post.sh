@@ -7,7 +7,7 @@ chsh -s "$(command -v zsh)"
 echo "FONT=ter-v20b" | sudo tee -a /etc/vconsole.conf
 
 # Desktop stuff
-if [[ -n "$DOTFILES_FULL" ]]; then
+if [[ $1 = "full" ]]; then
 	# Create user directories
 	xdg-user-dirs-update
 

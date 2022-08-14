@@ -19,18 +19,21 @@ echo "#########################"
 sudo echo "# Getting password..."
 
 echo "# Pacman"
-./scripts/packages.sh
+./packages.sh
 
 echo "# AUR"
-./scripts/aur.sh
+./aur.sh
 
 echo "# Linker"
-stow --restow headless
+if [[ "$(basename $PWD)" != "dotfiles" ]]; then
+	cd ..
+fi
+sed -n "/Headless/,/Desktop/p" "README.md" | head --lines -2 | tail --lines +3 | cut -d' ' -f2 | xargs -I {} stow --restow {}
 if [[ -n "$DOTFILES_FULL" ]]; then
-	stow --restow desktop
+	sed -n "/Desktop/,/#/p" "README.md" | head --lines -2 | tail --lines +3 | cut -d' ' -f2 | xargs -I {} stow --restow {}
 fi
 
 echo "# Post instalation things..."
-./scripts/post.sh
+./post.sh
 
 unset DOTFILES_FULL
