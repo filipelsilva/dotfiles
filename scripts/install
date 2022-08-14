@@ -28,9 +28,17 @@ echo "# Linker"
 if [[ "$(basename $PWD)" != "dotfiles" ]]; then
 	cd ..
 fi
-sed -n "/Headless/,/Desktop/p" "README.md" | head --lines -2 | tail --lines +3 | cut -d' ' -f2 | xargs -I {} stow --restow {}
+
+(cd headless
+for folder in **; do
+	stow --restow "$folder"
+done)
+
 if [[ -n "$DOTFILES_FULL" ]]; then
-	sed -n "/Desktop/,/#/p" "README.md" | head --lines -2 | tail --lines +3 | cut -d' ' -f2 | xargs -I {} stow --restow {}
+	(cd desktop
+	for folder in **; do
+		stow --restow "$folder"
+	done)
 fi
 
 echo "# Post instalation things..."
