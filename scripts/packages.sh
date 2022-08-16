@@ -187,9 +187,9 @@ desktop_packages=( # {{{
 	handbrake
 	kid3
 	kid3-common
-	streamlink # Pipe streams into a video player
-	pavucontrol # Control audio sources/sinks
 	playerctl
+	streamlink	# Pipe streams into a video player
+	pavucontrol	# Control audio sources/sinks
 
 	# Torrent management
 	transmission-cli
