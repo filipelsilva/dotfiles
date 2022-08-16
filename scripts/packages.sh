@@ -61,7 +61,7 @@ packages=(
 	the_silver_searcher
 	ripgrep
 	ripgrep-all
-	gping
+	pipe-rename
 	duf
 	dust
 	diskus

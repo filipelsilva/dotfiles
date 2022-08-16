@@ -11,7 +11,6 @@ packages=(
 	inxi
 	cht.sh-git
 	downgrade
-	vimv-git
 	rr-bin
 	lurk
 )
