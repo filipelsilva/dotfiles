@@ -131,6 +131,7 @@ desktop_packages=(
 	thunar
 	thunar-archive-plugin
 	file-roller
+	pdftk
 	okular
 	zathura
 	zathura-djvu

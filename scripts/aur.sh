@@ -27,6 +27,7 @@ desktop_packages=(
 	ttf-ms-win11-auto
 	gdb-frontend-bin
 	ocrmypdf
+	cpdf
 	optimus-manager
 	optimus-manager-qt
 	spek
