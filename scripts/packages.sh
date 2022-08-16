@@ -243,6 +243,9 @@ desktop_packages=( # {{{
 	ttc-iosevka
 	ttc-iosevka-ss12
 	ttf-hack
+
+	# Other packages
+	laptop-detect		# Returns 0 if host is laptop, 1 otherwise
 ) # }}}
 
 if [[ -n "$DOTFILES_FULL" ]]; then

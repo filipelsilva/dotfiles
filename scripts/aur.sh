@@ -33,7 +33,7 @@ desktop_packages=( # {{{
 )
 
 # Switchable graphics in laptops
-if [[ ! -z $(lspci | grep -i "nvidia") ]]; then
+if [[ laptop-detect ]] && [[ ! -z $(lspci | grep -i "nvidia") ]]; then
 	desktop_packages+=(
 		optimus-manager
 		optimus-manager-qt
@@ -45,7 +45,8 @@ if [[ -n "$DOTFILES_FULL" ]]; then
 	packages+=(${desktop_packages[@]})
 fi
 
-git clone https://aur.archlinux.org/yay.git $HOME/.yay
-(cd $HOME/.yay && makepkg -si --noconfirm)
-
-yay -S --noconfirm ${packages[@]}
+echo ${desktop_packages[@]}
+# git clone https://aur.archlinux.org/yay.git $HOME/.yay
+# (cd $HOME/.yay && makepkg -si --noconfirm)
+#
+# yay -S --noconfirm ${packages[@]}
