@@ -45,8 +45,7 @@ if [[ -n "$DOTFILES_FULL" ]]; then
 	packages+=(${desktop_packages[@]})
 fi
 
-echo ${desktop_packages[@]}
-# git clone https://aur.archlinux.org/yay.git $HOME/.yay
-# (cd $HOME/.yay && makepkg -si --noconfirm)
-#
-# yay -S --noconfirm ${packages[@]}
+git clone https://aur.archlinux.org/yay.git $HOME/.yay
+(cd $HOME/.yay && makepkg -si --noconfirm)
+
+yay -S --noconfirm ${packages[@]}
