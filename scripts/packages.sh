@@ -120,8 +120,9 @@ packages=( # {{{
 	# Profile and benchmark programs
 	time
 	hyperfine
-	perf
 	strace
+	perf
+	cargo-flamegraph
 
 	# Finders
 	fzf
