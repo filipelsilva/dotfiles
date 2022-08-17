@@ -65,6 +65,7 @@ packages=( # {{{
 	traceroute
 	dnsutils
 	tcpdump
+	bind
 
 	# System monitoring
 	htop
