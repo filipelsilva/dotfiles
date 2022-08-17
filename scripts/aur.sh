@@ -1,6 +1,7 @@
 #!/bin/bash
 
 packages=( # {{{
+	igrep		# Interactive grep using ripgrep
 	cht.sh-git	# Cheat sheet
 	downgrade	# Downgrade packages
 	forgit-git	# Git aliases with fzf
