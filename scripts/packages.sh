@@ -243,8 +243,8 @@ desktop_packages=( # {{{
 	noto-fonts-emoji
 	noto-fonts-cjk
 	ttc-iosevka
-	ttc-iosevka-ss12
 	ttf-hack
+	ttf-jetbrains-mono
 
 	# Other packages
 	laptop-detect		# Returns 0 if host is laptop, 1 otherwise
