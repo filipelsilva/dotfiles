@@ -234,10 +234,6 @@ desktop_packages=( # {{{
 	xclip
 	xsel
 
-	# Games and WINE
-	steam
-	lutris
-
 	# Fonts
 	noto-fonts
 	noto-fonts-emoji
