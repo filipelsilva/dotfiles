@@ -12,6 +12,10 @@ while getopts "f" opt; do
 	esac
 done
 
+if [[ "$(basename $PWD)" != "dotfiles" ]]; then
+	cd "$HOME/dotfiles"
+fi
+
 echo "#########################"
 echo "# Beggining instalation #"
 echo "#########################"
@@ -19,15 +23,12 @@ echo "#########################"
 sudo echo "# Getting password..."
 
 echo "# Pacman"
-./packages.sh
+./scripts/packages.sh
 
 echo "# AUR"
-./aur.sh
+./scripts/aur.sh
 
 echo "# Linker"
-if [[ "$(basename $PWD)" != "dotfiles" ]]; then
-	cd ..
-fi
 
 (cd headless
 for folder in *; do
@@ -42,6 +43,6 @@ if [[ -n "$DOTFILES_FULL" ]]; then
 fi
 
 echo "# Post instalation things..."
-./post.sh
+./scripts/post.sh
 
 unset DOTFILES_FULL
