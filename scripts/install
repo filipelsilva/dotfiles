@@ -29,7 +29,6 @@ echo "# AUR"
 ./scripts/aur.sh
 
 echo "# Linker"
-
 (cd headless
 for folder in *; do
 	stow --restow "$folder"

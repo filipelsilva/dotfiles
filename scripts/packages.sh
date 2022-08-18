@@ -164,7 +164,7 @@ desktop_packages=( # {{{
 	autorandr
 	brightnessctl
 	redshift
-	xdotool	# X11 automation tool
+	xdotool # X11 automation tool
 
 	# Window manager
 	i3-wm
