@@ -241,6 +241,8 @@ desktop_packages=( # {{{
 	ttc-iosevka
 	ttf-hack
 	ttf-jetbrains-mono
+	ttf-input
+	ttf-monoid
 
 	# Other packages
 	laptop-detect		# Returns 0 if host is laptop, 1 otherwise
