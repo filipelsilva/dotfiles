@@ -30,13 +30,13 @@ if [[ "$(basename $PWD)" != "dotfiles" ]]; then
 fi
 
 (cd headless
-for folder in **; do
+for folder in *; do
 	stow --restow "$folder"
 done)
 
 if [[ -n "$DOTFILES_FULL" ]]; then
 	(cd desktop
-	for folder in **; do
+	for folder in *; do
 		stow --restow "$folder"
 	done)
 fi
