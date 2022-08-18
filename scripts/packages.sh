@@ -184,6 +184,7 @@ desktop_packages=( # {{{
 	vlc
 	mpv
 	yt-dlp
+	flac
 	sox
 	ffmpeg
 	handbrake
@@ -202,9 +203,10 @@ desktop_packages=( # {{{
 	gthumb
 	perl-image-exiftool
 	imagemagick
-	gimp
-	inkscape
 	maim # Screenshot utility
+	gimp
+	krita
+	inkscape
 
 	# Theme management
 	arc-gtk-theme
