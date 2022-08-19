@@ -156,6 +156,7 @@ packages=( # {{{
 	zoxide				# Autojump to recent folders
 	tree				# List files in tree format
 	pipe-rename			# Rename files in your $EDITOR
+	magic-wormhole		# Send/Receive files
 ) # }}}
 
 desktop_packages=( # {{{
