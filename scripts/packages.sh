@@ -62,6 +62,7 @@ packages=( # {{{
 	zip
 	unzip
 	p7zip
+	fastjar
 
 	# Network stuff
 	curl
