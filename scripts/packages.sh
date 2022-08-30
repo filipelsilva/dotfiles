@@ -17,6 +17,11 @@ packages=( # {{{
 	linux-firmware
 	util-linux
 
+	# Man pages and info
+	man-db
+	man-pages
+	texinfo
+
 	# Other basic utilities
 	binutils
 	coreutils
@@ -189,6 +194,7 @@ desktop_packages=( # {{{
 
 	# Browser
 	firefox
+	chromium
 	torbrowser-launcher
 
 	# Video/Audio management
@@ -228,6 +234,7 @@ desktop_packages=( # {{{
 	thunar
 	thunar-archive-plugin
 	file-roller
+	gvfs
 
 	# PDF management
 	pandoc
@@ -258,6 +265,7 @@ desktop_packages=( # {{{
 	ttf-monoid
 
 	# Other packages
+	discord
 	laptop-detect		# Returns 0 if host is laptop, 1 otherwise
 ) # }}}
 
