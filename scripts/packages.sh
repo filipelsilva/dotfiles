@@ -273,11 +273,11 @@ if [[ -n "$DOTFILES_FULL" ]]; then
 	packages+=(${desktop_packages[@]})
 fi
 
-sudo pacman -Syu --noconfirm
-sudo pacman -S --noconfirm ${packages[@]}
+sudo -v; sudo pacman -Syu --noconfirm
+sudo -v; sudo pacman -S --noconfirm ${packages[@]}
 
 # For the rustup package, so that rustc and cargo work out of the box
 rustup default stable
 
 # For pkgfile package, in order to search packages
-sudo pkgfile --update
+sudo -v; sudo pkgfile --update
