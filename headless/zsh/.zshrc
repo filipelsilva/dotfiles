@@ -2,9 +2,7 @@
 
 # Basic commands
 alias -- -="cd -"
-alias cp="cp --recursive"
 alias bc="bc --mathlib"
-alias mkdir="mkdir --parents"
 alias wget="wget --continue"
 alias ip="ip --color"
 alias diff="diff --color"
