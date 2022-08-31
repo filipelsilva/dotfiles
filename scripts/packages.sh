@@ -159,6 +159,7 @@ packages=( # {{{
 	terminus-font
 
 	# Other packages
+	parallel			# Xargs alternative
 	entr				# Run commands when files change
 	rlwrap				# Readline wrapper
 	bat					# Cat with syntax highlighting
