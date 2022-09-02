@@ -113,10 +113,8 @@ function open() {
 # Start[x]: wrapper around startx to use optimus-manager if needed
 function x() {
 	if (( $+commands[prime-switch] )); then
-		if systemctl -q is-active graphical.target && [[ $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-			sudo /usr/bin/prime-switch
-			exec startx
-		fi
+		sudo /usr/bin/prime-switch
+		exec startx
 	else
 		startx
 	fi
