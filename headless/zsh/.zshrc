@@ -57,17 +57,17 @@ function ..() {
 	cd ${(l:num::../:)}
 }
 
-# [Take]: mkdir directory and cd to it
-function take() {
-	mkdir -p $@ && cd ${@:$#}
-}
-
 # [J]ump [D]irectories: poor man's autojump
 function jd() {
 	dirs -v
 	vared -p "> " -c tmp
 	cd +${tmp}
 	unset tmp
+}
+
+# [Take]: mkdir directory and cd to it
+function take() {
+	mkdir -p $@ && cd ${@:$#}
 }
 
 # [Calc]: run calculations quickly
@@ -81,17 +81,6 @@ function colors() {
 		b=$((c+8))
 		print -P - "%F{$c}$c%f -> %F{$b}$b%f"
 	done
-}
-
-# [Open] files
-function open() {
-	if [[ "$#" -ne 0 ]]; then
-		for arg in $@; do
-			(xdg-open $arg > /dev/null 2>&1 &)
-		done
-	else
-		(fzf --multi | xargs -I {} sh -c "xdg-open '{}' > /dev/null 2>&1 &")
-	fi
 }
 
 # [Linkdump]
@@ -110,10 +99,21 @@ function kp() {
 	fi
 }
 
+# [Open] files
+function open() {
+	if [[ "$#" -ne 0 ]]; then
+		for arg in $@; do
+			(xdg-open $arg > /dev/null 2>&1 &)
+		done
+	else
+		(fzf --multi | xargs -I {} sh -c "xdg-open '{}' > /dev/null 2>&1 &")
+	fi
+}
+
 # Start[x]: wrapper around startx to use optimus-manager if needed
 function x() {
 	if (( $+commands[prime-switch] )); then
-		if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+		if systemctl -q is-active graphical.target && [[ $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 			sudo /usr/bin/prime-switch
 			exec startx
 		fi
@@ -186,7 +186,7 @@ zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' formats '%c%u%b'
 zstyle ':vcs_info:*' actionformats '%c%u%b(%a)'
 
-# Replace %# with %(!.#.$) for bash-like prompt
+# Replace %# with %(#.$) for bash-like prompt
 local NEWLINE=$'\n'
 local PROMPT_GIT_INFO='${vcs_info_msg_0_}'
 local PROMPT_ERROR_HANDLING="%(?..%F{9}%?%f )"
@@ -352,8 +352,8 @@ setopt notify
 if (( $+commands[fzf] )); then
 	local FZF_KEYBINDS="/usr/share/fzf/key-bindings.zsh"
 	local FZF_COMPLETION="/usr/share/fzf/completion.zsh"
-	[ -f $FZF_KEYBINDS ] && source $FZF_KEYBINDS
-	[ -f $FZF_COMPLETION ] && source $FZF_COMPLETION
+	[[ -f $FZF_KEYBINDS ]] && source $FZF_KEYBINDS
+	[[ -f $FZF_COMPLETION ]] && source $FZF_COMPLETION
 
 	# Stop fzf completion trigger from colliding with zsh glob operator
 	export FZF_COMPLETION_TRIGGER="++"
@@ -370,11 +370,13 @@ if (( $+commands[fzf] )); then
 	# Colorscheme overrides
 	if [[ "$TERM" = "alacritty" ]]; then
 		local config_file="$HOME/.config/alacritty/alacritty.yml" 
-		local foreground=$(grep "foreground" "$config_file" | cut -d: -f2 | tr -d " |'")
-		if [[ ! -z "$foreground" ]]; then
-			fzf_options+=(
-				--color="fg+:$foreground"
-			)
+		if [[ -f $config_file ]]; then
+			local foreground=$(grep "foreground" "$config_file" | cut -d: -f2 | tr -d " |'")
+			if [[ -n "$foreground" ]]; then
+				fzf_options+=(
+					--color="fg+:$foreground"
+				)
+			fi
 		fi
 	fi
 
@@ -404,7 +406,7 @@ fi
 
 # Plugins {{{
 local FORGIT_PLUGIN="/usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh"
-[ -f $FORGIT_PLUGIN ] && source $FORGIT_PLUGIN
+[[ -f $FORGIT_PLUGIN ]] && source $FORGIT_PLUGIN
 
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh --cmd j)"
 # }}}
