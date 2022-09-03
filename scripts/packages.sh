@@ -4,7 +4,7 @@ if [[ "$(basename $PWD)" != "dotfiles" ]]; then
 	cd "$HOME/dotfiles"
 fi
 
-if [[ -z "$DOTFILES_FULL" ]]; then
+if [[ -z $DOTFILES_FULL ]]; then
 	source scripts/argparse.sh
 	parse_arguments "$@"
 fi
@@ -274,7 +274,7 @@ desktop_packages=( # {{{
 	laptop-detect		# Returns 0 if host is laptop, 1 otherwise
 ) # }}}
 
-if [[ -n "$DOTFILES_FULL" ]]; then
+if [[ -n $DOTFILES_FULL ]]; then
 	packages+=(${desktop_packages[@]})
 fi
 

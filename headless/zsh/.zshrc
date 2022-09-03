@@ -43,7 +43,7 @@ if (( $+commands[i3] )); then
 fi
 
 # GDB aliases
-if [[ -f "$HOME/.gdbinit" ]]; then
+if [[ -f $HOME/.gdbinit ]]; then
 	alias pwndbg="gdb -quiet -ex init-pwndbg"
 	alias gef="gdb -quiet -ex init-gef"
 fi
@@ -101,7 +101,7 @@ function kp() {
 
 # [Open] files
 function open() {
-	if [[ "$#" -ne 0 ]]; then
+	if [[ $# -ne 0 ]]; then
 		for arg in $@; do
 			(xdg-open $arg > /dev/null 2>&1 &)
 		done
@@ -366,11 +366,11 @@ if (( $+commands[fzf] )); then
 	)
 
 	# Colorscheme overrides
-	if [[ "$TERM" = "alacritty" ]]; then
+	if [[ $TERM = "alacritty" ]]; then
 		local config_file="$HOME/.config/alacritty/alacritty.yml" 
 		if [[ -f $config_file ]]; then
 			local foreground=$(grep "foreground" "$config_file" | cut -d: -f2 | tr -d " |'")
-			if [[ -n "$foreground" ]]; then
+			if [[ -n $foreground ]]; then
 				fzf_options+=(
 					--color="fg+:$foreground"
 				)
@@ -379,7 +379,7 @@ if (( $+commands[fzf] )); then
 	fi
 
 	# Variables and functions for fzf operation
-	export FZF_DEFAULT_OPTS=${fzf_options[@]}
+	export FZF_DEFAULT_OPTS="${fzf_options[@]}"
 
 	if (( $+commands[fd] )); then
 		local FD_DEFAULT_OPTS=(
@@ -392,11 +392,11 @@ if (( $+commands[fzf] )); then
 		export FZF_ALT_C_COMMAND="fd --type d $FD_DEFAULT_OPTS"
 
 		_fzf_compgen_path() {
-			fd $FD_DEFAULT_OPTS . "$1"
+			fd "$FD_DEFAULT_OPTS" . "$1"
 		}
 
 		_fzf_compgen_dir() {
-			fd --type d $FD_DEFAULT_OPTS . "$1"
+			fd --type d "$FD_DEFAULT_OPTS" . "$1"
 		}
 	fi
 fi
@@ -404,7 +404,7 @@ fi
 
 # Plugins {{{
 local FORGIT_PLUGIN="/usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh"
-[[ -f $FORGIT_PLUGIN ]] && source $FORGIT_PLUGIN
+[[ -f $FORGIT_PLUGIN ]] && source "$FORGIT_PLUGIN"
 
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh --cmd j)"
 # }}}

@@ -4,7 +4,7 @@ if [[ "$(basename $PWD)" != "dotfiles" ]]; then
 	cd "$HOME/dotfiles"
 fi
 
-if [[ -z "$DOTFILES_FULL" ]]; then
+if [[ -z $DOTFILES_FULL ]]; then
 	source scripts/argparse.sh
 	parse_arguments "$@"
 fi
@@ -52,7 +52,7 @@ if [[ laptop-detect ]] && [[ ! -z $(lspci | grep -i "nvidia") ]]; then
 fi
 # }}}
 
-if [[ -n "$DOTFILES_FULL" ]]; then
+if [[ -n $DOTFILES_FULL ]]; then
 	packages+=(${desktop_packages[@]})
 fi
 
