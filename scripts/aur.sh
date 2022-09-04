@@ -15,7 +15,6 @@ packages=( # {{{
 	downgrade		# Downgrade packages
 	forgit-git		# Git aliases with fzf
 	gef-git			# GDB Enhanced Features
-	inxi			# System information
 	lurk			# Alternative to strace
 	mprocs			# Run multiple commands in parallel
 	rar				# Archive management
