@@ -54,6 +54,7 @@ packages=( # {{{
 	neovim
 
 	# Terminal multiplexer
+	screen
 	tmux
 	tmuxp # automatically create tmux session with layouts
 
