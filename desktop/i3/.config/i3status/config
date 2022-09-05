@@ -15,8 +15,8 @@ general {
 	color_bad = "#cc241d"
 }
 
-order += "cpu_usage"
 order += "load"
+order += "cpu_usage"
 order += "memory"
 order += "disk /"
 order += "battery all"
@@ -24,13 +24,13 @@ order += "wireless _first_"
 order += "ethernet _first_"
 order += "tztime local"
 
+load {
+	format = "%1min %5min %15min"
+}
+
 cpu_usage {
 	format = "%usage"
 	max_threshold = 75
-}
-
-load {
-	format = "%1min %5min %15min"
 }
 
 memory {
