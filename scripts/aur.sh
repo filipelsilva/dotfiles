@@ -38,7 +38,7 @@ desktop_packages=( # {{{
 	spek					# Audio inspector
 
 	# Fonts
-	ttf-ms-fonts
+	ttf-ms-win11-auto
 )
 
 # Switchable graphics in laptops
