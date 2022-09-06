@@ -392,11 +392,11 @@ if (( $+commands[fzf] )); then
 		export FZF_ALT_C_COMMAND="fd --type d $FD_DEFAULT_OPTS"
 
 		_fzf_compgen_path() {
-			fd "$FD_DEFAULT_OPTS" . "$1"
+			fd $FD_DEFAULT_OPTS . "$1"
 		}
 
 		_fzf_compgen_dir() {
-			fd --type d "$FD_DEFAULT_OPTS" . "$1"
+			fd --type d $FD_DEFAULT_OPTS . "$1"
 		}
 	fi
 fi
