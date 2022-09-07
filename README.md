@@ -103,6 +103,11 @@ The theme is the default one, with a slight modification to the right side of
 the status bar. Also, it only appears if more than one tab is open. The pane
 border status only appears if there is more than one pane.
 
+### screenrc
+
+Just a basic config to support 256 colors. Honestly, this file was just the
+excuse I made to try out screen, in the case I someday need to use it.
+
 ### vimrc
 
 This file's main objective was to be simple and portable (assuming a relatively
