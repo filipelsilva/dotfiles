@@ -260,6 +260,7 @@ desktop_packages=( # {{{
 	xsel
 
 	# Fonts
+	font-manager
 	noto-fonts
 	noto-fonts-emoji
 	noto-fonts-cjk
