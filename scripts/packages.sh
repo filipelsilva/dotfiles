@@ -272,7 +272,7 @@ desktop_packages=( # {{{
 
 	# Other packages
 	discord
-	texlive-most		# Tex distribution
+	texlive-most
 	laptop-detect		# Returns 0 if host is laptop, 1 otherwise
 ) # }}}
 
