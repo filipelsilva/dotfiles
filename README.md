@@ -15,6 +15,7 @@ These consist of configurations for some programs:
 * gdb
 * git
 * nvim
+* screen
 * tmux
 * vim
 * zsh
