@@ -344,6 +344,7 @@ setopt no_glob_dots
 setopt no_hup
 setopt no_sh_word_split
 setopt notify
+setopt correct_all
 # }}}
 
 # Fzf {{{
