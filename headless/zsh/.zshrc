@@ -175,7 +175,7 @@ fi
 setopt prompt_subst
 
 autoload -Uz vcs_info
-# precmd_functions+=( vcs_info )
+precmd_functions+=( vcs_info )
 
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
@@ -183,12 +183,6 @@ zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' formats '%c%u%b'
 zstyle ':vcs_info:*' actionformats '%c%u%b(%a)'
 
-vcs_info_wrapper() {
-	vcs_info
-	if [ -n "$vcs_info_msg_0_" ]; then
-		echo "${vcs_info_msg_0_}"
-	fi
-}
 # Replace %# with %(!.#.$) for bash-like prompt
 local NEWLINE=$'\n'
 local PROMPT_GIT_INFO='$(vcs_info_wrapper)'
