@@ -119,7 +119,7 @@ function x() {
 function expand-dots() {
 	local MATCH
 	if [[ $LBUFFER =~ "(^| )\.\.\.+" ]]; then
-		LBUFFER=$LBUFFER:fs%\.\.\.%../..%
+		LBUFFER="$LBUFFER:fs%\.\.\.%../..%"
 	fi
 }
 
