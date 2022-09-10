@@ -51,12 +51,6 @@ fi
 
 # Functions {{{
 
-# [..]: go back directories
-function ..() {
-	local num=$((${1:-1} * 3))
-	cd ${(l:num::../:)}
-}
-
 # [J]ump [D]irectories: poor man's autojump
 function jd() {
 	dirs -v
@@ -119,6 +113,31 @@ function x() {
 		startx
 	fi
 }
+# }}}
+
+# Expand multiple dots {{{
+function expand-dots() {
+	local MATCH
+	if [[ $LBUFFER =~ '\.\.\.+' ]]; then
+		LBUFFER=$LBUFFER:fs%\.\.\.%../..%
+	fi
+}
+
+function expand-dots-then-expand-or-complete() {
+	zle expand-dots
+	zle expand-or-complete
+}
+
+function expand-dots-then-accept-line() {
+	zle expand-dots
+	zle accept-line
+}
+
+zle -N expand-dots
+zle -N expand-dots-then-expand-or-complete
+zle -N expand-dots-then-accept-line
+bindkey '^I' expand-dots-then-expand-or-complete
+bindkey '^M' expand-dots-then-accept-line
 # }}}
 
 # Variables {{{
