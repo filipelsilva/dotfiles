@@ -118,7 +118,7 @@ function x() {
 # Expand multiple dots {{{
 function expand-dots() {
 	local MATCH
-	if [[ $LBUFFER =~ '\.\.\.+' ]]; then
+	if [[ $LBUFFER =~ "(^| )\.\.\.+" ]]; then
 		LBUFFER=$LBUFFER:fs%\.\.\.%../..%
 	fi
 }
