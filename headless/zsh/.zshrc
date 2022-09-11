@@ -191,7 +191,7 @@ fi
 # }}}
 
 # Prompt {{{
-setopt prompt_subst
+setopt PROMPT_SUBST
 
 autoload -Uz vcs_info
 precmd_functions+=( vcs_info )
@@ -217,9 +217,9 @@ export RPROMPT="${PROMPT_GIT_INFO}"
 # }}}
 
 # Directory stack {{{
-setopt auto_pushd
-setopt pushd_ignore_dups
-setopt pushd_silent
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
 
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
@@ -238,16 +238,16 @@ autoload -U compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 _comp_options+=(globdots)
 
-setopt always_to_end
-setopt auto_cd
-setopt auto_list
-setopt auto_menu
-setopt auto_param_slash
-setopt complete_in_word
-setopt extended_glob
-setopt glob_complete
-setopt list_types
-unsetopt flow_control
+setopt ALWAYS_TO_END
+setopt AUTO_CD
+setopt AUTO_LIST
+setopt AUTO_MENU
+setopt AUTO_PARAM_SLASH
+setopt COMPLETE_IN_WORD
+setopt EXTENDED_GLOB
+setopt GLOB_COMPLETE
+setopt LIST_TYPES
+unsetopt FLOW_CONTROL
 
 # eval "$(dircolors)"
 # zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -342,27 +342,26 @@ HISTFILE="$HOME/.zhistory"
 HISTSIZE=100000
 SAVEHIST=100000
 
-setopt extended_history
-setopt hist_expire_dups_first
-setopt hist_find_no_dups
-setopt hist_ignore_all_dups
-setopt hist_ignore_dups
-setopt hist_ignore_space
-setopt hist_reduce_blanks
-setopt hist_save_no_dups
-setopt hist_verify
-setopt inc_append_history_time
+setopt EXTENDED_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_VERIFY
+setopt INC_APPEND_HISTORY_TIME
 # }}}
 
 # Other options {{{
-setopt hash_list_all
-setopt long_list_jobs
-setopt no_beep
-setopt no_glob_dots
-setopt no_hup
-setopt no_sh_word_split
-setopt notify
-setopt correct_all
+setopt HASH_LIST_ALL
+setopt LONG_LIST_JOBS
+setopt NO_BEEP
+setopt NO_GLOB_DOTS
+setopt NO_HUP
+setopt NO_SH_WORD_SPLIT
+setopt NOTIFY
+setopt CORRECT_ALL
 # }}}
 
 # Fzf {{{
