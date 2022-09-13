@@ -458,7 +458,8 @@ if executable("fzf")
 	tnoremap <expr> <C-v><Esc> (&filetype == "fzf") ? "<C-v><Esc>" : "<Esc>"
 
 	" Mappings
-	nnoremap <silent> <expr> <Leader>f (len(system("git rev-parse")) ? ":Files" : ":GFiles")."\<CR>"
+	nnoremap <silent> <Leader>f <Cmd>Files<CR>
+	nnoremap <silent> <Leader>g <Cmd>GitFiles<CR>
 	nnoremap <silent> <Leader>F :Files <C-r>=substitute(expand("%:p:h"), " ", "\\\\ ", "g")<CR><CR>
 	nnoremap <silent> <Leader><Leader>f <Cmd>Files $HOME<CR>
 	if executable("rg")

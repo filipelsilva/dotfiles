@@ -9,11 +9,7 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<Leader>a", "<Cmd>Telescope<CR>", opts)
 
 vim.keymap.set("n", "<Leader>f", function()
-	if vim.fn.len(vim.fn.system("git rev-parse")) == 0 then
-		telescope_builtin.git_files({ hidden = true })
-	else
-		telescope_builtin.find_files({ hidden = true })
-	end
+	telescope_builtin.find_files({ hidden = true })
 end, opts)
 
 vim.keymap.set("n", "<Leader>F", function()
@@ -28,6 +24,10 @@ vim.keymap.set("n", "<Leader><Leader>f", function()
 		cwd = "$HOME",
 		hidden = true
 	})
+end, opts)
+
+vim.keymap.set("n", "<Leader>g", function()
+	telescope_builtin.git_files({ hidden = true })
 end, opts)
 
 vim.keymap.set("n", "<Leader>r", function()
