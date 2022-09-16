@@ -51,8 +51,8 @@ set autoindent copyindent shiftround smarttab breakindent nofixendofline
 set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Visual settings
-set ruler showcmd linebreak wrap
-set laststatus=1 signcolumn=number display=truncate
+set ruler showcmd linebreak wrap number relativenumber
+set laststatus=2 signcolumn=yes display=truncate
 set listchars=tab:<->,trail:-,nbsp:+,eol:$ shortmess=OtTF
 
 " Motions keep cursor on the same column
