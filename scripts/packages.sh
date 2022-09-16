@@ -96,6 +96,7 @@ packages=( # {{{
 	pypy
 	pypy3
 	bpython
+	python-pyperclip
 	python-pynvim
 	python-keystone
 	python-capstone
