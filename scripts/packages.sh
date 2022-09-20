@@ -203,6 +203,7 @@ desktop_packages=( # {{{
 	# Video/Audio management
 	vlc
 	mpv
+	rhythmbox
 	yt-dlp
 	flac
 	sox
