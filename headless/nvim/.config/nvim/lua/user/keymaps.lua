@@ -31,7 +31,9 @@ vim.keymap.set("n", "<Leader>g", function()
 end, opts)
 
 vim.keymap.set("n", "<Leader>r", function()
-	telescope_builtin.live_grep()
+	telescope_builtin.live_grep({
+		glob_pattern = "!*.git"
+	})
 end, opts)
 
 vim.keymap.set("n", "<Leader>j", function()
