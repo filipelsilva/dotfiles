@@ -163,6 +163,26 @@ if (( $+commands[bat] )); then
 fi
 
 (( $+commands[alacritty] )) && export TERMINAL="alacritty"
+
+if [[ $TERM = "linux" ]]; then
+	printf %b '\e]P01d2021'
+	printf %b '\e]P1cc241d'
+	printf %b '\e]P298971a'
+	printf %b '\e]P3d79921'
+	printf %b '\e]P4458588'
+	printf %b '\e]P5b16286'
+	printf %b '\e]P6689d6a'
+	printf %b '\e]P7ebdbb2'
+	printf %b '\e]P8928374'
+	printf %b '\e]P9fb4934'
+	printf %b '\e]PAb8bb26'
+	printf %b '\e]PBfabd2f'
+	printf %b '\e]PC83a598'
+	printf %b '\e]PDd3869b'
+	printf %b '\e]PE8ec07c'
+	printf %b '\e]PFebdbb2'
+	clear
+fi
 # }}}
 
 # Prompt {{{
@@ -386,7 +406,7 @@ if (( $+commands[fzf] )); then
 
 	# Colorscheme overrides
 	if [[ $TERM = "alacritty" ]]; then
-		local config_file="$HOME/.config/alacritty/alacritty.yml" 
+		local config_file="$HOME/.config/alacritty/alacritty.yml"
 		if [[ -f $config_file ]]; then
 			local foreground=$(grep "foreground" "$config_file" | cut -d: -f2 | tr -d " |'")
 			if [[ -n $foreground ]]; then
