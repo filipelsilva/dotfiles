@@ -141,9 +141,12 @@ bindsym $mod+Shift+Mod1+w layout stacked
 # Toggle tiling/floating
 bindsym $mod+space floating toggle
 
-# No window names
+# No title bar on non tabbed mode
 default_border pixel 1
 default_floating_border pixel 1
+
+# Title bar text alignment
+title_align center
 
 # Hide borders if only one window is visible
 hide_edge_borders smart
