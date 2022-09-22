@@ -482,36 +482,6 @@ if executable("fzf")
 endif
 " }}}
 
-" ToggleSearchHighlight {{{
-function! StartSearchHighlight() abort
-	let s:pos = match(getline('.'), @/, col('.') - 1) + 1
-	if s:pos != col('.')
-		call StopSearchHighlight()
-	endif
-endfunction
-
-function! StopSearchHighlight() abort
-	if !v:hlsearch || mode() isnot 'n'
-		return
-	else
-		silent call feedkeys("\<Plug>(StopSearchHighlight)", 'm')
-	endif
-endfunction
-
-augroup ToggleSearchHighlight
-	autocmd!
-
-	" After some cursor movement, remove highlighting from text
-	autocmd CursorMoved * call StartSearchHighlight()
-	autocmd InsertEnter * call StopSearchHighlight()
-
-augroup END
-
-" Disable hlsearch right after moving
-noremap <expr> <Plug>(StopSearchHighlight) execute("nohlsearch")[-1]
-noremap! <expr> <Plug>(StopSearchHighlight) execute("nohlsearch")[-1]
-" }}}
-
 " Plugins {{{
 if !exists("g:no_vim_plugins")
 	let s:plugin_folder = substitute(&packpath, ",.*", "", "")
