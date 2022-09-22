@@ -143,7 +143,7 @@ bindsym $mod+space floating toggle
 
 # No title bar on non tabbed mode
 default_border pixel 2
-default_floating_border pixel 2
+default_floating_border normal 2
 
 # Title bar text alignment
 title_align center
@@ -260,7 +260,7 @@ bar {
 # border|background|text|indicator|child_border
 client.focused          $blue $blue $black $black $blue
 client.focused_inactive $white $white $black $black $white
-client.unfocused        $black $brightblack $white $black $black
+client.unfocused        $brightblack $black $white $black $black
 client.urgent           $red $red $black $black $red
 # }}}
 
