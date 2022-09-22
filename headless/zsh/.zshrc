@@ -378,11 +378,12 @@ if (( $+commands[fzf] )); then
 
 	# Fzf options
 	local fzf_options=(
-		--height=30%
-		--layout=reverse
-		--info=inline
-		--multi
-		--bind "?:toggle-preview,ctrl-a:toggle-all"
+		"--height 30%"
+		"--layout reverse"
+		"--info inline"
+		"--multi"
+		"--bind '?:toggle-preview,ctrl-a:toggle-all'"
+		"--preview-window 'right,50%,<50(up,50%)'"
 	)
 
 	# Colorscheme overrides
@@ -392,7 +393,7 @@ if (( $+commands[fzf] )); then
 			local foreground=$(grep "foreground" "$config_file" | cut -d: -f2 | tr -d " |'")
 			if [[ -n $foreground ]]; then
 				fzf_options+=(
-					--color="fg+:$foreground"
+					"--color='fg+:$foreground'"
 				)
 			fi
 		fi

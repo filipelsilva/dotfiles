@@ -467,11 +467,6 @@ if executable("fzf")
 	endif
 	nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
 
-	" Environment variable
-	if empty($FZF_DEFAULT_OPTS)
-		let $FZF_DEFAULT_OPTS = "--layout=reverse --info=inline --bind 'ctrl-a:toggle-all'"
-	endif
-
 	" Settings
 	let g:fzf_action = {
 		\ "alt-q": function("s:build_quickfix_list"),
@@ -479,6 +474,7 @@ if executable("fzf")
 		\ "ctrl-s": "split",
 		\ "ctrl-v": "vsplit" }
 	let g:fzf_buffers_jump = 1
+	let g:fzf_layout = { "window": { "width": 0.80, "height": 0.90 } }
 endif
 " }}}
 
