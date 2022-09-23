@@ -146,7 +146,7 @@ default_border pixel 1
 default_floating_border normal 1
 
 # Title bar text alignment
-title_align center
+title_align left
 
 # Hide borders if only one window is visible
 hide_edge_borders smart
