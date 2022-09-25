@@ -404,8 +404,8 @@ if (( $+commands[fzf] )); then
 
 	if (( $+commands[fd] )); then
 		local FD_DEFAULT_OPTS=(
-			--hidden
-			--exclude ".git"
+			"--hidden"
+			"--exclude '.git'"
 		)
 
 		export FZF_DEFAULT_COMMAND="fd --type f $FD_DEFAULT_OPTS"
