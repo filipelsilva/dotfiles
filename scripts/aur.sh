@@ -33,7 +33,7 @@ desktop_packages=( # {{{
 	spotify
 	slack-desktop
 	visual-studio-code-bin
-	onedrive-abraunegg     # OneDrive client
+	onedrive-abraunegg-git # OneDrive client
 	ventoy-bin             # Make multiboot USB drives
 	dragon-drop            # Drag-and-drop source/sink
 	spek                   # Audio inspector
