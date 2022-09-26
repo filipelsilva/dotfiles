@@ -96,8 +96,9 @@ function kp() {
 # [Open] files
 function open() {
 	if [[ $# -ne 0 ]]; then
-		for arg in $@; do
-			(xdg-open $arg > /dev/null 2>&1 &)
+		for arg in "$@"; do
+			echo $arg
+			(xdg-open "$arg" > /dev/null 2>&1 &)
 		done
 	else
 		(fzf --multi | xargs -I {} sh -c "xdg-open '{}' > /dev/null 2>&1 &")
