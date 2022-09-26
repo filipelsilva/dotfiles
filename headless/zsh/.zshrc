@@ -140,7 +140,10 @@ export DISTRONAME=$(cat /etc/os-release | grep "NAME" | head -n 1 | cut -d'=' -f
 export PATH
 typeset -U PATH
 # Adding folders to PATH {{{
-PATH="$HOME/.local/bin:$PATH"
+if (( $+commands[python] )); then
+	export PYTHONDONTWRITEBYTECODE=1
+	PATH="$HOME/.local/bin:$PATH"
+fi
 
 (( $+commands[cargo] )) && PATH="$HOME/.cargo/bin:$PATH"
 
@@ -154,8 +157,6 @@ if (( $+commands[java] )); then
 	PATH="$JAVA_HOME/bin:$PATH"
 fi
 # }}}
-
-(( $+commands[python] )) && export PYTHONDONTWRITEBYTECODE=1
 
 if (( $+commands[bat] )); then
 	export BAT_THEME="ansi"
@@ -404,8 +405,8 @@ if (( $+commands[fzf] )); then
 
 	if (( $+commands[fd] )); then
 		local FD_DEFAULT_OPTS=(
-			"--hidden"
-			"--exclude '.git'"
+			--hidden
+			--exclude ".git"
 		)
 
 		export FZF_DEFAULT_COMMAND="fd --type f $FD_DEFAULT_OPTS"
