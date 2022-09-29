@@ -96,6 +96,7 @@ packages=( # {{{
 	pypy
 	pypy3
 	bpython
+	python-pwntools
 	python-pyperclip
 	python-pynvim
 	python-keystone
