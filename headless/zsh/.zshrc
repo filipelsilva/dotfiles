@@ -84,15 +84,6 @@ function linkdump() {
 	rm dump.txt
 }
 
-# [K]ill [P]rocess
-function kp() {
-	local pid=$(ps -ef | sed 1d | eval "fzf --header='[kill:process]'" | awk '{print $2}')
-	if [[ "x$pid" != "x" ]]; then
-		echo $pid | xargs kill -${1:-9}
-		kp
-	fi
-}
-
 # [Open] files
 function open() {
 	if [[ $# -ne 0 ]]; then
@@ -408,6 +399,9 @@ if (( $+commands[fzf] )); then
 		local FD_DEFAULT_OPTS=(
 			--hidden
 			--exclude ".git"
+			--exclude ".hg"
+			--exclude ".svn"
+			--exclude "CVS"
 		)
 
 		export FZF_DEFAULT_COMMAND="fd --type f $FD_DEFAULT_OPTS"
