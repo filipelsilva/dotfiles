@@ -83,11 +83,10 @@ function colors() {
 function open() {
 	if [[ $# -ne 0 ]]; then
 		for arg in "$@"; do
-			echo $arg
-			(xdg-open "$arg" > /dev/null 2>&1 &)
+			(xdg-open "$PWD/$arg" > /dev/null 2>&1 &)
 		done
 	else
-		(fzf --multi | xargs -I {} sh -c "xdg-open '{}' > /dev/null 2>&1 &")
+		(fzf --multi | xargs -I {} sh -c "xdg-open '$PWD/{}' > /dev/null 2>&1 &")
 	fi
 }
 
