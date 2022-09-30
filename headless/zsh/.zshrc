@@ -365,7 +365,7 @@ if (( $+commands[fzf] )); then
 	[[ -f $FZF_COMPLETION ]] && source $FZF_COMPLETION
 
 	# Stop fzf completion trigger from colliding with zsh glob operator
-	export FZF_COMPLETION_TRIGGER="++"
+	export FZF_COMPLETION_TRIGGER=",,"
 
 	# Fzf options
 	local fzf_options=(
