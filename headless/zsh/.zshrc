@@ -49,31 +49,10 @@ if [[ -f $HOME/.gdbinit ]]; then
 fi
 # }}}
 
-# Variables {{{
-if (( $+commands[nvim] )); then
-	export EDITOR="nvim"
-	export MANPAGER="nvim +Man!"
-else
-	export EDITOR="vim"
-	export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
-fi
-export VISUAL="$EDITOR"
-export DIFFPROG="$EDITOR -d"
-
-# Override git diff and merge tools {{{
-export GIT_CONFIG_COUNT=2
-export GIT_CONFIG_KEY_0="difftool.vimdiff.cmd"
-export GIT_CONFIG_VALUE_0="$DIFFPROG \$LOCAL \$REMOTE"
-export GIT_CONFIG_KEY_1="mergetool.vimdiff.cmd"
-export GIT_CONFIG_VALUE_1="$DIFFPROG \$LOCAL \$REMOTE \$MERGED -c '\$wincmd w' -c 'wincmd J'"
-# }}}
-
-# Distro name
-export DISTRONAME=$(cat /etc/os-release | grep "NAME" | head -n 1 | cut -d'=' -f2 | tr -d '"')
-
+# PATH and related variables {{{
 export PATH
 typeset -U PATH
-# Adding folders to PATH {{{
+
 if (( $+commands[python] )); then
 	export PYTHONDONTWRITEBYTECODE=1
 	PATH="$PATH:$HOME/.local/bin"
@@ -95,16 +74,37 @@ if (( $+commands[bat] )); then
 	export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 	export PATH="$PATH:$GEM_HOME/bin"
 fi
-
 # }}}
 
+# Other variables {{{
+if (( $+commands[nvim] )); then
+	export EDITOR="nvim"
+	export MANPAGER="nvim +Man!"
+else
+	export EDITOR="vim"
+	export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
+fi
+export VISUAL="$EDITOR"
+export DIFFPROG="$EDITOR -d"
+
+# Override git diff and merge tools
+export GIT_CONFIG_COUNT=2
+export GIT_CONFIG_KEY_0="difftool.vimdiff.cmd"
+export GIT_CONFIG_VALUE_0="$DIFFPROG \$LOCAL \$REMOTE"
+export GIT_CONFIG_KEY_1="mergetool.vimdiff.cmd"
+export GIT_CONFIG_VALUE_1="$DIFFPROG \$LOCAL \$REMOTE \$MERGED -c '\$wincmd w' -c 'wincmd J'"
+
+# Distro name
+export DISTRONAME=$(cat /etc/os-release | grep "NAME" | head -n 1 | cut -d'=' -f2 | tr -d '"')
+
+# Terminal environment variable
+(( $+commands[alacritty] )) && export TERMINAL="alacritty"
+
+# Bat settings
 if (( $+commands[bat] )); then
 	export BAT_THEME="ansi"
 	export BAT_STYLE="auto"
 fi
-
-(( $+commands[alacritty] )) && export TERMINAL="alacritty"
-
 # }}}
 
 # Functions {{{
