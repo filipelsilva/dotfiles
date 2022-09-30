@@ -77,12 +77,7 @@ function colors() {
 	done
 }
 
-# [Linkdump]
-function linkdump() {
-	lynx -dump -listonly -nonumbers $1 | grep .pdf > dump.txt
-	wget -i dump.txt
-	rm dump.txt
-}
+# GUI dependant functions {{{
 
 # [Open] files
 function open() {
@@ -105,6 +100,9 @@ function x() {
 		startx
 	fi
 }
+
+# }}}
+
 # }}}
 
 # Variables {{{
