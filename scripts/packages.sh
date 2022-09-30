@@ -120,6 +120,10 @@ packages=( # {{{
 	# Rust
 	rustup
 
+	# Ruby
+	ruby
+	rubygems
+
 	# JSON
 	jq
 	jc

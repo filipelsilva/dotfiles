@@ -49,6 +49,64 @@ if [[ -f $HOME/.gdbinit ]]; then
 fi
 # }}}
 
+# Variables {{{
+if (( $+commands[nvim] )); then
+	export EDITOR="nvim"
+	export MANPAGER="nvim +Man!"
+else
+	export EDITOR="vim"
+	export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
+fi
+export VISUAL="$EDITOR"
+export DIFFPROG="$EDITOR -d"
+
+# Override git diff and merge tools {{{
+export GIT_CONFIG_COUNT=2
+export GIT_CONFIG_KEY_0="difftool.vimdiff.cmd"
+export GIT_CONFIG_VALUE_0="$DIFFPROG \$LOCAL \$REMOTE"
+export GIT_CONFIG_KEY_1="mergetool.vimdiff.cmd"
+export GIT_CONFIG_VALUE_1="$DIFFPROG \$LOCAL \$REMOTE \$MERGED -c '\$wincmd w' -c 'wincmd J'"
+# }}}
+
+# Distro name
+export DISTRONAME=$(cat /etc/os-release | grep "NAME" | head -n 1 | cut -d'=' -f2 | tr -d '"')
+
+export PATH
+typeset -U PATH
+# Adding folders to PATH {{{
+if (( $+commands[python] )); then
+	export PYTHONDONTWRITEBYTECODE=1
+	PATH="$PATH:$HOME/.local/bin"
+fi
+
+(( $+commands[cargo] )) && PATH="$PATH:$HOME/.cargo/bin"
+
+if (( $+commands[go] )); then
+	export GOPATH="$HOME/go"
+	PATH="$PATH:$GOPATH/bin"
+fi
+
+if (( $+commands[java] )); then
+	export JAVA_HOME="/usr/lib/jvm/default"
+	PATH="$PATH:$JAVA_HOME/bin"
+fi
+
+if (( $+commands[bat] )); then
+	export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+	export PATH="$PATH:$GEM_HOME/bin"
+fi
+
+# }}}
+
+if (( $+commands[bat] )); then
+	export BAT_THEME="ansi"
+	export BAT_STYLE="auto"
+fi
+
+(( $+commands[alacritty] )) && export TERMINAL="alacritty"
+
+# }}}
+
 # Functions {{{
 
 # [J]ump [D]irectories: poor man's autojump
@@ -101,58 +159,6 @@ function x() {
 }
 
 # }}}
-
-# }}}
-
-# Variables {{{
-if (( $+commands[nvim] )); then
-	export EDITOR="nvim"
-	export MANPAGER="nvim +Man!"
-else
-	export EDITOR="vim"
-	export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
-fi
-export VISUAL="$EDITOR"
-export DIFFPROG="$EDITOR -d"
-
-# Override git diff and merge tools {{{
-export GIT_CONFIG_COUNT=2
-export GIT_CONFIG_KEY_0="difftool.vimdiff.cmd"
-export GIT_CONFIG_VALUE_0="$DIFFPROG \$LOCAL \$REMOTE"
-export GIT_CONFIG_KEY_1="mergetool.vimdiff.cmd"
-export GIT_CONFIG_VALUE_1="$DIFFPROG \$LOCAL \$REMOTE \$MERGED -c '\$wincmd w' -c 'wincmd J'"
-# }}}
-
-# Distro name
-export DISTRONAME=$(cat /etc/os-release | grep "NAME" | head -n 1 | cut -d'=' -f2 | tr -d '"')
-
-export PATH
-typeset -U PATH
-# Adding folders to PATH {{{
-if (( $+commands[python] )); then
-	export PYTHONDONTWRITEBYTECODE=1
-	PATH="$HOME/.local/bin:$PATH"
-fi
-
-(( $+commands[cargo] )) && PATH="$HOME/.cargo/bin:$PATH"
-
-if (( $+commands[go] )); then
-	export GOPATH="$HOME/go"
-	PATH="$GOPATH/bin:$PATH"
-fi
-
-if (( $+commands[java] )); then
-	export JAVA_HOME="/usr/lib/jvm/default"
-	PATH="$JAVA_HOME/bin:$PATH"
-fi
-# }}}
-
-if (( $+commands[bat] )); then
-	export BAT_THEME="ansi"
-	export BAT_STYLE="auto"
-fi
-
-(( $+commands[alacritty] )) && export TERMINAL="alacritty"
 
 # }}}
 
