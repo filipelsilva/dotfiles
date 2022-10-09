@@ -179,6 +179,7 @@ packages=( # {{{
 	zoxide         # Autojump to recent folders
 	tree           # List files in tree format
 	pipe-rename    # Rename files in your $EDITOR
+	perl-rename    # Rename files using Perl regex
 	magic-wormhole # Send/Receive files
 ) # }}}
 
