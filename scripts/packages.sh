@@ -84,9 +84,8 @@ packages=( # {{{
 	bind
 
 	# System monitoring
+	procps-ng
 	htop
-	btop
-	glances
 	sysstat
 	iftop
 
