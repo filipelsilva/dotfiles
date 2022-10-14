@@ -94,7 +94,6 @@ packages=( # {{{
 	python-pip
 	pypy
 	pypy3
-	bpython
 	python-pwntools
 	python-pyperclip
 	python-pynvim
@@ -108,7 +107,6 @@ packages=( # {{{
 	indent
 	valgrind
 	ctags
-	nmap
 
 	# Java
 	jdk-openjdk
@@ -244,6 +242,7 @@ desktop_packages=( # {{{
 	xdg-user-dirs
 	thunar
 	thunar-archive-plugin
+	thunar-volman
 	file-roller    # Archive manager for thunar
 	gvfs           # Enables things like trashing files in Thunar
 	ntfs-3g        # Support for NTFS drives
