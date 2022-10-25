@@ -350,6 +350,9 @@ colorscheme default
 if !has("nvim")
 	set background=dark
 endif
+if has("gui_running")
+	set background=light
+endif
 
 " }}}
 
