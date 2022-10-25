@@ -52,6 +52,7 @@ packages=( # {{{
 	vi
 	gvim # why gvim and not vim? Clipboard support
 	neovim
+	gedit
 
 	# Terminal multiplexer
 	screen
