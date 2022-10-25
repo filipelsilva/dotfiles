@@ -99,6 +99,7 @@ packages=( # {{{
 	python-pynvim
 	python-keystone
 	python-capstone
+	sagemath
 
 	# C/Cpp and related packages
 	gcc
