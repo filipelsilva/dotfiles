@@ -33,7 +33,7 @@ font: # {{{
     family: Iosevka
     style: Bold Italic
 
-  size: 13.5
+  size: 14.0
 
   offset:
     x: 0
