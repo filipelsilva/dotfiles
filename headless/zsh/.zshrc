@@ -122,11 +122,6 @@ function take() {
 	mkdir -p $@ && cd ${@:$#}
 }
 
-# [Calc]: run calculations quickly
-function calc() {
-	python3 -c "from math import *; print($*)"
-}
-
 # [Colors]: print colors and corresponding codes
 function colors() {
 	for c in {0..7}; do
