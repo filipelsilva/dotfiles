@@ -216,6 +216,7 @@ desktop_packages=( # {{{
 	kid3
 	kid3-common
 	playerctl
+	obs-studio
 	streamlink  # Pipe streams into a video player
 	pavucontrol # Control audio sources/sinks
 
