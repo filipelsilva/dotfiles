@@ -28,6 +28,7 @@ packages=( # {{{
 	diffutils
 	findutils
 	pciutils
+	moreutils
 
 	# Find filenames quickly
 	mlocate
