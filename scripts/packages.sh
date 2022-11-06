@@ -207,7 +207,7 @@ desktop_packages=( # {{{
 	# Video/Audio management
 	vlc
 	mpv
-	rhythmbox
+	clementine
 	yt-dlp
 	flac
 	sox
