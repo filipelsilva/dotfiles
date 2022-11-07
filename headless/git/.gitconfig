@@ -15,7 +15,7 @@
 	cma = "commit -a"
 	co = "checkout"
 	cob = "checkout -b"
-	dif = "!f() { git diff | $EDITOR \"+set filetype=diff\" -; }; f"
+	df = "diff"
 	st = "status"
 	tree = "log --graph --oneline --decorate --all"
 
