@@ -9,8 +9,7 @@
 	defaultBranch = main
 
 [alias]
-	ac = "!f() { git add -A && git commit; }; f"
-	acp = "!f() { git add -A && git commit && git push; }; f"
+	ac = "!git add -A && git commit"
 	cm = "commit"
 	cma = "commit -a"
 	co = "checkout"
