@@ -9,13 +9,14 @@
 	defaultBranch = main
 
 [alias]
-	ac = "!git add -A && git commit"
-	acm = "!git add -A && git commit -m"
+	ac = "!git add --all && git commit"
+	br = "branch"
 	cm = "commit"
-	cma = "commit -a"
 	co = "checkout"
-	cob = "checkout -b"
 	df = "diff"
+	dt = "difftool"
+	mg = "merge"
+	mt = "mergetool"
 	st = "status"
 	tree = "log --graph --oneline --decorate --all"
 
