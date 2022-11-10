@@ -63,7 +63,7 @@ fi
 (( $+commands[cargo] )) && PATH="$PATH:$HOME/.cargo/bin"
 
 if (( $+commands[go] )); then
-	export GOPATH="$HOME/go"
+	export GOPATH="$HOME/.go"
 	PATH="$PATH:$GOPATH/bin"
 fi
 
