@@ -10,6 +10,7 @@
 
 [alias]
 	ac = "!git add -A && git commit"
+	acm = "!git add -A && git commit -m"
 	cm = "commit"
 	cma = "commit -a"
 	co = "checkout"

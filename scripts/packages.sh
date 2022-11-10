@@ -105,6 +105,7 @@ packages=( # {{{
 	# C/Cpp and related packages
 	gcc
 	gdb
+	gef
 	pwndbg
 	indent
 	valgrind
