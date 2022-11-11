@@ -63,6 +63,10 @@ packages=( # {{{
 	git
 	tk # gitk dependency
 
+	# File management
+	rsync
+	progress
+
 	# Archive management
 	atool
 	gzip
