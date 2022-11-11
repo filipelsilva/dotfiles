@@ -98,4 +98,4 @@ shell:
     - "tmux attach || tmux"
 
 key_bindings:
-  - { key: F11,                           action: ToggleFullscreen }
+  - { key: F11, action: ToggleFullscreen }
