@@ -90,12 +90,6 @@ cursor:
     blinking: Off
     shape: Block
 
-shell:
-  program: zsh
-  args:
-    - -l
-    - -c
-    - "tmux attach || tmux"
-
 key_bindings:
-  - { key: F11, action: ToggleFullscreen }
+  - { key: F11,                               action: ToggleFullscreen }
+  - { key: Space, mods: Shift, mode: ~Search, action: ToggleViMode }
