@@ -227,8 +227,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # Bar/Theme {{{
 
 # Colors
-set $brightblack #928374
-set $brightwhite #ebdbb2
+set $fg          #ebdbb2
+set $bg          #282828
 set $black       #1d2021
 set $red         #cc241d
 set $green       #98971a
@@ -238,6 +238,7 @@ set $magenta     #b16286
 set $cyan        #689d6a
 set $white       #a89984
 
+# Bar settings
 bar {
 	tray_output primary
 	tray_padding 0
@@ -247,7 +248,7 @@ bar {
 
 	colors {
 		background $black
-		statusline $brightwhite
+		statusline $fg
 		separator  $white
 
 		# border|background|text
@@ -262,7 +263,7 @@ bar {
 # border|background|text|indicator|child_border
 client.focused          $blue $blue $black $black $blue
 client.focused_inactive $white $white $black $black $white
-client.unfocused        $black $black $white $white $black
+client.unfocused        $bg $black $white $white $bg
 client.urgent           $red $red $black $black $red
 # }}}
 
