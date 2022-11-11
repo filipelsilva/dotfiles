@@ -92,4 +92,4 @@ cursor:
 
 key_bindings:
   - { key: F11,                               action: ToggleFullscreen }
-  - { key: Space, mods: Shift, mode: ~Search, action: ToggleViMode }
+  - { key: Space, mods: Shift, mode: ~Search, action: ToggleViMode     }
