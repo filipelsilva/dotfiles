@@ -170,6 +170,7 @@ packages=( # {{{
 	terminus-font
 
 	# Other packages
+	reptyr         # Send process to another terminal
 	parallel       # Xargs alternative
 	entr           # Run commands when files change
 	rlwrap         # Readline wrapper
