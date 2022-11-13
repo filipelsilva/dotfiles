@@ -58,6 +58,7 @@ packages=( # {{{
 	screen
 	tmux
 	tmuxp # automatically create tmux session with layouts
+	tmate # share tmux session
 
 	# VCS
 	git
