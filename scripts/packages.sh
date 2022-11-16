@@ -129,6 +129,10 @@ packages=( # {{{
 	ruby
 	rubygems
 
+	# JavaScript
+	nodejs
+	npm
+
 	# JSON
 	jq
 	jc
