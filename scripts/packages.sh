@@ -237,6 +237,7 @@ desktop_packages=( # {{{
 	transmission-gtk
 
 	# Image management
+	sxiv
 	feh
 	gthumb
 	perl-image-exiftool
