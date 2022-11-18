@@ -2,11 +2,9 @@
 
 # Basic commands
 alias -- -="cd -"
-alias bc="bc --mathlib"
-alias wget="wget --continue"
-alias ip="ip --color"
 alias diff="diff --color"
 alias grep="grep --color"
+alias ip="ip --color"
 alias info="info --vi-keys"
 alias v="$EDITOR"
 if (( $+commands[nvim] )); then
