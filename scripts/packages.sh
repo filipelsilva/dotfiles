@@ -292,6 +292,7 @@ desktop_packages=( # {{{
 	ttf-jetbrains-mono
 	ttf-input
 	ttf-monoid
+	ttf-ubuntu-font-family
 
 	# Other packages
 	discord
