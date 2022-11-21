@@ -47,7 +47,9 @@ if [[ -f $HOME/.gdbinit ]]; then
 fi
 # }}}
 
-# Basic options {{{
+# Options {{{
+
+# Miscellaneous
 setopt HASH_LIST_ALL
 setopt LONG_LIST_JOBS
 setopt NO_BEEP
@@ -57,6 +59,24 @@ setopt NO_SH_WORD_SPLIT
 setopt NOTIFY
 setopt CORRECT_ALL
 
+# Command history
+HISTFILE="$HOME/.zhistory"
+HISTSIZE=100000
+SAVEHIST=100000
+setopt EXTENDED_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_VERIFY
+setopt INC_APPEND_HISTORY_TIME
+
+# }}}
+
+# Plugin/Variable loading {{{
+
 # Set LS_COLORS
 eval "$(dircolors)"
 
@@ -65,10 +85,10 @@ autoload -U colors && colors
 
 # Renamer ($ zmv '(*)_(*)_(*)' '$3_$2_$1' # foo_bar_baz -> baz_bar_foo)
 autoload -Uz zmv
+
 # }}}
 
 # Variables {{{
-
 # PATH and related variables {{{
 export PATH
 typeset -U PATH
@@ -124,31 +144,6 @@ if (( $+commands[bat] )); then
 	export BAT_THEME="ansi"
 	export BAT_STYLE="auto"
 fi
-# }}}
-
-# Functions {{{
-
-# [Open] files
-function open() {
-	if [[ $# -ne 0 ]]; then
-		for arg in "$@"; do
-			(xdg-open "$PWD/$arg" > /dev/null 2>&1 &)
-		done
-	else
-		(fzf --multi | xargs -I {} sh -c "xdg-open '$PWD/{}' > /dev/null 2>&1 &")
-	fi
-}
-
-# Start[x]: wrapper around startx to use optimus-manager if needed
-function x() {
-	if (( $+commands[prime-switch] )); then
-		sudo /usr/bin/prime-switch
-		exec startx
-	else
-		startx
-	fi
-}
-
 # }}}
 
 # Prompt {{{
@@ -242,7 +237,7 @@ zstyle ':completion:*:*:*:*:messages' format '-- %d --'
 zstyle ':completion:*:*:*:*:warnings' format '-- no matches found --'
 # }}}
 
-# Vi-mode and keybinds {{{
+# Keybinds {{{
 autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
 autoload -Uz edit-command-line
@@ -269,6 +264,7 @@ bindkey "\e." insert-last-word
 
 # Ctrl-e to edit command line in $EDITOR
 bindkey "^E" edit-command-line
+bindkey -M vicmd "^E" edit-command-line
 
 # Ctrl-r (or / in normal mode of vi-mode) to search commands
 bindkey "^R" history-incremental-search-backward
@@ -296,20 +292,25 @@ for km in viopp visual; do
 done
 # }}}
 
-# Command history {{{
-HISTFILE="$HOME/.zhistory"
-HISTSIZE=100000
-SAVEHIST=100000
+# Functions {{{
+function open() {
+	if [[ $# -ne 0 ]]; then
+		for arg in "$@"; do
+			(xdg-open "$PWD/$arg" > /dev/null 2>&1 &)
+		done
+	else
+		(fzf --multi | xargs -I {} sh -c "xdg-open '$PWD/{}' > /dev/null 2>&1 &")
+	fi
+}
 
-setopt EXTENDED_HISTORY
-setopt HIST_FIND_NO_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_REDUCE_BLANKS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_VERIFY
-setopt INC_APPEND_HISTORY_TIME
+function x() {
+	if (( $+commands[prime-switch] )); then
+		sudo /usr/bin/prime-switch
+		exec startx
+	else
+		startx
+	fi
+}
 # }}}
 
 # Fzf {{{
