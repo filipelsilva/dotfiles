@@ -47,6 +47,26 @@ if [[ -f $HOME/.gdbinit ]]; then
 fi
 # }}}
 
+# Basic options {{{
+setopt HASH_LIST_ALL
+setopt LONG_LIST_JOBS
+setopt NO_BEEP
+setopt NO_GLOB_DOTS
+setopt NO_HUP
+setopt NO_SH_WORD_SPLIT
+setopt NOTIFY
+setopt CORRECT_ALL
+
+# Set LS_COLORS
+eval "$(dircolors)"
+
+# Colors
+autoload -U colors && colors
+
+# Renamer ($ zmv '(*)_(*)_(*)' '$3_$2_$1' # foo_bar_baz -> baz_bar_foo)
+autoload -Uz zmv
+# }}}
+
 # Variables {{{
 
 # PATH and related variables {{{
@@ -156,6 +176,7 @@ case "$PROMPT_SELECTOR" in
 		;;
 	2)
 		local PROMPT_INFO="%B%F{10}%n@%m%f%b:%B%F{12}%~%f%b${NEWLINE}%#"
+		local PROMPT_GIT_INFO="%B%F{13}${PROMPT_GIT_INFO}%f%b"
 		local PROMPT_ERROR_HANDLING="%B${PROMPT_ERROR_HANDLING}%b"
 		;;
 esac
@@ -188,7 +209,6 @@ setopt GLOB_COMPLETE
 setopt LIST_TYPES
 unsetopt FLOW_CONTROL
 
-# eval "$(dircolors)"
 # zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' add-space true
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -290,20 +310,6 @@ setopt HIST_REDUCE_BLANKS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY_TIME
-# }}}
-
-# Other options {{{
-setopt HASH_LIST_ALL
-setopt LONG_LIST_JOBS
-setopt NO_BEEP
-setopt NO_GLOB_DOTS
-setopt NO_HUP
-setopt NO_SH_WORD_SPLIT
-setopt NOTIFY
-setopt CORRECT_ALL
-
-# Renamer ($ zmv '(*)_(*)_(*)' '$3_$2_$1' # foo_bar_baz -> baz_bar_foo)
-autoload -Uz zmv
 # }}}
 
 # Fzf {{{
