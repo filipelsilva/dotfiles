@@ -1,3 +1,37 @@
+# Prompt {{{
+setopt PROMPT_SUBST
+autoload -Uz vcs_info
+precmd_functions+=( vcs_info )
+
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:*' unstagedstr '*'
+zstyle ':vcs_info:*' formats '%c%u%b'
+zstyle ':vcs_info:*' actionformats '%c%u%b(%a)'
+
+# Prompt auxiliary variables
+# (Note: replace %# with %(!.#.$) for bash-like prompt)
+local NEWLINE=$'\n'
+local PROMPT_GIT_INFO='${vcs_info_msg_0_:- }'
+local PROMPT_ERROR_HANDLING="%(?..%F{9}%?%f )"
+
+local PROMPT_SELECTOR=2
+case "$PROMPT_SELECTOR" in
+	1)
+		local PROMPT_INFO="%n@%m:%1~%#"
+		# local PROMPT_INFO="%m%S%n%s%1~ %#"
+		;;
+	2)
+		local PROMPT_INFO="%B%F{10}%n@%m%f%b:%B%F{12}%~%f%b${NEWLINE}%#"
+		local PROMPT_GIT_INFO="%B%F{13}${PROMPT_GIT_INFO}%f%b"
+		local PROMPT_ERROR_HANDLING="%B${PROMPT_ERROR_HANDLING}%b"
+		;;
+esac
+
+export PROMPT="${PROMPT_ERROR_HANDLING}${PROMPT_INFO} "
+export RPROMPT="${PROMPT_GIT_INFO}"
+# }}}
+
 # Aliases {{{
 
 # Basic commands
@@ -12,7 +46,7 @@ if (( $+commands[nvim] )); then
 fi
 
 # Ls aliases
-# alias ls="ls --color"
+alias ls="ls --color"
 alias lsa="ls -a"
 alias lsr="ls -R"
 alias l="ls -lh"
@@ -144,40 +178,6 @@ if (( $+commands[bat] )); then
 	export BAT_THEME="ansi"
 	export BAT_STYLE="auto"
 fi
-# }}}
-
-# Prompt {{{
-setopt PROMPT_SUBST
-autoload -Uz vcs_info
-precmd_functions+=( vcs_info )
-
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr '+'
-zstyle ':vcs_info:*' unstagedstr '*'
-zstyle ':vcs_info:*' formats '%c%u%b'
-zstyle ':vcs_info:*' actionformats '%c%u%b(%a)'
-
-# Prompt auxiliary variables
-# (Note: replace %# with %(!.#.$) for bash-like prompt)
-local NEWLINE=$'\n'
-local PROMPT_GIT_INFO='${vcs_info_msg_0_:- }'
-local PROMPT_ERROR_HANDLING="%(?..%F{9}%?%f )"
-
-local PROMPT_SELECTOR=1
-case "$PROMPT_SELECTOR" in
-	1)
-		local PROMPT_INFO="%n@%m:%1~%#"
-		# local PROMPT_INFO="%m%S%n%s%1~ %#"
-		;;
-	2)
-		local PROMPT_INFO="%B%F{10}%n@%m%f%b:%B%F{12}%~%f%b${NEWLINE}%#"
-		local PROMPT_GIT_INFO="%B%F{13}${PROMPT_GIT_INFO}%f%b"
-		local PROMPT_ERROR_HANDLING="%B${PROMPT_ERROR_HANDLING}%b"
-		;;
-esac
-
-export PROMPT="${PROMPT_ERROR_HANDLING}${PROMPT_INFO} "
-export RPROMPT="${PROMPT_GIT_INFO}"
 # }}}
 
 # Completion {{{
