@@ -15,7 +15,7 @@ local NEWLINE=$'\n'
 local PROMPT_GIT_INFO='${vcs_info_msg_0_:- }'
 local PROMPT_ERROR_HANDLING="%(?..%F{9}%?%f )"
 
-local PROMPT_SELECTOR=2
+local PROMPT_SELECTOR=1
 case "$PROMPT_SELECTOR" in
 	1)
 		local PROMPT_INFO="%n@%m:%1~%#"
@@ -46,7 +46,7 @@ if (( $+commands[nvim] )); then
 fi
 
 # Ls aliases
-alias ls="ls --color"
+# alias ls="ls --color"
 alias lsa="ls -a"
 alias lsr="ls -R"
 alias l="ls -lh"
