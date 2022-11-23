@@ -400,6 +400,9 @@ if !exists("g:no_vim_plugins")
 			" Comment stuff
 			call minpac#add("tpope/vim-commentary")
 
+			" Git wrapper
+			call minpac#add("tpope/vim-fugitive")
+
 			" If fzf is installed, add companion commands
 			if executable("fzf")
 				call minpac#add("junegunn/fzf.vim")

@@ -44,6 +44,9 @@ return packer.startup(function(use)
 	-- Comment stuff
 	use("numToStr/Comment.nvim")
 
+	-- Git wrapper
+	use("tpope/vim-fugitive")
+
 	-- Colorscheme
 	use("gruvbox-community/gruvbox")
 
