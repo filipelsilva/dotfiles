@@ -17,7 +17,6 @@
 	dfs = "diff --staged"
 	dt = "difftool"
 	dts = "difftool --staged"
-	lg = "log"
 	mg = "merge"
 	mt = "mergetool"
 	st = "status"
