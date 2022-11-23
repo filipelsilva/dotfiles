@@ -305,7 +305,7 @@ bindsym Print mode $mode_printscreen
 # }}}
 
 # MODE: Change brightness and media control {{{
-set $mode_media_brightness "[media/brightness] p,h,j,k,l,n,m"
+set $mode_media_brightness "[media/brightness] i,o,p,h,j,k,l,n,m"
 
 mode $mode_media_brightness {
 	bindsym i exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
