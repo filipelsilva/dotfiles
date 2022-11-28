@@ -38,6 +38,14 @@ return packer.startup(function(use)
 	-- Indentation detector
 	use("tpope/vim-sleuth")
 
+	-- Extra keybinds
+	use({
+		"tpope/vim-unimpaired",
+		requires = {
+			"tpope/vim-repeat"
+		}
+	})
+
 	-- Surround stuff
 	use({
 		"tpope/vim-surround",
@@ -48,17 +56,6 @@ return packer.startup(function(use)
 
 	-- Comment stuff
 	use('tpope/vim-commentary')
-
-	-- Extra keybinds
-	use({
-		"tpope/vim-unimpaired",
-		requires = {
-			"tpope/vim-repeat"
-		}
-	})
-
-	-- Git wrapper
-	use('tpope/vim-fugitive')
 
 	-- Fzf
 	use("junegunn/fzf.vim")

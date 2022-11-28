@@ -364,20 +364,17 @@ if !exists("g:no_vim_plugins")
 			" Indentation detector
 			call minpac#add("tpope/vim-sleuth")
 
-			" Enable dot-repeat for vim-surround
+			" Enable dot-repeat for vim-unimpaired and vim-surround
 			call minpac#add("tpope/vim-repeat")
+
+			" Extra keybinds
+			call minpac#add("tpope/vim-unimpaired")
 
 			" Surround stuff
 			call minpac#add("tpope/vim-surround")
 
 			" Comment stuff
 			call minpac#add("tpope/vim-commentary")
-
-			" Extra keybinds
-			call minpac#add("tpope/vim-unimpaired")
-
-			" Git wrapper
-			call minpac#add("tpope/vim-fugitive")
 
 			" If fzf is installed, add companion commands
 			if executable("fzf")
