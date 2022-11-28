@@ -38,14 +38,6 @@ return packer.startup(function(use)
 	-- Indentation detector
 	use("tpope/vim-sleuth")
 
-	-- Extra keybinds
-	use({
-		"tpope/vim-unimpaired",
-		requires = {
-			"tpope/vim-repeat"
-		}
-	})
-
 	-- Surround stuff
 	use({
 		"tpope/vim-surround",
