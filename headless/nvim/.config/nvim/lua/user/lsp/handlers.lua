@@ -1,8 +1,9 @@
 M = {}
 
-local cmp_nvim_lsp = REQUIRE({
-	"cmp_nvim_lsp"
-})
+local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not ok then
+	return
+end
 
 -- Update capabilities of LSP to support snippets
 M.capabilities = cmp_nvim_lsp.default_capabilities()
@@ -12,12 +13,12 @@ M.on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	local opts = { noremap = true, silent = true, buffer = bufnr }
-	vim.keymap.set("n", "gd", [[<Cmd>lua vim.lsp.buf.definition()<CR>]], opts)
-	vim.keymap.set("n", "<Leader><Leader>a", [[<Cmd>lua vim.lsp.buf.code_action()<CR>]], opts)
-	vim.keymap.set("n", "<Leader>k", [[<Cmd>lua vim.lsp.buf.hover()<CR>]], opts)
-	vim.keymap.set("n", "<Leader>s", [[<Cmd>lua vim.lsp.buf.rename()<CR>]], opts)
-	vim.keymap.set("n", "[e", [[<Cmd>lua vim.diagnostic.goto_prev()<CR>]], opts)
-	vim.keymap.set("n", "]e", [[<Cmd>lua vim.diagnostic.goto_next()<CR>]], opts)
+	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+	vim.keymap.set("n", "<Leader>a", function() vim.lsp.buf.code_action() end, opts)
+	vim.keymap.set("n", "<Leader>k", function() vim.lsp.buf.hover() end, opts)
+	vim.keymap.set("n", "<Leader>s", function() vim.lsp.buf.rename() end, opts)
+	vim.keymap.set("n", "[e", function() vim.diagnostic.goto_prev() end, opts)
+	vim.keymap.set("n", "]e", function() vim.diagnostic.goto_next() end, opts)
 end
 
 return M

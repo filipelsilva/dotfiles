@@ -1,4 +1,3 @@
-require("user.functions")
 require("user.settings")
 require("user.plugins")
 require("user.colorscheme")

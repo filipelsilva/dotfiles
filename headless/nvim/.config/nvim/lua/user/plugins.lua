@@ -1,4 +1,4 @@
--- Automatically install packer.nvim {{{
+-- Automatically install packer.nvim
 local install_path = vim.fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	PACKER_BOOTSTRAP = vim.fn.system({
@@ -11,14 +11,15 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	})
 	vim.cmd("packadd packer.nvim")
 end
--- }}}
 
 -- Protected call so that first use does not result in error
-local packer = REQUIRE({
-	"packer"
-})
+local ok, packer = pcall(require, "packer")
 
--- Settings {{{
+if not ok then
+	return
+end
+
+-- Settings
 packer.init({
 	display = {
 		working_sym = "[WORKING]",
@@ -29,7 +30,6 @@ packer.init({
 		header_sym = "",
 	}
 })
--- }}}
 
 -- Plugins
 return packer.startup(function(use)

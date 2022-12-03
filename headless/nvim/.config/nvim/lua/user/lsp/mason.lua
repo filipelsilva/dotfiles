@@ -1,10 +1,12 @@
-local mason, mason_lspconfig, lspconfig = REQUIRE({
-	"mason",
-	"mason-lspconfig",
-	"lspconfig"
-})
+local ok_mason, mason = pcall(require, "mason")
+local ok_mason_lspconfig, mason_lspconfig = pcall(require, "mason-lspconfig")
+local ok_lspconfig, lspconfig = pcall(require, "lspconfig")
 
--- Settings {{{
+if not ok_mason or not ok_mason_lspconfig or not ok_lspconfig then
+	return
+end
+
+-- Settings
 mason.setup({
 	ui = {
 		icons = {
@@ -14,7 +16,6 @@ mason.setup({
 		},
 	},
 })
--- }}}
 
 -- Lspconfig
 local custom_on_attach = require("user.lsp.handlers").on_attach
@@ -31,7 +32,7 @@ mason_lspconfig.setup_handlers({
 		lspconfig.sumneko_lua.setup({
 			on_attach = custom_on_attach,
 			capabilities = custom_capabilities,
-			settings = { Lua = { diagnostics = { globals = { "vim", "REQUIRE" } } } }
+			settings = { Lua = { diagnostics = { globals = { "vim" } } } }
 		})
 	end,
 })

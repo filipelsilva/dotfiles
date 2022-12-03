@@ -1,6 +1,8 @@
-local telescope_builtin = REQUIRE({
-	"telescope.builtin"
-})
+local ok, telescope_builtin = pcall(require, "telescope.builtin")
+
+if not ok then
+	return
+end
 
 local opts = { noremap = true, silent = true }
 
