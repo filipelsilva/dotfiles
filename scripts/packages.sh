@@ -178,6 +178,7 @@ packages=( # {{{
 	terminus-font
 
 	# Other packages
+	hq             # Like jq, but for HTML (parsing)
 	bc             # Calculator
 	parallel       # Xargs alternative
 	entr           # Run commands when files change
