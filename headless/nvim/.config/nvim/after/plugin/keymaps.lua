@@ -10,8 +10,9 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<Leader>t", "<Cmd>Telescope<CR>", opts)
 
 vim.keymap.set("n", "<Leader>f", function()
+	local is_home = os.getenv("HOME") == os.getenv("PWD")
 	telescope_builtin.find_files({
-		hidden = true
+		hidden = not is_home
 	})
 end, opts)
 
