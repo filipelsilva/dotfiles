@@ -1,16 +1,16 @@
 -- Automatically install packer.nvim
-local install_path = vim.fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = vim.fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path
-	})
-	vim.cmd("packadd packer.nvim")
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
+		vim.cmd("packadd packer.nvim")
+		return true
+	end
+	return false
 end
+
+local packer_bootstrap = ensure_packer()
 
 -- Protected call so that first use does not result in error
 local ok, packer = pcall(require, "packer")
@@ -18,18 +18,6 @@ local ok, packer = pcall(require, "packer")
 if not ok then
 	return
 end
-
--- Settings
-packer.init({
-	display = {
-		working_sym = "[WORKING]",
-		error_sym = "[ERROR]",
-		done_sym = "[DONE]",
-		removed_sym = "[REMOVED]",
-		moved_sym = "[MOVED]",
-		header_sym = "",
-	}
-})
 
 -- Plugins
 return packer.startup(function(use)
@@ -104,7 +92,7 @@ return packer.startup(function(use)
 		}
 	})
 
-	if PACKER_BOOTSTRAP then
+	if packer_bootstrap then
 		packer.sync()
 	end
 end)

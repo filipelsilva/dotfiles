@@ -6,16 +6,7 @@ if not ok_mason or not ok_mason_lspconfig or not ok_lspconfig then
 	return
 end
 
--- Settings
-mason.setup({
-	ui = {
-		icons = {
-			package_installed = "[INSTALLED]",
-			package_pending = "[PENDING]",
-			package_uninstalled = "[UNINSTALLED]",
-		},
-	},
-})
+mason.setup()
 
 -- Lspconfig
 local custom_on_attach = require("user.lsp.handlers").on_attach
