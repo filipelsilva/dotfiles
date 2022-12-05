@@ -6,7 +6,6 @@ end
 
 local opts = { noremap = true, silent = true }
 
--- Telescope keybinds
 vim.keymap.set("n", "<Leader>t", "<Cmd>Telescope<CR>", opts)
 
 vim.keymap.set("n", "<Leader>f", function()
