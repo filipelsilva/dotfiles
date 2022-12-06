@@ -373,8 +373,5 @@ fi
 # }}}
 
 # Plugins {{{
-local FORGIT_PLUGIN="/usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh"
-[[ -f $FORGIT_PLUGIN ]] && source "$FORGIT_PLUGIN"
-
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh --cmd j)"
 # }}}
