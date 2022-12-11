@@ -1,6 +1,5 @@
-[user]
-	email = 57916727+filipelsilva@users.noreply.github.com
-	name = Filipe Ligeiro Silva
+[include]
+	path = .gitconfig.user
 
 [core]
 	autocrlf = input
