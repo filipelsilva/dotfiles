@@ -179,6 +179,9 @@ augroup Vimrc
 	" Change formatoptions everywhere
 	autocmd FileType * setlocal formatoptions=tcqj
 
+	" All gitconfig files with gitconfig filetype
+	autocmd BufNewFile,BufRead *gitconfig* setfile gitconfig
+
 augroup END
 
 augroup PlainTextWidth
