@@ -94,6 +94,7 @@ packages=( # {{{
 	htop
 	sysstat
 	iftop
+	nvtop
 
 	# Python and related packages (some of them used for gdb/gef/pwndbg)
 	python
