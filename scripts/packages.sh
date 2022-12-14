@@ -156,6 +156,7 @@ packages=( # {{{
 	time
 	hyperfine
 	strace
+	ltrace
 	perf
 	cargo-flamegraph
 
