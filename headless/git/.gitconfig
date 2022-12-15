@@ -21,6 +21,9 @@
 [init]
 	defaultBranch = main
 
+[pull]
+	rebase = false
+
 [diff]
 	tool = vimdiff
 [difftool]
