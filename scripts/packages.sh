@@ -197,6 +197,7 @@ packages=( # {{{
 	pipe-rename    # Rename files in your $EDITOR
 	perl-rename    # Rename files using Perl regex
 	magic-wormhole # Send/Receive files
+	openssh        # SSH programs
 ) # }}}
 
 desktop_packages=( # {{{
