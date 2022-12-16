@@ -44,16 +44,10 @@ vim.keymap.set("n", "<Leader>j", function()
 end, opts)
 
 -- Edit nvim configuration files
-vim.keymap.set("n", "<Leader>e", function()
+vim.keymap.set("n", "<Leader><Leader>e", function()
 	telescope_builtin.find_files({
 		cwd = "$HOME/.config/nvim",
 		hidden = true,
 		follow = true
 	})
 end, opts)
-
--- Edit nvim configuration folder
-vim.keymap.set("n", "<Leader>E", "<Cmd>edit $HOME/.config/nvim/lua/user<CR>", opts)
-
--- Edit vim configuration file
-vim.keymap.set("n", "<Leader><Leader>e", "<Cmd>edit $HOME/.vimrc<CR>", opts)

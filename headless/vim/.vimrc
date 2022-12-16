@@ -173,9 +173,6 @@ augroup Vimrc
 	" Go to last edited position on open file
 	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && &filetype !~# "commit" | execute "normal! g'\"" | endif
 
-	" If window is resized, resize the splits within
-	autocmd VimResized * wincmd =
-
 	" Change formatoptions everywhere
 	autocmd FileType * setlocal formatoptions=tcqj
 
@@ -215,18 +212,8 @@ nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
-" Zoom and unzoom pane
-noremap <Leader>z <C-w>_<Bar><C-w>\|
-noremap <Leader>Z <C-w>=
-
-" Toggle numbers
-nnoremap <silent> <Leader>n <Cmd>set invnumber invrelativenumber<CR>
-
-" Toggle list
-nnoremap <silent> <Leader>l <Cmd>set invlist<CR>
-
-" Toggle spell
-nnoremap <silent> <Leader><Leader>l <Cmd>set invspell<CR>
+" Open netrw
+nnoremap <Leader>e <Cmd>Ex<CR>
 
 " Disable highlighting
 nnoremap <Leader>, <Cmd>nohlsearch<CR>
@@ -296,7 +283,7 @@ vnoremap . :normal .<CR>.
 noremap Q yyp!!$SHELL<CR>
 
 " Quickly edit the vimrc file
-nmap <silent> <Leader>e <Cmd>edit $MYVIMRC<CR>
+nmap <silent> <Leader>E <Cmd>edit $MYVIMRC<CR>
 
 " Shortcuts to use blackhole register
 nnoremap <Leader>d "_d
