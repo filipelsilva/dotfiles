@@ -389,7 +389,10 @@ if !exists("g:no_vim_plugins")
 			" Comment stuff
 			call minpac#add("tpope/vim-commentary")
 
-			# Undo tree
+			" Vim wrapper
+			call minpac#add("tpope/vim-fugitive")
+
+			" Undo tree
 			call minpac#add("mbbill/undotree")
 
 			" If fzf is installed, add companion commands

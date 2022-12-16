@@ -37,11 +37,14 @@ return packer.startup(function(use)
 	-- Comment stuff
 	use('tpope/vim-commentary')
 
-	-- Fzf
-	use("junegunn/fzf.vim")
+	-- Vim wrapper
+	use('tpope/vim-fugitive')
 
 	-- Undo tree
 	use("mbbill/undotree")
+
+	-- Fzf
+	use("junegunn/fzf.vim")
 
 	-- Colorscheme
 	use("gruvbox-community/gruvbox")
