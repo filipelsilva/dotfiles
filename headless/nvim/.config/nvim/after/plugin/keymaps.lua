@@ -51,3 +51,6 @@ vim.keymap.set("n", "<Leader><Leader>e", function()
 		follow = true
 	})
 end, opts)
+
+-- Edit vim configuration file
+vim.keymap.set("n", "<Leader>E", "<Cmd>edit $HOME/.vimrc<CR>", opts)

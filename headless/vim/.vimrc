@@ -27,6 +27,13 @@ endif
 let g:vimsyn_embed="lmpPrt"
 let g:markdown_fenced_languages = ["bash", "zsh", "python", "lua", "go", "ruby", "perl"]
 
+" Netrw settings
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_keepdir = 0
+let g:netrw_liststyle = 0
+let g:netrw_winsize = 25
+
 " K under cursor uses :Man
 set keywordprg=:Man
 
@@ -213,7 +220,7 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
 " Open netrw
-nnoremap <Leader>e <Cmd>Ex<CR>
+nnoremap <Leader>e <Cmd>Vexplore<CR>
 
 " Disable highlighting
 nnoremap <Leader>, <Cmd>nohlsearch<CR>
@@ -381,6 +388,9 @@ if !exists("g:no_vim_plugins")
 
 			" Comment stuff
 			call minpac#add("tpope/vim-commentary")
+
+			# Undo tree
+			call minpac#add("mbbill/undotree")
 
 			" If fzf is installed, add companion commands
 			if executable("fzf")

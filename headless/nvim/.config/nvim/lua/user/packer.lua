@@ -40,6 +40,9 @@ return packer.startup(function(use)
 	-- Fzf
 	use("junegunn/fzf.vim")
 
+	-- Undo tree
+	use("mbbill/undotree")
+
 	-- Colorscheme
 	use("gruvbox-community/gruvbox")
 
