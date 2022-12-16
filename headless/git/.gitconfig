@@ -22,7 +22,8 @@
 	defaultBranch = main
 
 [pull]
-	rebase = false
+	# to revert the rebase: 'git reset --hard ORIG_HEAD'
+	rebase = true
 
 [diff]
 	colorMoved = zebra
