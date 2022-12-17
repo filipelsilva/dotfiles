@@ -28,10 +28,10 @@ let g:vimsyn_embed="lmpPrt"
 let g:markdown_fenced_languages = ["bash", "zsh", "python", "lua", "go", "ruby", "perl"]
 
 " Netrw settings
-let g:netrw_banner = 0
-let g:netrw_browse_split = 4
+let g:netrw_banner = 1
+let g:netrw_browse_split = 0
 let g:netrw_keepdir = 0
-let g:netrw_liststyle = 0
+let g:netrw_liststyle = 1
 let g:netrw_winsize = 25
 
 " K under cursor uses :Man
@@ -220,7 +220,7 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
 " Open netrw
-nnoremap <Leader>e <Cmd>Vexplore<CR>
+nnoremap <Leader>e <Cmd>Explore<CR>
 
 " Disable highlighting
 nnoremap <Leader>, <Cmd>nohlsearch<CR>
@@ -290,7 +290,7 @@ vnoremap . :normal .<CR>.
 noremap Q yyp!!$SHELL<CR>
 
 " Quickly edit the vimrc file
-nmap <silent> <Leader>E <Cmd>edit $MYVIMRC<CR>
+nmap <silent> <Leader>v <Cmd>edit $MYVIMRC<CR>
 
 " Shortcuts to use blackhole register
 nnoremap <Leader>d "_d
@@ -345,9 +345,8 @@ if executable("fzf")
 	endfunction
 
 	" Mappings
-	nnoremap <silent> <Leader>f <Cmd>Files<CR>
+	nnoremap <silent> <expr> <Leader>f (len(system("git rev-parse")) ? ":Files" : ":GFiles")."\<CR>"
 	nnoremap <silent> <Leader>F <Cmd>Files $HOME<CR>
-	nnoremap <silent> <Leader>g <Cmd>GitFiles<CR>
 	if executable("rg")
 		nnoremap <silent> <Leader>r <Cmd>Rg<CR>
 	endif
