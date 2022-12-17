@@ -266,6 +266,7 @@ desktop_packages=( # {{{
 	thunar
 	thunar-archive-plugin
 	thunar-volman
+	tumbler            # Thunar preview window
 	file-roller        # Archive manager for thunar
 	gvfs               # Enables things like trashing files in Thunar
 	ntfs-3g            # Support for NTFS drives
