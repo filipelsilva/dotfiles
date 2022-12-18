@@ -179,7 +179,7 @@ augroup Vimrc
 	autocmd FileType * setlocal formatoptions=tcqj
 
 	" All gitconfig files with gitconfig filetype
-	autocmd BufNewFile,BufRead *gitconfig* setfile gitconfig
+	autocmd BufNewFile,BufRead *gitconfig* setfiletype gitconfig
 
 augroup END
 
