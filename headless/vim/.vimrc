@@ -119,11 +119,8 @@ endfor
 
 " CreateUndoBreakPoint {{{
 function! CreateUndoBreakPoint(char) abort
-	" This funcion creates a insert mode map with undo break points
 	execute "inoremap " . a:char . " " . a:char . "<C-g>u"
 endfunction
-
-command! -nargs=1 CreateUndoBreakPoint call CreateUndoBreakPoint(<f-args>)
 " }}}
 
 " CreateTextObject {{{
@@ -133,8 +130,6 @@ function! CreateTextObject(char) abort
 		execute mode . " <silent> a" . a:char . " :<C-u>normal! F" . a:char . "vf" . a:char . "<CR>"
 	endfor
 endfunction
-
-command! -nargs=1 CreateTextObject call CreateTextObject(<f-args>)
 " }}}
 
 " OSC52Yank {{{
