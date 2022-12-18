@@ -285,7 +285,7 @@ vnoremap . :normal .<CR>.
 noremap Q yyp!!$SHELL<CR>
 
 " Quickly edit the vimrc file
-nmap <silent> <Leader>v <Cmd>edit $MYVIMRC<CR>
+nmap <Leader>v <Cmd>edit $MYVIMRC<CR>
 
 " Shortcuts to use blackhole register
 nnoremap <Leader>d "_d
