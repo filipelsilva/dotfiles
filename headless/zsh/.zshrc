@@ -242,8 +242,6 @@ add-zsh-hook chpwd chpwd_recent_dirs
 
 zstyle ':completion:*' recent-dirs-insert always
 zstyle ':chpwd:*' recent-dirs-max 100000
-
-alias j=cdr
 # }}}
 
 # Keybinds {{{
