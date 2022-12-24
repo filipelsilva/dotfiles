@@ -228,8 +228,6 @@ set $white       #a89984
 
 # Bar settings
 bar {
-	mode hide
-	hidden_state hide
 	tray_output primary
 	tray_padding 0
 	position bottom
