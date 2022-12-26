@@ -37,6 +37,9 @@ treesitter.setup({
 	},
 	indent = {
 		enable = true,
+		disable = {
+			"python"
+		}
 	},
 	playground = {
 		enable = true,
