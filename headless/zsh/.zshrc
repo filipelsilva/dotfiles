@@ -89,16 +89,16 @@ alias zshconfig="$EDITOR $HOME/.zshrc && zshsource"
 # Git configuration
 alias gitconfig="$EDITOR $HOME/.gitconfig"
 
-# i3 configuration and reload
-if (( $+commands[i3] )); then
-	alias i3source="i3-msg restart"
-	alias i3config="$EDITOR $HOME/.config/i3/config && i3source"
-fi
-
 # GDB aliases
 if [[ -f $HOME/.gdbinit ]]; then
 	alias pwndbg="gdb -quiet -ex init-pwndbg"
 	alias gef="gdb -quiet -ex init-gef"
+fi
+
+# i3 configuration and reload
+if (( $+commands[i3] )); then
+	alias i3source="i3-msg restart"
+	alias i3config="$EDITOR $HOME/.config/i3/config && i3source"
 fi
 # }}}
 
