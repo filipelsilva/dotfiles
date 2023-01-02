@@ -39,6 +39,11 @@ packages=( # {{{
 	# Find packages associated with program
 	pkgfile
 
+	# Calculators
+	bc
+	libqalculate
+	qalculate-qt
+
 	# Shells and respective completions
 	bash
 	bash-completion
@@ -181,7 +186,6 @@ packages=( # {{{
 
 	# Other packages
 	hq             # Like jq, but for HTML (parsing)
-	bc             # Calculator
 	parallel       # Xargs alternative
 	entr           # Run commands when files change
 	rlwrap         # Readline wrapper
