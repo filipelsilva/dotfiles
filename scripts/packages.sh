@@ -213,9 +213,7 @@ desktop_packages=( # {{{
 	xdotool	# X11 automation tool
 
 	# Window manager
-	i3-wm
-	i3status
-	i3lock
+	i3
 	xss-lock
 	rofi
 
