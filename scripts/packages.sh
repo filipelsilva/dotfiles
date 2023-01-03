@@ -315,6 +315,7 @@ desktop_packages=( # {{{
 	bless         # Hex editor
 	gpick         # Color picker
 	mypaint       # Drawing table
+	scrcpy        # Android screen mirroring and control
 	laptop-detect # Returns 0 if host is laptop, 1 otherwise
 ) # }}}
 
