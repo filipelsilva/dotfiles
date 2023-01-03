@@ -97,6 +97,7 @@ packages=( # {{{
 	# System monitoring
 	procps-ng
 	htop
+	bottom
 	sysstat
 	iftop
 	nvtop
