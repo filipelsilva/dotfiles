@@ -91,8 +91,9 @@ alias gitconfig="$EDITOR $HOME/.gitconfig"
 
 # GDB aliases
 if [[ -f $HOME/.gdbinit ]]; then
-	alias pwndbg="gdb -quiet -ex init-pwndbg"
 	alias gef="gdb -quiet -ex init-gef"
+	alias peda="gdb -quiet -ex init-peda"
+	alias pwndbg="gdb -quiet -ex init-pwndbg"
 fi
 
 # i3 configuration and reload

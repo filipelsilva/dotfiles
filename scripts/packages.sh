@@ -118,6 +118,7 @@ packages=( # {{{
 	gcc
 	gdb
 	gef
+	peda
 	pwndbg
 	indent
 	valgrind
