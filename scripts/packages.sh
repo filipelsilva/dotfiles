@@ -107,6 +107,7 @@ packages=( # {{{
 	python-pip
 	pypy
 	pypy3
+	python-black
 	python-pwntools
 	python-pyperclip
 	python-pynvim
