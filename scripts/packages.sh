@@ -179,6 +179,7 @@ packages=( # {{{
 	duf
 	dust
 	diskus
+	ncdu
 
 	# Information fetchers
 	neofetch
