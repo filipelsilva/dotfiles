@@ -20,7 +20,7 @@ if (( $+commands[java] )); then
 	PATH="$PATH:$JAVA_HOME/bin"
 fi
 
-if (( $+commands[bat] )); then
+if (( $+commands[gem] )); then
 	export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 	export PATH="$PATH:$GEM_HOME/bin"
 fi
