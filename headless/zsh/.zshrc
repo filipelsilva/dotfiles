@@ -49,6 +49,9 @@ export DISTRONAME=$(cat /etc/os-release | grep "NAME" | head -n 1 | cut -d'=' -f
 # Terminal environment variable
 (( $+commands[alacritty] )) && export TERMINAL="alacritty"
 
+# Lesspipe
+(( $+commands[lesspipe.sh] )) && eval "$(lesspipe.sh)"
+
 # Bat settings
 if (( $+commands[bat] )); then
 	export BAT_THEME="ansi"

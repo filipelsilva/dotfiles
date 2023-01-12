@@ -59,6 +59,10 @@ packages=( # {{{
 	gvim # why gvim and not vim? Clipboard support
 	neovim
 
+	# Pagers
+	less
+	lesspipe
+
 	# Terminal multiplexer
 	screen
 	tmux
