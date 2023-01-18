@@ -104,6 +104,7 @@ packages=( # {{{
 	bottom
 	sysstat
 	iftop
+	nethogs
 	nvtop
 
 	# Python and related packages (some of them used for gdb/gef/pwndbg)
