@@ -12,9 +12,6 @@ set updatetime=100 ttimeoutlen=0 mouse=a
 
 if !has("nvim")
 
-	" Set mouse mode
-	set ttymouse=xterm2
-
 	" Enable matchit (extends the use of %)
 	runtime! macros/matchit.vim
 
