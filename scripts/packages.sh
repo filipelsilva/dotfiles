@@ -27,8 +27,9 @@ packages=( # {{{
 	coreutils
 	diffutils
 	findutils
-	pciutils
+	iputils
 	moreutils
+	pciutils
 
 	# Find filenames quickly
 	mlocate
@@ -55,6 +56,8 @@ packages=( # {{{
 
 	# Text editors
 	ed
+	sed
+	sd
 	vi
 	gvim # why gvim and not vim? Clipboard support
 	neovim
@@ -85,6 +88,14 @@ packages=( # {{{
 	p7zip
 	fastjar
 
+	# Memory management
+	duf
+	dust
+	diskus
+	ncdu
+	dua
+	fdupes
+
 	# Network stuff
 	curl
 	wget
@@ -97,14 +108,17 @@ packages=( # {{{
 	dnsutils
 	tcpdump
 	bind
+	dog
 
 	# System monitoring
 	procps-ng
+	procs
 	htop
 	bottom
 	sysstat
 	iftop
 	nethogs
+	bandwhich
 	nvtop
 
 	# Python and related packages (some of them used for gdb/gef/pwndbg)
@@ -180,12 +194,6 @@ packages=( # {{{
 	ripgrep
 	ripgrep-all
 
-	# Memory management
-	duf
-	dust
-	diskus
-	ncdu
-
 	# Information fetchers
 	neofetch
 	onefetch
@@ -195,8 +203,10 @@ packages=( # {{{
 
 	# Other packages
 	hq             # Like jq, but for HTML (parsing)
+	ctop           # Top for containers
 	parallel       # Xargs alternative
 	entr           # Run commands when files change
+	gping          # Ping, but with a graph
 	rlwrap         # Readline wrapper
 	bat            # Cat with syntax highlighting
 	hexyl          # Hex viewer
