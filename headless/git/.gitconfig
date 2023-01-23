@@ -1,6 +1,6 @@
 [alias]
 	ac = "!git add --all && git commit --verbose --verbose"
-	br = "branch --verbose --verbose"
+	br = "branch --all --verbose --verbose"
 	cm = "commit"
 	co = "checkout"
 	df = "diff"
