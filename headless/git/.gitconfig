@@ -1,5 +1,5 @@
 [alias]
-	ac = "!git add --all && git commit"
+	ac = "!git add --all && git commit --verbose --verbose"
 	br = "branch"
 	cm = "commit"
 	co = "checkout"
@@ -9,7 +9,7 @@
 	dts = "difftool --staged"
 	mg = "merge"
 	mt = "mergetool"
-	st = "status"
+	st = "status --short --branch"
 	tree = "log --graph --oneline --decorate --all"
 
 [core]
@@ -20,6 +20,9 @@
 
 [init]
 	defaultBranch = main
+
+[pull]
+	rebase = false
 
 [diff]
 	colorMoved = zebra
