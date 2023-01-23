@@ -191,6 +191,7 @@ packages=( # {{{
 	fzf
 	fd
 	the_silver_searcher
+	pdfgrep
 	ripgrep
 	ripgrep-all
 
