@@ -151,6 +151,9 @@ packages=( # {{{
 	# Go
 	go
 
+	# Lua
+	lua
+
 	# Rust
 	rustup
 
