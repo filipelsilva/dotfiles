@@ -9,7 +9,7 @@
 	dts = "difftool --staged"
 	mg = "merge"
 	mt = "mergetool"
-	st = "status --short --branch"
+	st = "status"
 	tree = "log --graph --oneline --decorate --all"
 
 [core]
