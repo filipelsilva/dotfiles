@@ -2,6 +2,7 @@
 map u set "first-page-column 1:1"
 map i set "first-page-column 1:2"
 map <Space> navigate next
+map <S-Space> navigate previous
 
 # Font
 set font "Iosevka 12"
