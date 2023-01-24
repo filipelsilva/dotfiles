@@ -24,6 +24,9 @@
 [pull]
 	rebase = false
 
+[rerere]
+	enabled = true
+
 [diff]
 	colorMoved = zebra
 	tool = vimdiff
