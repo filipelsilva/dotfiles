@@ -74,6 +74,7 @@ packages=( # {{{
 
 	# VCS
 	git
+	git-filter-repo
 	tk # gitk dependency
 
 	# File management
