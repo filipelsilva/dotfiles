@@ -90,7 +90,7 @@ alias zshsource="source $HOME/.zshrc && echo 'sourced zshrc'"
 alias zshconfig="$EDITOR $HOME/.zshrc && zshsource"
 
 # Git configuration
-alias gitconfig="$EDITOR $HOME/.gitconfig"
+alias gitconfig="git config --global --edit"
 
 # GDB aliases
 if [[ -f $HOME/.gdbinit ]]; then
