@@ -75,7 +75,9 @@ packages=( # {{{
 	# VCS
 	git
 	git-filter-repo
-	tk # gitk dependency
+	tk         # gitk dependency
+	github-cli # github cli
+	glab       # gitlab cli
 
 	# File management
 	rsync
