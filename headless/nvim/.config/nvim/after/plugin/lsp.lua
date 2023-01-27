@@ -45,6 +45,7 @@ mason_lspconfig.setup({
 		"rust_analyzer",
 		"sumneko_lua",
 		"terraformls",
+		"texlab",
 		"tsserver",
 		"vimls"
 	}
