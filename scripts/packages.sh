@@ -337,6 +337,8 @@ desktop_packages=( # {{{
 	discord
 	texlive-most
 	libreoffice-still
+	tigervnc      # VNC server/client
+	remmina       # Remote desktop client
 	barrier       # KVM
 	bless         # Hex editor
 	gpick         # Color picker
