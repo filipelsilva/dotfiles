@@ -66,15 +66,3 @@ mason_lspconfig.setup_handlers({
 		})
 	end,
 })
-
--- Configure lsp_signature
-local ok_signature, signature = pcall(require, "lsp_signature")
-
-if not ok_signature then
-	return
-end
-
-signature.setup({
-	handler_opts = { border = "none" },
-	hint_enable = false,
-})

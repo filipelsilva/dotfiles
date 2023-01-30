@@ -69,8 +69,6 @@ return packer.startup(function(use)
 					"williamboman/mason-lspconfig.nvim",
 				}
 			},
-			-- Signatures
-			"ray-x/lsp_signature.nvim"
 		}
 	})
 
