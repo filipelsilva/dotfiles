@@ -1,81 +1,79 @@
--- Automatically install packer.nvim
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
-		vim.cmd("packadd packer.nvim")
-		return true
-	end
-	return false
+-- Automatically install lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
-
-local packer_bootstrap = ensure_packer()
+vim.opt.rtp:prepend(lazypath)
 
 -- Protected call so that first use does not result in error
-local ok, packer = pcall(require, "packer")
+local ok, lazy = pcall(require, "lazy")
 
 if not ok then
 	return
 end
 
 -- Plugins
-return packer.startup(function(use)
-	use("wbthomason/packer.nvim")
-
+lazy.setup({
 	-- Indentation detector
-	use("tpope/vim-sleuth")
+	"tpope/vim-sleuth",
 
 	-- Surround stuff
-	use({
+	{
 		"tpope/vim-surround",
-		requires = {
+		dependencies = {
 			"tpope/vim-repeat"
 		}
-	})
+	},
 
 	-- Comment stuff
-	use('tpope/vim-commentary')
+	"tpope/vim-commentary",
 
 	-- Vim wrapper
-	use('tpope/vim-fugitive')
+	"tpope/vim-fugitive",
 
 	-- Undo tree
-	use("mbbill/undotree")
+	"mbbill/undotree",
 
 	-- Fzf
-	use("junegunn/fzf.vim")
+	"junegunn/fzf.vim",
 
 	-- Colorscheme
-	use("gruvbox-community/gruvbox")
+	"gruvbox-community/gruvbox",
 
 	-- Telescope
-	use({
+	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
-		requires = {
+		dependencies = {
 			"nvim-lua/plenary.nvim"
 		}
-	})
+	},
 
 	-- LSP
-	use({
+	{
 		"neovim/nvim-lspconfig",
-		requires = {
+		dependencies = {
 			-- Auto installer
 			{
 				"williamboman/mason.nvim",
-				requires = {
+				dependencies = {
 					"williamboman/mason-lspconfig.nvim",
 				}
 			},
 		}
-	})
+	},
 
 	-- Completion
-	use({
+	{
 		"hrsh7th/nvim-cmp",
-		requires = {
+		dependencies = {
 			-- Snippets
 			"L3MON4D3/LuaSnip",
 			-- Completion sources
@@ -85,18 +83,14 @@ return packer.startup(function(use)
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path"
 		}
-	})
+	},
 
 	-- Treesitter
-	use({
+	{
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-		requires = {
+		build = ":TSUpdate",
+		dependencies = {
 			"nvim-treesitter/playground",
 		}
-	})
-
-	if packer_bootstrap then
-		packer.sync()
-	end
-end)
+	},
+})
