@@ -26,6 +26,7 @@ desktop_packages=( # {{{
 	diff-pdf
 
 	# Other packages
+	zoom
 	visual-studio-code-bin
 	onedrive-abraunegg     # OneDrive client
 	ventoy-bin             # Make multiboot USB drives

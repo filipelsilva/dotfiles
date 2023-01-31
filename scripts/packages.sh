@@ -266,8 +266,9 @@ desktop_packages=( # {{{
 	kid3-common
 	playerctl
 	obs-studio
-	streamlink  # Pipe streams into a video player
-	pavucontrol # Control audio sources/sinks
+	spotify-launcher # Spotify install in home folder
+	streamlink       # Pipe streams into a video player
+	pavucontrol      # Control audio sources/sinks
 
 	# Torrent management
 	transmission-cli
