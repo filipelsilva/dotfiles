@@ -33,7 +33,6 @@ desktop_packages=( # {{{
 	dragon-drop            # Drag-and-drop source/sink
 	spek                   # Audio inspector
 	openasar-git           # Make Discord faster
-	python-git-sim         # Visual simulator for git actions
 
 	# Fonts
 	ttf-ms-win10-auto
