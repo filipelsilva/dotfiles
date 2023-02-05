@@ -11,6 +11,7 @@ fi
 
 packages=( # {{{
 	bvi        # Vi-like hex editor
+	pup        # Like jq, but for HTML (parsing)
 	cht.sh-git # Cheat sheet
 	downgrade  # Downgrade packages
 	forgit-git # Git aliases with fzf

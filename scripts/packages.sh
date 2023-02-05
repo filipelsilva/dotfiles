@@ -209,7 +209,6 @@ packages=( # {{{
 	terminus-font
 
 	# Other packages
-	hq             # Like jq, but for HTML (parsing)
 	ctop           # Top for containers
 	parallel       # Xargs alternative
 	entr           # Run commands when files change
