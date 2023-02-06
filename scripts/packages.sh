@@ -43,7 +43,6 @@ packages=( # {{{
 	# Calculators
 	bc
 	libqalculate
-	qalculate-qt
 
 	# Shells and respective completions
 	bash
@@ -336,6 +335,7 @@ desktop_packages=( # {{{
 	discord
 	texlive-most
 	libreoffice-still
+	qalculate-qt
 	tigervnc      # VNC server/client
 	remmina       # Remote desktop client
 	barrier       # KVM
