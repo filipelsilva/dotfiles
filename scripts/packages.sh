@@ -111,7 +111,6 @@ packages=( # {{{
 	dnsutils
 	tcpdump
 	bind
-	dog
 
 	# System monitoring
 	procps-ng
