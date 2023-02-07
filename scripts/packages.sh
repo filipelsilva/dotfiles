@@ -32,7 +32,7 @@ packages=( # {{{
 	pciutils
 
 	# Find filenames quickly
-	mlocate
+	plocate
 
 	# Pacman scripts
 	pacman-contrib
