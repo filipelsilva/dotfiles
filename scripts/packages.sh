@@ -31,9 +31,6 @@ packages=( # {{{
 	moreutils
 	pciutils
 
-	# Find filenames quickly
-	plocate
-
 	# Pacman scripts
 	pacman-contrib
 
@@ -208,6 +205,7 @@ packages=( # {{{
 
 	# Other packages
 	file           # Get type of file
+	plocate        # Find filenames quickly
 	ctop           # Top for containers
 	parallel       # Xargs alternative
 	entr           # Run commands when files change
