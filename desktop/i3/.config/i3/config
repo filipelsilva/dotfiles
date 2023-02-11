@@ -38,7 +38,7 @@ exec --no-startup-id optimus-manager-qt
 exec --no-startup-id xset s off && xset -b -dpms
 
 # Lock screen
-exec --no-startup-id xss-lock -- i3lock-fancy
+exec --no-startup-id xss-lock -- xtrlock
 
 # NetworkManager
 exec --no-startup-id nm-applet

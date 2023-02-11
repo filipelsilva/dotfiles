@@ -28,7 +28,6 @@ desktop_packages=( # {{{
 
 	# Other packages
 	zoom
-	i3lock-fancy-git
 	visual-studio-code-bin
 	onedrive-abraunegg     # OneDrive client
 	ventoy-bin             # Make multiboot USB drives
