@@ -237,7 +237,7 @@ desktop_packages=( # {{{
 	# Window manager
 	i3-wm
 	i3status
-	xtrlock
+	i3lock
 	xss-lock
 	rofi
 
