@@ -395,10 +395,10 @@ fi
 # Plugins {{{
 case "$DISTRONAME" in
 	"NixOS")
-		local FORGIT_PLUGIN="$HOME/.zsh/plugins/forgit/forgit.plugin.zsh"
+		export FORGIT_PLUGIN="$HOME/.zsh/plugins/forgit/forgit.plugin.zsh"
 		;;
 	"Arch Linux")
-		local FORGIT_PLUGIN="/usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh"
+		export FORGIT_PLUGIN="/usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh"
 		;;
 esac
 [[ -n $FORGIT_PLUGIN ]] && source "$FORGIT_PLUGIN"
