@@ -205,6 +205,10 @@ packages=( # {{{
 	entr
 	watchexec
 
+	# Send/Receive files
+	magic-wormhole
+	croc
+
 	# Fonts
 	terminus-font
 
@@ -226,8 +230,9 @@ packages=( # {{{
 	tree           # List files in tree format
 	pipe-rename    # Rename files in your $EDITOR
 	perl-rename    # Rename files using Perl regex
-	magic-wormhole # Send/Receive files
 	openssh        # SSH programs
+	zbar           # Bar code reader
+	qrencode       # Generate QR codes
 ) # }}}
 
 desktop_packages=( # {{{
