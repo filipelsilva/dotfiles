@@ -40,6 +40,7 @@ packages=( # {{{
 	# Calculators
 	bc
 	libqalculate
+	octave
 
 	# Shells and respective completions
 	bash
