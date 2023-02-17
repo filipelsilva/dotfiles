@@ -200,6 +200,10 @@ packages=( # {{{
 	neofetch
 	onefetch
 
+	# Run commands when files change
+	entr
+	watchexec
+
 	# Fonts
 	terminus-font
 
@@ -208,7 +212,6 @@ packages=( # {{{
 	plocate        # Find filenames quickly
 	ctop           # Top for containers
 	parallel       # Xargs alternative
-	entr           # Run commands when files change
 	gping          # Ping, but with a graph
 	rlwrap         # Readline wrapper
 	bat            # Cat with syntax highlighting
