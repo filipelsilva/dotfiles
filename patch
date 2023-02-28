@@ -1,0 +1,38 @@
+diff --git a/desktop/i3/.config/i3/config b/desktop/i3/.config/i3/config
+index a7ab29e..77e4d47 100644
+--- a/desktop/i3/.config/i3/config
++++ b/desktop/i3/.config/i3/config
+@@ -113,6 +113,7 @@ for_window [all] title_window_icon on
+ # Zoom windows
+ for_window [class="zoom"] floating enable
+ for_window [class="zoom" title="Zoom - Free Account"] floating disable
++for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
+ for_window [class="zoom" title="Zoom Meeting"] floating disable
+ # }}}
+ 
+diff --git a/headless/vim/.vimrc b/headless/vim/.vimrc
+index 6c244ee..0fd55ca 100644
+--- a/headless/vim/.vimrc
++++ b/headless/vim/.vimrc
+@@ -49,7 +49,7 @@ set backspace=indent,eol,start
+ 
+ " Text formatting settings
+ set autoindent copyindent shiftround smarttab breakindent nofixendofline
+-set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
++set noexpandtab tabstop=8 softtabstop=8 shiftwidth=8
+ 
+ " Visual settings
+ set ruler showcmd linebreak wrap number relativenumber
+diff --git a/headless/zsh/.zshrc b/headless/zsh/.zshrc
+index 3474fbe..a126c8f 100644
+--- a/headless/zsh/.zshrc
++++ b/headless/zsh/.zshrc
+@@ -80,7 +80,7 @@ alias lr="ls -l --human-readable --recursive"
+ alias lx="ls -l --human-readable --all --classify --inode --size"
+ 
+ # Ssh with xterm, for compatibility
+-alias ssh="TERM=xterm-256color ssh"
++alias sshx="TERM=xterm-256color ssh"
+ 
+ # Search for processes
+ alias psgrep="ps aux | grep --invert-match grep | grep --ignore-case --regexp VSZ --regexp "

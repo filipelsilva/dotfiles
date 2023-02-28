@@ -123,7 +123,7 @@ local NEWLINE=$'\n'
 local PROMPT_GIT_INFO='${vcs_info_msg_0_:- }'
 local PROMPT_ERROR_HANDLING="%(?..%F{9}%?%f )"
 
-local PROMPT_SELECTOR=1
+local PROMPT_SELECTOR=3
 case "$PROMPT_SELECTOR" in
 	1)
 		local PROMPT_INFO="%n@%m:%1~%#"
@@ -132,7 +132,12 @@ case "$PROMPT_SELECTOR" in
 		local PROMPT_INFO="%m%S%n%s%1~ %#"
 		;;
 	3)
-		local PROMPT_INFO="%B%F{10}%n@%m%f%b:%B%F{12}%d%f%b${NEWLINE}%#"
+		local PROMPT_INFO="%F{10}%n@%m%f:%F{12}%~%f%#"
+		local PROMPT_GIT_INFO="%F{13}${PROMPT_GIT_INFO}%f"
+		local PROMPT_ERROR_HANDLING="${PROMPT_ERROR_HANDLING}"
+		;;
+	4)
+		local PROMPT_INFO="%B%F{10}%n@%m%f%b:%B%F{12}%~%f%b${NEWLINE}%#"
 		local PROMPT_GIT_INFO="%B%F{13}${PROMPT_GIT_INFO}%f%b"
 		local PROMPT_ERROR_HANDLING="%B${PROMPT_ERROR_HANDLING}%b"
 		;;
