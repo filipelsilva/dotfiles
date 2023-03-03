@@ -87,10 +87,8 @@ cursor:
   unfocused_hollow: true
   thickness: 0.0
   style:
-    blinking: On
+    blinking: Off
     shape: Block
-  blink_interval: 500
-  blink_timeout: 0
 
 key_bindings:
   - { key: F11, action: ToggleFullscreen }
