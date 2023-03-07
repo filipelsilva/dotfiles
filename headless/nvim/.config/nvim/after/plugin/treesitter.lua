@@ -31,7 +31,6 @@ treesitter.setup({
 	highlight = {
 		enable = true,
 		disable = {
-			"bash",
 			"markdown"
 		},
 		additional_vim_regex_highlighting = false,
