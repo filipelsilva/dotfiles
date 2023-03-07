@@ -333,33 +333,6 @@ endif
 
 " }}}
 
-" Fzf {{{
-if executable("fzf")
-	" Create quickfix list out of selected files
-	function! s:build_quickfix_list(lines)
-		call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-		copen
-		cc
-	endfunction
-
-	" Mappings
-	nnoremap <silent> <expr> <Leader>f (len(system("git rev-parse")) ? ":Files" : ":GFiles")."\<CR>"
-	if executable("rg")
-		nnoremap <silent> <Leader>r <Cmd>Rg<CR>
-	endif
-	nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
-
-	" Settings
-	let g:fzf_action = {
-		\ "alt-q": function("s:build_quickfix_list"),
-		\ "ctrl-t": "tab split",
-		\ "ctrl-s": "split",
-		\ "ctrl-v": "vsplit" }
-	let g:fzf_buffers_jump = 1
-	let g:fzf_layout = { "window": { "width": 0.80, "height": 0.90 } }
-endif
-" }}}
-
 " Plugins {{{
 if !exists("g:no_vim_plugins")
 	let s:plugin_folder = substitute(&packpath, ",.*", "", "")
@@ -394,6 +367,9 @@ if !exists("g:no_vim_plugins")
 			" If fzf is installed, add companion commands
 			call minpac#add("junegunn/fzf", { "do": { -> fzf#install() } })
 			call minpac#add("junegunn/fzf.vim")
+
+			" REPL integration
+			call minpac#add("jpalardy/vim-slime")
 		endfunction
 
 		command! PackUpdate call PackInit() | call minpac#update()
@@ -401,4 +377,36 @@ if !exists("g:no_vim_plugins")
 		command! PackStatus call PackInit() | call minpac#status()
 	endif
 endif
+
+" Fzf
+if executable("fzf")
+	" Create quickfix list out of selected files
+	function! s:build_quickfix_list(lines)
+		call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+		copen
+		cc
+	endfunction
+
+	" Mappings
+	nnoremap <silent> <expr> <Leader>f (len(system("git rev-parse")) ? ":Files" : ":GFiles")."\<CR>"
+	if executable("rg")
+		nnoremap <silent> <Leader>r <Cmd>Rg<CR>
+	endif
+	nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
+
+	" Settings
+	let g:fzf_action = {
+		\ "alt-q": function("s:build_quickfix_list"),
+		\ "ctrl-t": "tab split",
+		\ "ctrl-s": "split",
+		\ "ctrl-v": "vsplit" }
+	let g:fzf_buffers_jump = 1
+	let g:fzf_layout = { "window": { "width": 0.80, "height": 0.90 } }
+endif
+
+" Vim-slime
+let g:slime_target = "tmux"
+let g:slime_paste_file = tempname()
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": "{last}"}
+
 " }}}
