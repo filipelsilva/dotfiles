@@ -229,7 +229,10 @@ inoremap <C-^> <Esc><C-^>
 " Reselect pasted text
 nnoremap gV `[v`]
 
-" Create quickfix list with searched word
+" Quickly replace word under the cursor
+nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left>
+
+" Create quickfix list with word under the cursor
 nnoremap <Leader>q <Cmd>grep! <cword><CR>
 vnoremap <Leader>q "zy<Esc>:grep! <C-r>z<CR>
 
@@ -390,7 +393,7 @@ if executable("fzf")
 	" Mappings
 	nnoremap <silent> <expr> <Leader>f (len(system("git rev-parse")) ? ":Files" : ":GFiles")."\<CR>"
 	if executable("rg")
-		nnoremap <silent> <Leader>r <Cmd>Rg<CR>
+		nnoremap <silent> <Leader>g <Cmd>Rg<CR>
 	endif
 	nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
 
