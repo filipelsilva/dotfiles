@@ -409,6 +409,7 @@ if exists("g:no_vim_plugins") || ! empty(glob(s:plugin_folder))
 	let g:slime_no_mappings = 1
 	xmap <Leader>s <Plug>SlimeRegionSend
 	nmap <Leader>s <Plug>SlimeParagraphSend
+	nnoremap <Leader>S <Cmd>%SlimeSend<CR>
 
 	if !has("nvim")
 		let g:slime_target = "vimterminal"
