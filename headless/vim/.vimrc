@@ -387,7 +387,7 @@ if exists("g:no_vim_plugins") || ! empty(glob(s:plugin_folder))
 	" Fzf
 	function! s:build_quickfix_list(lines)
 		call setqflist(map(copy(a:lines), '{ "filename": v:val, "lnum": 1 }'))
-			copen
+		copen
 		cc
 	endfunction
 
