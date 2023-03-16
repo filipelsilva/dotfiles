@@ -15,7 +15,7 @@ local custom_on_attach = function(client, bufnr)
 	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 	vim.keymap.set("n", "<Leader>a", function() vim.lsp.buf.code_action() end, opts)
 	vim.keymap.set("n", "<Leader>k", function() vim.lsp.buf.hover() end, opts)
-	vim.keymap.set("n", "<Leader>r", function() vim.lsp.buf.rename() end, opts)
+	vim.keymap.set("n", "<Leader>s", function() vim.lsp.buf.rename() end, opts)
 	vim.keymap.set("n", "[e", function() vim.diagnostic.goto_prev() end, opts)
 	vim.keymap.set("n", "]e", function() vim.diagnostic.goto_next() end, opts)
 end
