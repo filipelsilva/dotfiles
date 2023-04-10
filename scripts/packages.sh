@@ -108,6 +108,7 @@ packages=( # {{{
 	dnsutils
 	tcpdump
 	bind
+	whois
 
 	# System monitoring
 	procps-ng
