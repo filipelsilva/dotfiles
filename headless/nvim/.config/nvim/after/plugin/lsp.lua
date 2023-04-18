@@ -34,7 +34,6 @@ mason.setup()
 -- Setup mason with lspconfig
 mason_lspconfig.setup({
 	ensure_installed = {
-		"asm_lsp",
 		"bashls",
 		"clangd",
 		"dockerls",
