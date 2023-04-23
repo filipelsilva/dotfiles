@@ -5,7 +5,28 @@ if not ok then
 end
 
 treesitter.setup({
-	ensure_installed = "all",
+	ensure_installed = {
+		"bash",
+		"c",
+		"cpp",
+		"dockerfile",
+		"go",
+		"html",
+		"java",
+		"javascript",
+		"json",
+		"lua",
+		"make",
+		"markdown",
+		"nix",
+		"python",
+		"query",
+		"ruby",
+		"rust",
+		"toml",
+		"typescript",
+		"vim"
+	},
 	sync_install = true,
 	highlight = {
 		enable = true,
