@@ -361,6 +361,9 @@ if !exists("g:no_vim_plugins")
 			" Git wrapper
 			call minpac#add("tpope/vim-fugitive")
 
+			" Vim session wrapper
+			call minpac#add("tpope/vim-obsession")
+
 			" Navigate between vim/neovim and tmux
 			call minpac#add("christoomey/vim-tmux-navigator")
 
