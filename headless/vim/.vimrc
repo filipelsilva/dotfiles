@@ -362,8 +362,11 @@ if !exists("g:no_vim_plugins")
 			" Comment stuff
 			call minpac#add("tpope/vim-commentary")
 
-			" Vim wrapper
+			" Git wrapper
 			call minpac#add("tpope/vim-fugitive")
+
+			" Navigate between vim/neovim and tmux
+			call minpac#add("christoomey/vim-tmux-navigator")
 
 			" Undo tree
 			call minpac#add("mbbill/undotree")

@@ -35,11 +35,14 @@ lazy.setup({
 	-- Comment stuff
 	"tpope/vim-commentary",
 
-	-- Vim wrapper
+	-- Git wrapper
 	"tpope/vim-fugitive",
 
 	-- Undo tree
 	"mbbill/undotree",
+
+	-- Navigate between vim/neovim and tmux
+	"christoomey/vim-tmux-navigator",
 
 	-- Fzf
 	{
