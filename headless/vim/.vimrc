@@ -280,10 +280,6 @@ for char in [".", ",", ";", ":", "/", "\\", "-", "_", "@", "+", "-", "=", "`"]
 	call CreateTextObject(char)
 endfor
 
-" Move blocks of code
-vnoremap <C-j> :move '>+1<CR>gv=gv
-vnoremap <C-k> :move '<-2<CR>gv=gv
-
 " Make . to work with visually selected lines
 vnoremap . :normal .<CR>.
 
