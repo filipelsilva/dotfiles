@@ -41,7 +41,7 @@
 [mergetool]
 	prompt = true
 [mergetool "vimdiff"]
-	cmd = vim -d "$LOCAL" "$REMOTE" "$MERGED" -c '$wincmd w' -c 'wincmd J'
+	cmd = vim -d "$LOCAL" "$REMOTE" "$MERGED"
 
 [include]
 	path = .gitconfig.user
