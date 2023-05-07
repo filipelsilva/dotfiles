@@ -35,6 +35,9 @@ lazy.setup({
 	-- Comment stuff
 	"tpope/vim-commentary",
 
+	-- UNIX helpers
+	"tpope/vim-eunuch",
+
 	-- Git wrapper
 	"tpope/vim-fugitive",
 
