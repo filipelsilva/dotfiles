@@ -35,6 +35,7 @@ lazylsp.setup({
 		c = { "clangd" },
 		cpp = { "clangd" },
 		ruby = { "syntax_tree" },
+		nix = { "nil_ls" },
 	},
 	default_config = {
 		flags = {},
