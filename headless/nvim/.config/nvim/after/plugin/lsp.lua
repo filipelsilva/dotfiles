@@ -52,3 +52,12 @@ lazylsp.setup({
 -- Coq configuration
 vim.g.coqtail_nomap = 1
 vim.g.coqtail_noimap = 1
+
+local augroup = vim.api.nvim_create_augroup("coq_maps", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "coq",
+	callback = function()
+		vim.keymap.set("n", "<Leader>;", function() vim.cmd([[CoqToLine]]) end, opts)
+	end,
+	group = augroup,
+})
