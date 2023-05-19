@@ -66,7 +66,6 @@ lazy.setup({
 
 	-- Copilot
 	{
-		-- "github/copilot.vim",
 		"zbirenbaum/copilot-cmp",
 		dependencies = {
 			"zbirenbaum/copilot.lua"

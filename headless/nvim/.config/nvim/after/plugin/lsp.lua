@@ -42,37 +42,32 @@ if not ok then
 	return
 end
 
+local custom_luals_settings = {
+	Lua = {
+		runtime = {
+			version = "LuaJIT",
+		},
+		diagnostics = {
+			-- Get the language server to recognize the `vim` global
+			globals = {"vim"},
+		},
+		workspace = {
+			-- Make the server aware of Neovim runtime files
+			library = vim.api.nvim_get_runtime_file("", true),
+		},
+		-- Do not send telemetry data containing a randomized but unique identifier
+		telemetry = {
+			enable = false,
+		},
+	},
+}
+
 for _, server in ipairs(servers) do
-	if server == "lua_ls" then
-		lspconfig[server].setup({
-			on_attach = custom_on_attach,
-			capabilities = custom_capabilities,
-			settings = {
-				Lua = {
-					runtime = {
-						version = "LuaJIT",
-					},
-					diagnostics = {
-						-- Get the language server to recognize the `vim` global
-						globals = {"vim"},
-					},
-					workspace = {
-						-- Make the server aware of Neovim runtime files
-						library = vim.api.nvim_get_runtime_file("", true),
-					},
-					-- Do not send telemetry data containing a randomized but unique identifier
-					telemetry = {
-						enable = false,
-					},
-				},
-			}
-		})
-	else
-		lspconfig[server].setup({
-			on_attach = custom_on_attach,
-			capabilities = custom_capabilities,
-		})
-	end
+	lspconfig[server].setup({
+		on_attach = custom_on_attach,
+		capabilities = custom_capabilities,
+		settings = server == "lua_ls" and custom_luals_settings or {},
+	})
 end
 
 vim.api.nvim_create_autocmd("FileType", {
