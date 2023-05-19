@@ -20,44 +20,83 @@ local custom_on_attach = function(client, bufnr)
 	vim.keymap.set("n", "]e", function() vim.diagnostic.goto_next() end, opts)
 end
 
--- Lazy lsp: uses nix-shell to spawn LSPs
-local ok, lazylsp = pcall(require, "lazy-lsp")
+local servers = {
+	"bashls",
+	"clangd",
+	"dockerls",
+	"html",
+	"gopls",
+	"jdtls",
+	"lua_ls",
+	"pyright",
+	"nil_ls",
+	"rust_analyzer",
+	"texlab",
+	"tsserver",
+	"vimls"
+}
+
+-- local ok_jdtls, jdtls = pcall(require, "jdtls")
+
+-- if not ok_jdtls then
+-- 	return
+-- end
+
+-- local get_jdtls_path = function()
+-- 	local handle = io.popen("which jdt-language-server")
+-- 	local output = handle:read("*a")
+-- 	local path = output:gsub("[\n\r]", "")
+-- 	return path
+-- end
+
+-- jdtls.start_or_attach({
+--     cmd = { get_jdtls_path() },
+--     root_dir = vim.fs.dirname(vim.fs.find({"gradlew", ".git", "mvnw"}, { upward = true })[1]),
+-- })
+
+local ok, lspconfig = pcall(require, "lspconfig")
 
 if not ok then
 	return
 end
 
-lazylsp.setup({
-	excluded_servers = {
-		"sqls",
-	},
-	preferred_servers = {
-		c = { "clangd" },
-		cpp = { "clangd" },
-		ruby = { "syntax_tree" },
-		nix = { "nil_ls" },
-	},
-	default_config = {
-		flags = {},
-		on_attach = custom_on_attach,
-		capabilities = custom_capabilities,
-	},
-	configs = {
-		lua_ls = {
-			settings = { Lua = { diagnostics = { globals = { "vim" } } } }
-		},
-	},
-})
+for _, server in ipairs(servers) do
+	if server == "lua_ls" then
+		lspconfig[server].setup({
+			on_attach = custom_on_attach,
+			capabilities = custom_capabilities,
+			settings = {
+				Lua = {
+					runtime = {
+						version = "LuaJIT",
+					},
+					diagnostics = {
+						-- Get the language server to recognize the `vim` global
+						globals = {"vim"},
+					},
+					workspace = {
+						-- Make the server aware of Neovim runtime files
+						library = vim.api.nvim_get_runtime_file("", true),
+					},
+					-- Do not send telemetry data containing a randomized but unique identifier
+					telemetry = {
+						enable = false,
+					},
+				},
+			}
+		})
+	else
+		lspconfig[server].setup({
+			on_attach = custom_on_attach,
+			capabilities = custom_capabilities,
+		})
+	end
+end
 
--- Coq configuration
-vim.g.coqtail_nomap = 1
-vim.g.coqtail_noimap = 1
-
-local augroup = vim.api.nvim_create_augroup("coq_maps", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
+	group = vim.api.nvim_create_augroup("coq_maps", {}),
 	pattern = "coq",
 	callback = function()
-		vim.keymap.set("n", "<Leader>;", function() vim.cmd([[CoqToLine]]) end, opts)
+		vim.keymap.set("n", "<Leader>;", function() vim.cmd([[CoqToLine]]) end, { noremap = true, silent = true })
 	end,
-	group = augroup,
 })
