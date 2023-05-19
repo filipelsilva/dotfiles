@@ -36,24 +36,6 @@ local servers = {
 	"vimls"
 }
 
--- local ok_jdtls, jdtls = pcall(require, "jdtls")
-
--- if not ok_jdtls then
--- 	return
--- end
-
--- local get_jdtls_path = function()
--- 	local handle = io.popen("which jdt-language-server")
--- 	local output = handle:read("*a")
--- 	local path = output:gsub("[\n\r]", "")
--- 	return path
--- end
-
--- jdtls.start_or_attach({
---     cmd = { get_jdtls_path() },
---     root_dir = vim.fs.dirname(vim.fs.find({"gradlew", ".git", "mvnw"}, { upward = true })[1]),
--- })
-
 local ok, lspconfig = pcall(require, "lspconfig")
 
 if not ok then
