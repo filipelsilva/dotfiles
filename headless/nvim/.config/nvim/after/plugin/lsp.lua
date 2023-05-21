@@ -20,6 +20,7 @@ local custom_on_attach = function(client, bufnr)
 	vim.keymap.set("n", "]e", function() vim.diagnostic.goto_next() end, opts)
 end
 
+-- Managed servers
 local servers = {
 	"bashls",
 	"clangd",
@@ -36,12 +37,7 @@ local servers = {
 	"vimls"
 }
 
-local ok, lspconfig = pcall(require, "lspconfig")
-
-if not ok then
-	return
-end
-
+-- Custom LSP options {{{
 local custom_luals_settings = {
 	Lua = {
 		runtime = {
@@ -61,6 +57,13 @@ local custom_luals_settings = {
 		},
 	},
 }
+-- }}}
+
+local ok, lspconfig = pcall(require, "lspconfig")
+
+if not ok then
+	return
+end
 
 for _, server in ipairs(servers) do
 	lspconfig[server].setup({
@@ -70,6 +73,9 @@ for _, server in ipairs(servers) do
 	})
 end
 
+-- Coq configuration
+vim.g.coqtail_nomap = 1
+vim.g.coqtail_noimap = 1
 vim.api.nvim_create_autocmd("FileType", {
 	group = vim.api.nvim_create_augroup("coq_maps", {}),
 	pattern = "coq",
