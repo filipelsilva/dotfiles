@@ -73,15 +73,9 @@ cleaner. This only works with Arch Linux.
 ### gitconfig
 
 Aliases and some settings to do diffs and merges are defined in here. In order
-to put your name and email in the config, create a file in the home directory
-called ".gitconfig.user", with the following content (".gitconfig" will include
-it):
-
-```
-[user]
-	email = <your email here>
-	name = <your name here>
-```
+to put your name and email in the config, edit .gitconfig or override the
+variables talked about in that file, which will supersede any config done in
+this file.
 
 The editor used for the difftool and mergetool is your $EDITOR. In the file
 itself, only Vim is defined (sane default), but in .zshrc the options are

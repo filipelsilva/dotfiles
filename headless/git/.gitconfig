@@ -1,3 +1,9 @@
+[user]
+# YOU CAN OVERRIDE THIS
+# USE GIT_AUTHOR_USER AND GIT_AUTHOR_EMAIL VARIABLES
+	name = "Filipe Ligeiro Silva"
+	email = "57916727+filipelsilva@users.noreply.github.com"
+
 [alias]
 	ac = "!git add --all && git commit"
 	br = "branch"
@@ -35,14 +41,11 @@
 [difftool]
 	prompt = false
 [difftool "vimdiff"]
-	cmd = vim -d "$LOCAL" "$REMOTE"
+	cmd = ${EDITOR:-vim} -d "$LOCAL" "$REMOTE"
 
 [merge]
 	tool = vimdiff
 [mergetool]
 	prompt = true
 [mergetool "vimdiff"]
-	cmd = vim -d "$LOCAL" "$REMOTE" "$MERGED"
-
-[include]
-	path = .gitconfig.user
+	cmd = ${EDITOR:-vim} -d "$LOCAL" "$REMOTE" "$MERGED"
