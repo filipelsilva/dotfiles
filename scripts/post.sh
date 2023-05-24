@@ -38,6 +38,7 @@ if [[ -n $DOTFILES_FULL ]]; then
 		echo "xset s off && xset -b -dpms"
 		echo "setxkbmap -layout us -variant altgr-intl -option ctrl:swapcaps"
 		echo "lxpolkit &"
+		echo "thunar --daemon &"
 		echo "pkill -9 redshift; redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq '.location.lat, .location.lng' | tr '\n' ':' | sed 's/:$//') &"
 		echo "optimus-manager-qt &"
 		echo "xss-lock -- i3lock &"

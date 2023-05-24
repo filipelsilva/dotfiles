@@ -3,9 +3,6 @@
 These are my dotfiles. You could use them to inspire yourself, and make your
 own!
 
-The commits are more sporadic on the public version, as I started the private
-version way earlier, and might still be trying out new things over there.
-
 ## Dotfiles (*per se*)
 
 These consist of configurations for some programs:
@@ -101,13 +98,10 @@ what you don't.
 
 ### tmux.conf
 
-This config uses `xclip` to manage the clipboard, to make it seamless between
-other programs and tmux (vim does not use it by default, but there are keybinds
-to use it when needed, as I feel it's better to separate those clipboards).
-
+This config uses `tpm` to add some plugins, most importantly navigation between
+tmux and vim seamlessly.
 The theme is the default one, with a slight modification to the right side of
-the status bar. Also, it only appears if more than one tab is open. The pane
-border status only appears if there is more than one pane.
+the status bar. There is not much to say, it's simple but very effective.
 
 ### screenrc
 
@@ -131,7 +125,7 @@ runtimepath, if the system has `git` (well, if it hadn't, the probability you
 were reading this was quite low anyway). This is used to install the plugins
 described in the paragraph above).
 
-### init.vim
+### init.lua
 
 This is the part of the config that I don't consider very portable. It
 piggybacks on the vimrc described above, and adds many plugins, in order to
@@ -168,8 +162,8 @@ haven't read the last 2000 mentions to this package in this readme, it is
 **really** awesome and you should have it installed).
 
 As I only use one plugin, and that is forgit (depends on `fzf` as well, but
-really useful for Git repos), I have decided to manage it from the Pacman/AUR
-repos, instead of using a plugin manager.
+really useful for Git repos), I have decided to manage it from the system
+package manager, instead of using a plugin manager.
 
 The "Functions" section of this file has multiple functions that depend on
 certain non default packages and have not been guarded, as I found no clean way
