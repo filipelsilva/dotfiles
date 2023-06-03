@@ -361,17 +361,20 @@ if !exists("g:no_vim_plugins")
 			" UNIX helpers
 			call minpac#add("tpope/vim-eunuch")
 
-			" Git wrapper
-			call minpac#add("tpope/vim-fugitive")
-
 			" Vim session wrapper
 			call minpac#add("tpope/vim-obsession")
 
-			" Navigate between vim/neovim and tmux
-			call minpac#add("christoomey/vim-tmux-navigator")
+			" Git wrapper
+			call minpac#add("tpope/vim-fugitive")
+
+			" Git diff signs
+			call minpac#add("airblade/vim-gitgutter")
 
 			" Undo tree
 			call minpac#add("mbbill/undotree")
+
+			" Navigate between vim/neovim and tmux
+			call minpac#add("christoomey/vim-tmux-navigator")
 
 			" If fzf is installed, add companion commands
 			call minpac#add("junegunn/fzf", { "do": { -> fzf#install() } })

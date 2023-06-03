@@ -38,11 +38,14 @@ lazy.setup({
 	-- UNIX helpers
 	"tpope/vim-eunuch",
 
+	-- Vim session wrapper
+	"tpope/vim-obsession",
+
 	-- Git wrapper
 	"tpope/vim-fugitive",
 
-	-- Vim session wrapper
-	"tpope/vim-obsession",
+	-- Git diff signs
+	"airblade/vim-gitgutter",
 
 	-- Undo tree
 	"mbbill/undotree",
