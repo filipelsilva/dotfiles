@@ -95,6 +95,15 @@ lazy.setup({
 	"neovim/nvim-lspconfig",
 	"whonore/Coqtail",
 
+	-- Debugging
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			"leoluz/nvim-dap-go"
+		}
+	},
+
 	-- Completion
 	{
 		"hrsh7th/nvim-cmp",
