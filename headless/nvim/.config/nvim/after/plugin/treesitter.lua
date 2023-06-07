@@ -50,3 +50,11 @@ treesitter.setup({
 		enable = true,
 	},
 })
+
+local ok, context = pcall(require, "treesitter-context")
+
+if not ok then
+	return
+end
+
+context.setup()
