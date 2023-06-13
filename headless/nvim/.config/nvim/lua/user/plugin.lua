@@ -38,6 +38,9 @@ lazy.setup({
 	-- UNIX helpers
 	"tpope/vim-eunuch",
 
+	-- Asynchronous task runner
+	"tpope/vim-dispatch",
+
 	-- Vim session wrapper
 	"tpope/vim-obsession",
 

@@ -361,6 +361,9 @@ if !exists("g:no_vim_plugins")
 			" UNIX helpers
 			call minpac#add("tpope/vim-eunuch")
 
+			" Asynchronous task runner
+			call minpac#add("tpope/vim-dispatch")
+
 			" Vim session wrapper
 			call minpac#add("tpope/vim-obsession")
 
@@ -389,8 +392,9 @@ if !exists("g:no_vim_plugins")
 		command! PackStatus call PackInit() | call minpac#status()
 	endif
 endif
+" }}}
 
-" Plugin configurations for Neovim and Vim with minpac
+" Plugin configurations (vim only, neovim disables this) {{{
 if exists("g:no_vim_plugins") || ! empty(glob(s:plugin_folder))
 	" Fzf
 	function! s:build_quickfix_list(lines)
