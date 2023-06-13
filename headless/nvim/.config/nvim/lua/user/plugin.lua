@@ -93,7 +93,6 @@ lazy.setup({
 
 	-- LSP and code intelligence
 	"neovim/nvim-lspconfig",
-	"whonore/Coqtail",
 
 	-- Debugging
 	{

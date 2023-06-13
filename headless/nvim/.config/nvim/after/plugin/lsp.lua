@@ -72,14 +72,3 @@ for _, server in ipairs(servers) do
 		settings = server == "lua_ls" and custom_luals_settings or {},
 	})
 end
-
--- Coq configuration
-vim.g.coqtail_nomap = 1
-vim.g.coqtail_noimap = 1
-vim.api.nvim_create_autocmd("FileType", {
-	group = vim.api.nvim_create_augroup("coq_maps", {}),
-	pattern = "coq",
-	callback = function()
-		vim.keymap.set("n", "<Leader>;", function() vim.cmd([[CoqToLine]]) end, { noremap = true, silent = true })
-	end,
-})
