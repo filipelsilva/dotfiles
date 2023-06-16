@@ -403,4 +403,6 @@ esac
 [[ -n $FORGIT_PLUGIN ]] && source "$FORGIT_PLUGIN"
 
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh --cmd j)"
+
+eval "$(direnv hook zsh)"
 # }}}
