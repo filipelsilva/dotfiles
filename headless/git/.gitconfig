@@ -9,7 +9,6 @@
 	br = "branch"
 	cm = "commit"
 	co = "checkout"
-	coo = "!PS3='branch> ' && select target in $(git branch | tr '*' ' ' | cut -d' ' -f 3); do git checkout $target && break; done"
 	df = "diff"
 	dfs = "diff --staged"
 	dt = "difftool"
