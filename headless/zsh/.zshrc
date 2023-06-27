@@ -125,40 +125,7 @@ autoload -Uz add-zsh-hook
 # Prompt {{{
 setopt PROMPT_SUBST
 
-zmodload zsh/datetime
-
-prompt_preexec() {
-  prompt_prexec_realtime=${EPOCHREALTIME}
-}
-
-prompt_precmd() {
-  if (( prompt_prexec_realtime )); then
-    local -rF elapsed_realtime=$(( EPOCHREALTIME - prompt_prexec_realtime ))
-    local -rF s=$(( elapsed_realtime%60 ))
-    local -ri elapsed_s=${elapsed_realtime}
-    local -ri m=$(( (elapsed_s/60)%60 ))
-    local -ri h=$(( elapsed_s/3600 ))
-    if (( h > 0 )); then
-      printf -v elapsed_time ' %ih%im' ${h} ${m}
-    elif (( m > 0 )); then
-      printf -v elapsed_time ' %im%is' ${m} ${s}
-    elif (( s >= 10 )); then
-      printf -v elapsed_time ' %.2fs' ${s} # 12.34s
-    elif (( s >= 1 )); then
-      printf -v elapsed_time ' %.3fs' ${s} # 1.234s
-    else
-      printf -v elapsed_time ' %ims' $(( s*1000 ))
-    fi
-    unset prompt_prexec_realtime
-  else
-    # Clear previous result when hitting ENTER with no command to execute
-    unset elapsed_time
-  fi
-}
-
 autoload -Uz vcs_info
-add-zsh-hook preexec prompt_preexec
-add-zsh-hook precmd prompt_precmd
 add-zsh-hook precmd vcs_info
 
 zstyle ':vcs_info:*' check-for-changes true
@@ -170,7 +137,6 @@ zstyle ':vcs_info:*' actionformats '%c%u%b(%a)'
 # Prompt auxiliary variables
 # (Note: replace %# with %(!.#.$) for bash-like prompt)
 local NEWLINE=$'\n'
-local PROMPT_ELAPSED_TIME='${elapsed_time:-""}'
 local PROMPT_GIT_INFO='${vcs_info_msg_0_:-""}'
 local PROMPT_ERROR_HANDLING="%(?..%F{9}%?%f )"
 
@@ -185,12 +151,11 @@ case "$PROMPT_SELECTOR" in
 	3)
 		local PROMPT_INFO="%F{10}%n@%m%f:%F{12}%~%f%#"
 		local PROMPT_GIT_INFO="%F{13}${PROMPT_GIT_INFO}%f"
-		local PROMPT_ELAPSED_TIME="%F{11}${PROMPT_ELAPSED_TIME}%f"
 		;;
 esac
 
 export PROMPT="${PROMPT_ERROR_HANDLING}${PROMPT_INFO} "
-export RPROMPT="${PROMPT_GIT_INFO}${PROMPT_ELAPSED_TIME}"
+export RPROMPT="${PROMPT_GIT_INFO}"
 # }}}
 
 # Options {{{
