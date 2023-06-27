@@ -106,10 +106,27 @@ if (( $+commands[i3] )); then
 fi
 # }}}
 
+# Autoloads and evals {{{
+
+# Set LS_COLORS
+eval "$(dircolors)"
+
+# Colors
+autoload -U colors && colors
+
+# Renamer ($ zmv '(*)_(*)_(*)' '$3_$2_$1' # foo_bar_baz -> baz_bar_foo)
+autoload -Uz zmv
+
+# Add hooks to zsh
+autoload -Uz add-zsh-hook
+
+# }}}
+
 # Prompt {{{
 setopt PROMPT_SUBST
+
 autoload -Uz vcs_info
-precmd_functions+=( vcs_info )
+add-zsh-hook precmd vcs_info
 
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
@@ -165,19 +182,6 @@ setopt HIST_REDUCE_BLANKS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY_TIME
-
-# }}}
-
-# Autoloads and evals {{{
-
-# Set LS_COLORS
-eval "$(dircolors)"
-
-# Colors
-autoload -U colors && colors
-
-# Renamer ($ zmv '(*)_(*)_(*)' '$3_$2_$1' # foo_bar_baz -> baz_bar_foo)
-autoload -Uz zmv
 
 # }}}
 
@@ -240,7 +244,7 @@ zstyle ':completion:*:*:*:*:warnings' format '-- no matches found --'
 
 # Autojump {{{
 # (if zoxide is not installed, this is a good fallback)
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+autoload -Uz chpwd_recent_dirs cdr
 add-zsh-hook chpwd chpwd_recent_dirs
 
 zstyle ':completion:*' recent-dirs-insert always
