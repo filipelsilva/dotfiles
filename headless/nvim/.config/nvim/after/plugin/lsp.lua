@@ -24,7 +24,6 @@ local custom_on_attach = function(client, bufnr)
 	vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, opts)
 	vim.keymap.set("n", "]e", vim.diagnostic.goto_next, opts)
 
-	-- Create lua cmd to auto format on save
 	vim.api.nvim_create_augroup("LspAutocmd", { clear = true })
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		group = "LspAutocmd",
