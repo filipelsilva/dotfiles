@@ -7,8 +7,6 @@ end
 local opts = { noremap = true, silent = true }
 
 -- Telescope
-vim.keymap.set("n", "<Leader>t", "<Cmd>Telescope<CR>", opts)
-
 vim.keymap.set("n", "<Leader>f", function()
 	if vim.fn.len(vim.fn.system("git rev-parse")) == 0 then
 		telescope_builtin.git_files({
@@ -23,11 +21,13 @@ vim.keymap.set("n", "<Leader>f", function()
 	end
 end, opts)
 
-vim.keymap.set("n", "<Leader>j", function()
+vim.keymap.set("n", "<Leader>r", function()
 	telescope_builtin.live_grep({
 		glob_pattern = { "!*.git", "!*.hg" , "!*.svn", "!*CVS" }
 	})
 end, opts)
+
+vim.keymap.set("n", "<Leader>j", telescope_builtin.buffers, opts)
 
 -- Edit nvim configuration files
 vim.keymap.set("n", "<Leader><Leader>v", function()

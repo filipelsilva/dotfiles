@@ -405,8 +405,9 @@ if exists("g:no_vim_plugins") || ! empty(glob(s:plugin_folder))
 
 	nnoremap <silent> <expr> <Leader>f (len(system("git rev-parse")) ? ":Files" : ":GFiles")."\<CR>"
 	if executable("rg")
-		nnoremap <silent> <Leader>j <Cmd>Rg<CR>
+		nnoremap <silent> <Leader>r <Cmd>Rg<CR>
 	endif
+	nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
 
 	let g:fzf_action = {
 		\ "alt-q": function("s:build_quickfix_list"),
@@ -418,9 +419,6 @@ if exists("g:no_vim_plugins") || ! empty(glob(s:plugin_folder))
 
 	" Vim-slime
 	let g:slime_no_mappings = 1
-	xmap <Leader>r <Plug>SlimeRegionSend
-	nmap <Leader>r <Plug>SlimeParagraphSend
-	nnoremap <Leader>R <Cmd>%SlimeSend<CR>
 
 	if !has("nvim")
 		let g:slime_target = "vimterminal"

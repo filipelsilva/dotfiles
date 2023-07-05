@@ -12,12 +12,24 @@ local custom_on_attach = function(client, bufnr)
 
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
-	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-	vim.keymap.set("n", "<Leader>a", function() vim.lsp.buf.code_action() end, opts)
-	vim.keymap.set("n", "<Leader>k", function() vim.lsp.buf.hover() end, opts)
-	vim.keymap.set("n", "<Leader>s", function() vim.lsp.buf.rename() end, opts)
-	vim.keymap.set("n", "[e", function() vim.diagnostic.goto_prev() end, opts)
-	vim.keymap.set("n", "]e", function() vim.diagnostic.goto_next() end, opts)
+	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+	vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
+	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+	vim.keymap.set("n", "gtd", vim.lsp.buf.type_definition, opts)
+	vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, opts)
+	vim.keymap.set("n", "<Leader>k", vim.lsp.buf.hover, opts)
+	vim.keymap.set("n", "<Leader>a", vim.lsp.buf.code_action, opts)
+	vim.keymap.set("n", "gs", vim.lsp.buf.rename, opts)
+	vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, opts)
+	vim.keymap.set("n", "]e", vim.diagnostic.goto_next, opts)
+
+	-- Create lua cmd to auto format on save
+	vim.api.nvim_create_augroup("LspAutocmd", { clear = true })
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		group = "LspAutocmd",
+		callback = function() vim.lsp.buf.format() end,
+	})
 end
 
 -- Managed servers
@@ -45,7 +57,7 @@ local custom_luals_settings = {
 		},
 		diagnostics = {
 			-- Get the language server to recognize the `vim` global
-			globals = {"vim"},
+			globals = { "vim" },
 		},
 		workspace = {
 			-- Make the server aware of Neovim runtime files
