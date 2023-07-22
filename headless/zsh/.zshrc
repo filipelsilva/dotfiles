@@ -353,20 +353,8 @@ if (( $+commands[fzf] )); then
 		"--multi"
 		"--bind '?:toggle-preview,ctrl-a:toggle-all'"
 		"--preview-window 'right,50%,<50(up,50%)'"
+		"--color 16"
 	)
-
-	# Colorscheme overrides
-	if [[ $TERM = "alacritty" ]]; then
-		local config_file="$HOME/.config/alacritty/alacritty.yml"
-		if [[ -f $config_file ]]; then
-			local foreground=$(grep "foreground" "$config_file" | cut -d: -f2 | tr -d " |'|\"")
-			if [[ -n $foreground ]]; then
-				fzf_options+=(
-					"--color='fg+:$foreground'"
-				)
-			fi
-		fi
-	fi
 
 	# Variables and functions for fzf operation
 	export FZF_DEFAULT_OPTS="${fzf_options[@]}"

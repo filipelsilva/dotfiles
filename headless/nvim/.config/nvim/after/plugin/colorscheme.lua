@@ -6,6 +6,7 @@ vim.g.gruvbox_italicize_strings = 1
 vim.g.gruvbox_invert_selection = 0
 vim.g.gruvbox_invert_signs = 0
 vim.g.gruvbox_contrast_dark = "hard"
+vim.g.gruvbox_contrast_light = "hard"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
