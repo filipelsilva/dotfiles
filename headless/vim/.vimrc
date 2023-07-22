@@ -321,14 +321,7 @@ nnoremap <Leader><Leader>y <Cmd>%yank+<CR>
 " Colorscheme {{{
 
 colorscheme default
-
-" Vim does not set the background correctly
-if !has("nvim")
-	set background=dark
-endif
-if has("gui_running")
-	set background=light
-endif
+set background=dark
 
 " }}}
 
