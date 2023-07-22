@@ -1,1 +1,3 @@
 headless/nvim/.config/nvim/spell/
+headless/vim/.vim/*
+!headless/vim/.vim/vimrc
