@@ -48,13 +48,13 @@ font: # {{{
 schemes:
   gruvbox-light: &gruvbox-light
     primary:
-      # hard contrast: background = "#f9f5d7"
-      # normal contrast: background = "#fbf1c7"
       # soft contrast: background = "#f2e5bc"
+      # normal contrast: background = "#fbf1c7"
+      # hard contrast: background = "#f9f5d7"
       background: "#f9f5d7"
       foreground: "#3c3836"
     normal:
-      black:   "#fbf1c7"
+      black:   "#f2e5bc"
       red:     "#cc241d"
       green:   "#98971a"
       yellow:  "#d79921"
@@ -74,12 +74,12 @@ schemes:
   gruvbox-dark: &gruvbox-dark
     primary:
       # soft contrast: background = "#32302f"
-      # normal contrast: background = "#1d2021"
+      # normal contrast: background = "#282828"
       # hard contrast: background = "#1d2021"
       background: "#1d2021"
       foreground: "#ebdbb2"
     normal:
-      black:   "#282828"
+      black:   "#32302f"
       red:     "#cc241d"
       green:   "#98971a"
       yellow:  "#d79921"
