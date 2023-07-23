@@ -396,5 +396,5 @@ esac
 
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh --cmd j)"
 
-eval "$(direnv hook zsh)"
+(( $+commands[direnv] )) && eval "$(direnv hook zsh)"
 # }}}
