@@ -400,6 +400,7 @@ if exists("g:no_vim_plugins") || ! empty(glob(s:plugin_folder))
 	if executable("rg")
 		nnoremap <silent> <Leader>r <Cmd>Rg<CR>
 	endif
+	nnoremap <silent> <Leader>h <Cmd>History<CR>
 	nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
 
 	let g:fzf_action = {

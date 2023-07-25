@@ -27,6 +27,8 @@ vim.keymap.set("n", "<Leader>r", function()
 	})
 end, opts)
 
+vim.keymap.set("n", "<Leader>h", telescope_builtin.oldfiles, opts)
+
 vim.keymap.set("n", "<Leader>j", telescope_builtin.buffers, opts)
 
 -- Edit nvim configuration files
