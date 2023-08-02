@@ -23,7 +23,7 @@ end, opts)
 
 vim.keymap.set("n", "<Leader>r", function()
 	telescope_builtin.live_grep({
-		glob_pattern = { "!*.git", "!*.hg" , "!*.svn", "!*CVS" }
+		glob_pattern = { "!*.git", "!*.hg", "!*.svn", "!*CVS" }
 	})
 end, opts)
 
@@ -46,4 +46,4 @@ vim.keymap.set("n", "<Leader><Leader>v", function()
 end, opts)
 
 -- Edit vim configuration file
-vim.keymap.set("n", "<Leader>v", "<Cmd>edit $HOME/.vimrc<CR>", opts)
+vim.keymap.set("n", "<Leader>v", "<Cmd>edit $HOME/.vim/vimrc<CR>", opts)
