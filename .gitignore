@@ -1,3 +1,4 @@
 headless/nvim/.config/nvim/spell/
 headless/vim/.vim/*
 !headless/vim/.vim/vimrc
+desktop/alacritty/.config/alacritty/alacritty.yml
