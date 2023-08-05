@@ -322,6 +322,9 @@ nnoremap <Leader><Leader>y <Cmd>%yank+<CR>
 
 colorscheme default
 set background=dark
+if !empty(glob("/tmp/lightmode"))
+	set background=light
+endif
 
 " }}}
 
