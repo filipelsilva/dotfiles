@@ -1,0 +1,5 @@
+# Vi keybinds for less
+h left-scroll
+l right-scroll
+j forw-scroll
+k back-scroll
