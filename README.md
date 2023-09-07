@@ -20,6 +20,7 @@ These consist of configurations for some programs:
 ### Desktop
 
 * alacritty
+* dunst
 * i3
 * sxiv
 * xresources
@@ -169,3 +170,7 @@ always), but it might not be your preferred way of using completion. If you
 don't like it, I suggest using a package that provides completion, or running
 the completion assistant and defining the settings yourself: `autoload -U
 zsh-newuser-install && zsh-newuser-install -f`.
+
+### dunstrc
+
+Just some gruvbox colors and minor changes to geometry and behavior.
