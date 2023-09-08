@@ -38,7 +38,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+e exec thunar
 
 # Start dmenu
-bindsym $mod+d exec --no-startup-id rofi $rofi_options -show drun -show-icons
+bindsym $mod+d exec --no-startup-id rofi $rofi_options -show drun
 
 # Open files
 bindsym $mod+o exec --no-startup-id fd . $HOME | rofi $rofi_options -dmenu -i -p files -keep-right | xargs -I {} xdg-open {}
