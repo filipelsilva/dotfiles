@@ -41,7 +41,7 @@ bindsym $mod+e exec thunar
 bindsym $mod+d exec --no-startup-id rofi $rofi_options -show drun
 
 # Open files
-bindsym $mod+o exec --no-startup-id fd . $HOME | rofi $rofi_options -dmenu -i -p files -keep-right | xargs -I {} xdg-open {}
+bindsym $mod+o exec --no-startup-id fd . | rofi $rofi_options -dmenu -i -p files -keep-right | xargs -I {} xdg-open {}
 
 # Splits
 bindsym $mod+v split h
