@@ -35,21 +35,6 @@ lazy.setup({
 	-- Comment stuff
 	"tpope/vim-commentary",
 
-	-- UNIX helpers
-	"tpope/vim-eunuch",
-
-	-- Asynchronous task runner
-	"tpope/vim-dispatch",
-
-	-- Vim session wrapper
-	"tpope/vim-obsession",
-
-	-- Git wrapper
-	"tpope/vim-fugitive",
-
-	-- Git diff signs
-	"airblade/vim-gitgutter",
-
 	-- Undo tree
 	"mbbill/undotree",
 
@@ -66,9 +51,6 @@ lazy.setup({
 			}
 		}
 	},
-
-	-- REPL integration
-	"jpalardy/vim-slime",
 
 	-- Copilot
 	{
@@ -97,14 +79,6 @@ lazy.setup({
 	-- LSP and code intelligence
 	"neovim/nvim-lspconfig",
 
-	-- Debugging
-	{
-		"mfussenegger/nvim-dap",
-		dependencies = {
-			"rcarriga/nvim-dap-ui",
-		}
-	},
-
 	-- Completion
 	{
 		"hrsh7th/nvim-cmp",
@@ -119,6 +93,14 @@ lazy.setup({
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-git"
+		}
+	},
+
+	-- Debugging
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
 		}
 	},
 
