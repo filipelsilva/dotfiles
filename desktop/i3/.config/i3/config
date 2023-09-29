@@ -260,7 +260,7 @@ bindsym Print mode $mode_printscreen
 # }}}
 
 # MODE: Change brightness and media control {{{
-set $mode_media_brightness "[media/brightness] i,o,p,h,j,k,l,n,m"
+set $mode_media_brightness "[media/brightness] i,o,p,h,j,k,l,n,m,d"
 
 mode $mode_media_brightness {
 	bindsym i exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
@@ -272,6 +272,7 @@ mode $mode_media_brightness {
 	bindsym l exec --no-startup-id playerctl next
 	bindsym n exec --no-startup-id brightnessctl set 5%-
 	bindsym m exec --no-startup-id brightnessctl set 5%+
+	bindsym d exec --no-startup-id dunstctl set-paused toggle
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
