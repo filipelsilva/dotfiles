@@ -54,7 +54,7 @@ set noexpandtab tabstop=8 softtabstop=8 shiftwidth=8
 " Visual settings
 set ruler showcmd linebreak wrap number relativenumber
 set laststatus=2 signcolumn=auto display=truncate colorcolumn=80
-set listchars=tab:<->,trail:-,nbsp:+,eol:$ shortmess=OtTF
+set listchars=tab:<->,trail:-,nbsp:+,eol:$,leadmultispace:<+> shortmess=OtTF
 
 " Motions keep cursor on the same column
 set nostartofline
