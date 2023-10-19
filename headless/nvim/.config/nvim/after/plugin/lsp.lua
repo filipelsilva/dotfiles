@@ -43,6 +43,7 @@ local servers = {
 	"pyright",
 	"nil_ls",
 	"rust_analyzer",
+	"terraformls",
 	"texlab",
 	"tsserver",
 	"vimls"

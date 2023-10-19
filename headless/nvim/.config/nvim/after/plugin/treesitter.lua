@@ -28,6 +28,7 @@ treesitter.setup({
 		"query",
 		"ruby",
 		"rust",
+		"terraform",
 		"toml",
 		"typescript",
 		"vim"
