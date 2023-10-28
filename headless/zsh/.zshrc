@@ -36,15 +36,20 @@ if (( $+commands[gem] )); then
 fi
 # }}}
 
+# Editor stuff
 if (( $+commands[nvim] )); then
 	export EDITOR="nvim"
-	export MANPAGER="nvim +Man!"
+	export EDITOR_MANPAGER="nvim +Man!"
 else
 	export EDITOR="vim"
-	export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
+	export EDITOR_MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
 fi
 export VISUAL="$EDITOR"
 export DIFFPROG="$EDITOR -d"
+
+# LESS/MANPAGER
+export LESS="--ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --window=-4"
+export MANPAGER="less"
 
 # Distro name
 export DISTRONAME=$(cat /etc/os-release | grep "NAME" | head -n 1 | cut -d'=' -f2 | tr -d '"')
@@ -84,6 +89,9 @@ alias lx="ls -l --human-readable --all --inode --size"
 
 # Search for processes
 alias psgrep="ps aux | grep --invert-match grep | grep --ignore-case --regexp VSZ --regexp "
+
+# Extra man pager using $EDITOR
+alias vman="MANPAGER='$EDITOR_MANPAGER' man"
 
 # Zsh configuration and reload
 alias zshsource="source $HOME/.zshrc && echo 'sourced zshrc'"
