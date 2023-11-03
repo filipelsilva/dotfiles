@@ -235,9 +235,9 @@ bindsym Print mode $mode_printscreen
 # MODE: Change brightness / media control / do not disturb {{{
 set $mode_media_brightness "[media/brightness/DND] i,o,p,h,j,k,l,n,m,d"
 set $notify_options -t 500
-set $volume_message "[Speaker] Volume: $(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)%"
-set $brightness_message "[Screen] Brightness: $(brightnessctl -c backlight | grep 'Current' | grep -Po '\d+(?=%)')%"
-set $dnd_message "[Notifications] Enabled: $(dunstctl is-paused)"
+set $volume_message "Speaker" "Volume: $(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)%"
+set $brightness_message "Screen" "Brightness: $(brightnessctl -c backlight | grep 'Current' | grep -Po '\d+(?=%)')%"
+set $dnd_message "Notifications" "Enabled: $(dunstctl is-paused)"
 
 mode $mode_media_brightness {
 	bindsym i exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send $notify_options "[Microphone] $(pactl get-source-mute @DEFAULT_SOURCE@)"
