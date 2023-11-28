@@ -354,6 +354,9 @@ if !exists("g:no_vim_plugins")
 			" Comment stuff
 			call minpac#add("tpope/vim-commentary")
 
+			" Git stuff
+			call minpac#add("tpope/vim-fugitive")
+
 			" Undo tree
 			call minpac#add("mbbill/undotree")
 
