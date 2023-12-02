@@ -47,4 +47,4 @@
 [mergetool]
 	prompt = true
 [mergetool "vimdiff"]
-	cmd = ${EDITOR:-vim} -d "$LOCAL" "$REMOTE" "$MERGED"
+	cmd = ${EDITOR:-vim} -d "$LOCAL" "$MERGED" "$REMOTE"
