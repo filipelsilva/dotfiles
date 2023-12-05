@@ -38,6 +38,9 @@ lazy.setup({
 	-- Git stuff
 	"tpope/vim-fugitive",
 
+	-- Session stuff
+	"tpope/vim-obsession",
+
 	-- Undo tree
 	"mbbill/undotree",
 
