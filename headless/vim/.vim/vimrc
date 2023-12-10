@@ -276,7 +276,7 @@ for char in [".", ",", "!", "?"]
 endfor
 
 " Text objects (add or remove more, according to needs)
-for char in ["_", ".", ":", ",", ";", "<bar>", "/", "<bslash>", "*", "+", "-", "=", "`", "#", "@"]
+for char in ["_", ".", ":", ",", ";", "<bar>", "/", "<bslash>", "*", "+", "-", "=", "`", "#", "@", "%"]
 	call CreateTextObject(char)
 endfor
 
