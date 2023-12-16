@@ -234,7 +234,7 @@ bindsym Print mode $mode_printscreen
 
 # MODE: Change brightness / media control / do not disturb {{{
 set $mode_media_brightness "[media/brightness/DND] i,o,p,h,j,k,l,n,m,d"
-set $notify_options -t 500
+set $notify_options -t 500 -h string:x-dunst-stack-tag:i3_media_brightness_dnd
 set $volume_message "Speaker" "Volume: $(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)%"
 set $brightness_message "Screen" "Brightness: $(brightnessctl -c backlight | grep 'Current' | grep -Po '\d+(?=%)')%"
 set $dnd_message "Notifications" "Enabled: $(dunstctl is-paused)"
