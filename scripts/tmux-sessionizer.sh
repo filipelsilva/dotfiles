@@ -12,7 +12,7 @@ switchSession() {
 	fi
 }
 
-default() {
+newSessionOrSwitch() {
 	selected=$({
 	find "$HOME/src" -type d -path '*/.git' -print0 -prune | xargs -0 dirname && \
 		find "$HOME/src" -type d -regextype posix-egrep -regex '.*\w+\.git' -print -prune
@@ -37,8 +37,8 @@ default() {
 	tmux switch-client -t "$selected_name"
 }
 
-if [[ $1 = "switch" ]]; then
-	switchSession
+if [[ $1 = "new" ]]; then
+	newSessionOrSwitch
 else
-	default
+	switchSession
 fi
