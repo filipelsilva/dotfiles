@@ -47,7 +47,10 @@ bindsym $mod+Shift+Mod1+w layout stacked
 # Toggle tiling/floating
 bindsym $mod+space floating toggle
 
-# # No title bar on non tabbed mode
+# When a window is activated, do not jump to it on multi monitor setups
+focus_on_window_activation urgent
+
+# No title bar on non tabbed mode
 default_border pixel
 default_floating_border normal
 
