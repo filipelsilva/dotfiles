@@ -22,10 +22,9 @@ newSessionOrSwitch() {
 		exit 0
 	fi
 
-	tmux_running="$(pgrep tmux)"
 	selected_name="$(basename "$selected" | tr . _)"
 
-	if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+	if [[ -z $TMUX ]]; then
 		tmux new-session -s "$selected_name" -c "$selected"
 		exit 0
 	fi
@@ -36,6 +35,13 @@ newSessionOrSwitch() {
 
 	tmux switch-client -t "$selected_name"
 }
+
+tmux_running="$(pgrep tmux)"
+if [[ -z $tmux_running ]]; then
+	tmux new-session -d -s default
+	echo "Starting tmux..."
+	sleep 2
+fi
 
 if [[ $1 = "new" ]]; then
 	newSessionOrSwitch
