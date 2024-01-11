@@ -220,6 +220,22 @@ mode $mode_session {
 bindsym $mod+q mode $mode_session
 # }}}
 
+# MODE: Change keyboard layout {{{
+set $mode_layout "[layout] (u) ctrl:caps, (i) ctrl:escape, (o) none"
+
+mode $mode_layout {
+	bindsym u exec --no-startup-id setxkbmap -option && setxkbmap -option ctrl:swapcaps; mode "default"
+	bindsym i exec --no-startup-id setxkbmap -option && setxkbmap -option caps:swapescape; mode "default"
+	bindsym o exec --no-startup-id setxkbmap -option; mode "default"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+i mode "default"
+}
+
+bindsym $mod+i mode $mode_layout
+# }}}
+
 # MODE: Printscreen {{{
 set $mode_printscreen "[printscreen] (s)election, (a)ctive window, (w)hole screen"
 
