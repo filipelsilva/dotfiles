@@ -221,7 +221,7 @@ bindsym $mod+q mode $mode_session
 # }}}
 
 # MODE: Change keyboard layout {{{
-set $mode_layout "[layout] (u) ctrl:caps, (i) ctrl:escape, (o) none"
+set $mode_layout "[layout] (u) ctrl:caps, (i) caps:escape, (o) none"
 
 mode $mode_layout {
 	bindsym u exec --no-startup-id setxkbmap -option && setxkbmap -option ctrl:swapcaps; mode "default"
