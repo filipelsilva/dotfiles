@@ -51,9 +51,6 @@ export DIFFPROG="$EDITOR -d"
 export LESS="--ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --quit-if-one-screen --window=-4"
 export MANPAGER="less"
 
-# Distro name
-export DISTRONAME=$(cat /etc/os-release | grep "NAME" | head -n 1 | cut -d'=' -f2 | tr -d '"')
-
 # Terminal environment variable
 (( $+commands[alacritty] )) && export TERMINAL="alacritty"
 
@@ -324,29 +321,12 @@ function open() {
 		(fzf --multi | xargs -I {} sh -c "xdg-open '$PWD/{}' > /dev/null 2>&1 &")
 	fi
 }
-
-function x() {
-	if (( $+commands[prime-switch] )); then
-		sudo /usr/bin/prime-switch
-		exec startx
-	else
-		startx
-	fi
-}
 # }}}
 
 # Fzf {{{
 if (( $+commands[fzf] )); then
-	case "$DISTRONAME" in
-		"NixOS")
-			local FZF_KEYBINDS="$(fzf-share)/key-bindings.zsh"
-			local FZF_COMPLETION="$(fzf-share)/completion.zsh"
-			;;
-		"Arch Linux")
-			local FZF_KEYBINDS="/usr/share/fzf/key-bindings.zsh"
-			local FZF_COMPLETION="/usr/share/fzf/completion.zsh"
-			;;
-	esac
+	local FZF_KEYBINDS="$(fzf-share)/key-bindings.zsh"
+	local FZF_COMPLETION="$(fzf-share)/completion.zsh"
 	[[ -n $FZF_KEYBINDS ]] && source $FZF_KEYBINDS
 	[[ -n $FZF_COMPLETION ]] && source $FZF_COMPLETION
 
@@ -392,14 +372,7 @@ fi
 # }}}
 
 # Plugins {{{
-case "$DISTRONAME" in
-	"NixOS")
-		export FORGIT_PLUGIN="$HOME/.zsh/plugins/forgit/forgit.plugin.zsh"
-		;;
-	"Arch Linux")
-		export FORGIT_PLUGIN="/usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh"
-		;;
-esac
+export FORGIT_PLUGIN="$HOME/.zsh/plugins/forgit/forgit.plugin.zsh"
 [[ -n $FORGIT_PLUGIN ]] && source "$FORGIT_PLUGIN"
 
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh --cmd j)"
