@@ -233,8 +233,9 @@ nnoremap gV `[v`]
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left>
 
 " Create quickfix list with word under the cursor
-nnoremap <Leader>q <Cmd>grep! <cword><CR>
-vnoremap <Leader>q "zy<Esc>:grep! <C-r>z<CR>
+nnoremap <Leader>q <Cmd>grep! '<cword>'<CR>
+nnoremap <Leader>Q <Cmd>grep! '<cWORD>'<CR>
+vnoremap <Leader>q "zy<Esc>:grep! '<C-r>z'<CR>
 
 " Make Y work like D and C
 nnoremap Y y$
