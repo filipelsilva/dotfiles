@@ -13,27 +13,25 @@ switchSession() {
 }
 
 newSessionOrSwitch() {
-	selected=$({
-	find "$HOME/src" -type d -path '*/.git' -print0 -prune | xargs -0 dirname && \
-		find "$HOME/src" -type d -regextype posix-egrep -regex '.*\w+\.git' -print -prune
-	} | sort -rnk1 | fzf --no-sort)
+	selected=$(find "$HOME/src" -mindepth 2 -maxdepth 2 -type d | fzf)
 
 	if [[ -z $selected ]]; then
 		exit 0
 	fi
 
 	selected_name="$(basename "$selected" | tr . _)"
+	echo "$selected_name"
 
 	if [[ -z $TMUX ]]; then
-		tmux new-session -s "$selected_name" -c "$selected"
+		echo tmux new-session -s "$selected_name" -c "$selected"
 		exit 0
 	fi
 
 	if ! tmux has-session -t="$selected_name" 2> /dev/null; then
-		tmux new-session -ds "$selected_name" -c "$selected"
+		echo tmux new-session -ds "$selected_name" -c "$selected"
 	fi
 
-	tmux switch-client -t "$selected_name"
+	echo tmux switch-client -t "$selected_name"
 }
 
 tmux_running="$(pgrep tmux)"
