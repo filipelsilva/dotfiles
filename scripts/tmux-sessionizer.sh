@@ -8,11 +8,7 @@ if ! command -v fzf &> /dev/null; then
 		break
 	done
 else
-	selected=$($command -print0 |
-		xargs -0 -n1 zoxide query --list --score |
-		sort -urnk1 |
-		fzf --no-sort |
-		awk '{print $2}')
+	selected=$($command | fzf)
 fi
 
 if [[ -z $selected ]]; then
