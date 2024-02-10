@@ -1,48 +1,35 @@
-switchSession() {
-	selected=$(tmux ls -F \#S | fzf --no-sort)
+#!/bin/bash
 
-	if [[ -z $selected ]]; then
-		exit 0
-	fi
+command="find "$HOME/src" -mindepth 2 -maxdepth 2 -type d"
 
-	if [[ -z $TMUX ]] ; then
-		tmux attach-session -t "$selected"
-	else
-		tmux switch-client -t "$selected"
-	fi
-}
-
-newSessionOrSwitch() {
-	selected=$(find "$HOME/src" -mindepth 2 -maxdepth 2 -type d | fzf)
-
-	if [[ -z $selected ]]; then
-		exit 0
-	fi
-
-	selected_name="$(basename "$selected" | tr . _)"
-	echo "$selected_name"
-
-	if [[ -z $TMUX ]]; then
-		echo tmux new-session -s "$selected_name" -c "$selected"
-		exit 0
-	fi
-
-	if ! tmux has-session -t="$selected_name" 2> /dev/null; then
-		echo tmux new-session -ds "$selected_name" -c "$selected"
-	fi
-
-	echo tmux switch-client -t "$selected_name"
-}
-
-tmux_running="$(pgrep tmux)"
-if [[ -z $tmux_running ]]; then
-	tmux new-session -d -s default
-	echo "Starting tmux..."
-	sleep 2
+if ! command -v fzf &> /dev/null; then
+	select folder in $($command); do
+		selected=$folder
+		break
+	done
+else
+	selected=$($command -print0 |
+		xargs -0 -n1 zoxide query --list --score |
+		sort -urnk1 |
+		fzf --no-sort |
+		awk '{print $2}')
 fi
 
-if [[ $1 = "new" ]]; then
-	newSessionOrSwitch
+if [[ -z $selected ]]; then
+	exit 0
+fi
+
+selected_name="$(basename "$selected" | tr . _)"
+
+if ! tmux has-session -t="$selected_name" 2> /dev/null; then
+	echo tmux new-session -ds "$selected_name" -c "$selected"
+	tmux new-session -ds "$selected_name" -c "$selected"
+fi
+
+if [[ -z $TMUX ]]; then
+	echo tmux attach-session -t "$selected_name"
+	tmux attach-session -t "$selected_name"
 else
-	switchSession
+	echo tmux switch-client -t "$selected_name"
+	tmux switch-client -t "$selected_name"
 fi
