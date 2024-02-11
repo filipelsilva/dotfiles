@@ -322,6 +322,7 @@ nnoremap <Leader><Leader>y <Cmd>%yank+<CR>
 " Colorscheme {{{
 
 colorscheme default
+silent! colorscheme retrobox
 set background=dark
 if !empty(glob("/tmp/lightmode"))
 	set background=light
