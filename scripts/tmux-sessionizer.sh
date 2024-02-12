@@ -1,21 +1,26 @@
 #!/bin/bash
 
-command="find "$HOME/src" -mindepth 2 -maxdepth 2 -type d"
+sessions=$(cat <(echo default) <(find "$HOME/src" -mindepth 2 -maxdepth 2 -type d))
 
 if ! command -v fzf &> /dev/null; then
-	select folder in $($command); do
+	select folder in $sessions; do
 		selected=$folder
 		break
 	done
 else
-	selected=$($command | fzf)
+	selected=$(echo "$sessions" | fzf)
 fi
 
 if [[ -z $selected ]]; then
 	exit 0
 fi
 
-selected_name="$(basename "$selected" | tr . _)"
+if [[ $selected == "default" ]]; then
+	selected=$HOME
+	selected_name="default"
+else
+	selected_name="$(basename "$selected" | tr . _)"
+fi
 
 if ! tmux has-session -t="$selected_name" 2> /dev/null; then
 	echo tmux new-session -ds "$selected_name" -c "$selected"
