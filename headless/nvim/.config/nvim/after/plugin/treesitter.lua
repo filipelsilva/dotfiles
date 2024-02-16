@@ -31,7 +31,8 @@ treesitter.setup({
 		"terraform",
 		"toml",
 		"typescript",
-		"vim"
+		"vim",
+		"vimdoc"
 	},
 	sync_install = true,
 	highlight = {
