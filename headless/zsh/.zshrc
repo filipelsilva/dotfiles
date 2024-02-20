@@ -379,7 +379,9 @@ fi
 source "${ZIT_MODULES_PATH}/zit/zit.zsh"
 
 zit-install "https://github.com/thiagokokada/zit" "zit"
-zit-install-load "https://github.com/wfxr/forgit" "forgit" "forgit.plugin.zsh"
+if (( $+commands[fzf] )); then
+	zit-install-load "https://github.com/wfxr/forgit" "forgit" "forgit.plugin.zsh"
+fi
 
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh --cmd j)"
 (( $+commands[direnv] )) && eval "$(direnv hook zsh)"
