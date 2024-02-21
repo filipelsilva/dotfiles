@@ -7,6 +7,7 @@
 [alias]
 	ac = "!git add --all && git commit"
 	br = "branch"
+	bl = "blame -w -C -C -C"
 	cm = "commit"
 	co = "checkout"
 	df = "diff"
@@ -16,7 +17,7 @@
 	mg = "merge"
 	mt = "mergetool"
 	st = "status --short --branch"
-	sts = "status"
+	stash = "stash --all"
 	tree = "log --graph --oneline --decorate --all"
 
 [core]
