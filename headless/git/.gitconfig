@@ -1,42 +1,64 @@
 [user]
 # YOU CAN OVERRIDE THIS
 # USE GIT_AUTHOR_USER AND GIT_AUTHOR_EMAIL VARIABLES
-	name = "Filipe Ligeiro Silva"
-	email = "57916727+filipelsilva@users.noreply.github.com"
+	name = Filipe Ligeiro Silva
+	email = 57916727+filipelsilva@users.noreply.github.com
 
 [alias]
-	ac = "!git add --all && git commit"
-	br = "branch"
-	bl = "blame -w -C -C -C"
-	cm = "commit"
-	co = "checkout"
-	df = "diff"
-	dfs = "diff --staged"
-	dt = "difftool"
-	dts = "difftool --staged"
-	mg = "merge"
-	mt = "mergetool"
-	st = "status --short --branch"
-	stash = "stash --all"
-	tree = "log --graph --oneline --decorate --all"
+	ac = !git add --all && git commit
+	bl = blame -w -C -C -C
+	br = branch
+	cm = commit
+	co = checkout
+	df = diff
+	dfs = diff --staged
+	dt = difftool
+	dts = difftool --staged
+	fpush = push --force-with-lease
+	mg = merge
+	mt = mergetool
+	st = status --short --branch
+	stash = stash --all
+	tree = log --graph --oneline --decorate --all
 
 [core]
 	autocrlf = input
 
-[help]
-	autocorrect = 30
+[color]
+	ui = auto
+
+[column]
+	ui = auto
+
+[commit]
+	verbose = true
+
+[branch]
+	sort = -committerdate
 
 [init]
 	defaultBranch = main
 
-[pull]
-	rebase = false
+[log]
+	date = iso
 
 [rerere]
 	enabled = true
 
+[help]
+	autocorrect = prompt
+
+[transfer]
+	fsckobjects = true
+[fetch]
+	fsckobjects = true
+[receive]
+	fsckobjects = true
+
 [diff]
-	colorMoved = zebra
+	algorithm = histogram
+	colorMoved = default
+	colorMovedWS = allow-indentation-change
 	tool = vimdiff
 [difftool]
 	prompt = false
@@ -45,6 +67,7 @@
 
 [merge]
 	tool = vimdiff
+	conlfictstyle = zdiff3
 [mergetool]
 	prompt = true
 [mergetool "vimdiff"]
