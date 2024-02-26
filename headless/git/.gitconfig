@@ -18,7 +18,6 @@
 	mg = merge
 	mt = mergetool
 	st = status --short --branch
-	stash = stash --all
 	tree = log --graph --oneline --decorate --all
 
 [core]
