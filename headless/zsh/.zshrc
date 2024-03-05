@@ -12,11 +12,8 @@ fi
 (( $+commands[cargo] )) && PATH="$PATH:$HOME/.cargo/bin"
 
 if (( $+commands[go] )); then
-	local pathAdd="$HOME/.go"
-	if [[ -d $pathAdd ]]; then
-		export GOPATH=$pathAdd
-		PATH="$PATH:$GOPATH/bin"
-	fi
+	export GOPATH="$HOME/.go"
+	export PATH="$PATH:$GOPATH/bin"
 fi
 
 if (( $+commands[java] )); then
@@ -31,7 +28,7 @@ if (( $+commands[gem] )); then
 	local pathAdd="$(ruby -e 'puts Gem.user_dir')"
 	if [[ -d $pathAdd ]]; then
 		export GEM_HOME=$pathAdd
-		export PATH="$PATH:$GEM_HOME/bin"
+		PATH="$PATH:$GEM_HOME/bin"
 	fi
 fi
 # }}}
