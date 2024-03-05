@@ -83,7 +83,13 @@ lazy.setup({
 	},
 
 	-- LSP and code intelligence
-	"neovim/nvim-lspconfig",
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+		},
+	},
 
 	-- Completion
 	{

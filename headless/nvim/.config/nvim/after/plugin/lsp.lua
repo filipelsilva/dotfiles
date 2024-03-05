@@ -4,7 +4,11 @@ if not ok_cmp_nvim_lsp then
 	return
 end
 
-local custom_capabilities = cmp_nvim_lsp.default_capabilities()
+local custom_capabilities = vim.tbl_deep_extend(
+	"force",
+	vim.lsp.protocol.make_client_capabilities(),
+	cmp_nvim_lsp.default_capabilities()
+)
 
 -- LSP on_attach function to define settings and keybinds only if a LSP exists
 local custom_on_attach = function(client, bufnr)
@@ -31,56 +35,91 @@ local custom_on_attach = function(client, bufnr)
 	})
 end
 
--- Managed servers
-local servers = {
-	"bashls",
-	"clangd",
-	"dockerls",
-	"html",
-	"gopls",
-	"jdtls",
-	"lua_ls",
-	"pyright",
-	"nil_ls",
-	"rust_analyzer",
-	"terraformls",
-	"texlab",
-	"tsserver",
-	"vimls"
-}
-
 -- Custom LSP options {{{
-local custom_luals_settings = {
-	Lua = {
-		runtime = {
-			version = "LuaJIT",
-		},
-		diagnostics = {
-			-- Get the language server to recognize the `vim` global
-			globals = { "vim" },
-		},
-		workspace = {
-			-- Make the server aware of Neovim runtime files
-			library = vim.api.nvim_get_runtime_file("", true),
-		},
-		-- Do not send telemetry data containing a randomized but unique identifier
-		telemetry = {
-			enable = false,
+local servers = {
+	lua_ls = {
+		settings = {
+			Lua = {
+				runtime = { version = "LuaJIT" },
+				diagnostics = {
+					-- Get the language server to recognize the `vim` global
+					globals = { "vim" },
+				},
+				workspace = {
+					checkThirdParty = false,
+					-- Tells lua_ls where to find all the Lua files that you have loaded
+					-- for your neovim configuration.
+					library = {
+						"${3rd}/luv/library",
+						unpack(vim.api.nvim_get_runtime_file('', true)),
+					},
+					-- If lua_ls is really slow on your computer, you can try this instead:
+					-- library = { vim.env.VIMRUNTIME },
+				},
+				completion = {
+					callSnippet = "Replace",
+				},
+				-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+				-- diagnostics = { disable = { 'missing-fields' } },
+				telemetry = {
+					enable = false,
+				},
+			},
 		},
 	},
 }
 -- }}}
 
 local ok, lspconfig = pcall(require, "lspconfig")
-
 if not ok then
 	return
 end
 
-for _, server in ipairs(servers) do
-	lspconfig[server].setup({
-		on_attach = custom_on_attach,
-		capabilities = custom_capabilities,
-		settings = server == "lua_ls" and custom_luals_settings or {},
-	})
+local ok_mason, mason = pcall(require, "mason")
+if not ok_mason then
+	return
 end
+
+local ensure_installed = vim.tbl_keys(servers or {})
+vim.list_extend(ensure_installed, {
+	"bashls",
+	"clangd",
+	"dockerls",
+	"gopls",
+	"html",
+	"jdtls",
+	"lua_ls",
+	"nil_ls",
+	"pyright",
+	"rust_analyzer",
+	"terraformls",
+	"texlab",
+	"tsserver",
+	"vimls",
+})
+
+mason.setup({
+	ensure_installed = ensure_installed,
+	PATH = "append",
+})
+
+local ok_mason_lspconfig, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not ok_mason_lspconfig then
+	return
+end
+
+mason_lspconfig.setup({
+	handlers = {
+		function(server_name)
+			local server = servers[server_name] or {}
+			server.capabilities = vim.tbl_deep_extend(
+				"force",
+				{},
+				custom_capabilities,
+				server.capabilities or {}
+			)
+			server.on_attach = custom_on_attach
+			lspconfig[server_name].setup(server)
+		end,
+	},
+})
