@@ -80,6 +80,15 @@ if not ok_mason then
 	return
 end
 
+mason.setup({
+	PATH = "append", -- Use the system's LSPs if they exist
+})
+
+local ok_mason_lspconfig, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not ok_mason_lspconfig then
+	return
+end
+
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
 	"bashls",
@@ -98,17 +107,8 @@ vim.list_extend(ensure_installed, {
 	"vimls",
 })
 
-mason.setup({
-	ensure_installed = ensure_installed,
-	PATH = "append",
-})
-
-local ok_mason_lspconfig, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not ok_mason_lspconfig then
-	return
-end
-
 mason_lspconfig.setup({
+	ensure_installed = ensure_installed,
 	handlers = {
 		function(server_name)
 			local server = servers[server_name] or {}
