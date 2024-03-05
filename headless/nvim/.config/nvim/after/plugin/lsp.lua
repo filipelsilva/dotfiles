@@ -80,14 +80,21 @@ if not ok_mason then
 	return
 end
 
-mason.setup({
-	PATH = "append", -- Use the system's LSPs if they exist
-})
-
 local ok_mason_lspconfig, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not ok_mason_lspconfig then
 	return
 end
+
+local ok_fidget, fidget = pcall(require, "fidget")
+if not ok_fidget then
+	return
+end
+
+fidget.setup({})
+
+mason.setup({
+	PATH = "append", -- Use the system's LSPs if they exist
+})
 
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
