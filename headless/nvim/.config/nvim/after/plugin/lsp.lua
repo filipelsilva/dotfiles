@@ -1,9 +1,29 @@
--- Update capabilities of LSP to support snippets
-local ok_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not ok_cmp_nvim_lsp then
+local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not ok_cmp then
 	return
 end
 
+local ok, lspconfig = pcall(require, "lspconfig")
+if not ok then
+	return
+end
+
+local ok_mason, mason = pcall(require, "mason")
+if not ok_mason then
+	return
+end
+
+local ok_mason_lspconfig, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not ok_mason_lspconfig then
+	return
+end
+
+local ok_fidget, fidget = pcall(require, "fidget")
+if not ok_fidget then
+	return
+end
+
+-- Update capabilities of LSP to support snippets
 local custom_capabilities = vim.tbl_deep_extend(
 	"force",
 	vim.lsp.protocol.make_client_capabilities(),
@@ -34,6 +54,9 @@ local custom_on_attach = function(client, bufnr)
 		callback = function() vim.lsp.buf.format() end,
 	})
 end
+
+fidget.setup({})
+mason.setup({})
 
 -- Custom LSP options {{{
 local servers = {
@@ -70,32 +93,6 @@ local servers = {
 }
 -- }}}
 
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then
-	return
-end
-
-local ok_mason, mason = pcall(require, "mason")
-if not ok_mason then
-	return
-end
-
-local ok_mason_lspconfig, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not ok_mason_lspconfig then
-	return
-end
-
-local ok_fidget, fidget = pcall(require, "fidget")
-if not ok_fidget then
-	return
-end
-
-fidget.setup({})
-
-mason.setup({
-	PATH = "append", -- Use the system's LSPs if they exist
-})
-
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
 	"bashls",
@@ -115,18 +112,19 @@ vim.list_extend(ensure_installed, {
 })
 
 mason_lspconfig.setup({
-	ensure_installed = ensure_installed,
-	handlers = {
-		function(server_name)
-			local server = servers[server_name] or {}
-			server.capabilities = vim.tbl_deep_extend(
-				"force",
-				{},
-				custom_capabilities,
-				server.capabilities or {}
-			)
-			server.on_attach = custom_on_attach
-			lspconfig[server_name].setup(server)
-		end,
-	},
+	-- If we are on NixOS, we'll use the system's LSPs and not Mason's
+	ensure_installed = vim.fn.executable("nixos-rebuild") == 1 and {} or ensure_installed,
 })
+
+-- Setup LSPs
+for _, server_name in ipairs(ensure_installed) do
+	local server = servers[server_name] or {}
+	server.capabilities = vim.tbl_deep_extend(
+		"force",
+		{},
+		custom_capabilities,
+		server.capabilities or {}
+	)
+	server.on_attach = custom_on_attach
+	lspconfig[server_name].setup(server)
+end
