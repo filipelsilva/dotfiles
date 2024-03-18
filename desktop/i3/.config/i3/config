@@ -114,10 +114,10 @@ bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
 
 # Move the whole workspace between outputs
-bindsym $mod+z move workspace to output left
 bindsym $mod+x move workspace to output right
+bindsym $mod+Shift+x move workspace to output left
+bindsym $mod+z move workspace to output up
 bindsym $mod+Shift+z move workspace to output down
-bindsym $mod+Shift+x move workspace to output up
 
 # Move between monitors
 bindsym $mod+Tab focus output right
