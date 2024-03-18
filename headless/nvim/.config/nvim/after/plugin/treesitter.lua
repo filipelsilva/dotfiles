@@ -28,6 +28,7 @@ treesitter.setup({
 		"query",
 		"ruby",
 		"rust",
+		"sql",
 		"terraform",
 		"toml",
 		"typescript",
@@ -37,7 +38,7 @@ treesitter.setup({
 	sync_install = true,
 	highlight = {
 		enable = true,
-		disable = { "markdown" },
+		disable = {},
 		additional_vim_regex_highlighting = false,
 	},
 	incremental_selection = {
