@@ -41,6 +41,9 @@
 [log]
 	date = iso
 
+[rebase]
+	updateRefs = true
+
 [rerere]
 	enabled = true
 
