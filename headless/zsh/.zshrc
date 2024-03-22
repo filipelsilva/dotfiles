@@ -347,6 +347,7 @@ if (( $+commands[fzf] )); then
 	if (( $+commands[fd] )); then
 		local FD_DEFAULT_OPTS=(
 			--hidden
+			--no-ignore
 			--exclude ".git"
 			--exclude ".hg"
 			--exclude ".svn"
