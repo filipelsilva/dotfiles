@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sessions=$(cat <(echo default) <(find "$HOME/src" -mindepth 2 -maxdepth 2 -type d))
+sessions=$(cat <(echo default) <(find -L "$HOME/src" -mindepth 2 -maxdepth 2 -type d))
 
 if ! command -v fzf &> /dev/null; then
 	select folder in $sessions; do
