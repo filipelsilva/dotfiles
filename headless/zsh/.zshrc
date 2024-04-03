@@ -81,9 +81,6 @@ alias la="ls -l --human-readable --all"
 alias lr="ls -l --human-readable --recursive"
 alias lx="ls -l --human-readable --all --inode --size"
 
-# Search for processes
-alias psgrep="ps aux | grep --invert-match grep | grep --ignore-case --regexp VSZ --regexp "
-
 # Extra man pager using $EDITOR
 alias vman="MANPAGER='$EDITOR_MANPAGER' man"
 
