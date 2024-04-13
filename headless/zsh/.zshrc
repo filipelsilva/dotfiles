@@ -318,10 +318,12 @@ function open() {
 
 # Fzf {{{
 if (( $+commands[fzf] )); then
-	local FZF_KEYBINDS="$(fzf-share)/key-bindings.zsh"
-	local FZF_COMPLETION="$(fzf-share)/completion.zsh"
-	[[ -n $FZF_KEYBINDS ]] && source $FZF_KEYBINDS
-	[[ -n $FZF_COMPLETION ]] && source $FZF_COMPLETION
+	if $(fzf --zsh > /dev/null 2>&1); then
+		eval "$(fzf --zsh)"
+	else
+		source "$(fzf-share)/key-bindings.zsh"
+		source "$(fzf-share)/completion.zsh"
+	fi
 
 	# Stop fzf completion trigger from colliding with zsh glob operator
 	export FZF_COMPLETION_TRIGGER=",,"
