@@ -24,6 +24,7 @@ telescope.setup({
 				["<C-s>"] = actions.select_horizontal,
 				["<C-x>"] = false,
 				["<C-a>"] = actions.select_all,
+				["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 			},
 			n = {
 				["<C-j>"] = actions.move_selection_next,
@@ -31,6 +32,7 @@ telescope.setup({
 				["<C-s>"] = actions.select_horizontal,
 				["<C-x>"] = false,
 				["<C-a>"] = actions.select_all,
+				["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 			},
 		},
 		vimgrep_arguments = {
