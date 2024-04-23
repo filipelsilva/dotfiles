@@ -50,7 +50,7 @@ cmp.setup({
 		}),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
-			select = false,
+			select = true,
 		}),
 		["<C-n>"] = cmp.mapping(complete_or_snippet_next, { "i", "s" }),
 		["<C-p>"] = cmp.mapping(complete_or_snippet_prev, { "i", "s" }),
