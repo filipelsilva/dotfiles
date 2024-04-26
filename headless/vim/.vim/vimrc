@@ -184,7 +184,10 @@ augroup PlainTextWidth
 	autocmd!
 
 	" On plain text files, set textwidth to something other than 0
-	autocmd FileType text,markdown,rst,tex,latex,context,plaintex,gitcommit setlocal textwidth=80 spell
+	autocmd FileType text,markdown,rst,tex,latex,context,plaintex setlocal textwidth=80 spell
+
+	" On gitcommits, set textwidth to 72
+	autocmd FileType gitcommit setlocal textwidth=72 colorcolumn=72 spell
 
 augroup END
 
