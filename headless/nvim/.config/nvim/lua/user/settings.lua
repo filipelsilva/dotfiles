@@ -1,3 +1,5 @@
+-- Make substituitions show a preview window
+vim.opt.inccommand = "split"
 
 -- Fix for the client offset_encodings error
 -- This is not a good fix, but for now it's the best one
