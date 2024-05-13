@@ -110,15 +110,15 @@ bindsym $mod+equal move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Move between workspaces
-bindsym $mod+n workspace next
-bindsym $mod+p workspace prev
+bindsym $mod+n workspace next_on_output
+bindsym $mod+p workspace prev_on_output
 
 # Move the whole workspace between outputs
 bindsym $mod+x move workspace to output next
 
-# Move between monitors
-bindsym $mod+Tab focus output right
-bindsym $mod+Shift+Tab move output left
+# Move between outputs
+bindsym $mod+Shift+n focus output right
+bindsym $mod+Shift+p focus output left
 
 # Use $mod+<current workspace number> to switch back to previous workspace
 workspace_auto_back_and_forth yes
