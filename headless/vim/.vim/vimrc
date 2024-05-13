@@ -382,7 +382,7 @@ if !exists("g:no_vim_plugins")
 endif
 " }}}
 
-" Plugin configurations (vim only, neovim disables this) {{{
+" Plugin configurations {{{
 if exists("g:no_vim_plugins") || !empty(glob(s:plugin_folder))
 	" Fzf
 	function! s:build_quickfix_list(lines)
