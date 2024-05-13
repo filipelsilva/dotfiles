@@ -195,10 +195,10 @@ augroup NumberToggle
 	autocmd!
 
 	" If buffer is in focus, enable relative numbers
-	autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &number && mode() != "i" | set relativenumber | endif
+	autocmd BufEnter,InsertLeave,WinEnter * if &number && mode() != "i" | set relativenumber | endif
 
 	" If buffer gets out of focus, disable relative numbers
-	autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &number | set norelativenumber | endif
+	autocmd BufLeave,InsertEnter,WinLeave * if &number | set norelativenumber | endif
 
 augroup END
 " }}}
