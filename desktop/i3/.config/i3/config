@@ -62,17 +62,12 @@ hide_edge_borders smart
 
 # Put icons in tabbed mode
 for_window [all] title_window_icon on
-
-# Zoom windows
-for_window [class="zoom"] floating enable
-for_window [class="zoom" title="Zoom - (Free|Licensed) Account"] floating disable
-for_window [class="zoom" title="Zoom Meeting"] floating disable
 # }}}
 
 # Focusing and moving windows {{{
 
 # Change focus between tiling / floating windows
-bindsym $mod+Shift+space focus mode_toggle
+bindsym $mod+Shift+f focus mode_toggle
 
 # Focus the parent container
 bindsym $mod+a focus parent
