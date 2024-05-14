@@ -45,7 +45,7 @@ bindsym $mod+Shift+w layout toggle split
 bindsym $mod+Shift+Mod1+w layout stacked
 
 # Toggle tiling/floating
-bindsym $mod+space floating toggle
+bindsym $mod+t floating toggle
 
 # When a window is activated, do not jump to it on multi monitor setups
 focus_on_window_activation urgent
