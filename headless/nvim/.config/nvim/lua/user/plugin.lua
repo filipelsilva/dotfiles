@@ -64,7 +64,7 @@ lazy.setup({
 	},
 
 	-- Colorscheme
-	"gruvbox-community/gruvbox",
+	"ellisonleao/gruvbox.nvim",
 
 	-- Telescope
 	{

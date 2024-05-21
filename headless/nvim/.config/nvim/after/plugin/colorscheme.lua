@@ -1,12 +1,15 @@
-local colorscheme = "gruvbox"
-
 vim.o.termguicolors = true
-vim.g.gruvbox_italic = 1
-vim.g.gruvbox_italicize_strings = 1
-vim.g.gruvbox_invert_selection = 0
-vim.g.gruvbox_invert_signs = 0
-vim.g.gruvbox_contrast_dark = "hard"
-vim.g.gruvbox_contrast_light = "hard"
+
+local ok, gruvbox = pcall(require, "gruvbox")
+if not ok then
+	return
+end
+
+gruvbox.setup({
+	contrast = "hard",
+})
+
+local colorscheme = "gruvbox"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
