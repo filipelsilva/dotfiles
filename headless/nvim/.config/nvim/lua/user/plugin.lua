@@ -32,9 +32,6 @@ lazy.setup({
 		}
 	},
 
-	-- Comment stuff
-	"tpope/vim-commentary",
-
 	-- Git stuff
 	"tpope/vim-fugitive",
 

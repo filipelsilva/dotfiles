@@ -32,7 +32,7 @@ local custom_capabilities = vim.tbl_deep_extend(
 
 -- LSP on_attach function to define settings and keybinds only if a LSP exists
 local custom_on_attach = function(client, bufnr)
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
@@ -43,6 +43,9 @@ local custom_on_attach = function(client, bufnr)
 	vim.keymap.set("n", "gtd", vim.lsp.buf.type_definition, opts)
 	vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, opts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	vim.keymap.set("n", "gl", function()
+		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
+	end, opts)
 	vim.keymap.set("n", "gA", vim.lsp.buf.code_action, opts)
 	vim.keymap.set("n", "gs", vim.lsp.buf.rename, opts)
 	vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, opts)
