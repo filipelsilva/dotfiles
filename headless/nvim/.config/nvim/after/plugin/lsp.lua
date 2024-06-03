@@ -42,20 +42,16 @@ local custom_on_attach = function(client, bufnr)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 	vim.keymap.set("n", "gtd", vim.lsp.buf.type_definition, opts)
 	vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, opts)
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "gl", function()
 		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
 	end, opts)
-	vim.keymap.set("n", "gA", vim.lsp.buf.code_action, opts)
+	vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
 	vim.keymap.set("n", "gs", vim.lsp.buf.rename, opts)
 	vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, opts)
 	vim.keymap.set("n", "]e", vim.diagnostic.goto_next, opts)
 
-	vim.api.nvim_create_augroup("LspAutocmd", { clear = true })
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		group = "LspAutocmd",
-		callback = function() vim.lsp.buf.format() end,
-	})
+	vim.api.nvim_create_user_command("Format", vim.lsp.buf.format, {})
 end
 
 fidget.setup({})
