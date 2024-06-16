@@ -75,11 +75,11 @@ if (( $+commands[nvim] )); then
 fi
 
 # Ls aliases
-alias ls="ls --classify --color=never"
-alias l="ls -l --human-readable"
-alias la="ls -l --human-readable --all"
-alias lr="ls -l --human-readable --recursive"
-alias lx="ls -l --human-readable --all --inode --size"
+alias ls="ls --human-readable --color=never"
+alias l="ls -l"
+alias la="ls -l --all"
+alias lr="ls -l --recursive"
+alias lx="ls -l --all --inode --size"
 
 # Extra man pager using $EDITOR
 alias vman="MANPAGER='$EDITOR_MANPAGER' man"
