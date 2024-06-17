@@ -45,7 +45,7 @@ export VISUAL="$EDITOR"
 export DIFFPROG="$EDITOR -d"
 
 # LESS/MANPAGER
-export LESS="--ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --quit-if-one-screen --window=-4"
+export LESS="--ignore-case --LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen"
 export MANPAGER="less"
 
 # Terminal environment variable
