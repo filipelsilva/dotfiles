@@ -91,13 +91,6 @@ alias zshconfig="$EDITOR $HOME/.zshrc && zshsource"
 # Git configuration
 alias gitconfig="git config --global --edit"
 
-# GDB aliases
-if [[ -f $HOME/.gdbinit ]]; then
-	alias gef="gdb --silent --eval-command init-gef"
-	alias peda="gdb --silent --eval-command init-peda"
-	alias pwndbg="gdb --silent --eval-command init-pwndbg"
-fi
-
 # i3 configuration and reload
 if (( $+commands[i3] )); then
 	alias i3source="i3-msg restart"
