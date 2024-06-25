@@ -93,7 +93,6 @@ return {
 				search_dirs = {
 					"$HOME/.config/nvim/init.lua",
 					"$HOME/.config/nvim/lua",
-					"$HOME/.config/nvim/after"
 				},
 				hidden = true,
 				follow = true

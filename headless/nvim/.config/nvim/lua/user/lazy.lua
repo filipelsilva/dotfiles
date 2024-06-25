@@ -21,6 +21,4 @@ lazy.setup({
 	spec = {
 		{ import = "plugins" },
 	},
-	install = { colorscheme = { "gruvbox" } },
-	checker = { enabled = true },
 })
