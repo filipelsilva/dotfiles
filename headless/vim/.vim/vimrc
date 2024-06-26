@@ -63,7 +63,7 @@ set nostartofline
 set spelllang=en,pt
 
 " Diff options
-set diffopt=internal,filler,closeoff,indent-heuristic,algorithm:histogram,linematch:60
+set diffopt=internal,filler,closeoff,indent-heuristic,algorithm:histogram
 
 " Make gf (follow file) work with file_name=/path/to/file
 set isfname-==
