@@ -38,6 +38,19 @@ return {
 			cmp_nvim_lsp.default_capabilities()
 		)
 
+		-- Update capabilities to support utf-16
+		custom_capabilities = vim.tbl_deep_extend(
+			"force",
+			custom_capabilities,
+			{
+				offsetEncoding = { "utf-16" },
+				general = {
+					positionEncodings = { "utf-16" },
+				},
+			}
+		)
+
+
 		-- LSP on_attach function to define settings and keybinds only if a LSP exists
 		local custom_on_attach = function(client, bufnr)
 			vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
@@ -137,6 +150,7 @@ return {
 				server.capabilities or {}
 			)
 			server.on_attach = custom_on_attach
+			server.offset_encoding = "utf-16"
 			lspconfig[server_name].setup(server)
 		end
 	end
