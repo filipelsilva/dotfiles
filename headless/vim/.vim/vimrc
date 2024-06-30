@@ -204,7 +204,14 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
 " Open netrw
-nnoremap <Leader>e <Cmd>Explore<CR>
+nnoremap <Leader>E <Cmd>Explore<CR>
+
+" Open files in the same directory quickly
+cnoremap %% <C-r>=fnameescape(expand("%:p:h"))."/"<CR>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
 
 " Toggle list mode (see tabs, trailing spaces, et cetera)
 nnoremap <Leader>l <Cmd>set invlist<CR>
