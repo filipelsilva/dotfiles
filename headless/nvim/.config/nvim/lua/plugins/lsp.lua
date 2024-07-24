@@ -72,11 +72,9 @@ return {
 			vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, opts)
 			vim.keymap.set("n", "]e", vim.diagnostic.goto_next, opts)
 
-			vim.api.nvim_create_augroup("LspAutocmd", { clear = true })
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = "LspAutocmd",
-				callback = function() vim.lsp.buf.format() end,
-			})
+			vim.api.nvim_create_user_command("Format", function()
+				vim.lsp.buf.format()
+			end, {})
 		end
 
 		fidget.setup({})
