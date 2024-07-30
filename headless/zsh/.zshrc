@@ -160,6 +160,7 @@ setopt NO_GLOB_DOTS
 setopt NO_HUP
 setopt NO_SH_WORD_SPLIT
 setopt NOTIFY
+setopt NO_NOMATCH
 
 # Command history
 HISTFILE="$HOME/.zhistory"
