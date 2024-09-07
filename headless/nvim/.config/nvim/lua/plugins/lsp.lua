@@ -129,7 +129,7 @@ return {
 			"rust_analyzer",
 			"terraformls",
 			"texlab",
-			"tsserver",
+			"ts_ls",
 			"vimls",
 		})
 
