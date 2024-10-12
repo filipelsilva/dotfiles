@@ -70,10 +70,10 @@ return {
 			vim.keymap.set("n", "gA", vim.lsp.buf.code_action, opts)
 			vim.keymap.set("n", "gs", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "[e", function()
-				vim.diagnostic.goto_prev({ severity = "ERROR" })
+				vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
 			end, opts)
 			vim.keymap.set("n", "]e", function()
-				vim.diagnostic.goto_next({ severity = "ERROR" })
+				vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
 			end, opts)
 
 			vim.api.nvim_create_user_command("Format", function()
