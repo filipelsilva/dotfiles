@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 sessions=()
 folders=( "$(find -L "$HOME/src" -mindepth 2 -maxdepth 2 -type d)" )
