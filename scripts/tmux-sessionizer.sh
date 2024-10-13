@@ -1,14 +1,26 @@
 #!/bin/bash
 
-sessions=$(cat <(echo default) <(find -L "$HOME/src" -mindepth 2 -maxdepth 2 -type d))
+sessions=()
+folders=( "$(find -L "$HOME/src" -mindepth 2 -maxdepth 2 -type d)" )
 
-if ! command -v fzf &> /dev/null; then
-	select folder in $sessions; do
+tmux_running=$(pgrep tmux)
+if [[ $tmux_running ]]; then
+	custom_sessions=$(tmux list-sessions -F "#{session_name}")
+	for session in $custom_sessions; do
+		[[ ! ${folders[*]} =~ $session ]] && sessions+=("$session")
+	done
+fi
+
+sessions+=("${folders[@]}")
+[[ ! ${sessions[*]} =~ "default" ]] && sessions=("default" "${sessions[@]}")
+
+if ! command -v fzf > /dev/null 2>&1; then
+	select folder in "${sessions[@]}"; do
 		selected=$folder
 		break
 	done
 else
-	selected=$(echo "$sessions" | fzf)
+	selected=$(printf "%s\n" "${sessions[@]}" | fzf)
 fi
 
 if [[ -z $selected ]]; then
