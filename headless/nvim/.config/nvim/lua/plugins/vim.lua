@@ -10,11 +10,11 @@ return {
 		}
 	},
 
-	-- Git stuff
-	"tpope/vim-fugitive",
-
 	-- Session stuff
 	"tpope/vim-obsession",
+
+	-- Git stuff
+	"tpope/vim-fugitive",
 
 	-- Undo tree
 	"mbbill/undotree",
