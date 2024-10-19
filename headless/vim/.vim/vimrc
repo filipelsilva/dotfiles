@@ -357,11 +357,14 @@ if !exists("g:no_vim_plugins")
 			" Comment stuff
 			call minpac#add("tpope/vim-commentary")
 
+			" Session stuff
+			call minpac#add("tpope/vim-obsession")
+
 			" Git stuff
 			call minpac#add("tpope/vim-fugitive")
 
-			" Session stuff
-			call minpac#add("tpope/vim-obsession")
+			" Git signs
+			call minpac#add("airblade/vim-gitgutter")
 
 			" Undo tree
 			call minpac#add("mbbill/undotree")
