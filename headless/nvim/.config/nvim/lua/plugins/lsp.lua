@@ -1,8 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
 		"j-hui/fidget.nvim",
 	},
 	config = function()
@@ -13,16 +11,6 @@ return {
 
 		local ok, lspconfig = pcall(require, "lspconfig")
 		if not ok then
-			return
-		end
-
-		local ok_mason, mason = pcall(require, "mason")
-		if not ok_mason then
-			return
-		end
-
-		local ok_mason_lspconfig, mason_lspconfig = pcall(require, "mason-lspconfig")
-		if not ok_mason_lspconfig then
 			return
 		end
 
@@ -82,7 +70,6 @@ return {
 		end
 
 		fidget.setup({})
-		mason.setup({})
 
 		-- Custom LSP options {{{
 		local servers = {
@@ -119,8 +106,7 @@ return {
 		}
 		-- }}}
 
-		local ensure_installed = vim.tbl_keys(servers or {})
-		vim.list_extend(ensure_installed, {
+		local ensure_installed = {
 			"bashls",
 			"clangd",
 			"dockerls",
@@ -135,12 +121,7 @@ return {
 			"texlab",
 			"ts_ls",
 			"vimls",
-		})
-
-		mason_lspconfig.setup({
-			-- If we are on NixOS, we'll use the system's LSPs and not Mason's
-			ensure_installed = vim.fn.executable("nixos-rebuild") == 1 and {} or ensure_installed,
-		})
+		}
 
 		-- Setup LSPs
 		for _, server_name in ipairs(ensure_installed) do
