@@ -3,7 +3,7 @@
 	height = 400
 	offset = 10x10
 
-	font = "Iosevka 16"
+	font = "Iosevka Nerd Font 16"
 
 	format = "<b>%s</b>\n%b"
 
@@ -14,7 +14,7 @@
 
 	separator_color = "#585858"
 
-	dmenu = "rofi -theme gruvbox-dark-hard -font "Iosevka 14" -dmenu -p dunst:"
+	dmenu = "rofi -theme gruvbox-dark-hard -font "Iosevka Nerd Font 14" -dmenu -p dunst:"
 	browser = "xdg-open"
 
 	mouse_left_click = close_current

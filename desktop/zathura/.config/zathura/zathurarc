@@ -5,7 +5,7 @@ map <Space> navigate next
 map <S-Space> navigate previous
 
 # Font
-set font "Iosevka 12"
+set font "Iosevka Nerd Font 12"
 
 # Set clipboard to be the system's
 set selection-clipboard clipboard
