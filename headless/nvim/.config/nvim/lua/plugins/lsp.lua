@@ -73,6 +73,14 @@ return {
 
 		-- Custom LSP options {{{
 		local servers = {
+			nixd = {
+				nixpkgs = {
+					expr = "import <nixpkgs> {}",
+				},
+				formatting = {
+					command = { "alejandra" }, -- or nixfmt or nixpkgs-fmt
+				},
+			},
 			lua_ls = {
 				settings = {
 					Lua = {
@@ -114,7 +122,7 @@ return {
 			"html",
 			"jdtls",
 			"lua_ls",
-			"nil_ls",
+			"nixd",
 			"pyright",
 			"rust_analyzer",
 			"terraformls",
