@@ -109,7 +109,7 @@ return {
 		local ensure_installed = {
 			"bashls",
 			"clangd",
-   "cssls",
+			"cssls",
 			"dockerls",
 			"gopls",
 			"html",
