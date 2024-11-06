@@ -17,6 +17,7 @@
 	fpush = push --force-with-lease
 	mg = merge
 	mt = mergetool
+	rb = rebase
 	st = status --short --branch
 	sw = switch
 	tree = log --graph --oneline --decorate --all
