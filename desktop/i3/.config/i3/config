@@ -247,9 +247,9 @@ mode $mode_printscreen {
 bindsym Print mode $mode_printscreen
 # }}}
 
-# MODE: Change brightness / media control / do not disturb {{{
-set $mode_media_brightness "[media/brightness/DND] i,o,p,h,j,k,l,n,m,d"
-set $notify_options -t 500 -h string:x-dunst-stack-tag:i3_media_brightness_dnd
+# MODE: Change brightness / media control / notifications {{{
+set $mode_media_brightness "[media/brightness/notifications] i,o,p,h,j,k,l,n,m,d,c,C,f"
+set $notify_options -t 500 -h string:x-dunst-stack-tag:i3_media_brightness_notifications
 set $volume_message "Speaker" "Volume: $(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)%"
 set $brightness_message "Screen" "Brightness: $(brightnessctl -c backlight | grep 'Current' | grep -Po '\d+(?=%)')%"
 set $dnd_message "Notifications" "Enabled: $(dunstctl is-paused)"
@@ -264,7 +264,11 @@ mode $mode_media_brightness {
 	bindsym l exec --no-startup-id playerctl next
 	bindsym n exec --no-startup-id brightnessctl set 5%- && notify-send $notify_options $brightness_message
 	bindsym m exec --no-startup-id brightnessctl set 5%+ && notify-send $notify_options $brightness_message
-	bindsym d exec --no-startup-id notify-send $notify_options $dnd_message && sleep 0.5 && dunstctl set-paused toggle
+	bindsym d exec --no-startup-id notify-send $notify_options $dnd_message && sleep 0.5 && dunstctl set-paused toggle; mode "default"
+	bindsym c exec --no-startup-id dunstctl close
+	bindsym Shift+c exec --no-startup-id dunstctl close-all; mode "default"
+	bindsym x exec --no-startup-id dunstctl history-pop
+	bindsym f exec --no-startup-id dunstctl context; mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
