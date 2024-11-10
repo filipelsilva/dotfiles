@@ -1,3 +1,4 @@
+[general]
 import = ["/home/filipe/.config/alacritty/settings.toml"]
 
 [colors.bright]
@@ -21,8 +22,8 @@ cyan = "#689d6a"
 white = "#7c6f64"
 
 [colors.primary]
-# soft contrast = "#f2e5bc"
-# normal contrast = "#fbf1c7"
-# hard contrast = "#f9f5d7"
+# soft contrast: background = "#f2e5bc"
+# normal contrast: background = "#fbf1c7"
+# hard contrast: background = "#f9f5d7"
 background = "#f9f5d7"
 foreground = "#3c3836"
