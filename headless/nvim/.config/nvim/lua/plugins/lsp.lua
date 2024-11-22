@@ -2,6 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"j-hui/fidget.nvim",
+		"creativenull/efmls-configs-nvim",
 	},
 	config = function()
 		local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
@@ -16,6 +17,11 @@ return {
 
 		local ok_fidget, fidget = pcall(require, "fidget")
 		if not ok_fidget then
+			return
+		end
+
+		local ok_efmls, efmls_configs = pcall(require, "efmls-configs.defaults")
+		if not ok_efmls then
 			return
 		end
 
@@ -37,7 +43,6 @@ return {
 				},
 			}
 		)
-
 
 		-- LSP on_attach function to define settings and keybinds only if a LSP exists
 		local custom_on_attach = function(client, bufnr)
@@ -69,10 +74,35 @@ return {
 			end, {})
 		end
 
+		-- Auto format on write with efm
+		local lsp_fmt_group = vim.api.nvim_create_augroup("LspFormattingGroup", {})
+		vim.api.nvim_create_autocmd("BufWritePost", {
+			group = lsp_fmt_group,
+			callback = function(ev)
+				local efm = vim.lsp.get_clients({ name = "efm", bufnr = ev.buf })
+				if vim.tbl_isempty(efm) then
+					return
+				end
+				vim.lsp.buf.format({ name = "efm" })
+			end,
+		})
+
+		-- Loading spinners
 		fidget.setup({})
 
 		-- Custom LSP options {{{
 		local servers = {
+			efm = {
+				filetypes = vim.tbl_keys(efmls_configs.languages()),
+				settings = {
+					rootMarkers = { ".git/" },
+					languages = efmls_configs.languages(),
+				},
+				init_options = {
+					documentFormatting = true,
+					documentRangeFormatting = true,
+				},
+			},
 			lua_ls = {
 				settings = {
 					Lua = {
@@ -111,6 +141,7 @@ return {
 			"clangd",
 			"cssls",
 			"dockerls",
+			"efm",
 			"gopls",
 			"html",
 			"jdtls",
