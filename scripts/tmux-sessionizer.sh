@@ -1,7 +1,28 @@
 #!/usr/bin/env bash
 
+# This script's assuming the following directory structure:
+# FOLDER
+# FOLDER/<category>/<project>
+# ...
+#
+# Example:
+# FOLDER/university/nlp-project
+# FOLDER/university/ia-project
+# FOLDER/work/project-one
+# FOLDER/work/project-two
+#
+# This way, we can just get the <project> folder and avoid searching for Git
+# folders and the like. It also follows my mental structure for organization.
+# Change line 21 if you don't agree :D
+
+FOLDER="$HOME/src"
+
 sessions=()
-folders=( "$(find -L "$HOME/src" -mindepth 2 -maxdepth 2 -type d)" )
+if [[ -d $FOLDER ]]; then
+	folders=( "$(find -L $FOLDER -mindepth 2 -maxdepth 2 -type d)" )
+else
+	folders=()
+fi
 
 tmux_running=$(pgrep tmux)
 if [[ $tmux_running ]]; then
