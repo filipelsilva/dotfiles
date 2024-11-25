@@ -83,7 +83,12 @@ return {
 				if vim.tbl_isempty(efm) then
 					return
 				end
-				vim.lsp.buf.format({ name = "efm", timeout_ms = 10000, bufnr = ev.buf })
+				vim.lsp.buf.format({
+					name = "efm",
+					async = false,
+					timeout_ms = 10000,
+					bufnr = ev.buf,
+				})
 			end,
 		})
 
@@ -102,10 +107,10 @@ return {
 			},
 		})
 		for lang, config in pairs(efm_languages) do
-			-- Add `lintOnSave` to all languages
-			efm_languages[lang] = vim.tbl_deep_extend("force", config, {
+			-- Add settings to all tools
+			efm_languages[lang] = vim.tbl_deep_extend("force", config, {{
 				lintOnSave = true,
-			})
+			}})
 		end
 
 		local servers = {
