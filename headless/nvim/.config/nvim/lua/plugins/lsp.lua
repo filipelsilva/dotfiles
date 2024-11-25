@@ -83,7 +83,7 @@ return {
 				if vim.tbl_isempty(efm) then
 					return
 				end
-				vim.lsp.buf.format({ name = "efm" })
+				vim.lsp.buf.format({ name = "efm", async = true })
 			end,
 		})
 
@@ -91,12 +91,22 @@ return {
 		fidget.setup({})
 
 		-- Custom LSP options {{{
+		local efm_languages = efmls_configs.languages()
+		efm_languages = vim.tbl_extend("force", efm_languages, {
+			go = {
+				require("efmls-configs.formatters.gofumpt"),
+				require("efmls-configs.formatters.goimports"),
+				require("efmls-configs.linters.golint"),
+				require("efmls-configs.linters.golint"),
+				require('efmls-configs.linters.golangci_lint'),
+			},
+		})
 		local servers = {
 			efm = {
-				filetypes = vim.tbl_keys(efmls_configs.languages()),
+				filetypes = vim.tbl_keys(efm_languages),
 				settings = {
 					rootMarkers = { ".git/" },
-					languages = efmls_configs.languages(),
+					languages = efm_languages,
 				},
 				init_options = {
 					documentFormatting = true,
