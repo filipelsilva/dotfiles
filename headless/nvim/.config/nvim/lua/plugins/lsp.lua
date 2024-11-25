@@ -83,7 +83,7 @@ return {
 				if vim.tbl_isempty(efm) then
 					return
 				end
-				vim.lsp.buf.format({ name = "efm", async = true })
+				vim.lsp.buf.format({ name = "efm", timeout_ms = 10000, bufnr = ev.buf })
 			end,
 		})
 
@@ -105,12 +105,19 @@ return {
 			efm = {
 				filetypes = vim.tbl_keys(efm_languages),
 				settings = {
-					rootMarkers = { ".git/" },
 					languages = efm_languages,
+					rootMarkers = { ".git/" },
+					lintOnSave = true,
+					lintDebounce = "1s",
+					formatDebounce = "1s",
 				},
 				init_options = {
 					documentFormatting = true,
 					documentRangeFormatting = true,
+					hover = true,
+					documentSymbol = true,
+					codeAction = true,
+					completion = true,
 				},
 			},
 			lua_ls = {
