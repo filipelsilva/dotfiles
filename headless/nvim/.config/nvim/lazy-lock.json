@@ -8,7 +8,7 @@
   "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
   "copilot-cmp": { "branch": "master", "commit": "b6e5286b3d74b04256d0a7e3bd2908eabec34b44" },
   "copilot.lua": { "branch": "master", "commit": "f8d8d872bb319f640d5177dad5fbf01f7a16d7d0" },
-  "efmls-configs-nvim": { "branch": "main", "commit": "e44e39c962dc1629a341fc71cfc8feaa09cefa6f" },
+  "efmls-configs-nvim": { "branch": "main", "commit": "96371caa55b50a7ba4881604f12e8cefedc7b67b" },
   "fidget.nvim": { "branch": "main", "commit": "e2a175c2abe2d4f65357da1c98c59a5cfb2b543f" },
   "fzf": { "branch": "master", "commit": "bee80a730f945c05ac0167130b9204206371d570" },
   "fzf.vim": { "branch": "master", "commit": "556f45e79ae5e3970054fee4c4373472604a1b4e" },
