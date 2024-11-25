@@ -101,15 +101,19 @@ return {
 				require('efmls-configs.linters.golangci_lint'),
 			},
 		})
+		for lang, config in pairs(efm_languages) do
+			-- Add `lintOnSave` to all languages
+			efm_languages[lang] = vim.tbl_deep_extend("force", config, {
+				lintOnSave = true,
+			})
+		end
+
 		local servers = {
 			efm = {
 				filetypes = vim.tbl_keys(efm_languages),
 				settings = {
 					languages = efm_languages,
 					rootMarkers = { ".git/" },
-					lintOnSave = true,
-					lintDebounce = "1s",
-					formatDebounce = "1s",
 				},
 				init_options = {
 					documentFormatting = true,
@@ -125,25 +129,18 @@ return {
 					Lua = {
 						runtime = { version = "LuaJIT" },
 						diagnostics = {
-							-- Get the language server to recognize the `vim` global
 							globals = { "vim" },
 						},
 						workspace = {
 							checkThirdParty = false,
-							-- Tells lua_ls where to find all the Lua files that you have loaded
-							-- for your neovim configuration.
 							library = {
 								"${3rd}/luv/library",
-								unpack(vim.api.nvim_get_runtime_file('', true)),
+								unpack(vim.api.nvim_get_runtime_file("", true)),
 							},
-							-- If lua_ls is really slow on your computer, you can try this instead:
-							-- library = { vim.env.VIMRUNTIME },
 						},
 						completion = {
 							callSnippet = "Replace",
 						},
-						-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-						-- diagnostics = { disable = { 'missing-fields' } },
 						telemetry = {
 							enable = false,
 						},
