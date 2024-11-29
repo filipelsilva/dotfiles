@@ -39,8 +39,5 @@ return {
 		dap.listeners.before.event_exited.dapui_config = function()
 			dapui.close()
 		end
-
-		-- Load .vscode/launch.json
-		ext_vscode.load_launchjs(nil, {})
 	end
 }
