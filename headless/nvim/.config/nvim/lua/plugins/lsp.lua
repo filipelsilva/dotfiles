@@ -102,8 +102,6 @@ return {
 				require("efmls-configs.formatters.gofumpt"),
 				require("efmls-configs.formatters.goimports"),
 				require("efmls-configs.linters.golint"),
-				require("efmls-configs.linters.golint"),
-				require('efmls-configs.linters.golangci_lint'),
 			},
 		})
 		for lang, config in pairs(efm_languages) do

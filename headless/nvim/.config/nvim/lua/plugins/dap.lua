@@ -2,6 +2,7 @@ return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
+		"nvim-neotest/nvim-nio",
 	},
 	config = function()
 		local ok, dap = pcall(require, "dap")
@@ -10,9 +11,6 @@ return {
 		if not ok or not ok_ui or not ok_vscode then
 			return
 		end
-
-		-- Load .vscode/launch.json
-		ext_vscode.load_launchjs(nil, {})
 
 		-- Keybinds
 		vim.keymap.set("n", "<F1>", dap.continue)
@@ -28,6 +26,7 @@ return {
 		end)
 
 		-- Pretty UI
+		dapui.setup()
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
 		end
@@ -40,5 +39,8 @@ return {
 		dap.listeners.before.event_exited.dapui_config = function()
 			dapui.close()
 		end
+
+		-- Load .vscode/launch.json
+		ext_vscode.load_launchjs(nil, {})
 	end
 }
