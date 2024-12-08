@@ -299,15 +299,17 @@ done
 # }}}
 
 # Functions {{{
-function open() {
-	if [[ $# -ne 0 ]]; then
-		for arg in "$@"; do
-			(xdg-open "$PWD/$arg" > /dev/null 2>&1 &)
-		done
-	else
-		(fzf --multi | xargs -I {} sh -c "xdg-open '$PWD/{}' > /dev/null 2>&1 &")
-	fi
-}
+if (( $+commands[xdg-open] && $+commands[fzf] )) ; then
+	function open() {
+		if [[ $# -ne 0 ]]; then
+			for arg in "$@"; do
+				(xdg-open "$PWD/$arg" > /dev/null 2>&1 &)
+			done
+		else
+			(fzf --multi | xargs -I {} sh -c "xdg-open '$PWD/{}' > /dev/null 2>&1 &")
+		fi
+	}
+fi
 # }}}
 
 # Fzf {{{

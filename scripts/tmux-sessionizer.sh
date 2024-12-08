@@ -19,7 +19,7 @@ FOLDER="$HOME/src"
 
 sessions=()
 if [[ -d $FOLDER ]]; then
-	folders=( "$(find -L $FOLDER -mindepth 2 -maxdepth 2 -type d)" )
+	folders=( "$(find -L "$FOLDER" -mindepth 2 -maxdepth 2 -type d)" )
 else
 	folders=()
 fi
