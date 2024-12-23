@@ -1,7 +1,7 @@
 [global]
 	width = (0, 1000)
-	height = 400
-	offset = 10x10
+	height = (0, 400)
+	offset = (10, 10)
 
 	font = "Iosevka Nerd Font 16"
 
