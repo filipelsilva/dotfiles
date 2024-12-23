@@ -12,36 +12,7 @@ return {
 		end
 
 		treesitter.setup({
-			ensure_installed = {
-				"bash",
-				"c",
-				"cpp",
-				"dockerfile",
-				"git_config",
-				"git_rebase",
-				"gitattributes",
-				"gitcommit",
-				"gitignore",
-				"go",
-				"html",
-				"java",
-				"javascript",
-				"json",
-				"lua",
-				"make",
-				"markdown",
-				"nix",
-				"python",
-				"query",
-				"ruby",
-				"rust",
-				"sql",
-				"terraform",
-				"toml",
-				"typescript",
-				"vim",
-				"vimdoc"
-			},
+			ensure_installed = "all",
 			sync_install = true,
 			highlight = {
 				enable = true,
