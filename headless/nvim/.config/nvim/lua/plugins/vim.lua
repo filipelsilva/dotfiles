@@ -21,15 +21,4 @@ return {
 
 	-- Navigate between vim/neovim and tmux
 	"christoomey/vim-tmux-navigator",
-
-	-- Fzf
-	{
-		"junegunn/fzf.vim",
-		dependencies = {
-			{
-				"junegunn/fzf",
-				build = ":call fzf#install()"
-			},
-		}
-	}
 }
