@@ -13,7 +13,7 @@ return {
 
 		treesitter.setup({
 			ensure_installed = "all",
-			sync_install = true,
+			sync_install = false,
 			highlight = {
 				enable = true,
 				disable = {},
