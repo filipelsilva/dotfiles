@@ -1,13 +1,9 @@
 return {
-	"zbirenbaum/copilot-cmp",
-	dependencies = {
-		"zbirenbaum/copilot.lua"
-	},
+	"zbirenbaum/copilot.lua",
 	config = function()
 		local ok_copilot, copilot = pcall(require, "copilot")
-		local ok_copilot_cmp, copilot_cmp = pcall(require, "copilot_cmp")
 
-		if not ok_copilot or not ok_copilot_cmp then
+		if not ok_copilot then
 			return
 		end
 
@@ -15,7 +11,5 @@ return {
 			suggestion = { enabled = false },
 			panel = { enabled = false },
 		})
-
-		copilot_cmp.setup()
 	end
 }

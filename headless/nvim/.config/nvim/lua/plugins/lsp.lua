@@ -5,7 +5,7 @@ return {
 		"creativenull/efmls-configs-nvim",
 	},
 	config = function()
-		local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+		local ok_cmp, cmp = pcall(require, "blink.cmp")
 		if not ok_cmp then
 			return
 		end
@@ -29,13 +29,7 @@ return {
 		local custom_capabilities = vim.tbl_deep_extend(
 			"force",
 			vim.lsp.protocol.make_client_capabilities(),
-			cmp_nvim_lsp.default_capabilities()
-		)
-
-		-- Update capabilities to support utf-16
-		custom_capabilities = vim.tbl_deep_extend(
-			"force",
-			custom_capabilities,
+			cmp.get_lsp_capabilities(),
 			{
 				offsetEncoding = { "utf-16" },
 				general = {
