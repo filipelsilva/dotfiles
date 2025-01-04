@@ -15,5 +15,5 @@ return {
 		local colorscheme = "gruvbox"
 
 		vim.cmd.colorscheme(colorscheme)
-	end
+	end,
 }

@@ -2,7 +2,7 @@ return {
 	"saghen/blink.cmp",
 	dependencies = {
 		"rafamadriz/friendly-snippets",
-		"giuxtaposition/blink-cmp-copilot"
+		"giuxtaposition/blink-cmp-copilot",
 	},
 
 	version = "*",
@@ -24,7 +24,7 @@ return {
 		},
 
 		appearance = {
-			nerd_font_variant = "normal"
+			nerd_font_variant = "normal",
 		},
 
 		sources = {
@@ -48,7 +48,7 @@ return {
 			},
 		},
 
-		signature = { enabled = true }
+		signature = { enabled = true },
 	},
 	opts_extend = { "sources.default" },
 }

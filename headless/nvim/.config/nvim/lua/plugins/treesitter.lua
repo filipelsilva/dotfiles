@@ -2,7 +2,7 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter-context"
+		"nvim-treesitter/nvim-treesitter-context",
 	},
 	config = function()
 		local ok, treesitter = pcall(require, "nvim-treesitter.configs")
@@ -37,5 +37,5 @@ return {
 		end
 
 		context.setup()
-	end
+	end,
 }

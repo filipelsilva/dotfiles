@@ -26,17 +26,13 @@ return {
 		end
 
 		-- Update capabilities of LSP to support snippets
-		local custom_capabilities = vim.tbl_deep_extend(
-			"force",
-			vim.lsp.protocol.make_client_capabilities(),
-			cmp.get_lsp_capabilities(),
-			{
+		local custom_capabilities =
+			vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), cmp.get_lsp_capabilities(), {
 				offsetEncoding = { "utf-16" },
 				general = {
 					positionEncodings = { "utf-16" },
 				},
-			}
-		)
+			})
 
 		-- LSP on_attach function to define settings and keybinds only if a LSP exists
 		local custom_on_attach = function(client, bufnr)
@@ -100,9 +96,9 @@ return {
 		})
 		for lang, config in pairs(efm_languages) do
 			-- Add settings to all tools
-			efm_languages[lang] = vim.tbl_deep_extend("force", config, {{
+			efm_languages[lang] = vim.tbl_deep_extend("force", config, { {
 				lintOnSave = true,
-			}})
+			} })
 		end
 
 		local servers = {
@@ -169,15 +165,10 @@ return {
 		-- Setup LSPs
 		for _, server_name in ipairs(ensure_installed) do
 			local server = servers[server_name] or {}
-			server.capabilities = vim.tbl_deep_extend(
-				"force",
-				{},
-				custom_capabilities,
-				server.capabilities or {}
-			)
+			server.capabilities = vim.tbl_deep_extend("force", {}, custom_capabilities, server.capabilities or {})
 			server.on_attach = custom_on_attach
 			server.offset_encoding = "utf-16"
 			lspconfig[server_name].setup(server)
 		end
-	end
+	end,
 }

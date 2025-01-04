@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		{
 			"junegunn/fzf",
-			build = ":call fzf#install()"
+			build = ":call fzf#install()",
 		},
 	},
 	config = function()
@@ -23,25 +23,26 @@ return {
 				backdrop = 100,
 				preview = {
 					horizontal = "right:50%",
-					vertical = "up:50%"
-				}
+					vertical = "up:50%",
+				},
 			},
 			keymap = {
 				builtin = {
 					true,
 					["?"] = "toggle-preview",
 					["ctrl-a"] = "select-all",
-				}
+				},
 			},
 			actions = {
 				files = {
 					true,
-					["ctrl-q"] = actions.file_edit_or_qf
-				}
+					["ctrl-q"] = actions.file_edit_or_qf,
+				},
 			},
 			grep = {
-				rg_opts = "--hidden --iglob '!*.git' --iglob '!*.hg' --iglob '!*.svn' --iglob '!*CVS' " .. fzf_lua.defaults.grep.rg_opts
-			}
+				rg_opts = "--hidden --iglob '!*.git' --iglob '!*.hg' --iglob '!*.svn' --iglob '!*CVS' "
+					.. fzf_lua.defaults.grep.rg_opts,
+			},
 		})
 
 		local opts = { noremap = true, silent = true }
@@ -67,5 +68,5 @@ return {
 
 		-- Edit vim configuration file
 		vim.keymap.set("n", "<Leader>v", "<Cmd>edit $HOME/.vim/vimrc<CR>", opts)
-	end
+	end,
 }

@@ -6,8 +6,8 @@ return {
 	{
 		"tpope/vim-surround",
 		dependencies = {
-			"tpope/vim-repeat"
-		}
+			"tpope/vim-repeat",
+		},
 	},
 
 	-- Session stuff
