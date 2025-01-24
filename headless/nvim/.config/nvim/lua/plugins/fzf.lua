@@ -28,16 +28,32 @@ return {
 			},
 			keymap = {
 				builtin = {
-					true,
 					["?"] = "toggle-preview",
-					["ctrl-a"] = "select-all",
+					["<C-d>"] = "preview-page-down",
+					["<C-u>"] = "preview-page-up",
+				},
+				fzf = {
+					["ctrl-a"] = "toggle-all",
 				},
 			},
 			actions = {
 				files = {
-					true,
+					["enter"] = actions.file_edit,
+					["ctrl-s"] = actions.file_split,
+					["ctrl-v"] = actions.file_vsplit,
+					["ctrl-t"] = actions.file_tabedit,
 					["ctrl-q"] = actions.file_edit_or_qf,
+					["ctrl-o"] = actions.toggle_ignore,
+					["ctrl-h"] = actions.toggle_hidden,
+					["ctrl-l"] = actions.toggle_follow,
 				},
+				grep = {
+					["ctrl-g"] = actions.grep_lgrep,
+				},
+			},
+			files = {
+				fd_opts = "--hidden --follow --ignore "
+					.. fzf_lua.defaults.files.fd_opts,
 			},
 			grep = {
 				rg_opts = "--hidden --iglob '!*.git' --iglob '!*.hg' --iglob '!*.svn' --iglob '!*CVS' "
@@ -48,7 +64,13 @@ return {
 		local opts = { noremap = true, silent = true }
 
 		-- Keybinds
-		vim.keymap.set("n", "<Leader>f", fzf_lua.files, opts)
+		vim.keymap.set("n", "<Leader>f", function()
+			if vim.fn.len(vim.fn.system("git rev-parse")) == 0 then
+				fzf_lua.git_files()
+			else
+				fzf_lua.files()
+			end
+		end, opts)
 
 		vim.keymap.set("n", "<Leader>r", fzf_lua.live_grep, opts)
 		vim.keymap.set("n", "<Leader>q", fzf_lua.grep_cword, opts)
