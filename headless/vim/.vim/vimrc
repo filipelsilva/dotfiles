@@ -399,7 +399,7 @@ if exists("g:no_vim_plugins") || !empty(glob(s:plugin_folder))
 
 	nnoremap <silent> <expr> <Leader>f (len(system("git rev-parse")) ? ":Files" : ":GFiles")."\<CR>"
 	if executable("rg")
-		nnoremap <Leader>r :Rg<Space>
+		nnoremap <Leader>r <Cmd>Rg<CR>
 	endif
 	nnoremap <silent> <Leader>o <Cmd>History<CR>
 	nnoremap <silent> <Leader>j <Cmd>Buffers<CR>
