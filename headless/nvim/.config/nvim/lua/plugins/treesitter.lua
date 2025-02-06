@@ -6,8 +6,9 @@ return {
 	},
 	config = function()
 		local ok, treesitter = pcall(require, "nvim-treesitter.configs")
+		local ok_context, context = pcall(require, "treesitter-context")
 
-		if not ok then
+		if not ok or not ok_context then
 			return
 		end
 
@@ -30,12 +31,11 @@ return {
 			},
 		})
 
-		local ok_context, context = pcall(require, "treesitter-context")
-
-		if not ok_context then
-			return
-		end
-
-		context.setup()
+		context.setup({
+			enable = true,
+			multiwindow = true,
+			max_lines = 5,
+			trim_scope = "outer",
+		})
 	end,
 }
