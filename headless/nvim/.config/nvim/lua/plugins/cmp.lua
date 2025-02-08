@@ -22,11 +22,9 @@ return {
 			["<C-f>"] = { "scroll_documentation_down", "fallback" },
 			["<C-e>"] = { "show", "hide" },
 		},
-
 		appearance = {
 			use_nvim_cmp_as_default = true,
 		},
-
 		sources = {
 			default = {
 				"lsp",
@@ -54,7 +52,6 @@ return {
 				},
 			},
 		},
-
 		completion = {
 			keyword = { range = "full" },
 			menu = {
@@ -68,7 +65,6 @@ return {
 			},
 			documentation = { auto_show = true },
 		},
-
 		signature = { enabled = true },
 	},
 	opts_extend = { "sources.default" },
