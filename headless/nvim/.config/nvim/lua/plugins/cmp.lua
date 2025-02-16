@@ -25,6 +25,9 @@ return {
 		appearance = {
 			use_nvim_cmp_as_default = true,
 		},
+		cmdline = {
+			sources = {},
+		},
 		sources = {
 			default = {
 				"lsp",
@@ -33,7 +36,6 @@ return {
 				"buffer",
 				"copilot",
 			},
-			cmdline = {},
 			providers = {
 				copilot = {
 					name = "copilot",
