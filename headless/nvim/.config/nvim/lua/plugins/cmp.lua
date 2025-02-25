@@ -26,7 +26,10 @@ return {
 			use_nvim_cmp_as_default = true,
 		},
 		cmdline = {
-			sources = {},
+			enabled = false,
+		},
+		term = {
+			enabled = false,
 		},
 		sources = {
 			default = {

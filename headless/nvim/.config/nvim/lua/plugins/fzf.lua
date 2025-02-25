@@ -52,8 +52,7 @@ return {
 				},
 			},
 			files = {
-				fd_opts = "--hidden --follow --ignore "
-					.. fzf_lua.defaults.files.fd_opts,
+				fd_opts = "--hidden --follow --ignore " .. fzf_lua.defaults.files.fd_opts,
 			},
 			grep = {
 				rg_opts = "--hidden --iglob '!*.git' --iglob '!*.hg' --iglob '!*.svn' --iglob '!*CVS' "

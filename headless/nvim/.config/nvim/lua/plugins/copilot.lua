@@ -20,7 +20,6 @@ return {
 			},
 		},
 		build = "make tiktoken",
-		opts = {
-		},
+		opts = {},
 	},
 }
