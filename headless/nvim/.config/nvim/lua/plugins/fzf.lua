@@ -51,13 +51,6 @@ return {
 					["ctrl-g"] = actions.grep_lgrep,
 				},
 			},
-			files = {
-				fd_opts = "--hidden --follow --ignore " .. fzf_lua.defaults.files.fd_opts,
-			},
-			grep = {
-				rg_opts = "--hidden --iglob '!*.git' --iglob '!*.hg' --iglob '!*.svn' --iglob '!*CVS' "
-					.. fzf_lua.defaults.grep.rg_opts,
-			},
 		})
 
 		local opts = { noremap = true, silent = true }
