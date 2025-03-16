@@ -13,6 +13,9 @@ return {
 	-- Session stuff
 	"tpope/vim-obsession",
 
+	-- Word stuff
+	"tpope/vim-abolish",
+
 	-- Git stuff
 	"tpope/vim-fugitive",
 

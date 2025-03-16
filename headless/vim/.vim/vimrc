@@ -364,6 +364,9 @@ if !exists("g:no_vim_plugins")
 			" Session stuff
 			call minpac#add("tpope/vim-obsession")
 
+			" Word stuff
+			call minpac#add("tpope/vim-abolish")
+
 			" Git stuff
 			call minpac#add("tpope/vim-fugitive")
 
