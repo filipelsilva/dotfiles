@@ -1,3 +1,21 @@
+# Plugins {{{
+export ZIT_MODULES_PATH="${HOME}/.zit.d"
+if [[ ! -d "${ZIT_MODULES_PATH}/zit" ]]; then
+	git clone "https://github.com/thiagokokada/zit" "${ZIT_MODULES_PATH}/zit"
+fi
+source "${ZIT_MODULES_PATH}/zit/zit.zsh"
+
+zit-install "https://github.com/thiagokokada/zit" "zit"
+if (( $+commands[fzf] )); then
+	zit-install-load "https://github.com/wfxr/forgit#main" "forgit" "forgit.plugin.zsh"
+fi
+
+zit-install-load "https://github.com/mafredri/zsh-async#main" "zsh-async" "async.zsh"
+
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh --cmd j)"
+(( $+commands[direnv] )) && eval "$(direnv hook zsh)"
+# }}}
+
 # Variables {{{
 # PATH and related variables {{{
 export PATH
@@ -118,13 +136,48 @@ autoload -Uz add-zsh-hook
 setopt PROMPT_SUBST
 
 autoload -Uz vcs_info
-add-zsh-hook precmd vcs_info
 
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' formats '%c%u%b'
 zstyle ':vcs_info:*' actionformats '%c%u%b(%a)'
+
+# https://vincent.bernat.ch/en/blog/2019-zsh-async-vcs-info
+_vbe_vcs_async_start() {
+	async_start_worker vcs_info
+	async_register_callback vcs_info _vbe_vcs_info_done
+}
+_vbe_vcs_info() {
+	cd -q $1
+	vcs_info
+	print ${vcs_info_msg_0_}
+}
+_vbe_vcs_info_done() {
+	local job=$1
+	local return_code=$2
+	local stdout=$3
+	local more=$6
+	if [[ $job == '[async]' ]]; then
+		if [[ $return_code -eq 2 ]]; then
+			# Need to restart the worker. Stolen from
+			# https://github.com/mengelbrecht/slimline/blob/master/lib/async.zsh
+			_vbe_vcs_async_start
+			return
+		fi
+	fi
+	vcs_info_msg_0_=$stdout
+	[[ $more == 1 ]] || zle reset-prompt
+}
+
+async_init
+_vbe_vcs_async_start
+add-zsh-hook precmd () {
+	async_job vcs_info _vbe_vcs_info $PWD
+}
+add-zsh-hook chpwd () {
+	vcs_info_msg_0_=
+}
 
 # Prompt auxiliary variables
 # (Note: replace %# with %(!.#.$) for bash-like prompt)
@@ -361,20 +414,4 @@ if (( $+commands[fzf] )); then
 		}
 	fi
 fi
-# }}}
-
-# Plugins {{{
-export ZIT_MODULES_PATH="${HOME}/.zit.d"
-if [[ ! -d "${ZIT_MODULES_PATH}/zit" ]]; then
-	git clone "https://github.com/thiagokokada/zit" "${ZIT_MODULES_PATH}/zit"
-fi
-source "${ZIT_MODULES_PATH}/zit/zit.zsh"
-
-zit-install "https://github.com/thiagokokada/zit" "zit"
-if (( $+commands[fzf] )); then
-	zit-install-load "https://github.com/wfxr/forgit#main" "forgit" "forgit.plugin.zsh"
-fi
-
-(( $+commands[zoxide] )) && eval "$(zoxide init zsh --cmd j)"
-(( $+commands[direnv] )) && eval "$(direnv hook zsh)"
 # }}}
