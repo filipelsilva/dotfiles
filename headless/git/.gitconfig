@@ -6,7 +6,6 @@
 
 [alias]
 	ac = !git add --all && git commit
-	amend = !git add --all && git commit --amend --no-edit
 	bl = blame -w -C -C -C
 	br = branch
 	cm = commit

@@ -54,7 +54,7 @@ return {
 			vim.keymap.set("n", "gs", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "gS", require("fzf-lua").lsp_document_symbols, opts)
 			vim.keymap.set("n", "[e", function()
-				vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+				vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
 			end, opts)
 			vim.keymap.set("n", "]e", function()
 				vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
