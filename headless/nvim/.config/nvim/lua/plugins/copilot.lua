@@ -20,6 +20,13 @@ return {
 			},
 		},
 		build = "make tiktoken",
-		opts = {},
+		opts = {
+			mappings = {
+				reset = {
+					normal = "",
+					insert = "",
+				},
+			}
+		},
 	},
 }
