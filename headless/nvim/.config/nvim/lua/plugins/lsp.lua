@@ -53,17 +53,29 @@ return {
 			vim.keymap.set("n", "gA", vim.lsp.buf.code_action, opts)
 			vim.keymap.set("n", "gs", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "gS", require("fzf-lua").lsp_document_symbols, opts)
-			vim.keymap.set("n", "[e", function()
-				vim.diagnostic.jump({ count = -vim.v.count1, severity = vim.diagnostic.severity.ERROR })
+			vim.keymap.set("n", "[d", function()
+				vim.diagnostic.jump({ count = -vim.v.count1 })
 			end, opts)
-			vim.keymap.set("n", "]e", function()
-				vim.diagnostic.jump({ count = vim.v.count1, severity = vim.diagnostic.severity.ERROR })
+			vim.keymap.set("n", "]d", function()
+				vim.diagnostic.jump({ count = vim.v.count1 })
 			end, opts)
 			vim.keymap.set("n", "[D", function()
 				vim.diagnostic.jump({ count = -math.huge })
 			end, opts)
 			vim.keymap.set("n", "]D", function()
 				vim.diagnostic.jump({ count = math.huge })
+			end, opts)
+			vim.keymap.set("n", "[e", function()
+				vim.diagnostic.jump({ count = -vim.v.count1, severity = vim.diagnostic.severity.ERROR })
+			end, opts)
+			vim.keymap.set("n", "]e", function()
+				vim.diagnostic.jump({ count = vim.v.count1, severity = vim.diagnostic.severity.ERROR })
+			end, opts)
+			vim.keymap.set("n", "[E", function()
+				vim.diagnostic.jump({ count = -math.huge, severity = vim.diagnostic.severity.ERROR })
+			end, opts)
+			vim.keymap.set("n", "]E", function()
+				vim.diagnostic.jump({ count = math.huge, severity = vim.diagnostic.severity.ERROR })
 			end, opts)
 
 			vim.api.nvim_create_user_command("Format", function()
@@ -97,9 +109,8 @@ return {
 
 		-- Set diagnostic options
 		vim.diagnostic.config({
-			virtual_lines = true,
 			jump = {
-				float = false,
+				float = true,
 			},
 		})
 
