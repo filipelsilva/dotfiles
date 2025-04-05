@@ -54,10 +54,16 @@ return {
 			vim.keymap.set("n", "gs", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "gS", require("fzf-lua").lsp_document_symbols, opts)
 			vim.keymap.set("n", "[e", function()
-				vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+				vim.diagnostic.jump({ count = -vim.v.count1, severity = vim.diagnostic.severity.ERROR })
 			end, opts)
 			vim.keymap.set("n", "]e", function()
-				vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+				vim.diagnostic.jump({ count = vim.v.count1, severity = vim.diagnostic.severity.ERROR })
+			end, opts)
+			vim.keymap.set("n", "[D", function()
+				vim.diagnostic.jump({ count = -math.huge })
+			end, opts)
+			vim.keymap.set("n", "]D", function()
+				vim.diagnostic.jump({ count = math.huge })
 			end, opts)
 
 			vim.api.nvim_create_user_command("Format", function()
@@ -85,6 +91,17 @@ return {
 
 		-- Loading spinners
 		fidget.setup({})
+
+		-- Hover borders
+		vim.o.winborder = "solid"
+
+		-- Set diagnostic options
+		vim.diagnostic.config({
+			virtual_lines = true,
+			jump = {
+				float = false,
+			},
+		})
 
 		-- Custom LSP options {{{
 		local efm_languages = efmls_configs.languages()
