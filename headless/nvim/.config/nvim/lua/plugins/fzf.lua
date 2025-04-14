@@ -56,6 +56,8 @@ return {
 		local opts = { noremap = true, silent = true }
 
 		-- Keybinds
+		vim.keymap.set("n", "<Leader>F", "<Cmd>FzfLua<CR>", opts)
+
 		vim.keymap.set("n", "<Leader>f", function()
 			if vim.fn.len(vim.fn.system("git rev-parse")) == 0 then
 				fzf_lua.git_files()

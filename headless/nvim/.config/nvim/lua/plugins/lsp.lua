@@ -15,6 +15,11 @@ return {
 			return
 		end
 
+		local ok_fzf_lua, fzf_lua = pcall(require, "fzf-lua")
+		if not ok_fzf_lua then
+			return
+		end
+
 		local ok_fidget, fidget = pcall(require, "fidget")
 		if not ok_fidget then
 			return
@@ -40,19 +45,29 @@ return {
 
 			local opts = { noremap = true, silent = true, buffer = bufnr }
 
-			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-			vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
-			vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-			vim.keymap.set("n", "gtd", vim.lsp.buf.type_definition, opts)
+			vim.keymap.set("n", "gD", fzf_lua.lsp_declarations, opts)
+			vim.keymap.set("n", "gd", fzf_lua.lsp_definitions, opts)
+			vim.keymap.set("n", "gI", fzf_lua.lsp_implementations, opts)
+			vim.keymap.set("n", "gr", fzf_lua.lsp_references, opts)
+			vim.keymap.set("n", "gtd", fzf_lua.lsp_typedefs, opts)
+			vim.keymap.set("n", "gA", fzf_lua.lsp_code_actions, opts)
+			vim.keymap.set("n", "gS", fzf_lua.lsp_document_symbols, opts)
+			vim.keymap.set("n", "gW", fzf_lua.lsp_workspace_diagnostics, opts)
+
+			vim.keymap.set("n", "<Leader>gD", vim.lsp.buf.declaration, opts)
+			vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, opts)
+			vim.keymap.set("n", "<Leader>gI", vim.lsp.buf.implementation, opts)
+			vim.keymap.set("n", "<Leader>gr", vim.lsp.buf.references, opts)
+			vim.keymap.set("n", "<Leader>gtd", vim.lsp.buf.type_definition, opts)
+			vim.keymap.set("n", "<Leader>gA", vim.lsp.buf.code_action, opts)
+
+			vim.keymap.set("n", "<Leader>gs", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, opts)
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 			vim.keymap.set("n", "gl", function()
 				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
 			end, opts)
-			vim.keymap.set("n", "gA", vim.lsp.buf.code_action, opts)
-			vim.keymap.set("n", "gs", vim.lsp.buf.rename, opts)
-			vim.keymap.set("n", "gS", require("fzf-lua").lsp_document_symbols, opts)
+
 			vim.keymap.set("n", "[d", function()
 				vim.diagnostic.jump({ count = -vim.v.count1 })
 			end, opts)
