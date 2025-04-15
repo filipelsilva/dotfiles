@@ -61,7 +61,7 @@ return {
 			vim.keymap.set("n", "<Leader>gtd", vim.lsp.buf.type_definition, opts)
 			vim.keymap.set("n", "<Leader>gA", vim.lsp.buf.code_action, opts)
 
-			vim.keymap.set("n", "<Leader>gs", vim.lsp.buf.rename, opts)
+			vim.keymap.set("n", "gs", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, opts)
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 			vim.keymap.set("n", "gl", function()
