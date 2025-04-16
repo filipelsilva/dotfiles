@@ -41,7 +41,9 @@ return {
 
 		-- LSP on_attach function to define settings and keybinds only if a LSP exists
 		local custom_on_attach = function(client, bufnr)
-			vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
+			if client:supports_method("textDocument/completion") then
+				vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = false })
+			end
 
 			local opts = { noremap = true, silent = true, buffer = bufnr }
 
