@@ -12,6 +12,9 @@ return {
 				model = "claude-3.7-sonnet",
 				agent = "copilot",
 				mappings = {
+					complete = {
+						insert = "",
+					},
 					reset = {
 						normal = "",
 						insert = "<C-l>",
