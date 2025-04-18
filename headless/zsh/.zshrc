@@ -354,6 +354,17 @@ for km in viopp visual; do
 		bindkey -M $km -- $c select-bracketed
 	done
 done
+
+# Turn ... into ../..
+function rationalize-dot {
+	if [[ $LBUFFER = *.. ]]; then
+		LBUFFER+=/..
+	else
+		LBUFFER+=.
+	fi
+}
+zle -N rationalize-dot
+bindkey . rationalize-dot
 # }}}
 
 # Functions {{{
