@@ -3,11 +3,13 @@ return {
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
 		"nvim-neotest/nvim-nio",
+		"igorlfs/nvim-dap-view",
 	},
 	config = function()
 		local ok, dap = pcall(require, "dap")
 		local ok_ui, dapui = pcall(require, "dapui")
-		if not ok or not ok_ui then
+		local ok_view, dapview = pcall(require, "dap-view")
+		if not ok or not ok_ui or not dapview then
 			return
 		end
 
@@ -37,6 +39,20 @@ return {
 		end
 		dap.listeners.before.event_exited.dapui_config = function()
 			dapui.close()
+		end
+
+		-- Window UI
+		dap.listeners.before.attach["dap-view-config"] = function()
+			dapview.open()
+		end
+		dap.listeners.before.launch["dap-view-config"] = function()
+			dapview.open()
+		end
+		dap.listeners.before.event_terminated["dap-view-config"] = function()
+			dapview.close()
+		end
+		dap.listeners.before.event_exited["dap-view-config"] = function()
+			dapview.close()
 		end
 	end,
 }
