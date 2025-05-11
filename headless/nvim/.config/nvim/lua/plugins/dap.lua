@@ -9,7 +9,7 @@ return {
 		local ok, dap = pcall(require, "dap")
 		local ok_ui, dapui = pcall(require, "dapui")
 		local ok_view, dapview = pcall(require, "dap-view")
-		if not ok or not ok_ui or not dapview then
+		if not ok or not ok_ui or not ok_view then
 			return
 		end
 
