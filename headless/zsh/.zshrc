@@ -12,8 +12,6 @@ fi
 
 zit-install-load "https://github.com/mafredri/zsh-async#main" "zsh-async" "async.zsh"
 
-(( $+commands[notify-send] )) && zit-install-load "https://github.com/MichaelAquilina/zsh-auto-notify" "zsh-auto-notify" "auto-notify.plugin.zsh"
-
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh --cmd j)"
 (( $+commands[direnv] )) && eval "$(direnv hook zsh)"
 # }}}
