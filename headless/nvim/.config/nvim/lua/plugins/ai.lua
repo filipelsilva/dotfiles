@@ -25,13 +25,14 @@ return {
 	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 	build = "make",
 	opts = {
+		provider = "copilot",
+		auto_suggestions_provider = "copilot",
 		providers = {
 			copilot = {
 				endpoint = "https://api.githubcopilot.com",
 				model = "gpt-4.1",
 			},
 		},
-		auto_suggestions_provider = "copilot",
 		selector = {
 			provider = "fzf_lua",
 		},
