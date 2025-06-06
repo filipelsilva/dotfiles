@@ -77,12 +77,30 @@ set nrformats=bin,hex
 " Language may disable some keybinds, stop that
 set nolangremap
 
-" If rg exists, use it
+" If rg exists, use it for `:grep`
 if executable("rg")
 	set grepprg=rg\ --hidden\ --vimgrep\ --no-heading\ --smart-case\ --
 	set grepformat=%f:%l:%c:%m,%f:%l:%m
 else
 	set grepprg=grep\ --recursive\ --line-number\ --ignore-case\ --
+endif
+
+" If fd exists, use it for `:find`
+" Otherwise, add files to path for default `find` command
+if !executable("fd")
+	set path+=.,,**
+else
+	function! s:FindFiles(pattern, cmdcomplete)
+		let command = "fd --color=never --full-path --type file --hidden --follow '" . a:pattern . "'"
+		let result = systemlist(command)
+		if v:shell_error != 0
+			echoerr result
+			return []
+		endif
+		return result
+	endfunction
+
+	set findfunc=s:FindFiles
 endif
 
 " Save vim variables between sessions
