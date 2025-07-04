@@ -1,13 +1,20 @@
 return {
 	"yetone/avante.nvim",
+	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+	build = function()
+		if vim.fn.has("win32") == 1 then
+			return "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+		else
+			return "make"
+		end
+	end,
 	event = "VeryLazy",
 	version = false,
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter",
-		"stevearc/dressing.nvim",
+		"github/copilot.vim",
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
-		"github/copilot.vim",
+		"ibhagwan/fzf-lua",
 		{
 			"HakonHarnes/img-clip.nvim",
 			event = "VeryLazy",
@@ -18,19 +25,18 @@ return {
 					drag_and_drop = {
 						insert_mode = true,
 					},
+					use_absolute_path = true,
 				},
 			},
 		},
 	},
-	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-	build = "make",
 	opts = {
 		provider = "copilot",
 		auto_suggestions_provider = "copilot",
 		providers = {
 			copilot = {
 				endpoint = "https://api.githubcopilot.com",
-				model = "gpt-4.1",
+				model = "claude-sonnet-4",
 			},
 		},
 		selector = {
