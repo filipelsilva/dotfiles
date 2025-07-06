@@ -25,8 +25,9 @@
 	cmm = commit --message
 	ac = commit --all
 	acm = commit --all --message
-	amend = commit -all --amend
-	amende = commit -all --amend --no-edit
+	amend = commit --all --amend
+	amende = commit --all --amend --no-edit
+	fixup = commit --fixup
 
 	cl = clone
 	cld = clone --depth 1
@@ -74,6 +75,7 @@
 	rbc = rebase --continue
 	rbi = rebase --interactive
 	rbs = rebase --skip
+	rbas = rebase --autosquash
 
 	rs = reset
 	rh = reset HEAD
