@@ -3,6 +3,7 @@
 # USE GIT_AUTHOR_USER AND GIT_AUTHOR_EMAIL VARIABLES
 	name = Filipe Ligeiro Silva
 	email = 57916727+filipelsilva@users.noreply.github.com
+	username = filipelsilva
 
 [alias]
 	ac = commit -a
@@ -46,27 +47,48 @@
 
 [rebase]
 	updateRefs = true
+	autoSquash = true
+
+[rerere]
+	enabled = true
+	autoupdate = true
+
+[push]
+	autoSetupRemote = true
+	followTags = true
+
+[tag]
+	sort = version:refname
+
+[checkout]
+	defaultRemote = origin
 
 [push]
 	autoSetupRemote = true
 
-[rerere]
-	enabled = true
-
 [help]
 	autocorrect = prompt
 
-[transfer]
-	fsckobjects = true
 [fetch]
+	all = true
+	prune = true
+	pruneTags = true
 	fsckobjects = true
+
 [receive]
 	fsckobjects = true
 
+[transfer]
+	fsckobjects = true
+
+[instaweb]
+	httpd = python
+
 [diff]
 	algorithm = histogram
-	colorMoved = default
+	colorMoved = plain
 	colorMovedWS = allow-indentation-change
+	renames = true
 	tool = vimdiff
 [difftool]
 	prompt = false
