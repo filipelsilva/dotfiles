@@ -48,8 +48,8 @@
 
 	grep = grep -p
 
-	lg = log --oneline
-	lgf = log -S
+	lo = log --oneline
+	lf = log -S
 	tree = log --oneline --graph --decorate --all
 
 	ls = ls-files
