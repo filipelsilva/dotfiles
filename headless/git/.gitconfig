@@ -6,26 +6,107 @@
 	username = filipelsilva
 
 [alias]
-	ac = commit -a
-	amend = commit -a --amend --no-edit
+	aa = add --all
+	ai = add --interactive
+
+	ap = apply
+	aps = apply --stat
+	apc = apply --check
+
+	br = branch --verbose --verbose
+	bra = branch --all
+	brd = branch --delete
+	brdf = branch --delete --force
+
 	bl = blame -w -C -C -C
-	br = branch
+	blm = blame -w -C -C -C -M
+
 	cm = commit
+	cmm = commit --message
+	ac = commit --all
+	acm = commit --all --message
+	amend = commit -all --amend
+	amende = commit -all --amend --no-edit
+
+	cl = clone
+	cld = clone --depth 1
+
 	co = checkout
+	cob = checkout -b
+
 	cp = cherry-pick
+	cpa = cherry-pick --abort
+	cpc = cherry-pick --continue
+
 	df = diff
 	dfs = diff --staged
+	dfc = diff --check
+	dfcs = diff --check --staged
+	dfw = diff --word-diff
 	dt = difftool
 	dts = difftool --staged
-	fpush = push --force-with-lease
+
+	grep = grep -p
+
+	lg = log --oneline
+	lgf = log -S
+	tree = log --oneline --graph --decorate --all
+
+	ls = ls-files
+	lsf = !git ls-files | grep -i
+
 	mg = merge
+	mga = merge --abort
+	mgc = merge --continue
 	mt = mergetool
+
+	ps = push
+	psa = push --all
+	pso = push origin
+	psf = push --force-with-lease
+	psfo = push --force-with-lease origin
+
+	pl = pull
+	plb = pull --rebase
+
 	rb = rebase
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbi = rebase --interactive
+	rbs = rebase --skip
+
 	rs = reset
+	rh = reset HEAD
+	rsh = reset --hard
+	rss = reset --soft
+	rshh = reset --hard HEAD
+	rssh = reset --soft HEAD
+
 	rv = revert
+
+	re = restore
+	res = restore --staged
+	rea = restore --staged --worktree
+
+	sw = show
+
 	st = status --short --branch
-	sw = switch
-	tree = log --graph --oneline --decorate --all
+
+	sta = stash apply
+	stc = stash clear
+	std = stash drop
+	stl = stash list
+	stp = stash pop
+	sts = stash push
+	stsa = stash push --all
+	stsk = stash push --keep-index
+	stw = stash show
+
+	wta = worktree add
+	wtl = worktree list
+	wtp = worktree prune
+	wtr = worktree remove
+	wtx = worktree repair
 
 [core]
 	autocrlf = input
