@@ -49,7 +49,7 @@
 
 	grep = grep -p
 
-	lo = log --oneline
+	lg = log --oneline
 	lf = log -S
 	tree = log --oneline --graph --decorate --all
 
