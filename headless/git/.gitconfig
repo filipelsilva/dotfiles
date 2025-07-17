@@ -146,9 +146,6 @@
 [checkout]
 	defaultRemote = origin
 
-[push]
-	autoSetupRemote = true
-
 [help]
 	autocorrect = prompt
 
