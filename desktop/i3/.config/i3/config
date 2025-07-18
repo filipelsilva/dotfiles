@@ -99,10 +99,10 @@ bindsym $mod+Shift+Right move right
 # Workspaces {{{
 
 # Move focused window to scratchpad
-bindsym $mod+equal move scratchpad
+bindsym $mod+Shift+y move scratchpad
 
 # Toggle/Cycle through scratchpad windows
-bindsym $mod+minus scratchpad show
+bindsym $mod+y scratchpad show
 
 # Move between workspaces
 bindsym $mod+n workspace next_on_output
