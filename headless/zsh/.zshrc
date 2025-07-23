@@ -87,9 +87,13 @@ alias diff="diff --color"
 alias grep="grep --color"
 alias ip="ip --color"
 alias info="info --vi-keys"
+alias g=git
 alias v="$EDITOR"
 if (( $+commands[nvim] )); then
 	alias vimdiff="nvim -d"
+fi
+if (( $+commands[kubectl] )); then
+	alias k=kubectl
 fi
 
 # Ls aliases
