@@ -383,6 +383,17 @@ if (( $+commands[xdg-open] && $+commands[fzf] )) ; then
 		fi
 	}
 fi
+
+if (( $+commands[pgrep] )); then
+	function psgrep() {
+		if [[ $# -eq 0 ]]; then
+			echo "Usage: psgrep <pattern>"
+			return 1
+		fi
+		local pattern="$1"
+		ps u $(pgrep "$pattern")
+	}
+fi
 # }}}
 
 # Fzf {{{
