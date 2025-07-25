@@ -112,6 +112,7 @@
 
 [core]
 	autocrlf = input
+	whitespace = trailing-space
 
 [color]
 	ui = auto
@@ -141,13 +142,17 @@
 	followTags = true
 
 [tag]
-	sort = version:refname
+	sort = -version:refname
 
 [checkout]
 	defaultRemote = origin
 
 [help]
 	autocorrect = prompt
+
+[maintenance]
+	auto = true
+	strategy = incremental
 
 [fetch]
 	all = true
