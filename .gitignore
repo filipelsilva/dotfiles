@@ -1,5 +1,7 @@
 headless/nvim/.config/nvim/spell/
-headless/nvim/.config/nvim/lua/.luarc.json
+*.luarc.json
 headless/vim/.vim/*
 !headless/vim/.vim/vimrc
 desktop/alacritty/.config/alacritty/alacritty.toml
+.direnv
+result
