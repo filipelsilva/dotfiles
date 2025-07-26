@@ -8,6 +8,7 @@
   # Set by the overlay to ensure we use a compatible version of `wrapNeovimUnstable`
   wrapNeovimUnstable,
   neovimUtils,
+    nvimConfigPath ? ../nvim,
 }:
 with lib;
   {
@@ -73,12 +74,12 @@ with lib;
     # This uses the ignoreConfigRegexes list to filter
     # the nvim directory
     nvimRtpSrc = let
-      src = ../headless/nvim/.config/nvim;
+      src = nvimConfigPath;
     in
       lib.cleanSourceWith {
         inherit src;
         name = "nvim-rtp-src";
-        filter = path: tyoe: let
+        filter = path: type: let
           srcPrefix = toString src + "/";
           relPath = lib.removePrefix srcPrefix (toString path);
         in
@@ -125,7 +126,7 @@ with lib;
         vim.opt.rtp:prepend('${nvimRtp}/lua')
       ''
       # Wrap init.lua
-      + (builtins.readFile ../headless/nvim/.config/nvim/init.lua)
+      + (builtins.readFile (nvimConfigPath + "/init.lua"))
       # Bootstrap/load dev plugins
       + optionalString (devPlugins != []) (
         ''

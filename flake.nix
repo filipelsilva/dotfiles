@@ -20,10 +20,13 @@
     flake-utils,
     ...
   }: let
+    nvimConfigPathStr = "headless/nvim/.config/nvim";
+    nvimConfigPath = ./. + "/${nvimConfigPathStr}";
+
     systems = builtins.attrNames nixpkgs.legacyPackages;
 
     # This is where the Neovim derivation is built.
-    neovim-overlay = import ./nix/neovim-overlay.nix {inherit inputs;};
+    neovim-overlay = import ./nix/neovim-overlay.nix {inherit inputs nvimConfigPath;};
   in
     flake-utils.lib.eachSystem systems (system: let
       pkgs = import nixpkgs {
@@ -51,7 +54,7 @@
           # symlink the .luarc.json generated in the overlay
           ln -fs ${pkgs.nvim-luarc-json} .luarc.json
           # allow quick iteration of lua configs
-          ln -Tfns $PWD/headless/nvim/config/.nvim ~/.config/nvim-dev
+          ln -Tfns $PWD/${nvimConfigPathStr} ~/.config/nvim-dev
         '';
       };
     in {
