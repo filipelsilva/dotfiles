@@ -95,6 +95,10 @@ fi
 if (( $+commands[kubectl] )); then
 	alias k=kubectl
 fi
+if (( $+commands[kubectx] )); then
+	alias ktx=kubectx
+	alias kns=kubens
+fi
 
 # Ls aliases
 alias ls="ls --human-readable --color=never"
