@@ -6,7 +6,11 @@
 	username = filipelsilva
 
 [alias]
+	aa = add --all
+	ap = add --patch
+
 	br = branch
+	brv = branch --verbose --verbose
 
 	bl = blame
 	blc = blame -w -C -C -C
@@ -43,6 +47,7 @@
 
 	ps = push
 	psf = push --force-with-lease
+
 	pl = pull
 	plb = pull --rebase
 
