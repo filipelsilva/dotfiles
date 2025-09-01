@@ -18,8 +18,10 @@
 
 	cm = commit
 	ac = commit --all
-	amend = commit --all --amend
-	amende = commit --all --amend --no-edit
+	amend = commit --amend
+	amende = commit --amend --no-edit
+	aamend = commit --all --amend
+	aamende = commit --all --amend --no-edit
 	fixup = commit --fixup
 
 	co = checkout
