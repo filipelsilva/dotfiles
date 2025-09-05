@@ -25,14 +25,14 @@
 	fixup = commit --fixup
 
 	co = checkout
-	cob = checkout -b
 
 	cp = cherry-pick
 	cpa = cherry-pick --abort
 	cpc = cherry-pick --continue
 
-	df = diff
-	dfs = diff --staged
+	df = diff --compact-summary
+	dfs = diff --compact-summary --staged
+	diffs = diff --staged
 	dt = difftool
 	dts = difftool --staged
 
@@ -61,6 +61,7 @@
 	rbas = rebase --autosquash
 
 	rs = reset
+	rsh = reset --hard
 
 	rv = revert
 
