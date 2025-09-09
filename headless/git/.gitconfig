@@ -72,7 +72,7 @@
 	wt = worktree
 
 [core]
-	autocrlf = input
+	autocrlf = true
 	whitespace = trailing-space
 
 [color]
