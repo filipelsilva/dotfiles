@@ -214,7 +214,8 @@ return {
 			server.capabilities = vim.tbl_deep_extend("force", {}, custom_capabilities, server.capabilities or {})
 			server.on_attach = custom_on_attach
 			server.offset_encoding = "utf-16"
-			lspconfig[server_name].setup(server)
+			vim.lsp.config(server_name, server)
+			vim.lsp.enable(server_name)
 		end
 	end,
 }
