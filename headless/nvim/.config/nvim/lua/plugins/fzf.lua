@@ -76,7 +76,6 @@ return {
 		vim.keymap.set("n", "<Leader>o", function()
 			fzf_lua.oldfiles({
 				cwd_only = true,
-				stat_file = true, -- verify files exist on disk
 			})
 		end, opts)
 
