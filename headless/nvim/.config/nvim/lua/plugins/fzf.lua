@@ -53,6 +53,8 @@ return {
 			},
 		})
 
+		fzf_lua.register_ui_select()
+
 		local opts = { noremap = true, silent = true }
 
 		-- Keybinds
@@ -71,7 +73,10 @@ return {
 		vim.keymap.set("n", "<Leader>Q", fzf_lua.grep_cWORD, opts)
 		vim.keymap.set("v", "<Leader>q", fzf_lua.grep_visual, opts)
 
-		vim.keymap.set("n", "<Leader>o", fzf_lua.oldfiles, opts)
+		vim.keymap.set("n", "<Leader>o", fzf_lua.oldfiles({
+			cwd_only = true,
+			stat_file = true, -- verify files exist on disk
+		}), opts)
 
 		vim.keymap.set("n", "<Leader>j", fzf_lua.buffers, opts)
 
