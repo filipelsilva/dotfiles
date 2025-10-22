@@ -6,6 +6,11 @@ return {
 			build = ":call fzf#install()",
 		},
 	},
+	opts = {
+		oldfiles = {
+			include_current_session = true,
+		},
+	},
 	config = function()
 		local ok_fzf_lua, fzf_lua = pcall(require, "fzf-lua")
 		if not ok_fzf_lua then
