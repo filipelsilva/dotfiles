@@ -395,7 +395,7 @@ if (( $+commands[pgrep] )); then
 			return 1
 		fi
 		local pattern="$1"
-		ps u $(pgrep "$pattern")
+		pgrep "$pattern" > /dev/null && ps u $(pgrep "$pattern")
 	}
 fi
 # }}}
