@@ -1,0 +1,329 @@
+include /etc/sway/config.d/*
+
+# Keybinds and settings {{{
+
+input * {
+    xkb_layout "us"
+    xkb_variant "altgr-intl"
+    accel_profile "flat"
+}
+
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+    accel_profile "adaptive"
+}
+
+exec swayidle -w \
+         timeout 300 'swaylock -f' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f'
+
+# Modifier key
+set $mod Mod4
+
+# Font
+font pango:Iosevka Nerd Font 12
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+r reload
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Start a terminal
+bindsym $mod+Return exec alacritty
+bindsym $mod+semicolon exec alacritty
+
+# Start a file manager
+bindsym $mod+e exec nautilus
+
+## Rofi
+set $rofi_options -theme gruvbox-dark-hard -font "Iosevka Nerd Font 14"
+# Open programs
+bindsym $mod+d exec rofi $rofi_options -show drun
+# Open files with rofi
+bindsym $mod+o exec fd . | rofi $rofi_options -dmenu -i -p files -keep-right | xargs -I {} xdg-open {}
+
+# Splits
+bindsym $mod+v splith
+bindsym $mod+s splitv
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Change container layout
+bindsym $mod+w layout toggle tabbed split
+bindsym $mod+Shift+w layout toggle split
+bindsym $mod+Shift+Mod1+w layout stacked
+
+# Toggle tiling/floating
+bindsym $mod+t floating toggle
+
+# When a window is activated, do not jump to it on multi monitor setups
+focus_on_window_activation urgent
+
+# No title bar on non tabbed mode
+default_border pixel
+default_floating_border normal
+
+# Title bar text alignment
+title_align left
+
+# Hide borders if only one window is visible
+hide_edge_borders smart
+
+# }}}
+
+# Focusing and moving windows {{{
+
+# Change focus between tiling / floating windows
+bindsym $mod+Shift+t focus mode_toggle
+
+# Focus the parent container
+bindsym $mod+a focus parent
+
+# Focus the child container
+bindsym $mod+Shift+a focus child
+
+# Change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+# }}}
+
+# Workspaces {{{
+
+# Move focused window to scratchpad
+bindsym $mod+Shift+y move scratchpad
+
+# Toggle/Cycle through scratchpad windows
+bindsym $mod+y scratchpad show
+
+# Move between workspaces
+bindsym $mod+n workspace next_on_output
+bindsym $mod+p workspace prev_on_output
+
+# Move the whole workspace between outputs
+bindsym $mod+x exec swaymsg move workspace to "$(swaymsg -t get_outputs | jq '[.[] | select(.active == true)] | .[(map(.focused) | index(true) + 1) % length].name')"
+
+# Move between outputs
+bindsym $mod+Shift+n focus output right
+bindsym $mod+Shift+p focus output left
+
+# Use $mod+<current workspace number> to switch back to previous workspace
+workspace_auto_back_and_forth yes
+
+# Workspace names
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+# }}}
+
+# Bar/Theme {{{
+
+# Colors
+set $fg          #ebdbb2
+set $bg          #282828
+set $black       #1d2021
+set $red         #cc241d
+set $green       #98971a
+set $yellow      #d79921
+set $blue        #458588
+set $magenta     #b16286
+set $cyan        #689d6a
+set $white       #a89984
+
+# Bar settings
+bar {
+	# tray_output primary
+	tray_padding 0
+	position bottom
+
+	status_command i3status # config at $HOME/.config/i3status/config
+
+	colors {
+		background $black
+		statusline $fg
+		separator  $white
+
+		# border|background|text
+		focused_workspace  $blue $blue $black
+		active_workspace   $white $white $black
+		inactive_workspace $black $black $white
+		urgent_workspace   $red $red $black
+	}
+}
+
+# Container colors
+# border|background|text|indicator|child_border
+client.focused          $blue $blue $black $black $blue
+client.focused_inactive $white $white $black $black $white
+client.unfocused        $bg $black $white $white $bg
+client.urgent           $red $red $black $black $red
+# }}}
+
+# MODE: Exit sway, lock, reboot, shutdown {{{
+set $mode_session "[session] (e)xit sway, (l)ock, (r)eboot, (s)hutdown"
+
+mode $mode_session {
+	bindsym e exec swaymsg exit
+	bindsym l exec swaylock -f; mode "default"
+	bindsym r exec reboot
+	bindsym s exec shutdown -h now
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+q mode "default"
+}
+
+bindsym $mod+q mode $mode_session
+# }}}
+
+# MODE: Change keyboard layout {{{
+set $mode_layout "[layout] (u) ctrl:caps, (i) caps:escape, (o) none"
+
+mode $mode_layout {
+	bindsym u exec swaymsg input "*" xkb_options ctrl:swapcaps; mode "default"
+	bindsym i exec swaymsg input "*" xkb_options caps:swapescape; mode "default"
+	bindsym o exec swaymsg input "*" xkb_options :; mode "default"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+i mode "default"
+}
+
+bindsym $mod+i mode $mode_layout
+# }}}
+
+# MODE: Printscreen {{{
+set $mode_printscreen "[printscreen] (s)election, (a)ctive window, (w)hole screen"
+
+mode $mode_printscreen {
+	bindsym s exec grimshot save area "$HOME/Pictures/$(date +%F_%T).png"; mode "default"
+	bindsym a exec grimshot save active "$HOME/Pictures/$(date +%F_%T).png"; mode "default"
+	bindsym w exec grimshot save screen "$HOME/Pictures/$(date +%F_%T).png"; mode "default"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+Print mode "default"
+}
+
+bindsym $mod+Print mode $mode_printscreen
+bindsym Print exec grimshot save anything "$HOME/Pictures/$(date +%F_%T).png"
+# }}}
+
+# MODE: Change brightness / media control / notifications {{{
+set $mode_media_brightness "[media/brightness/notifications] i,o,p,h,j,k,l,n,m,d,c,C,f"
+set $notify_options -t 500 -h string:x-dunst-stack-tag:sway_media_brightness_notifications
+set $volume_message "Speaker" "Volume: $(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)%"
+set $brightness_message "Screen" "Brightness: $(brightnessctl -c backlight | grep 'Current' | grep -Po '\d+(?=%)')%"
+set $dnd_message "Notifications" "Enabled: $(dunstctl is-paused)"
+
+mode $mode_media_brightness {
+	bindsym i exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send $notify_options "[Microphone] $(pactl get-source-mute @DEFAULT_SOURCE@)"
+	bindsym o exec pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send $notify_options "[Speaker] $(pactl get-sink-mute @DEFAULT_SINK@)"
+	bindsym p exec playerctl play-pause
+	bindsym h exec playerctl previous
+	bindsym j exec pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send $notify_options $volume_message
+	bindsym k exec pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send $notify_options $volume_message
+	bindsym l exec playerctl next
+	bindsym n exec brightnessctl set 5%- && notify-send $notify_options $brightness_message
+	bindsym m exec brightnessctl set 5%+ && notify-send $notify_options $brightness_message
+	bindsym d exec notify-send $notify_options $dnd_message && sleep 0.5 && dunstctl set-paused toggle; mode "default"
+	bindsym c exec dunstctl close
+	bindsym Shift+c exec dunstctl close-all; mode "default"
+	bindsym x exec dunstctl history-pop
+	bindsym f exec dunstctl context; mode "default"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+m mode "default"
+}
+
+bindsym $mod+m mode $mode_media_brightness
+
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send $notify_options $volume_message
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send $notify_options $volume_message
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send $notify_options "[Microphone] $(pactl get-source-mute @DEFAULT_SOURCE@)"
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send $notify_options "[Speaker] $(pactl get-sink-mute @DEFAULT_SINK@)"
+
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPause exec playerctl play-pause
+bindsym --locked XF86AudioStop exec playerctl stop
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
+
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ && notify-send $notify_options $brightness_message
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- && notify-send $notify_options $brightness_message
+# }}}
+
+# MODE: Resize window {{{
+set $mode_resize "resize"
+
+mode $mode_resize {
+	bindsym h resize shrink width 10 px or 10 ppt
+	bindsym j resize grow height 10 px or 10 ppt
+	bindsym k resize shrink height 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode $mode_resize
+# }}}

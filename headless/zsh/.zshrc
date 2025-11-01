@@ -95,10 +95,6 @@ fi
 if (( $+commands[kubectl] )); then
 	alias k=kubectl
 fi
-if (( $+commands[kubectx] )); then
-	alias ktx=kubectx
-	alias kns=kubens
-fi
 
 # Ls aliases
 alias ls="ls --human-readable --color=never"
@@ -117,10 +113,14 @@ alias zshconfig="$EDITOR $HOME/.zshrc && zshsource"
 # Git configuration
 alias gitconfig="git config --global --edit"
 
-# i3 configuration and reload
+# i3/sway configuration and reload
 if (( $+commands[i3] )); then
 	alias i3source="i3-msg restart"
 	alias i3config="$EDITOR $HOME/.config/i3/config && i3source"
+fi
+if (( $+commands[sway] )); then
+	alias swaysource="swaymsg reload"
+	alias swayconfig="$EDITOR $HOME/.config/sway/config && swaysource"
 fi
 # }}}
 
