@@ -66,8 +66,11 @@
 	rv = revert
 
 	rt = restore
+	rts = restore --staged
 
 	st = status --short --branch
+
+	sw = switch
 
 	wt = worktree
 
