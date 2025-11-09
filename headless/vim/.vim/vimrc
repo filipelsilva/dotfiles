@@ -225,6 +225,9 @@ nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
+" Save without triggering autocmds
+nnoremap <Leader>w <Cmd>noautocmd write<CR>
+
 " Open netrw
 nnoremap <Leader>E <Cmd>Explore<CR>
 

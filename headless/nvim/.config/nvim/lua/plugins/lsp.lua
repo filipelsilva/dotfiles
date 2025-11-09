@@ -94,27 +94,24 @@ return {
 			vim.keymap.set("n", "]E", function()
 				vim.diagnostic.jump({ count = math.huge, severity = vim.diagnostic.severity.ERROR })
 			end, opts)
-
-			vim.api.nvim_create_user_command("Format", function()
-				vim.lsp.buf.format()
-			end, {})
 		end
 
-		-- Auto format on write with efm
+		-- Auto format on write
 		local lsp_fmt_group = vim.api.nvim_create_augroup("LspFormattingGroup", {})
-		vim.api.nvim_create_autocmd("BufWritePost", {
+		vim.api.nvim_create_autocmd("BufWritePre", {
 			group = lsp_fmt_group,
 			callback = function(ev)
 				local efm = vim.lsp.get_clients({ name = "efm", bufnr = ev.buf })
 				if vim.tbl_isempty(efm) then
-					return
+					vim.lsp.buf.format()
+				else
+					vim.lsp.buf.format({
+						name = "efm",
+						async = false,
+						timeout_ms = 10000,
+						bufnr = ev.buf,
+					})
 				end
-				vim.lsp.buf.format({
-					name = "efm",
-					async = false,
-					timeout_ms = 10000,
-					bufnr = ev.buf,
-				})
 			end,
 		})
 
