@@ -17,6 +17,10 @@
 
 FOLDER="$HOME/src"
 
+function sanitize_session_names() {
+	echo "$*" | tr '.:' '__'
+}
+
 sessions=()
 if [[ -d $FOLDER ]]; then
 	folders=( "$(find -L "$FOLDER" -mindepth 2 -maxdepth 2 -type d)" )
@@ -27,8 +31,9 @@ fi
 tmux_running=$(pgrep tmux)
 if [[ $tmux_running ]]; then
 	custom_sessions=$(tmux list-sessions -F "#{session_name}")
+	sanitize_session_namesd_sessions=$(sanitize_session_names "${folders[*]}")
 	for session in $custom_sessions; do
-		[[ ! ${folders[*]} =~ $session ]] && sessions+=("$session")
+		[[ ! ${sanitize_session_namesd_sessions[*]} =~ $session ]] && sessions+=("$session")
 	done
 fi
 
@@ -47,6 +52,8 @@ fi
 if [[ -z $selected ]]; then
 	exit 0
 fi
+
+selected=$(sanitize_session_names "$selected")
 
 if [[ $selected == "default" ]]; then
 	selected=$HOME
