@@ -40,6 +40,7 @@
 
 	lg = log --oneline
 	lf = log -S
+	head = log --oneline --max-count 20
 	tree = log --oneline --graph --decorate --all
 
 	mg = merge
