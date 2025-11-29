@@ -407,7 +407,8 @@ fi
 # Fzf {{{
 if (( $+commands[fzf] )); then
 	if $(fzf --zsh > /dev/null 2>&1); then
-		eval "$(fzf --zsh)"
+		# https://github.com/junegunn/fzf/issues/4346#issuecomment-2810047340
+		source <(fzf --zsh | sed -e '/zmodload/s/perl/perl_off/' -e '/selected/s#fc -rl#fc -rlt "%Y-%m-%d %H:%M:%S"#')
 	else
 		source "$(fzf-share)/key-bindings.zsh"
 		source "$(fzf-share)/completion.zsh"
@@ -429,6 +430,9 @@ if (( $+commands[fzf] )); then
 
 	# Variables and functions for fzf operation
 	export FZF_DEFAULT_OPTS="${fzf_options[@]}"
+
+	# Options for history searching
+	export FZF_CTRL_R_OPTS="--with-nth 2.."
 
 	if (( $+commands[fd] )); then
 		local FD_DEFAULT_OPTS=(
