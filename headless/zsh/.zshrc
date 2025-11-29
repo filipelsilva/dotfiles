@@ -398,8 +398,24 @@ if (( $+commands[pgrep] )); then
 			echo "Usage: psgrep <pattern>"
 			return 1
 		fi
+
 		local pattern="$1"
-		pgrep "$pattern" > /dev/null && ps u $(pgrep "$pattern")
+		local pids=( $(pgrep -i "$pattern") )
+
+		if (( ${#pids[@]} == 0 )); then
+			echo "No matching processes found matching '$pattern'"
+			return 1
+		fi
+
+		local output="$(ps uww "${pids[@]}")"
+		local line_count=$(printf "%s\n" "$output" | wc --lines)
+		local longest_line=$(printf "%s\n" "$output" | wc --max-line-length)
+
+		if (( line_count > $LINES || longest_line > $COLUMNS )); then
+			printf "%s\n" "$output" | less --chop-long-lines
+		else
+			printf "%s\n" "$output"
+		fi
 	}
 fi
 # }}}
