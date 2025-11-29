@@ -234,12 +234,27 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 setopt EXTENDED_HISTORY
 setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
-setopt HIST_SAVE_NO_DUPS
 setopt HIST_VERIFY
-setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY_TIME
+
+# SHARE_HISTORY breaks the completion time of commands. Instead, we set
+# INC_APPEND_HISTORY_TIME and use this hook for other shells to get the latest
+# history (after it was written, of course):
+load-shared-history() {
+	# We are not using fc -RI because it messes up CTRL-P and CTRL-N for
+	# cycling between commands. -I filters for duplicates, and my theory is
+	# it messes up the cycling of commands' internal structure. Regardless,
+	# given we have the HIST_IGNORE_DUPS, HIST_SAVE_NO_DUPS and other
+	# options to reduce duplicates, we should be fine ignoring that flag.
+	fc -R $HISTFILE
+}
+
+add-zsh-hook precmd load-shared-history
 
 # }}}
 
