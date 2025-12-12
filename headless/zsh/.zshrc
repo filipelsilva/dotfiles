@@ -447,9 +447,6 @@ if (( $+commands[fzf] )); then
 	# Variables and functions for fzf operation
 	export FZF_DEFAULT_OPTS="${fzf_options[@]}"
 
-	# Options for history searching
-	export FZF_CTRL_R_OPTS="--with-nth 2.."
-
 	if (( $+commands[fd] )); then
 		local FD_DEFAULT_OPTS=(
 			--hidden
