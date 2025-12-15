@@ -264,47 +264,90 @@ bindsym Print exec grimshot save anything "$HOME/Pictures/$(date +%F_%T).png"
 
 # MODE: Change brightness / media control / notifications {{{
 set $mode_media_brightness "[media/brightness/notifications] i,o,p,h,j,k,l,n,m,d,c,C,f"
-set $notify_options -t 500 -h string:x-dunst-stack-tag:sway_media_brightness_notifications
-set $volume_message "Speaker" "Volume: $(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)%"
-set $brightness_message "Screen" "Brightness: $(brightnessctl -c backlight | grep 'Current' | grep -Po '\d+(?=%)')%"
 set $dnd_message "Notifications" "Enabled: $(dunstctl is-paused)"
 
-mode $mode_media_brightness {
-	bindsym i exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send $notify_options "[Microphone] $(pactl get-source-mute @DEFAULT_SOURCE@)"
-	bindsym o exec pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send $notify_options "[Speaker] $(pactl get-sink-mute @DEFAULT_SINK@)"
-	bindsym p exec playerctl play-pause
-	bindsym h exec playerctl previous
-	bindsym j exec pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send $notify_options $volume_message
-	bindsym k exec pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send $notify_options $volume_message
-	bindsym l exec playerctl next
-	bindsym n exec brightnessctl set 5%- && notify-send $notify_options $brightness_message
-	bindsym m exec brightnessctl set 5%+ && notify-send $notify_options $brightness_message
-	bindsym d exec notify-send $notify_options $dnd_message && sleep 0.5 && dunstctl set-paused toggle; mode "default"
-	bindsym c exec dunstctl close
-	bindsym Shift+c exec dunstctl close-all; mode "default"
-	bindsym x exec dunstctl history-pop
-	bindsym f exec dunstctl context; mode "default"
+set $notify_options -t 1000 -h string:x-dunst-stack-tag:sway_media_brightness_dnd_notifications
 
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-	bindsym $mod+m mode "default"
+set $vol_up sh -c ' \
+  pactl set-sink-volume @DEFAULT_SINK@ +5%; \
+  v=$(pactl get-sink-volume @DEFAULT_SINK@ | awk "{print \$5; exit}"); \
+  notify-send $notify_options -h int:value:$v "Volume: $v" \
+'
+
+set $vol_down sh -c ' \
+  pactl set-sink-volume @DEFAULT_SINK@ -5%; \
+  v=$(pactl get-sink-volume @DEFAULT_SINK@ | awk "{print \$5; exit}"); \
+  notify-send $notify_options -h int:value:$v "Volume: $v" \
+'
+
+set $sink_toggle sh -c ' \
+  pactl set-sink-mute @DEFAULT_SINK@ toggle; \
+  notify-send $notify_options "[Speaker] $(pactl get-sink-mute @DEFAULT_SINK@)" \
+'
+
+set $mic_toggle sh -c ' \
+  pactl set-source-mute @DEFAULT_SOURCE@ toggle; \
+  notify-send $notify_options "[Microphone] $(pactl get-source-mute @DEFAULT_SOURCE@)" \
+'
+
+set $bright_up sh -c ' \
+  brightnessctl set 5%+; \
+  b=$(brightnessctl -c backlight | awk -F"[()%]" "/Current/ {print \$2}"); \
+  notify-send $notify_options -h int:value:$b "Brightness: $b%" \
+'
+
+set $bright_down sh -c ' \
+  brightnessctl set 5%-; \
+  b=$(brightnessctl -c backlight | awk -F"[()%]" "/Current/ {print \$2}"); \
+  notify-send $notify_options -h int:value:$b "Brightness: $b%" \
+'
+
+set $dnd_toggle sh -c ' \
+  notify-send $notify_options "Notifications: $(dunstctl is-paused)"; \
+  sleep 0.5; \
+  dunstctl set-paused toggle \
+'
+
+set $media_play playerctl play-pause
+set $media_next playerctl next
+set $media_prev playerctl previous
+
+mode $mode_media_brightness {
+    bindsym i exec $mic_toggle
+    bindsym o exec $sink_toggle
+    bindsym p exec $media_play
+    bindsym h exec $media_prev
+    bindsym j exec $vol_down
+    bindsym k exec $vol_up
+    bindsym l exec $media_next
+    bindsym n exec $bright_down
+    bindsym m exec $bright_up
+    bindsym d exec $dnd_toggle; mode "default"
+    bindsym c exec dunstctl close
+    bindsym Shift+c exec dunstctl close-all; mode "default"
+    bindsym x exec dunstctl history-pop
+    bindsym f exec dunstctl context; mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+m mode "default"
 }
 
 bindsym $mod+m mode $mode_media_brightness
 
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send $notify_options $volume_message
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send $notify_options $volume_message
-bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send $notify_options "[Microphone] $(pactl get-source-mute @DEFAULT_SOURCE@)"
-bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send $notify_options "[Speaker] $(pactl get-sink-mute @DEFAULT_SINK@)"
+bindsym --locked XF86AudioRaiseVolume exec $vol_up
+bindsym --locked XF86AudioLowerVolume exec $vol_down
+bindsym --locked XF86AudioMicMute exec $mic_toggle
+bindsym --locked XF86AudioMute exec $sink_toggle
 
-bindsym --locked XF86AudioPlay exec playerctl play-pause
-bindsym --locked XF86AudioPause exec playerctl play-pause
+bindsym --locked XF86AudioPlay exec $media_play
+bindsym --locked XF86AudioPause exec $media_play
 bindsym --locked XF86AudioStop exec playerctl stop
-bindsym --locked XF86AudioNext exec playerctl next
-bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym --locked XF86AudioNext exec $media_next
+bindsym --locked XF86AudioPrev exec $media_prev
 
-bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ && notify-send $notify_options $brightness_message
-bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- && notify-send $notify_options $brightness_message
+bindsym --locked XF86MonBrightnessUp exec $bright_up
+bindsym --locked XF86MonBrightnessDown exec $bright_down
 # }}}
 
 # MODE: Resize window {{{

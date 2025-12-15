@@ -12,7 +12,8 @@
 	notification_limit = 4
 	history_length = 1000
 
-	separator_color = "#585858"
+	separator_color = "#a89984"
+	highlight = "#a89984"
 
 	dmenu = "rofi -theme gruvbox-dark-hard -font "Iosevka Nerd Font 14" -dmenu -p dunst:"
 	browser = "xdg-open"
