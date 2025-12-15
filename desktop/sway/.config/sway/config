@@ -249,9 +249,9 @@ bindsym $mod+i mode $mode_layout
 set $mode_printscreen "[printscreen] (s)election, (a)ctive window, (w)hole screen"
 
 mode $mode_printscreen {
-	bindsym s exec grimshot save area "$HOME/Pictures/$(date +%F_%T).png"; mode "default"
-	bindsym a exec grimshot save active "$HOME/Pictures/$(date +%F_%T).png"; mode "default"
-	bindsym w exec grimshot save screen "$HOME/Pictures/$(date +%F_%T).png"; mode "default"
+	bindsym s exec grimshot savecopy area "$HOME/Pictures/$(date +%F_%T).png"; mode "default"
+	bindsym a exec grimshot savecopy active "$HOME/Pictures/$(date +%F_%T).png"; mode "default"
+	bindsym w exec grimshot savecopy screen "$HOME/Pictures/$(date +%F_%T).png"; mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -259,7 +259,7 @@ mode $mode_printscreen {
 }
 
 bindsym $mod+Print mode $mode_printscreen
-bindsym Print exec grimshot save anything "$HOME/Pictures/$(date +%F_%T).png"
+bindsym Print exec grimshot savecopy anything "$HOME/Pictures/$(date +%F_%T).png"
 # }}}
 
 # MODE: Change brightness / media control / notifications {{{
