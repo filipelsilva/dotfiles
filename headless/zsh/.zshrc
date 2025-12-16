@@ -424,7 +424,7 @@ fi
 if (( $+commands[fzf] )); then
 	if $(fzf --zsh > /dev/null 2>&1); then
 		# https://github.com/junegunn/fzf/issues/4346#issuecomment-2810047340
-		source <(fzf --zsh | sed -e '/zmodload/s/perl/perl_off/' -e '/selected/s#fc -rl#fc -rlt "%Y-%m-%d %H:%M:%S"#')
+		source <(fzf --zsh | sed -e '/zmodload/s/perl/perl_off/' -e '/selected/s#fc -rl#fc -rlDt "%Y-%m-%d %H:%M:%S"#')
 	else
 		source "$(fzf-share)/key-bindings.zsh"
 		source "$(fzf-share)/completion.zsh"
