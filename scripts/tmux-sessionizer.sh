@@ -53,13 +53,13 @@ if [[ -z $selected ]]; then
 	exit 0
 fi
 
-selected=$(sanitize_session_names "$selected")
+selected_sanitized=$(sanitize_session_names "$selected")
 
-if [[ $selected == "default" ]]; then
-	selected=$HOME
+if [[ $selected_sanitized == "default" ]]; then
+	selected_sanitized=$HOME
 	selected_name="default"
 else
-	selected_name="$(basename "$selected" | tr . _)"
+	selected_name="$(basename "$selected_sanitized")"
 fi
 
 if ! tmux has-session -t="$selected_name" 2> /dev/null; then
