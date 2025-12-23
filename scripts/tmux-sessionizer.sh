@@ -23,7 +23,7 @@ function sanitize_session_names() {
 
 sessions=()
 if [[ -d $FOLDER ]]; then
-	folders=( "$(find -L "$FOLDER" -mindepth 2 -maxdepth 2 -type d)" )
+	folders=( "$(find -L "$FOLDER" -mindepth 2 -maxdepth 2 -printf '%P\n' -type d)" )
 else
 	folders=()
 fi
@@ -56,9 +56,10 @@ fi
 selected_sanitized=$(sanitize_session_names "$selected")
 
 if [[ $selected_sanitized == "default" ]]; then
-	selected_sanitized=$HOME
+	selected=$HOME
 	selected_name="default"
 else
+	selected="$FOLDER/$selected"
 	selected_name="$(basename "$selected_sanitized")"
 fi
 
