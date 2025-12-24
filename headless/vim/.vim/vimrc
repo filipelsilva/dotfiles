@@ -414,7 +414,17 @@ endif
 
 " Plugin configurations {{{
 if exists("g:no_vim_plugins") || !empty(glob(s:plugin_folder))
-	" Fzf
+	"" Fugitive
+	" Add git branch to statusline
+        set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
+
+        " Auto-clean fugitive buffers
+        autocmd BufReadPost fugitive://* set bufhidden=delete
+
+	" .. goes to parent on Fugitive tree/blob views
+	autocmd User fugitive if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' | nnoremap <buffer> .. :edit %:h<CR> | endif
+
+	"" Fzf
 	function! s:build_quickfix_list(lines)
 		call setqflist(map(copy(a:lines), '{ "filename": v:val, "lnum": 1 }'))
 		copen
