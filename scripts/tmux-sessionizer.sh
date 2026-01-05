@@ -23,7 +23,7 @@ function sanitize_session_names() {
 
 sessions=()
 if [[ -d $FOLDER ]]; then
-	folders=( "$(find -L "$FOLDER" -mindepth 2 -maxdepth 2 -printf '%P\n' -type d)" )
+	folders=( "$(find -L "$FOLDER" -mindepth 2 -maxdepth 2 -type d -printf '%P\n')" )
 else
 	folders=()
 fi
