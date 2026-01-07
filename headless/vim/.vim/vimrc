@@ -185,6 +185,9 @@ augroup Vimrc
 	" All gitconfig files with gitconfig filetype
 	autocmd BufNewFile,BufRead *gitconfig* setfiletype gitconfig
 
+	" Auto enable wrap when in diff view
+	autocmd VimEnter * if &diff | execute 'windo set wrap' | endif
+
 augroup END
 
 augroup PlainTextWidth
