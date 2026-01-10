@@ -16,6 +16,21 @@ return {
 	-- Word stuff
 	"tpope/vim-abolish",
 
+	-- UNIX stuff
+	"tpope/vim-eunuch",
+
+	-- Async stuff
+	{
+		"tpope/vim-dispatch",
+		config = function()
+			vim.g.dispatch_no_maps = 1
+			vim.keymap.set("n", "<Leader><Leader>d", "<Cmd>Dispatch!<CR>", { noremap = true })
+			vim.keymap.set("n", "<Leader>d", ":Dispatch!<Space>", { noremap = true })
+			vim.keymap.set("n", "<Leader><Leader>m", "<Cmd>Make!<CR>", { noremap = true })
+			vim.keymap.set("n", "<Leader>m", ":Make!<Space>", { noremap = true })
+		end,
+	},
+
 	-- Git stuff
 	{
 		"tpope/vim-fugitive",

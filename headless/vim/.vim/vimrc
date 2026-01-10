@@ -320,20 +320,6 @@ noremap Q yyp!!$SHELL<CR>
 " Quickly edit the vimrc file
 nmap <Leader>v <Cmd>edit $MYVIMRC<CR>
 
-" Shortcuts to use blackhole register
-nnoremap <Leader>d "_d
-vnoremap <Leader>d "_d
-nnoremap <Leader>D "_D
-vnoremap <Leader>D "_D
-nnoremap <Leader>c "_c
-vnoremap <Leader>c "_c
-nnoremap <Leader>C "_C
-vnoremap <Leader>C "_C
-nnoremap <Leader>x "_x
-vnoremap <Leader>x "_x
-nnoremap <Leader>X "_X
-vnoremap <Leader>X "_X
-
 " Clipboard copy/paste
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
@@ -391,6 +377,12 @@ if !exists("g:no_vim_plugins")
 			" Word stuff
 			call minpac#add("tpope/vim-abolish")
 
+			" UNIX stuff
+			call minpac#add("tpope/vim-eunuch")
+
+			" Async stuff
+			call minpac#add("tpope/vim-dispatch")
+
 			" Git stuff
 			call minpac#add("tpope/vim-fugitive")
 
@@ -416,7 +408,14 @@ endif
 " }}}
 
 " Plugin configurations {{{
-if exists("g:no_vim_plugins") || !empty(glob(s:plugin_folder))
+if !exists("g:no_vim_plugins") || !empty(glob(s:plugin_folder))
+	"" Dispatch
+	let g:dispatch_no_maps = 1
+	nnoremap <Leader><Leader>d <Cmd>Dispatch!<CR>
+	nnoremap <Leader>d :Dispatch!<Space>
+	nnoremap <Leader><Leader>m <Cmd>Make!<CR>
+	nnoremap <Leader>m :Make!<Space>
+
 	"" Fugitive
 	" Add git branch to statusline
         set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
