@@ -377,12 +377,6 @@ if !exists("g:no_vim_plugins")
 			" Word stuff
 			call minpac#add("tpope/vim-abolish")
 
-			" UNIX stuff
-			call minpac#add("tpope/vim-eunuch")
-
-			" Async stuff
-			call minpac#add("tpope/vim-dispatch")
-
 			" Git stuff
 			call minpac#add("tpope/vim-fugitive")
 
@@ -409,13 +403,6 @@ endif
 
 " Plugin configurations {{{
 if !exists("g:no_vim_plugins") || !empty(glob(s:plugin_folder))
-	"" Dispatch
-	let g:dispatch_no_maps = 1
-	nnoremap <Leader><Leader>d <Cmd>Dispatch!<CR>
-	nnoremap <Leader>d :Dispatch!<Space>
-	nnoremap <Leader><Leader>m <Cmd>Make!<CR>
-	nnoremap <Leader>m :Make!<Space>
-
 	"" Fugitive
 	" Add git branch to statusline
         set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
