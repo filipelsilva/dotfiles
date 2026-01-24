@@ -114,6 +114,9 @@
 [help]
 	autocorrect = prompt
 
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
+
 [maintenance]
 	auto = true
 	strategy = incremental
