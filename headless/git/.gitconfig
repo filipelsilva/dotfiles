@@ -33,6 +33,8 @@
 	df = diff --compact-summary
 	dfs = diff --compact-summary --staged
 	diffs = diff --staged
+	wdiff = diff --word-diff
+	wdiffs = diff --word-diff --staged
 	dt = difftool
 	dts = difftool --staged
 
@@ -141,6 +143,7 @@
 	colorMoved = plain
 	colorMovedWS = allow-indentation-change
 	renames = true
+	wordRegex = \\w+|[^[:space:]]
 	tool = vimdiff
 [difftool]
 	prompt = false
