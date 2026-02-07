@@ -90,6 +90,7 @@ return {
 		vim.keymap.set("n", "<Leader><Leader>v", function()
 			fzf_lua.files({
 				cwd = "$HOME/.config/nvim",
+				follow = true,
 			})
 		end, opts)
 
