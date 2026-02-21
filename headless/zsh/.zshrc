@@ -222,8 +222,8 @@ export RPROMPT="${PROMPT_GIT_INFO}"
 # accordingly, so that each hostname element has a unique color.
 # It gracefully falls back to default colors if the variables are not set.
 
-if [[ -n "$TMUX" ]] && (( $+commands[cksum] && $+commands[cut] )); then
-	TMUX_HOST_HASH=$(hostname -s | cksum | cut -c1-6)
+if [[ -n "$TMUX" ]] && (( $+commands[sha512sum] && $+commands[cut] )); then
+	TMUX_HOST_HASH=$(hostname -s | sha512sum | cut -c1-6)
 
 	R=$(( (HASH >> 16) & 255 ))
 	G=$(( (HASH >> 8) & 255 ))
