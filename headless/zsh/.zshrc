@@ -216,6 +216,29 @@ export PROMPT="${PROMPT_ERROR_HANDLING}${PROMPT_INFO} "
 export RPROMPT="${PROMPT_GIT_INFO}"
 # }}}
 
+# Tmux integration {{{
+
+# This section calculates a hash of the hostname and sets colors for tmux
+# accordingly, so that each hostname element has a unique color.
+# It gracefully falls back to default colors if the variables are not set.
+
+if [[ -n "$TMUX" ]] && (( $+commands[cksum] && $+commands[cut] )); then
+	TMUX_HOST_HASH=$(hostname -s | cksum | cut -c1-6)
+
+	R=$(( (HASH >> 16) & 255 ))
+	G=$(( (HASH >> 8) & 255 ))
+	B=$(( HASH & 255 ))
+
+	BRIGHTNESS=$(( (R*299 + G*587 + B*114) / 1000 ))
+
+	TMUX_HOST_FG="colour0"
+	(( BRIGHTNESS > 128 )) && TMUX_HOST_FG="colour15"
+
+	tmux set -g @host_color "#${TMUX_HOST_HASH}"
+	tmux set -g @host_fg "$TMUX_HOST_FG"
+fi
+# }}}
+
 # Options {{{
 
 # Miscellaneous
