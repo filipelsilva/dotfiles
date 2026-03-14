@@ -88,6 +88,7 @@ alias grep="grep --color"
 alias ip="ip --color"
 alias info="info --vi-keys"
 alias g=git
+alias path='echo "$PATH" | tr ":" "\n"'
 alias v="$EDITOR"
 if (( $+commands[nvim] )); then
 	alias vimdiff="nvim -d"
@@ -366,6 +367,14 @@ done
 # }}}
 
 # Functions {{{
+function colors() {
+	for i in {0..255}; do
+		printf '\e[48;5;%dm%3d ' "$i" "$i"
+		(((i+3) % 18)) || printf '\e[0m\n'
+	done
+	printf '\e[0m\n'
+}
+
 if (( $+commands[xdg-open] && $+commands[fzf] )) ; then
 	function open() {
 		if [[ $# -ne 0 ]]; then
