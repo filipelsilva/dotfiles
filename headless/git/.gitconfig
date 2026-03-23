@@ -41,8 +41,10 @@
 	grep = grep -p
 
 	lg = log --oneline
+	lgs = log --oneline --stat
 	lf = log -S
 	head = log --oneline --max-count 20
+	heads = log --oneline --max-count 20 --stat
 	tree = log --oneline --graph --decorate --all
 
 	mg = merge
