@@ -383,9 +383,6 @@ if !exists("g:no_vim_plugins")
 			" Git signs
 			call minpac#add("airblade/vim-gitgutter")
 
-			" Undo tree
-			call minpac#add("mbbill/undotree")
-
 			" Navigate between vim/neovim and tmux
 			call minpac#add("christoomey/vim-tmux-navigator")
 
