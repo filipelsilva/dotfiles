@@ -26,13 +26,12 @@ end
 
 -- Update capabilities of LSP to support snippets
 local custom_capabilities =
-	vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), cmp.get_lsp_capabilities(),
-		{
-			offsetEncoding = { "utf-16" },
-			general = {
-				positionEncodings = { "utf-16" },
-			},
-		})
+	vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), cmp.get_lsp_capabilities(), {
+		offsetEncoding = { "utf-16" },
+		general = {
+			positionEncodings = { "utf-16" },
+		},
+	})
 
 -- LSP on_attach function to define settings and keybinds only if a LSP exists
 local custom_on_attach = function(client, bufnr)
@@ -188,7 +187,7 @@ local servers = {
 	},
 	nil_ls = {
 		settings = {
-			['nil'] = {
+			["nil"] = {
 				formatting = {
 					command = { "nixfmt" },
 				},
@@ -220,8 +219,7 @@ local ensure_installed = {
 -- Setup LSPs
 for _, server_name in ipairs(ensure_installed) do
 	local server = servers[server_name] or {}
-	server.capabilities = vim.tbl_deep_extend("force", {}, custom_capabilities,
-		server.capabilities or {})
+	server.capabilities = vim.tbl_deep_extend("force", {}, custom_capabilities, server.capabilities or {})
 	server.on_attach = custom_on_attach
 	server.offset_encoding = "utf-16"
 	vim.lsp.config(server_name, server)
