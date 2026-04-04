@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
 	end,
 })
 
-local ok, treesitter = pcall(require, "nvim-treesitter.configs")
+local ok, treesitter = pcall(require, "nvim-treesitter")
 local ok_context, context = pcall(require, "treesitter-context")
 
 if not ok or not ok_context then
@@ -23,22 +23,16 @@ if not ok or not ok_context then
 end
 
 treesitter.setup({
-	ensure_installed = "all",
-	sync_install = false,
-	highlight = {
-		enable = true,
-		disable = {},
-		additional_vim_regex_highlighting = false,
-	},
-	incremental_selection = {
-		enable = true,
-	},
-	indent = {
-		enable = true,
-	},
-	playground = {
-		enable = true,
-	},
+	install_dir = vim.fn.stdpath("data") .. "/site"
+})
+
+treesitter.install("unstable")
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = treesitter.get_installed(),
+	callback = function()
+		vim.treesitter.start()
+	end,
 })
 
 context.setup({
