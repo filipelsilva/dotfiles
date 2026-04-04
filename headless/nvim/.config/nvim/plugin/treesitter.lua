@@ -1,8 +1,5 @@
 vim.pack.add({
-	{
-		src = "https://github.com/nvim-treesitter/nvim-treesitter",
-		branch = "master",
-	},
+	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/nvim-treesitter/nvim-treesitter-context",
 })
 
