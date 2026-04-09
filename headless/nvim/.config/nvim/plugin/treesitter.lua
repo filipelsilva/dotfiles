@@ -29,9 +29,11 @@ treesitter.setup({
 treesitter.install("unstable")
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = treesitter.get_installed(),
-	callback = function()
-		vim.treesitter.start()
+	callback = function(args)
+		local lang = vim.treesitter.language.get_lang(args.match)
+		if vim.list_contains(treesitter.get_installed(), lang) then
+			vim.treesitter.start()
+		end
 	end,
 })
 
