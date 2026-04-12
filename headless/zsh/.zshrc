@@ -395,7 +395,7 @@ if (( $+commands[pgrep] )); then
 		fi
 
 		local pattern="$1"
-		local pids=( $(pgrep -i "$pattern") )
+		local pids=( $(pgrep -if "$pattern") )
 
 		if (( ${#pids[@]} == 0 )); then
 			echo "No matching processes found matching '$pattern'"
