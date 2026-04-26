@@ -78,6 +78,16 @@
 	sw = switch
 
 	wt = worktree
+	wta = "!f() { \
+		repo=$(basename $(git rev-parse --show-toplevel)); \
+		git worktree add \"../${repo}-worktrees/$1\" $1; \
+		}; f"
+	wtab = "!f() { \
+		repo=$(basename $(git rev-parse --show-toplevel)); \
+		git worktree add -b \"../${repo}-worktrees/$1\" $1; \
+		}; f"
+	wtr = worktree remove
+	wtl = worktree list
 
 [core]
 	autocrlf = input
