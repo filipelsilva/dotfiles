@@ -387,6 +387,12 @@ if (( $+commands[xdg-open] && $+commands[fzf] )) ; then
 	}
 fi
 
+if (( $+commands[ffplay] )); then
+	function brown_noise() {
+		ffplay -hide_banner -loglevel error -nodisp -f lavfi "anoisesrc=color=brown:amplitude=0.354,lowpass=f=550:poles=1,bass=g=12:f=60,afade=t=in:d=3"
+	}
+fi
+
 if (( $+commands[pgrep] )); then
 	function psgrep() {
 		if [[ $# -eq 0 ]]; then
