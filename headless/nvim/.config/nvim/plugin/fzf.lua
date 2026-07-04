@@ -54,7 +54,7 @@ fzf_lua.register_ui_select()
 local opts = { noremap = true, silent = true }
 
 -- Keybinds
-vim.keymap.set("n", "<Leader>F", "<Cmd>FzfLua<CR>", opts)
+vim.keymap.set("n", "<Leader><Leader>f", "<Cmd>FzfLua<CR>", opts)
 
 vim.keymap.set("n", "<Leader>f", function()
 	---@diagnostic disable-next-line: param-type-mismatch
