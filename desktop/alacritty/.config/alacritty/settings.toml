@@ -14,27 +14,27 @@ WINIT_X11_SCALE_FACTOR = "1"
 [font]
 size = 20.0
 
+[font.normal]
+family = "IosevkaTerm Nerd Font"
+style = "Regular"
+
 [font.bold]
 family = "IosevkaTerm Nerd Font"
 style = "Bold"
-
-[font.bold_italic]
-family = "IosevkaTerm Nerd Font"
-style = "Bold Italic"
-
-[font.glyph_offset]
-x = 0
-y = 0
 
 [font.italic]
 family = "IosevkaTerm Nerd Font"
 style = "Italic"
 
-[font.normal]
+[font.bold_italic]
 family = "IosevkaTerm Nerd Font"
-style = "Regular"
+style = "Bold Italic"
 
 [font.offset]
+x = 0
+y = 0
+
+[font.glyph_offset]
 x = 0
 y = 0
 
