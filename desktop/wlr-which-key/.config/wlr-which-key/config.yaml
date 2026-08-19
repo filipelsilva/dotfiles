@@ -1,0 +1,127 @@
+# Theming (gruvbox-dark-hard palette mirroring sway colors).
+font: Iosevka Nerd Font 16
+background: "#282828d0"   # $bg with alpha
+color: "#ebdbb2"          # $fg
+border: "#458588"         # $blue
+separator: ": "
+border_width: 2
+corner_r: 0
+padding: 15
+rows_per_column: 20
+column_padding: 25
+
+# Anchor and margin
+anchor: center             # one of center, left, right, top, bottom, bottom-left, ...
+margin_right: 0
+margin_bottom: 0
+margin_left: 0
+margin_top: 0
+
+# Permits key bindings that conflict with compositor key bindings, so the
+# single-letter keys used inside the menus (i, o, ...) are not grabbed by niri.
+inhibit_compositor_keyboard_shortcuts: true
+
+# Try to guess the correct keyboard layout to use (so Shift+c is interpreted
+# correctly).
+auto_kbd_layout: true
+
+# Top-level menu mirroring the three sway modes being migrated.
+# Triggered from niri via:
+#   wlr-which-key --initial-keys "q"   (session)
+#   wlr-which-key --initial-keys "t"   (layout)
+#   wlr-which-key --initial-keys "m"   (media)
+menu:
+  - key: "q"
+    desc: "[session] (e)xit, (l)ock, (r)eboot, (s)hutdown"
+    submenu:
+      - key: "e"
+        desc: Exit niri
+        cmd: niri msg action quit
+      - key: "l"
+        desc: Lock
+        cmd: swaylock -f
+      - key: "r"
+        desc: Reboot
+        cmd: reboot
+      - key: "s"
+        desc: Shutdown
+        cmd: shutdown -h now
+      - key: "Logo+Q"
+        desc: Close
+        cmd: true
+
+  - key: "t"
+    desc: "[layout] (u) ctrl:caps, (i) caps:escape, (o) none"
+    submenu:
+      - key: "u"
+        desc: ctrl:swapcaps
+        cmd: $HOME/.config/niri/scripts/set-xkb-options.sh ctrl:swapcaps
+      - key: "i"
+        desc: caps:swapescape
+        cmd: $HOME/.config/niri/scripts/set-xkb-options.sh caps:swapescape
+      - key: "o"
+        desc: none
+        cmd: $HOME/.config/niri/scripts/set-xkb-options.sh ""
+      - key: "Logo+t"
+        desc: Close
+        cmd: true
+
+  - key: "m"
+    desc: "[media/brightness/notifications]"
+    submenu:
+      - key: "i"
+        desc: Microphone toggle
+        cmd: $HOME/.config/niri/scripts/mic-toggle.sh
+        keep_open: true
+      - key: "o"
+        desc: Speaker toggle
+        cmd: $HOME/.config/niri/scripts/sink-toggle.sh
+        keep_open: true
+      - key: "p"
+        desc: Play/Pause
+        cmd: playerctl play-pause
+        keep_open: true
+      - key: "h"
+        desc: Previous
+        cmd: playerctl previous
+        keep_open: true
+      - key: "j"
+        desc: Volume -
+        cmd: $HOME/.config/niri/scripts/vol-down.sh
+        keep_open: true
+      - key: "k"
+        desc: Volume +
+        cmd: $HOME/.config/niri/scripts/vol-up.sh
+        keep_open: true
+      - key: "l"
+        desc: Next
+        cmd: playerctl next
+        keep_open: true
+      - key: "n"
+        desc: Brightness -
+        cmd: $HOME/.config/niri/scripts/bright-down.sh
+        keep_open: true
+      - key: "m"
+        desc: Brightness +
+        cmd: $HOME/.config/niri/scripts/bright-up.sh
+        keep_open: true
+      - key: "d"
+        desc: DND toggle
+        cmd: $HOME/.config/niri/scripts/dnd-toggle.sh
+      - key: "c"
+        desc: Close notifification
+        cmd: dunstctl close
+        keep_open: true
+      - key: "C"
+        desc: Close all notifications
+        cmd: dunstctl close-all
+      - key: "x"
+        desc: Re-open last notification
+        cmd: dunstctl history-pop
+        keep_open: true
+      - key: "f"
+        desc: Open notification context menu
+        cmd: dunstctl context
+      - key: "Logo+m"
+        desc: Close
+        cmd: true

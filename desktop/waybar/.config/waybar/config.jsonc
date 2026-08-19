@@ -1,0 +1,120 @@
+{
+  "layer": "bottom",
+  "position": "bottom",
+
+  "modules-left": ["niri/workspaces"],
+  "modules-center": [],
+  "modules-right": [
+    "load",
+    "custom/separator",
+    "cpu",
+    "custom/separator",
+    "temperature",
+    "custom/separator",
+    "memory",
+    "custom/separator",
+    "disk",
+    "custom/separator",
+    "battery",
+    "custom/separator",
+    "network",
+    "custom/separator",
+    "clock",
+    "custom/separator",
+    "tray"
+  ],
+
+  "custom/separator": {
+    "format": "│",
+    "interval": 0,
+    "tooltip": false,
+  },
+
+  "height": 30,
+
+  "spacing": 0,
+  "mode": "dock",
+
+  "niri/workspaces": {
+    "format": "{value}",
+  },
+
+  "load": {
+    "format": "{load1} {load5} {load15}",
+    "interval": 5,
+    "tooltip": false,
+  },
+
+  "cpu": {
+    "format": "{usage}%",
+    "states": {
+      "warning": 75,
+      "critical": 90,
+    },
+    "interval": 5,
+    "tooltip": false,
+  },
+
+  "temperature": {
+    "warning-threshold": 60,
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C",
+    "interval": 5,
+  },
+
+  "memory": {
+    "format": "{used}GiB {avail}GiB",
+    "states": {
+      "warning": 75,
+      "critical": 90,
+    },
+    "interval": 5,
+    "tooltip": false,
+  },
+
+  "disk": {
+    "format": "{free}",
+    "path": "/",
+    "states": {
+      "warning": 80,
+      "critical": 90,
+    },
+    "interval": 5,
+    "tooltip": false,
+  },
+
+  "battery": {
+    "format": "BAT {capacity}%",
+    "format-charging": "CHR {capacity}% {time}",
+    "format-discharging": "BAT {capacity}% {time}",
+    "format-full": "FULL {capacity}%",
+    "format-time": "{H}:{m}",
+    "states": {
+      "warning": 20,
+      "critical": 10,
+    },
+    "interval": 5,
+    "tooltip": false,
+  },
+
+  "network": {
+    "format-wifi": "{ipaddr} \"{essid}\" ({signalStrength}%) {bandwidthUpBits} {bandwidthDownBits}",
+    "format-ethernet": "{ipaddr} {ifname} {bandwidthUpBits} {bandwidthDownBits}",
+    "format-disconnected": "down",
+    "format-disabled": "down",
+    "interval": 5,
+    "tooltip": false,
+  },
+
+  "clock": {
+    "format": "{:%H:%M:%S %d-%m-%Y(%a)}",
+    "interval": 1,
+    "tooltip": false,
+  },
+
+  "tray": {
+    "icon-size": 20,
+    "spacing": 5,
+    "tooltip": false,
+  },
+}

@@ -1,0 +1,80 @@
+@define-color fg          #ebdbb2;
+@define-color bg          #282828;
+@define-color black       #1d2021;
+@define-color red         #cc241d;
+@define-color green       #98971a;
+@define-color yellow      #d79921;
+@define-color blue        #458588;
+@define-color magenta     #b16286;
+@define-color cyan        #689d6a;
+@define-color white       #a89984;
+
+* {
+    font-family: "Iosevka Nerd Font", monospace;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background: @black;
+    color: @fg;
+}
+
+#custom-separator {
+    padding: 0 2px;
+    color: @white;
+}
+
+/* Workspaces */
+#workspaces button {
+    padding: 0 2px;
+    border-radius: 0;
+    color: @white;
+    background: @bg;
+    border-color: @black;
+}
+
+#workspaces button.active {
+    border: none;
+    background: @blue;
+    color: @black;
+}
+
+#workspaces button.focused {
+    border: none;
+    background: @blue;
+    color: @black;
+}
+
+#workspaces button.urgent {
+    border: none;
+    background: @red;
+    color: @black;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#workspaces button.active:hover,
+#workspaces button.focused:hover {
+    background: @blue;
+    color: @black;
+}
+
+#workspaces button.urgent:hover {
+    background: @red;
+    color: @black;
+}
+
+/* Colors for states */
+*.warning {
+    color: @yellow;
+}
+
+*.critical {
+    color: @red;
+}

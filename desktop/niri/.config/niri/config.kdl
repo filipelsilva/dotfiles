@@ -1,0 +1,265 @@
+// Check the wiki for a full description of the configuration:
+// https://niri-wm.github.io/niri/Configuration:-Introduction
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            variant "altgr-intl"
+            options "ctrl:swapcaps"
+        }
+
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+        accel-profile "adaptive"
+    }
+
+    mouse {
+        accel-profile "flat"
+    }
+
+    trackpoint {
+    }
+
+    focus-follows-mouse max-scroll-amount="45%"
+
+    workspace-auto-back-and-forth
+}
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+layout {
+    gaps 0
+
+    center-focused-column "never"
+    empty-workspace-above-first
+
+    default-column-width { proportion 0.5; }
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    focus-ring {
+        off
+        width 4
+        active-color "#458588"
+        inactive-color "#1d2021"
+        urgent-color "#cc241d"
+    }
+
+    border {
+        // off
+        width 4
+        active-color "#458588"
+        inactive-color "#1d2021"
+        urgent-color "#cc241d"
+    }
+}
+
+spawn-at-startup "waybar"
+spawn-at-startup "nm-applet" "--indicator"
+spawn-at-startup "blueman-applet"
+spawn-at-startup "shikane"
+spawn-at-startup "batsignal" "-b"
+
+spawn-at-startup "swayidle" "-w" \
+    "timeout" "300" "swaylock -f" \
+    "timeout" "600" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" \
+    "before-sleep" "swaylock -f"
+
+// Set theme and icons
+spawn-sh-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'"
+spawn-sh-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/%F_%T000.png"
+
+animations {
+    // off
+    // slowdown 0.75
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+Semicolon { spawn "alacritty"; }
+
+    Mod+D hotkey-overlay-title="Run an Application: rofi" {
+        spawn-sh "rofi -theme gruvbox-dark-hard -font 'Iosevka Nerd Font 14' -show drun";
+    }
+
+    Mod+S hotkey-overlay-title="Open a File: rofi" {
+        spawn-sh "fd . | rofi -theme gruvbox-dark-hard -font 'Iosevka Nerd Font 14' -dmenu -i -p files -keep-right | xargs -I {} xdg-open {}";
+    }
+
+    Mod+E { spawn "nautilus"; }
+
+    Mod+Q repeat=false { close-window; }
+
+    // 4 fingers up also works
+    Mod+O repeat=false { toggle-overview; }
+
+    // focus columns/workspaces/monitors
+    Mod+Left  { focus-column-or-monitor-left; }
+    Mod+Down  { focus-window-or-workspace-down; }
+    Mod+Up    { focus-window-or-workspace-up; }
+    Mod+Right { focus-column-or-monitor-right; }
+    Mod+H     { focus-column-or-monitor-left; }
+    Mod+J     { focus-window-or-workspace-down; }
+    Mod+K     { focus-window-or-workspace-up; }
+    Mod+L     { focus-column-or-monitor-right; }
+
+    Mod+N     { focus-workspace-down; }
+    Mod+P     { focus-workspace-up; }
+
+    Mod+U     { focus-column-first; }
+    Mod+I     { focus-column-last; }
+
+    Mod+WheelScrollDown       { focus-workspace-down; }
+    Mod+WheelScrollUp         { focus-workspace-up; }
+    Mod+WheelScrollRight      { focus-column-right; }
+    Mod+WheelScrollLeft       { focus-column-left; }
+    Mod+Shift+WheelScrollDown { focus-column-right; }
+    Mod+Shift+WheelScrollUp   { focus-column-left; }
+
+    // focus monitors
+    Mod+Ctrl+Left  { focus-monitor-left; }
+    Mod+Ctrl+Down  { focus-monitor-down; }
+    Mod+Ctrl+Up    { focus-monitor-up; }
+    Mod+Ctrl+Right { focus-monitor-right; }
+    Mod+Ctrl+H     { focus-monitor-left; }
+    Mod+Ctrl+J     { focus-monitor-down; }
+    Mod+Ctrl+K     { focus-monitor-up; }
+    Mod+Ctrl+L     { focus-monitor-right; }
+
+    // move columns/workspaces to other workspaces/monitors
+    Mod+Shift+Left  { move-column-left-or-to-monitor-left; }
+    Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Shift+Up    { move-window-up-or-to-workspace-up; }
+    Mod+Shift+Right { move-column-right-or-to-monitor-right; }
+    Mod+Shift+H     { move-column-left-or-to-monitor-left; }
+    Mod+Shift+J     { move-window-down-or-to-workspace-down; }
+    Mod+Shift+K     { move-window-up-or-to-workspace-up; }
+    Mod+Shift+L     { move-column-right-or-to-monitor-right; }
+
+    // move columns to other monitors
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+    // move workspaces to other monitors, or below/above other workspaces
+    Mod+X       { move-workspace-to-monitor-next; }
+    Mod+Shift+N { move-workspace-down; }
+    Mod+Shift+P { move-workspace-up; }
+
+    // move columns to first/last position
+    Mod+Shift+U { move-column-to-first; }
+    Mod+Shift+I { move-column-to-last; }
+
+    // basic named workspaces
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+    Mod+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
+    Mod+Ctrl+7 { move-column-to-workspace 7; }
+    Mod+Ctrl+8 { move-column-to-workspace 8; }
+    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+Ctrl+0 { move-column-to-workspace 10; }
+
+    // rename workspaces
+    Mod+Y { spawn-sh "$HOME/.config/niri/scripts/rename.sh"; }
+
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Comma        { consume-window-into-column; }
+    Mod+Period       { expel-window-from-column; }
+
+    Mod+R       { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+
+    Mod+Minus       { set-column-width "-10%"; }
+    Mod+Equal       { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    Mod+F       { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+F  { expand-column-to-available-width; }
+
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    Mod+W { toggle-column-tabbed-display; }
+
+    Mod+C      { center-column; }
+    Mod+Ctrl+C { center-visible-columns; }
+
+    Print           { screenshot; }
+    Mod+Print       { screenshot-screen; }
+    Mod+Shift+Print { screenshot-window; }
+
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    Mod+T       hotkey-overlay-title="Keyboard layout options mode" { spawn "wlr-which-key" "--initial-keys" "t"; }
+    Mod+Shift+Q hotkey-overlay-title="Power mode" { spawn "wlr-which-key" "--initial-keys" "q"; }
+    Mod+M       hotkey-overlay-title="Media mode" { spawn "wlr-which-key" "--initial-keys" "m"; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/vol-up.sh"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/vol-down.sh"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/sink-toggle.sh"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/mic-toggle.sh"; }
+
+    XF86AudioPlay  allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPause allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop  allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev  allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext  allow-when-locked=true { spawn-sh "playerctl next"; }
+
+    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/bright-up.sh"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/bright-down.sh"; }
+}
