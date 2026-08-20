@@ -5,7 +5,7 @@ input {
         xkb {
             layout "us"
             variant "altgr-intl"
-            options "ctrl:swapcaps"
+            options ""
         }
 
         numlock
