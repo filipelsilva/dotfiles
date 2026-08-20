@@ -9,8 +9,6 @@
     "custom/separator",
     "cpu",
     "custom/separator",
-    "temperature",
-    "custom/separator",
     "memory",
     "custom/separator",
     "disk",
@@ -53,13 +51,6 @@
     },
     "interval": 5,
     "tooltip": false,
-  },
-
-  "temperature": {
-    "warning-threshold": 60,
-    "critical-threshold": 80,
-    "format": "{temperatureC}°C",
-    "interval": 5,
   },
 
   "memory": {
