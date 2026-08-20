@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
     pandoc
@@ -12,7 +12,7 @@
     {
       home.file = {
         ".config/zathura/zathurarc".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/desktop/zathura/.config/zathura/zathurarc";
+          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/desktop/zathura/.config/zathura/zathurarc";
       };
     };
 }

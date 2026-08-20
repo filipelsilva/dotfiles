@@ -2,6 +2,7 @@
   pkgs,
   lib,
   headless,
+  inputs,
   ...
 }:
 let
@@ -109,20 +110,19 @@ in
     {
       home.file = {
         ".lesskey".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/headless/less/.lesskey";
+          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/headless/less/.lesskey";
 
-        ".vim".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/headless/vim/.vim";
+        ".vim".source = config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/headless/vim/.vim";
       }
       // lib.attrsets.optionalAttrs (!headless) {
         ".config/nvim/init.lua".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/headless/nvim/.config/nvim/init.lua";
+          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/headless/nvim/.config/nvim/init.lua";
         ".config/nvim/nvim-pack-lock.json".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/headless/nvim/.config/nvim/nvim-pack-lock.json";
+          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/headless/nvim/.config/nvim/nvim-pack-lock.json";
         ".config/nvim/lua".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/headless/nvim/.config/nvim/lua";
+          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/headless/nvim/.config/nvim/lua";
         ".config/nvim/plugin".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/headless/nvim/.config/nvim/plugin";
+          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/headless/nvim/.config/nvim/plugin";
 
         ".config/nvim/spell/pt.utf-8.spl".source = spell-pt-utf-8-spl;
         ".config/nvim/spell/pt.latin1.spl".source = spell-pt-latin1-spl;

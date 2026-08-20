@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   programs.git = {
     enable = true;
@@ -15,7 +15,7 @@
     {
       home.file = {
         ".gitconfig".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/headless/git/.gitconfig";
+          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/headless/git/.gitconfig";
       };
     };
 }
