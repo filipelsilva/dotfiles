@@ -5,6 +5,12 @@ learn a thing or two from them. Feel free to use them as reference, and
 to let me know if there's something I could be doing better - always down to
 learning a thing or two from someone else :D
 
+These are set up to work with my NixOS configuration, but they should work
+standalone is most Linux distros, provided you have the necessary requirements.
+I prefer using the configuration files of the programs over configuring them
+with Home Manager, especially when I know I might need those configs outside of
+my systems (i.e. company machines).
+
 # NixOS Config
 
 ## Notes
