@@ -24,9 +24,9 @@
     {
       home.file = {
         ".inputrc".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/headless/readline/.inputrc";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/dotfiles/headless/readline/.inputrc";
         ".zshrc".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/headless/zsh/.zshrc";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/dotfiles/headless/zsh/.zshrc";
       };
     };
 }

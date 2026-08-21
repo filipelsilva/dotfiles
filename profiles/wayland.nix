@@ -206,17 +206,17 @@ in
     {
       home.file = {
         ".config/sway".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/desktop/sway/.config/sway";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/dotfiles/desktop/sway/.config/sway";
         ".config/i3status".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/desktop/i3/.config/i3status";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/dotfiles/desktop/i3/.config/i3status";
         ".config/niri".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/desktop/niri/.config/niri";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/dotfiles/desktop/niri/.config/niri";
         ".config/waybar".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/desktop/waybar/.config/waybar";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/dotfiles/desktop/waybar/.config/waybar";
         ".config/wlr-which-key".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/desktop/wlr-which-key/.config/wlr-which-key";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/dotfiles/desktop/wlr-which-key/.config/wlr-which-key";
         ".config/dunst".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/desktop/dunst/.config/dunst";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/dotfiles/desktop/dunst/.config/dunst";
       };
 
       services.gammastep = {
