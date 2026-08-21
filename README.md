@@ -116,7 +116,7 @@ sda                disk
 4. Commands to install from this config:
 
 ```bash
-sudo nixos-install --flake .#<config>
+sudo nixos-install --impure --flake .#<config>
 ```
 
 5. After boot from new filesystem, to mark boot partition as EFI System

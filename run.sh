@@ -32,7 +32,7 @@ while [ $# -gt 0 ]; do
 	shift
 done
 
-flags="--sudo --ask-sudo-password --flake .#${host}"
+flags="--sudo --ask-sudo-password --impure --flake .#${host}"
 
 if [ -z "$cmd" ]; then
 	echo "No command specified" >&2
