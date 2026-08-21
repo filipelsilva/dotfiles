@@ -4,7 +4,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     binfmt.emulatedSystems = [
       "aarch64-linux"
-      "wasm32-wasip1"
+      "wasm32-wasi"
       "x86_64-windows"
     ];
   };

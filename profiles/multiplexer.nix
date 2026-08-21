@@ -15,8 +15,10 @@
         ))
       ];
       home.file = {
-        ".screenrc".source = "${inputs.self}/dotfiles/headless/screen/.screenrc";
-        ".tmux.conf".source = "${inputs.self}/dotfiles/headless/tmux/.tmux.conf";
+        ".screenrc".source =
+          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/headless/screen/.screenrc";
+        ".tmux.conf".source =
+          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/headless/tmux/.tmux.conf";
       };
     };
 }

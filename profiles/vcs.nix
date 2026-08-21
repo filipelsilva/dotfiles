@@ -14,7 +14,8 @@
     { config, ... }:
     {
       home.file = {
-        ".gitconfig".source = "${inputs.self}/dotfiles/headless/git/.gitconfig";
+        ".gitconfig".source =
+          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/headless/git/.gitconfig";
       };
     };
 }
