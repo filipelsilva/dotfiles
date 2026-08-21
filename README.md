@@ -1,9 +1,9 @@
 # Dotfiles
 
 These are my personal dotfiles. They are heavily opinionated, but you might
-learn a thing or two from them. Feel free to use them as reference, and
-to let me know if there's something I could be doing better - always down to
-learning a thing or two from someone else :D
+learn a thing or two from them. Feel free to use them as reference, and let me
+know if there's something I could be doing better - always down to learning a
+thing or two from someone else :D
 
 These are set up to work with my NixOS configuration, but they should work
 standalone is most Linux distros, provided you have the necessary requirements.
