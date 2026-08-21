@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  inputs,
   ...
 }:
 let
@@ -98,13 +97,13 @@ in
         ".xinitrc".text = "exec i3";
         ".background-image".source = blissNew;
         ".config/i3".source =
-          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/desktop/i3/.config/i3";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/desktop/i3/.config/i3";
         ".config/i3status".source =
-          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/desktop/i3/.config/i3status";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/desktop/i3/.config/i3status";
         ".config/dunst".source =
-          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/desktop/dunst/.config/dunst";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/desktop/dunst/.config/dunst";
         ".Xresources".source =
-          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/desktop/xresources/.Xresources";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/desktop/xresources/.Xresources";
       };
     };
 }

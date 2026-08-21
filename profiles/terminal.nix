@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   environment = {
     systemPackages = with pkgs; [
@@ -17,7 +17,7 @@
     {
       home.file = {
         ".config/alacritty".source =
-          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/desktop/alacritty/.config/alacritty";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/desktop/alacritty/.config/alacritty";
       };
     };
 }

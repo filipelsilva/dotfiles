@@ -4,7 +4,7 @@
   ...
 }:
 {
-  age.secrets."ttyd-password".file = "${inputs.self}/secrets/ttyd-password.age";
+  age.secrets."ttyd-password".file = "${inputs.self.outPath}/secrets/ttyd-password.age";
 
   services.ttyd = {
     enable = true;

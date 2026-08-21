@@ -13,7 +13,8 @@ in
     443
   ];
 
-  age.secrets."cloudflare-dns-api-token".file = "${inputs.self}/secrets/cloudflare-dns-api-token.age";
+  age.secrets."cloudflare-dns-api-token".file =
+    "${inputs.self.outPath}/secrets/cloudflare-dns-api-token.age";
 
   security.acme = {
     acceptTerms = true;

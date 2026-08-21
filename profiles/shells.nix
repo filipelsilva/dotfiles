@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   environment.shellAliases = { };
 
@@ -24,8 +24,9 @@
     {
       home.file = {
         ".inputrc".source =
-          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/headless/readline/.inputrc";
-        ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/headless/zsh/.zshrc";
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/headless/readline/.inputrc";
+        ".zshrc".source =
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/headless/zsh/.zshrc";
       };
     };
 }

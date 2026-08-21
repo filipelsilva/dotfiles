@@ -79,7 +79,7 @@ in
         message = "The option `modules.services.wireguard.externalInterface` should be empty when `modules.services.wireguard.type` is 'client'.";
       }
       {
-        assertion = builtins.pathExists "${inputs.self}/secrets/wg-privatekey-${config.networking.hostName}.age";
+        assertion = builtins.pathExists "${inputs.self.outPath}/secrets/wg-privatekey-${config.networking.hostName}.age";
         message = ''
           The agenix secret for the wireguard private key was not found:
             secrets/wg-privatekey-${config.networking.hostName}.age
@@ -120,7 +120,7 @@ in
     environment.systemPackages = [ pkgs.wireguard-tools ];
 
     age.secrets.wg-privatekey = {
-      file = "${inputs.self}/secrets/wg-privatekey-${config.networking.hostName}.age";
+      file = "${inputs.self.outPath}/secrets/wg-privatekey-${config.networking.hostName}.age";
       # for permission, see man systemd.netdev
       mode = "640";
       owner = "systemd-network";
