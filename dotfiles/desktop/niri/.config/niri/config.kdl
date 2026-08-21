@@ -72,6 +72,12 @@ layout {
     }
 }
 
+cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 24
+}
+
+spawn-sh-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'"
 spawn-at-startup "waybar"
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "blueman-applet"
@@ -82,10 +88,6 @@ spawn-at-startup "swayidle" "-w" \
     "timeout" "300" "swaylock -f" \
     "timeout" "600" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" \
     "before-sleep" "swaylock -f"
-
-// Set theme and icons
-spawn-sh-at-startup "gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'"
-spawn-sh-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'"
 
 hotkey-overlay {
     skip-at-startup
