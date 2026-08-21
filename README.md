@@ -6,10 +6,15 @@ know if there's something I could be doing better - always down to learning a
 thing or two from someone else :D
 
 These are set up to work with my NixOS configuration, but they should work
-standalone is most Linux distros, provided you have the necessary requirements.
+standalone in most Linux distros, provided you have the necessary requirements.
 I prefer using the configuration files of the programs over configuring them
 with Home Manager, especially when I know I might need those configs outside of
 my systems (i.e. company machines).
+
+That's the same reason I don't use normal Nix primitives and instead rely on
+the `--impure` flag: I want my dotfile modifications to have a quick iteration
+time, meaning that I, for the most part, use Home Manager as a symlink manager.
+Could I use Stow? Yes. Am I gonna? Well, no.
 
 # NixOS Config
 
