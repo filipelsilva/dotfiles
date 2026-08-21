@@ -12,7 +12,7 @@
     {
       home.file = {
         ".config/zathura/zathurarc".source =
-          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/desktop/zathura/.config/zathura/zathurarc";
+          "${inputs.self}/dotfiles/desktop/zathura/.config/zathura/zathurarc";
       };
     };
 }

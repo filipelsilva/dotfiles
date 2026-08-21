@@ -16,8 +16,7 @@
     { config, ... }:
     {
       home.file = {
-        ".config/alacritty".source =
-          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/desktop/alacritty/.config/alacritty";
+        ".config/alacritty".source = "${inputs.self}/dotfiles/desktop/alacritty/.config/alacritty";
       };
     };
 }

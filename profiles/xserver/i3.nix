@@ -97,14 +97,10 @@ in
       home.file = {
         ".xinitrc".text = "exec i3";
         ".background-image".source = blissNew;
-        ".config/i3".source =
-          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/desktop/i3/.config/i3";
-        ".config/i3status".source =
-          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/desktop/i3/.config/i3status";
-        ".config/dunst".source =
-          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/desktop/dunst/.config/dunst";
-        ".Xresources".source =
-          config.lib.file.mkOutOfStoreSymlink "${inputs.self}/dotfiles/desktop/xresources/.Xresources";
+        ".config/i3".source = "${inputs.self}/dotfiles/desktop/i3/.config/i3";
+        ".config/i3status".source = "${inputs.self}/dotfiles/desktop/i3/.config/i3status";
+        ".config/dunst".source = "${inputs.self}/dotfiles/desktop/dunst/.config/dunst";
+        ".Xresources".source = "${inputs.self}/dotfiles/desktop/xresources/.Xresources";
       };
     };
 }

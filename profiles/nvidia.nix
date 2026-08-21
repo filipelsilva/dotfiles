@@ -9,7 +9,7 @@
     XDG_DATA_HOME = "$HOME/.local/share";
   };
 
-  homeConfig = lib.attrsets.optionalAttrs (config.hardware.nvidia.prime.offload.enable) {
+  homeConfig = lib.attrsets.optionalAttrs (config.hardware.nvidia.prime.offload.enable || config.programs.steam.enable) {
     home.file.".local/share/applications/steam.desktop".text =
       lib.replaceStrings [ "Exec=" ] [ "Exec=nvidia-offload " ]
         (lib.readFile "${pkgs.steam}/share/applications/steam.desktop");
