@@ -33,9 +33,11 @@
     ++ lib.lists.optionals (!headless) (
       with pkgs;
       [
-        lact
+        qFlipper
       ]
     );
+
+  hardware.flipperzero.enable = true;
 
   programs = {
     htop.enable = true;
@@ -48,6 +50,7 @@
       enable = true;
       package = pkgs.plocate;
     };
+    lact.enable = !headless;
   };
 
   homeConfig = {
