@@ -10,7 +10,7 @@ function run_rofi_selection() {
 }
 
 function get_name() {
-  echo "" | rofi "${options[@]}" -dmenu -p "New Workspace Name:" -l 0
+  echo "" | rofi "${options[@]}" -dmenu -p "New Workspace Name" -l 0
 }
 
 function main() {

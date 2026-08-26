@@ -35,6 +35,8 @@
 
   "niri/workspaces": {
     "format": "{value}",
+    "hide-empty": true,
+    "enable-bar-scroll": true,
   },
 
   "load": {
