@@ -158,6 +158,9 @@ binds {
     Mod+N       { focus-workspace-down; }
     Mod+P       { focus-workspace-up; }
 
+    Mod+Ctrl+N  { move-column-to-workspace-down; }
+    Mod+Ctrl+P  { move-column-to-workspace-up; }
+
     Mod+Shift+N { move-workspace-down; }
     Mod+Shift+P { move-workspace-up; }
     Mod+X       { move-workspace-to-monitor-next; }
