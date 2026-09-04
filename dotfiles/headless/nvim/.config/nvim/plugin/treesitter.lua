@@ -42,4 +42,5 @@ context.setup({
 	multiwindow = true,
 	max_lines = 5,
 	trim_scope = "outer",
+	line_numbers = vim.o.number,
 })
