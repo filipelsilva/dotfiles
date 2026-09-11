@@ -9,7 +9,7 @@
     lsof
     libimobiledevice
     ifuse
-    adb-sync
+    better-adb-sync
     android-tools
   ];
 

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    texlive.combined.scheme-full
+    texliveFullWithDocs
     libreoffice-qt
     hunspell
     hunspellDicts.en_US

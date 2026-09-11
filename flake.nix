@@ -66,7 +66,7 @@
           modules = [
             ./hosts/${hostname}/configuration.nix
             home-manager.nixosModules.home-manager
-            nix-index-database.nixosModules.nix-index
+            nix-index-database.nixosModules.default
             agenix.nixosModules.default
             copyparty.nixosModules.default
             {

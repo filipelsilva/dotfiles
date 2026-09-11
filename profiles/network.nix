@@ -15,6 +15,7 @@
       axel
       socat
       netcat-openbsd
+      tailcat
       nmap
       tcpdump
       bind

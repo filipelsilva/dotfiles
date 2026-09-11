@@ -44,7 +44,7 @@ in
     ++ lib.lists.optionals (!headless) (
       with pkgs;
       [
-        sone # Tidal client
+        spotify
         vlc
         mpv
         kid3
