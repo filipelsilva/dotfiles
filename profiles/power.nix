@@ -1,8 +1,8 @@
-{ ... }:
+{ config, ... }:
 {
   services = {
-    auto-cpufreq.enable = true;
-    thermald.enable = true;
     tlp.enable = true;
+    thermald.enable = true;
+    auto-cpufreq.enable = !config.services.tlp.enable;
   };
 }
