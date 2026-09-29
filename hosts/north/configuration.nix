@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
     ../../modules/user.nix
-    #../../modules/wireguard.nix
+    ../../modules/wireguard.nix
     ../../profiles/archive.nix
     ../../profiles/audio.nix
     ../../profiles/bluetooth.nix
@@ -69,9 +69,9 @@
     };
   };
 
-  #modules.wireguard = {
-  #  enable = true;
-  #  type = "client";
-  #  lastOctet = 6;
-  #};
+  modules.wireguard = {
+    enable = true;
+    type = "client";
+    lastOctet = 2;
+  };
 }

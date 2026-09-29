@@ -117,9 +117,6 @@
 
       nixosConfigurations = {
         north = mkHost "north" { };
-        Y540 = mkHost "Y540" {
-          extraModules = [ nixos-hardware.nixosModules.lenovo-legion-y530-15ich ];
-        };
         T490 = mkHost "T490" {
           extraModules = [ nixos-hardware.nixosModules.lenovo-thinkpad-t490 ];
         };

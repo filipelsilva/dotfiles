@@ -129,6 +129,7 @@ in
 
     networking.firewall = {
       allowedUDPPorts = [ cfg.port ];
+      trustedInterfaces = [ "wg0" ];
       checkReversePath = mkIf (cfg.type == "client") "loose";
     };
 
@@ -183,24 +184,21 @@ in
           lib.lists.optionals (cfg.lastOctet != 1) [
             {
               # N100 - Server
-              # TODO N100 cannot connect to other .3 .4 .5 because it's not a server.
-              # Once hardware issues are fixed, change N100 to be a server and adjust configs.
               PublicKey = "HqdoDNKy6da1z6UyBrCt71U7ZgOPqCXuY966zVWFtjw=";
               Endpoint = "pipinhohome.hopto.org:${builtins.toString cfg.port}";
               PersistentKeepalive = 25;
               AllowedIPs = [ "${cfg.subnet}.1/32" ];
             }
           ]
-          ++ lib.lists.optionals (cfg.lastOctet != 2) [
-            {
-              # Y540 - Server
-              PublicKey = "3PO5QzeOrYKzhhdI5tewfIHyxQB+k9SQSm0x0PrcZm8=";
-              Endpoint = "ligeirosilva.hopto.org:${builtins.toString cfg.port}";
-              PersistentKeepalive = 25;
-              AllowedIPs = [ "${cfg.subnet}.0/24" ];
-            }
-          ]
           ++ lib.lists.optionals (cfg.type == "server") [
+            {
+              # north
+              PublicKey= "JCgpROg2/kWHD0L2V2w3h/pzuP4U2aoVRYKskgaPtEU=";
+              # TODO test this once endpoint is back up
+              # Endpoint = "ligeirosilva.hopto.org:${builtins.toString cfg.port}";
+              # PersistentKeepalive = 25;
+              AllowedIPs = [ "${cfg.subnet}.2/32" ];
+            }
             {
               # T490
               PublicKey = "KsOJ59jkvpaRwNGHl5ccWJaP5pHKHlvdz18V451xRF4=";
