@@ -187,16 +187,13 @@ in
               PublicKey = "HqdoDNKy6da1z6UyBrCt71U7ZgOPqCXuY966zVWFtjw=";
               Endpoint = "pipinhohome.hopto.org:${builtins.toString cfg.port}";
               PersistentKeepalive = 25;
-              AllowedIPs = [ "${cfg.subnet}.1/32" ];
+              AllowedIPs = [ "${cfg.subnet}.1/24" ];
             }
           ]
           ++ lib.lists.optionals (cfg.type == "server") [
             {
               # north
               PublicKey= "JCgpROg2/kWHD0L2V2w3h/pzuP4U2aoVRYKskgaPtEU=";
-              # TODO test this once endpoint is back up
-              # Endpoint = "ligeirosilva.hopto.org:${builtins.toString cfg.port}";
-              # PersistentKeepalive = 25;
               AllowedIPs = [ "${cfg.subnet}.2/32" ];
             }
             {
