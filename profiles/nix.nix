@@ -12,7 +12,6 @@
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
     settings = {
       experimental-features = [
@@ -24,6 +23,7 @@
       auto-optimise-store = true;
       download-buffer-size = 1024 * 1024 * 1024;
       trusted-users = [ "@wheel" ];
+      nix-path = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
     };
     optimise = {
       automatic = true;
