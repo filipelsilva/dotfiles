@@ -15,5 +15,6 @@
     ./lutris.nix
     ./heroic.nix
     ./minecraft.nix
+    ./sunshine.nix
   ];
 }
