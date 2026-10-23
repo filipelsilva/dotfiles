@@ -72,6 +72,14 @@ layout {
         inactive-color "#1d2021"
         urgent-color "#cc241d"
     }
+
+    tab-indicator {
+        gap 0
+        width 16
+        length total-proportion=1.0
+        position "top"
+        place-within-column
+    }
 }
 
 cursor {
