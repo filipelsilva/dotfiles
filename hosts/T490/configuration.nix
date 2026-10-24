@@ -77,8 +77,4 @@
     type = "client";
     lastOctet = 3;
   };
-
-  environment.etc."sway/config.d/keyboard.conf".text = ''
-    input "*" xkb_options ctrl:swapcaps
-  '';
 }
