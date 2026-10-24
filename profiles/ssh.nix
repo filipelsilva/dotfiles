@@ -1,12 +1,5 @@
 { config, ... }:
 {
-  programs.ssh = {
-    extraConfig = ''
-      Host * !server !nas
-        SetEnv TERM=xterm-256color
-    '';
-  };
-
   services = {
     openssh = {
       enable = true;
