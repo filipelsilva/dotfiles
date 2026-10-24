@@ -9,8 +9,6 @@ let
   dataPool = if hasDataPool then inputs.dataPool else { };
 in
 {
-  nixpkgs.config.pulseaudio = true;
-
   services.transmission = {
     enable = true;
     user = "transmission";
