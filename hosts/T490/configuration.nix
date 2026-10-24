@@ -77,4 +77,6 @@
     type = "client";
     lastOctet = 3;
   };
+
+  services.throttled.enable = false;
 }
