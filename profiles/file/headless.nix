@@ -7,6 +7,7 @@
     pv
     zoxide
     lsof
+    inotify-tools
     libimobiledevice
     ifuse
     better-adb-sync

@@ -8,12 +8,20 @@
 
   homeConfig =
     { config, ... }:
+    let
+      tms = pkgs.writeShellScriptBin "tms" (
+        builtins.readFile "${config.home.homeDirectory}/dotfiles/dotfiles/scripts/tmux-sessionizer.sh"
+      );
+      tus = pkgs.writeShellScriptBin "tus" (
+        builtins.readFile "${config.home.homeDirectory}/dotfiles/dotfiles/scripts/tmux-update-sessions.sh"
+      );
+    in
     {
       home.packages = [
-        (pkgs.writeShellScriptBin "tms" (
-          builtins.readFile "${config.home.homeDirectory}/dotfiles/dotfiles/scripts/tmux-sessionizer.sh"
-        ))
+        tms
+        tus
       ];
+
       home.file = {
         ".screenrc".source =
           config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/dotfiles/headless/screen/.screenrc";
