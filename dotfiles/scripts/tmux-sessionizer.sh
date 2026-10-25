@@ -23,7 +23,7 @@ function sanitize_session_names() {
 
 sessions=()
 if [[ -d $FOLDER ]]; then
-	folders=( "$(find -L "$FOLDER" -mindepth 2 -maxdepth 2 -type d -printf '%P\n')" )
+	mapfile -t folders < <(find -L "$FOLDER" -mindepth 2 -maxdepth 2 -type d -printf '%P\n')
 else
 	folders=()
 fi
@@ -31,9 +31,9 @@ fi
 tmux_running=$(pgrep tmux)
 if [[ $tmux_running ]]; then
 	custom_sessions=$(tmux list-sessions -F "#{session_name}")
-	sanitize_session_namesd_sessions=$(sanitize_session_names "${folders[*]}")
+	sanitize_session_named_sessions=$(sanitize_session_names "${folders[*]}")
 	for session in $custom_sessions; do
-		[[ ! ${sanitize_session_namesd_sessions[*]} =~ $session ]] && sessions+=("$session")
+		[[ ! ${sanitize_session_named_sessions[*]} =~ $session ]] && sessions+=("$session")
 	done
 fi
 
