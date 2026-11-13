@@ -4,11 +4,6 @@ vim.pack.add({
 	"https://github.com/creativenull/efmls-configs-nvim",
 })
 
-local ok_cmp, cmp = pcall(require, "blink.cmp")
-if not ok_cmp then
-	return
-end
-
 local ok_fzf_lua, fzf_lua = pcall(require, "fzf-lua")
 if not ok_fzf_lua then
 	return
@@ -26,7 +21,7 @@ end
 
 -- Update capabilities of LSP to support snippets
 local custom_capabilities =
-	vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), cmp.get_lsp_capabilities(), {
+	vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), {
 		offsetEncoding = { "utf-16" },
 		general = {
 			positionEncodings = { "utf-16" },
@@ -36,6 +31,7 @@ local custom_capabilities =
 -- LSP on_attach function to define settings and keybinds only if a LSP exists
 local custom_on_attach = function(client, bufnr)
 	if client:supports_method("textDocument/completion") then
+		vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 		vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = false })
 	end
 
