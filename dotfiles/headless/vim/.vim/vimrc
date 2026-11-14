@@ -188,6 +188,9 @@ augroup Vimrc
 	" Auto enable wrap when in diff view
 	autocmd VimEnter * if &diff | execute 'windo set wrap' | endif
 
+	" Auto resize the completion menu
+	autocmd VimEnter,VimResized * let &pummaxwidth = float2nr(&columns / 2)
+
 augroup END
 
 augroup PlainTextWidth
