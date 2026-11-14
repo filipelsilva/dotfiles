@@ -41,8 +41,8 @@ set foldmethod=marker
 set ignorecase smartcase incsearch hlsearch
 
 " Completion menu settings
-set completeopt=menu,menuone,noinsert,noselect,popup
-set wildmenu wildmode=noselect:full
+set completeopt=menu,menuone,noinsert,noselect,popup,fuzzy
+set wildmenu wildmode=noselect:full wildoptions=fuzzy
 
 " Backspace settings
 set backspace=indent,eol,start
