@@ -67,7 +67,7 @@
 
   "disk": {
     "format": "{free}",
-    "path": "/",
+    "paths": ["/"],
     "states": {
       "warning": 80,
       "critical": 90,
