@@ -28,7 +28,8 @@ in
         credentialFiles = {
           "CLOUDFLARE_DNS_API_TOKEN_FILE" = config.age.secrets."cloudflare-dns-api-token".path;
         };
-        dnsPropagationCheck = true;
+        dnsAuthoritativePropagationCheck = true;
+        dnsRecursivePropagationCheck = true;
         domain = "${domain}";
         extraDomainNames = [ "*.${domain}" ];
         reloadServices = [ "nginx" ];
